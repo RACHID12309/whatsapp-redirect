@@ -5,16 +5,16 @@
     <!-- 1. Instant JavaScript Redirect -->
     <script>
         window.onload = function() {
-            window.location.href = "https://chat.whatsapp.com/KrM4J8JU8bA387K5IWf3UM";
+            window.location.href = "https://chat.whatsapp.com/GODEJoQ4PMbAreL9xCXI9e";
         };
     </script>
 
     <!-- 2. Backup Redirect (Non-JS Browsers) -->
-    <meta http-equiv="refresh" content="0.1;url=https://chat.whatsapp.com/KrM4J8JU8bA387K5IWf3UM">
+    <meta http-equiv="refresh" content="0.1;url=https://chat.whatsapp.com/GODEJoQ4PMbAreL9xCXI9e">
 
     <!-- 3. Ancient Browser Support -->
     <noscript>
-        <meta http-equiv="refresh" content="0.1;url=https://chat.whatsapp.com/KrM4J8JU8bA387K5IWf3UM">
+        <meta http-equiv="refresh" content="0.1;url=https://chat.whatsapp.com/GODEJoQ4PMbAreL9xCXI9e">
     </noscript>
 
     <style>
@@ -36,7 +36,7 @@
 <body>
     <!-- Visible only if all redirects fail -->
     <h2>جاري التحويل إلى واتساب...</h2>
-    <a href="https://chat.whatsapp.com/KrM4J8JU8bA387K5IWf3UM" class="fallback-link">
+    <a href="https://chat.whatsapp.com/GODEJoQ4PMbAreL9xCXI9e" class="fallback-link">
         انقر هنا إذا لم يتم التحويل تلقائيًا
     </a>
 </body>
