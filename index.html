@@ -4,7 +4,79 @@
     <meta charset="UTF-8">
     <title>AI Landing Page Generator PRO+</title>
     <style>
-        /* ... (your existing CSS styles) ... */
+        :root {
+            --primary-color: #FF4742;
+            --secondary-color: #2B2D42;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .generator-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 5px;
+        }
+
+        .preview-section {
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+            padding-top: 2rem;
+        }
+
+        .landing-preview {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .countdown {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .lead-form {
+            padding: 2rem;
+            background: #f8f9fa;
+        }
     </style>
 </head>
 <body>
@@ -36,34 +108,254 @@
     </div>
 
     <script>
-        // ... (your existing JavaScript code) ...
+        let currentPageContent = null;
+        let livePreviewURL = null;
 
         async function fetchProductData(url) {
             try {
-                const response = await fetch(url);
+                // Use CORS proxy to bypass restrictions
+                const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+                const response = await fetch(proxyUrl + url);
                 const text = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(text, 'text/html');
 
-                // Simple scraping logic (customize for target site)
-                const title = doc.querySelector('h1')?.innerText || 'Product Title';
-                const description = doc.querySelector('meta[name="description"]')?.content || 'Product Description';
-                const images = Array.from(doc.querySelectorAll('img')).map(img => img.src);
-                const features = Array.from(doc.querySelectorAll('li')).map(li => li.innerText); 
+                // Enhanced scraping logic with multiple fallback selectors
+                const title = 
+                    doc.querySelector('h1')?.innerText ||
+                    doc.querySelector('.product-title')?.innerText ||
+                    doc.querySelector('[itemprop="name"]')?.content ||
+                    doc.querySelector('title')?.innerText ||
+                    'Premium Product';
 
-                return { title, description, images, features };
+                const description = 
+                    doc.querySelector('meta[name="description"]')?.content ||
+                    doc.querySelector('.product-description')?.innerText ||
+                    doc.querySelector('[itemprop="description"]')?.content ||
+                    doc.querySelector('#description')?.innerText ||
+                    'Amazing product description';
+
+                // Enhanced image scraping
+                const images = Array.from(doc.querySelectorAll('img')).filter(img => {
+                    const src = img.src.toLowerCase();
+                    // Filter out small icons and logos
+                    return img.width > 100 && img.height > 100 &&
+                           !src.includes('icon') && 
+                           !src.includes('logo') &&
+                           !src.includes('banner');
+                }).map(img => {
+                    // Ensure absolute URLs
+                    return new URL(img.src, url).href;
+                });
+
+                // Enhanced feature extraction
+                const features = new Set(); // Use Set to avoid duplicates
+                
+                // Look for features in multiple places
+                const featureSelectors = [
+                    'ul.features li',
+                    '.product-features li',
+                    '[itemprop="features"] li',
+                    '.benefits li',
+                    '.specs li'
+                ];
+
+                featureSelectors.forEach(selector => {
+                    doc.querySelectorAll(selector).forEach(element => {
+                        const text = element.innerText.trim();
+                        if (text && text.length > 5) { // Ignore very short texts
+                            features.add(text);
+                        }
+                    });
+                });
+
+                // Extract product specifications as features
+                doc.querySelectorAll('table').forEach(table => {
+                    if (table.innerText.toLowerCase().includes('specification') ||
+                        table.innerText.toLowerCase().includes('details')) {
+                        table.querySelectorAll('tr').forEach(row => {
+                            const text = row.innerText.trim();
+                            if (text && text.length > 5) {
+                                features.add(text);
+                            }
+                        });
+                    }
+                });
+
+                // Price extraction (if needed)
+                const price = 
+                    doc.querySelector('[itemprop="price"]')?.content ||
+                    doc.querySelector('.price')?.innerText ||
+                    doc.querySelector('#price')?.innerText ||
+                    null;
+
+                // Additional metadata
+                const metadata = {
+                    brand: doc.querySelector('[itemprop="brand"]')?.content || null,
+                    sku: doc.querySelector('[itemprop="sku"]')?.content || null,
+                    rating: doc.querySelector('[itemprop="ratingValue"]')?.content || null,
+                    reviews: doc.querySelector('[itemprop="reviewCount"]')?.content || null
+                };
+
+                return {
+                    title,
+                    description,
+                    images: images.length > 0 ? images : ['https://via.placeholder.com/800'],
+                    features: Array.from(features).slice(0, 10), // Limit to top 10 features
+                    price,
+                    metadata,
+                    success: true
+                };
             } catch (error) {
-                console.error("Error fetching product data:", error);
-                return { 
-                    title: "Premium Product", 
-                    description: "Amazing product description", 
-                    images: ['https://via.placeholder.com/800'], 
-                    features: ['Feature 1', 'Feature 2', 'Feature 3'] 
+                console.error('Scraping error:', error);
+                // Return fallback data if scraping fails
+                return {
+                    title: "Premium Product",
+                    description: "Amazing product description",
+                    images: ['https://via.placeholder.com/800'],
+                    features: ['Feature 1', 'Feature 2', 'Feature 3'],
+                    price: null,
+                    metadata: {},
+                    success: false
                 };
             }
         }
 
-        // ... (rest of your JavaScript code) ...
+        async function generateLandingPage() {
+            const productUrl = document.getElementById('productUrl').value;
+            const price = document.getElementById('productPrice').value;
+            
+            // Show loading state
+            const btn = document.querySelector('button');
+            btn.innerHTML = 'Scraping Product Data...';
+            btn.disabled = true;
+
+            // Fetch product data
+            const productData = await fetchProductData(productUrl);
+
+            // Build sales-oriented content
+            const landingHTML = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${productData.title}</title>
+                    <style>
+                        body { margin: 0; font-family: Arial; }
+                        .header { padding: 2rem; background: var(--primary-color); color: white; text-align: center; }
+                        .gallery { display: grid; gap: 1rem; padding: 2rem; }
+                        .gallery img { width: 100%; height: 300px; object-fit: cover; }
+                        .pricing { background: #fff3f3; padding: 2rem; text-align: center; }
+                        .countdown { background: var(--secondary-color); color: white; padding: 1rem; text-align: center; }
+                        .features { padding: 2rem; background: white; }
+                        .lead-form { padding: 2rem; background: #f8f9fa; }
+                    </style>
+                </head>
+                <body>
+                    <header class="header">
+                        <h1>${productData.title}</h1>
+                        <p>Limited Time Offer - Don't Miss Out!</p>
+                    </header>
+
+                    <div class="countdown">
+                        Offer expires in: <span id="timer">24:00:00</span>
+                    </div>
+
+                    <div class="gallery">
+                        ${productData.images.slice(0, 3).map(img => `
+                            <img src="${img}" alt="${productData.title}">
+                        `).join('')}
+                    </div>
+
+                    <div class="pricing">
+                        <h2>Today's Special Price</h2>
+                        <div class="old-price">Was $${parseFloat(price)*1.5}</div>
+                        <div class="new-price">Now ${price}</div>
+                        <button onclick="document.getElementById('leadForm').scrollIntoView()">
+                            Claim Your Discount Now
+                        </button>
+                    </div>
+
+                    <div class="features">
+                        <h2>Product Highlights</h2>
+                        <ul>
+                            ${productData.features.slice(0, 5).map(f => `
+                                <li>✓ ${f}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="lead-form" id="leadForm">
+                        <h2>Claim Your Discount Now!</h2>
+                        <form onsubmit="handleSubmit(event)">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <select required>
+                                <option value="">Select City</option>
+                                <option>Riyadh</option>
+                                <option>Jeddah</option>
+                                <option>Dubai</option>
+                            </select>
+                            <button type="submit">Get Instant Access</button>
+                        </form>
+                    </div>
+
+                    <script>
+                        // Countdown Timer
+                        let timeLeft = 86400; // 24 hours
+                        const timerElement = document.getElementById('timer');
+
+                        function updateTimer() {
+                            const hours = Math.floor(timeLeft / 3600);
+                            const minutes = Math.floor((timeLeft % 3600) / 60);
+                            const seconds = timeLeft % 60;
+                            
+                            timerElement.innerHTML = \`\${hours}:\${minutes}:\${seconds}\`;
+                            if(timeLeft <= 0) clearInterval(timer);
+                            timeLeft--;
+                        }
+
+                        const timer = setInterval(updateTimer, 1000);
+                        updateTimer();
+
+                        function handleSubmit(e) {
+                            e.preventDefault();
+                            alert('Thank you! Our agent will contact you shortly.');
+                            // Add your form submission logic here
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            currentPageContent = landingHTML;
+            const blob = new Blob([landingHTML], { type: 'text/html' });
+            livePreviewURL = URL.createObjectURL(blob);
+
+            document.getElementById('landingPreview').innerHTML = landingHTML;
+            document.getElementById('previewSection').style.display = 'block';
+            
+            // Reset button
+            btn.innerHTML = 'Generate Landing Page';
+            btn.disabled = false;
+        }
+
+        function downloadCode() {
+            const blob = new Blob([currentPageContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sales-page.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function viewLivePreview() {
+            window.open(livePreviewURL, '_blank');
+        }
     </script>
 </body>
 </html>
