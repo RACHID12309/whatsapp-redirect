@@ -1,9 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <meta http-equiv="refresh" content="0,1;url=https://wa.me/212655105015?text=ختي%20بعيت%20نخدم،%20شرحي%20ليا%20كتر" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوت إنشاء صفحة الهبوط</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            background-color: #3c8dbc;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #3c8dbc;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #367fa9;
+        }
+
+        #result {
+            display: none;
+            margin-top: 50px;
+        }
+
+        #page-preview {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-preview h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #page-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <p>Redirecting to WhatsApp...</p>
+
+    <h1>مرحبًا بك في بوت إنشاء صفحة الهبوط!</h1>
+
+    <form id="landing-page-form">
+        <label for="product-name">اسم المنتج:</label>
+        <input type="text" id="product-name" placeholder="أدخل اسم المنتج" required><br><br>
+
+        <label for="product-image">رفع صورة المنتج:</label>
+        <input type="file" id="product-image" accept="image/*" required><br><br>
+
+        <button type="submit">إنشاء الصفحة</button>
+    </form>
+
+    <div id="result">
+        <h2>صفحة الهبوط التي تم إنشاؤها:</h2>
+        <div id="page-preview"></div>
+    </div>
+
+    <script>
+        document.getElementById('landing-page-form').addEventListener('submit', function(e) {
+            e.preventDefault();  // منع إعادة تحميل الصفحة
+
+            // جلب المدخلات من المستخدم
+            var productName = document.getElementById('product-name').value;
+            var productImage = document.getElementById('product-image').files[0];
+
+            if (productName && productImage) {
+                var reader = new FileReader();
+                
+                // عندما يتم تحميل الصورة
+                reader.onload = function(event) {
+                    // عرض الصفحة التي تم إنشاؤها
+                    document.getElementById('result').style.display = 'block';
+                    document.getElementById('page-preview').innerHTML = `
+                        <h3>${productName}</h3>
+                        <img src="${event.target.result}" alt="صورة المنتج">
+                        <p>تم إنشاء صفحة الهبوط بنجاح!</p>
+                    `;
+                };
+                
+                // قراءة الصورة
+                reader.readAsDataURL(productImage);
+            } else {
+                alert("يرجى إدخال جميع البيانات.");
+            }
+        });
+    </script>
+
 </body>
 </html>
