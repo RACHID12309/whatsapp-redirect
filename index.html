@@ -3,55 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوت إنشاء صفحة الهبوط</title>
+    <title>صفحة الهبوط - منتجك المميز</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            background-color: #3c8dbc;
-            color: white;
-            padding: 20px 0;
-            margin: 0;
+            color: #333;
         }
 
         form {
-            background-color: #ffffff;
-            padding: 30px;
-            margin-top: 50px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 20px;
         }
 
         label {
             font-size: 18px;
             display: block;
-            margin: 10px 0;
+            margin: 10px 0 5px;
         }
 
-        input[type="text"],
-        input[type="file"] {
+        input[type="text"], input[type="file"] {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 16px;
         }
 
         button {
-            background-color: #3c8dbc;
+            background-color: #28a745;
             color: white;
-            padding: 15px 20px;
+            padding: 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -60,79 +56,111 @@
         }
 
         button:hover {
-            background-color: #367fa9;
+            background-color: #218838;
         }
 
-        #result {
+        /* تصميم صفحة الهبوط */
+        .landing-page {
             display: none;
-            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
-        #page-preview {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #page-preview h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        #page-preview img {
+        .landing-page img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        .landing-page h2 {
+            color: #222;
+            font-size: 24px;
             margin-top: 20px;
+        }
+
+        .landing-page p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <h1>مرحبًا بك في بوت إنشاء صفحة الهبوط!</h1>
+    <div class="container">
+        <h1>إنشاء صفحة هبوط احترافية</h1>
 
-    <form id="landing-page-form">
-        <label for="product-name">اسم المنتج:</label>
-        <input type="text" id="product-name" placeholder="أدخل اسم المنتج" required><br><br>
+        <form id="landing-page-form">
+            <label for="product-name">اسم المنتج:</label>
+            <input type="text" id="product-name" placeholder="أدخل اسم المنتج" required>
 
-        <label for="product-image">رفع صورة المنتج:</label>
-        <input type="file" id="product-image" accept="image/*" required><br><br>
+            <label for="product-price">السعر (اختياري):</label>
+            <input type="text" id="product-price" placeholder="مثلاً: 199 درهم">
 
-        <button type="submit">إنشاء الصفحة</button>
-    </form>
+            <label for="product-description">وصف المنتج (اختياري):</label>
+            <input type="text" id="product-description" placeholder="مثلاً: منتج رائع بجودة عالية">
 
-    <div id="result">
-        <h2>صفحة الهبوط التي تم إنشاؤها:</h2>
-        <div id="page-preview"></div>
+            <label for="product-image">رفع صورة المنتج:</label>
+            <input type="file" id="product-image" accept="image/*" required>
+
+            <button type="submit">إنشاء الصفحة</button>
+        </form>
+    </div>
+
+    <div class="landing-page" id="generated-landing-page">
+        <img id="preview-image" src="" alt="صورة المنتج">
+        <h2 id="preview-title"></h2>
+        <p id="preview-description"></p>
+        <p id="preview-price"></p>
+        <a href="#" class="cta-button">اطلب الآن</a>
     </div>
 
     <script>
         document.getElementById('landing-page-form').addEventListener('submit', function(e) {
-            e.preventDefault();  // منع إعادة تحميل الصفحة
+            e.preventDefault();
 
-            // جلب المدخلات من المستخدم
+            // جلب البيانات من المدخلات
             var productName = document.getElementById('product-name').value;
+            var productPrice = document.getElementById('product-price').value;
+            var productDescription = document.getElementById('product-description').value;
             var productImage = document.getElementById('product-image').files[0];
 
             if (productName && productImage) {
                 var reader = new FileReader();
-                
-                // عندما يتم تحميل الصورة
+
                 reader.onload = function(event) {
-                    // عرض الصفحة التي تم إنشاؤها
-                    document.getElementById('result').style.display = 'block';
-                    document.getElementById('page-preview').innerHTML = `
-                        <h3>${productName}</h3>
-                        <img src="${event.target.result}" alt="صورة المنتج">
-                        <p>تم إنشاء صفحة الهبوط بنجاح!</p>
-                    `;
+                    // عرض صفحة الهبوط
+                    document.getElementById('generated-landing-page').style.display = 'block';
+                    document.getElementById('preview-image').src = event.target.result;
+                    document.getElementById('preview-title').innerText = productName;
+                    document.getElementById('preview-description').innerText = productDescription || "منتج رائع بأعلى جودة، متوفر الآن!";
+                    document.getElementById('preview-price').innerText = productPrice ? "السعر: " + productPrice : "";
                 };
-                
-                // قراءة الصورة
+
                 reader.readAsDataURL(productImage);
             } else {
-                alert("يرجى إدخال جميع البيانات.");
+                alert("يرجى إدخال جميع البيانات المطلوبة.");
             }
         });
     </script>
