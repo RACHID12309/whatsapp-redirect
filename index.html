@@ -64,18 +64,9 @@
             border: 1px solid #ddd;
             margin: 20px 0;
             background: white;
-        }
-
-        .countdown {
-            background: var(--secondary-color);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .lead-form {
-            padding: 2rem;
-            background: #f8f9fa;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
     </style>
 </head>
@@ -94,7 +85,7 @@
                 <input type="text" id="productPrice" placeholder="$99.99" required>
             </div>
             
-            <button onclick="generateLandingPage()">Generate Landing Page</button>
+            <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
         </div>
 
         <div class="preview-section" id="previewSection" style="display: none;">
@@ -108,236 +99,55 @@
     </div>
 
     <script>
-        let currentPageContent = null;
-        let livePreviewURL = null;
-
-        async function fetchProductData(url) {
-            try {
-                // Use CORS proxy to bypass restrictions
-                const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-                const response = await fetch(proxyUrl + url);
-                const text = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, 'text/html');
-
-                // Enhanced scraping logic with multiple fallback selectors
-                const title = 
-                    doc.querySelector('h1')?.innerText ||
-                    doc.querySelector('.product-title')?.innerText ||
-                    doc.querySelector('[itemprop="name"]')?.content ||
-                    doc.querySelector('title')?.innerText ||
-                    'Premium Product';
-
-                const description = 
-                    doc.querySelector('meta[name="description"]')?.content ||
-                    doc.querySelector('.product-description')?.innerText ||
-                    doc.querySelector('[itemprop="description"]')?.content ||
-                    doc.querySelector('#description')?.innerText ||
-                    'Amazing product description';
-
-                // Enhanced image scraping
-                const images = Array.from(doc.querySelectorAll('img')).filter(img => {
-                    const src = img.src.toLowerCase();
-                    // Filter out small icons and logos
-                    return img.width > 100 && img.height > 100 &&
-                           !src.includes('icon') && 
-                           !src.includes('logo') &&
-                           !src.includes('banner');
-                }).map(img => {
-                    // Ensure absolute URLs
-                    return new URL(img.src, url).href;
-                });
-
-                // Enhanced feature extraction
-                const features = new Set(); // Use Set to avoid duplicates
-                
-                // Look for features in multiple places
-                const featureSelectors = [
-                    'ul.features li',
-                    '.product-features li',
-                    '[itemprop="features"] li',
-                    '.benefits li',
-                    '.specs li'
-                ];
-
-                featureSelectors.forEach(selector => {
-                    doc.querySelectorAll(selector).forEach(element => {
-                        const text = element.innerText.trim();
-                        if (text && text.length > 5) { // Ignore very short texts
-                            features.add(text);
-                        }
-                    });
-                });
-
-                // Extract product specifications as features
-                doc.querySelectorAll('table').forEach(table => {
-                    if (table.innerText.toLowerCase().includes('specification') ||
-                        table.innerText.toLowerCase().includes('details')) {
-                        table.querySelectorAll('tr').forEach(row => {
-                            const text = row.innerText.trim();
-                            if (text && text.length > 5) {
-                                features.add(text);
-                            }
-                        });
-                    }
-                });
-
-                // Price extraction (if needed)
-                const price = 
-                    doc.querySelector('[itemprop="price"]')?.content ||
-                    doc.querySelector('.price')?.innerText ||
-                    doc.querySelector('#price')?.innerText ||
-                    null;
-
-                // Additional metadata
-                const metadata = {
-                    brand: doc.querySelector('[itemprop="brand"]')?.content || null,
-                    sku: doc.querySelector('[itemprop="sku"]')?.content || null,
-                    rating: doc.querySelector('[itemprop="ratingValue"]')?.content || null,
-                    reviews: doc.querySelector('[itemprop="reviewCount"]')?.content || null
-                };
-
-                return {
-                    title,
-                    description,
-                    images: images.length > 0 ? images : ['https://via.placeholder.com/800'],
-                    features: Array.from(features).slice(0, 10), // Limit to top 10 features
-                    price,
-                    metadata,
-                    success: true
-                };
-            } catch (error) {
-                console.error('Scraping error:', error);
-                // Return fallback data if scraping fails
-                return {
-                    title: "Premium Product",
-                    description: "Amazing product description",
-                    images: ['https://via.placeholder.com/800'],
-                    features: ['Feature 1', 'Feature 2', 'Feature 3'],
-                    price: null,
-                    metadata: {},
-                    success: false
-                };
-            }
-        }
+        let currentPageContent = "";
+        let livePreviewURL = "";
 
         async function generateLandingPage() {
             const productUrl = document.getElementById('productUrl').value;
             const price = document.getElementById('productPrice').value;
+            const btn = document.getElementById('generateBtn');
             
-            // Show loading state
-            const btn = document.querySelector('button');
-            btn.innerHTML = 'Scraping Product Data...';
+            if (!productUrl || !price) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            
+            btn.innerText = 'Generating...';
             btn.disabled = true;
 
-            // Fetch product data
-            const productData = await fetchProductData(productUrl);
+            // Simulated delay to mimic data fetching
+            await new Promise(resolve => setTimeout(resolve, 2000));
 
-            // Build sales-oriented content
-            const landingHTML = `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${productData.title}</title>
-                    <style>
-                        body { margin: 0; font-family: Arial; }
-                        .header { padding: 2rem; background: var(--primary-color); color: white; text-align: center; }
-                        .gallery { display: grid; gap: 1rem; padding: 2rem; }
-                        .gallery img { width: 100%; height: 300px; object-fit: cover; }
-                        .pricing { background: #fff3f3; padding: 2rem; text-align: center; }
-                        .countdown { background: var(--secondary-color); color: white; padding: 1rem; text-align: center; }
-                        .features { padding: 2rem; background: white; }
-                        .lead-form { padding: 2rem; background: #f8f9fa; }
-                    </style>
-                </head>
-                <body>
-                    <header class="header">
-                        <h1>${productData.title}</h1>
-                        <p>Limited Time Offer - Don't Miss Out!</p>
-                    </header>
-
-                    <div class="countdown">
-                        Offer expires in: <span id="timer">24:00:00</span>
-                    </div>
-
-                    <div class="gallery">
-                        ${productData.images.slice(0, 3).map(img => `
-                            <img src="${img}" alt="${productData.title}">
-                        `).join('')}
-                    </div>
-
-                    <div class="pricing">
-                        <h2>Today's Special Price</h2>
-                        <div class="old-price">Was $${parseFloat(price)*1.5}</div>
-                        <div class="new-price">Now ${price}</div>
-                        <button onclick="document.getElementById('leadForm').scrollIntoView()">
-                            Claim Your Discount Now
-                        </button>
-                    </div>
-
-                    <div class="features">
-                        <h2>Product Highlights</h2>
-                        <ul>
-                            ${productData.features.slice(0, 5).map(f => `
-                                <li>✓ ${f}</li>
-                            `).join('')}
-                        </ul>
-                    </div>
-
-                    <div class="lead-form" id="leadForm">
-                        <h2>Claim Your Discount Now!</h2>
-                        <form onsubmit="handleSubmit(event)">
-                            <input type="text" placeholder="Full Name" required>
-                            <input type="tel" placeholder="Phone Number" required>
-                            <select required>
-                                <option value="">Select City</option>
-                                <option>Riyadh</option>
-                                <option>Jeddah</option>
-                                <option>Dubai</option>
-                            </select>
-                            <button type="submit">Get Instant Access</button>
-                        </form>
-                    </div>
-
-                    <script>
-                        // Countdown Timer
-                        let timeLeft = 86400; // 24 hours
-                        const timerElement = document.getElementById('timer');
-
-                        function updateTimer() {
-                            const hours = Math.floor(timeLeft / 3600);
-                            const minutes = Math.floor((timeLeft % 3600) / 60);
-                            const seconds = timeLeft % 60;
-                            
-                            timerElement.innerHTML = \`\${hours}:\${minutes}:\${seconds}\`;
-                            if(timeLeft <= 0) clearInterval(timer);
-                            timeLeft--;
-                        }
-
-                        const timer = setInterval(updateTimer, 1000);
-                        updateTimer();
-
-                        function handleSubmit(e) {
-                            e.preventDefault();
-                            alert('Thank you! Our agent will contact you shortly.');
-                            // Add your form submission logic here
-                        }
-                    <\/script>
-                </body>
-                </html>
-            `;
-
+            const landingHTML = `<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Sample Landing Page</title>
+<style>
+  body { font-family: Arial; }
+  .header { text-align: center; background: #FF4742; color: white; padding: 20px; }
+  .content { padding: 20px; text-align: center; }
+  .price { font-size: 24px; color: #FF4742; }
+</style>
+</head>
+<body>
+  <div class='header'>Exclusive Deal</div>
+  <div class='content'>
+    <p>Get this amazing product now!</p>
+    <p class='price'>Special Price: ${price}</p>
+    <a href='${productUrl}' target='_blank'><button>Buy Now</button></a>
+  </div>
+</body>
+</html>`;
+            
             currentPageContent = landingHTML;
             const blob = new Blob([landingHTML], { type: 'text/html' });
             livePreviewURL = URL.createObjectURL(blob);
 
-            document.getElementById('landingPreview').innerHTML = landingHTML;
+            document.getElementById('landingPreview').textContent = landingHTML;
             document.getElementById('previewSection').style.display = 'block';
             
-            // Reset button
-            btn.innerHTML = 'Generate Landing Page';
+            btn.innerText = 'Generate Landing Page';
             btn.disabled = false;
         }
 
@@ -354,6 +164,10 @@
         }
 
         function viewLivePreview() {
+            if (!livePreviewURL) {
+                alert("Please generate a landing page first.");
+                return;
+            }
             window.open(livePreviewURL, '_blank');
         }
     </script>
