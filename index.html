@@ -1,169 +1,254 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة الهبوط - منتجك المميز</title>
+    <title>AI Landing Page Generator PRO</title>
     <style>
+        :root {
+            --primary-color: #FF4742;
+            --secondary-color: #2B2D42;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #f5f5f5;
         }
 
-        h1 {
-            color: #333;
+        .generator-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        form {
-            margin-bottom: 20px;
+        .input-group {
+            margin-bottom: 1rem;
         }
 
         label {
-            font-size: 18px;
             display: block;
-            margin: 10px 0 5px;
-        }
-
-        input[type="text"], input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #28a745;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        /* تصميم صفحة الهبوط */
-        .landing-page {
-            display: none;
-            background: white;
-            padding: 30px;
-            margin-top: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .landing-page img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .landing-page h2 {
-            color: #222;
-            font-size: 24px;
-            margin-top: 20px;
-        }
-
-        .landing-page p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin: 10px 0;
-        }
-
-        .cta-button {
-            background-color: #007bff;
-            color: white;
-            padding: 15px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 18px;
+            margin-bottom: 0.5rem;
+            color: #333;
             font-weight: bold;
         }
 
-        .cta-button:hover {
-            background-color: #0056b3;
+        input[type="text"], 
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .preview-section {
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+            padding-top: 2rem;
+        }
+
+        .landing-preview {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+        }
+
+        .brand-logo-preview {
+            max-width: 150px;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
+    <div class="generator-box">
+        <h1>AI Landing Page Generator PRO</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label>Product URL:</label>
+                <input type="text" id="productUrl" placeholder="https://example.com/product" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Sales Price:</label>
+                <input type="text" id="productPrice" placeholder="$99.99" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Brand Name:</label>
+                <input type="text" id="brandName" placeholder="Company Name" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Company Logo:</label>
+                <input type="file" id="logoUpload" accept="image/*" required>
+                <img id="logoPreview" class="brand-logo-preview" style="display: none;">
+            </div>
 
-    <div class="container">
-        <h1>إنشاء صفحة هبوط احترافية</h1>
+            <button onclick="generateLandingPage()">Generate Landing Page</button>
+        </div>
 
-        <form id="landing-page-form">
-            <label for="product-name">اسم المنتج:</label>
-            <input type="text" id="product-name" placeholder="أدخل اسم المنتج" required>
-
-            <label for="product-price">السعر (اختياري):</label>
-            <input type="text" id="product-price" placeholder="مثلاً: 199 درهم">
-
-            <label for="product-description">وصف المنتج (اختياري):</label>
-            <input type="text" id="product-description" placeholder="مثلاً: منتج رائع بجودة عالية">
-
-            <label for="product-image">رفع صورة المنتج:</label>
-            <input type="file" id="product-image" accept="image/*" required>
-
-            <button type="submit">إنشاء الصفحة</button>
-        </form>
-    </div>
-
-    <div class="landing-page" id="generated-landing-page">
-        <img id="preview-image" src="" alt="صورة المنتج">
-        <h2 id="preview-title"></h2>
-        <p id="preview-description"></p>
-        <p id="preview-price"></p>
-        <a href="#" class="cta-button">اطلب الآن</a>
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <h2>Your Landing Page</h2>
+            <div class="landing-preview" id="landingPreview"></div>
+            <div class="action-buttons">
+                <button onclick="downloadCode()">Download Code</button>
+                <button onclick="viewLivePreview()">Live Preview</button>
+            </div>
+        </div>
     </div>
 
     <script>
-        document.getElementById('landing-page-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        let currentPageContent = null;
+        let livePreviewURL = null;
 
-            // جلب البيانات من المدخلات
-            var productName = document.getElementById('product-name').value;
-            var productPrice = document.getElementById('product-price').value;
-            var productDescription = document.getElementById('product-description').value;
-            var productImage = document.getElementById('product-image').files[0];
-
-            if (productName && productImage) {
-                var reader = new FileReader();
-
-                reader.onload = function(event) {
-                    // عرض صفحة الهبوط
-                    document.getElementById('generated-landing-page').style.display = 'block';
-                    document.getElementById('preview-image').src = event.target.result;
-                    document.getElementById('preview-title').innerText = productName;
-                    document.getElementById('preview-description').innerText = productDescription || "منتج رائع بأعلى جودة، متوفر الآن!";
-                    document.getElementById('preview-price').innerText = productPrice ? "السعر: " + productPrice : "";
-                };
-
-                reader.readAsDataURL(productImage);
-            } else {
-                alert("يرجى إدخال جميع البيانات المطلوبة.");
+        // Handle logo preview
+        document.getElementById('logoUpload').addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('logoPreview').src = reader.result;
+                document.getElementById('logoPreview').style.display = 'block';
             }
+            reader.readAsDataURL(e.target.files[0]);
         });
-    </script>
 
+        async function generateLandingPage() {
+            // Get form values
+            const productUrl = document.getElementById('productUrl').value;
+            const price = document.getElementById('productPrice').value;
+            const brandName = document.getElementById('brandName').value;
+            const logo = document.getElementById('logoPreview').src;
+
+            // Generate page content
+            const landingHTML = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${brandName} - ${document.getElementById('productPrice').value}</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 1rem 2rem;
+                            background: #f8f9fa;
+                        }
+                        .brand-logo {
+                            height: 50px;
+                        }
+                        .hero {
+                            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                            color: white;
+                            padding: 4rem 2rem;
+                            text-align: center;
+                        }
+                        .price {
+                            font-size: 2.5rem;
+                            margin: 1rem 0;
+                        }
+                        .cta-button {
+                            background: white;
+                            color: var(--primary-color);
+                            padding: 1rem 2rem;
+                            border: none;
+                            border-radius: 25px;
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            margin: 1rem;
+                        }
+                        .product-details {
+                            padding: 2rem;
+                            max-width: 800px;
+                            margin: 0 auto;
+                        }
+                        .official-link {
+                            text-align: center;
+                            padding: 2rem;
+                            background: #f8f9fa;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <header class="header">
+                        <img src="${logo}" class="brand-logo" alt="${brandName}">
+                        <h2>${brandName}</h2>
+                    </header>
+                    
+                    <div class="hero">
+                        <h1>${document.getElementById('productPrice').value}</h1>
+                        <p class="price">${price}</p>
+                        <button class="cta-button">Buy Now</button>
+                    </div>
+                    
+                    <div class="product-details">
+                        <h2>Product Details</h2>
+                        <p>Official product page: <a href="${productUrl}" target="_blank">${productUrl}</a></p>
+                    </div>
+
+                    <div class="official-link">
+                        <a href="${productUrl}" class="cta-button" target="_blank">
+                            Visit Official Store
+                        </a>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // Store generated content
+            currentPageContent = landingHTML;
+            
+            // Create live preview URL
+            const blob = new Blob([landingHTML], { type: 'text/html' });
+            livePreviewURL = URL.createObjectURL(blob);
+
+            // Show preview
+            document.getElementById('landingPreview').innerHTML = landingHTML;
+            document.getElementById('previewSection').style.display = 'block';
+        }
+
+        function downloadCode() {
+            const blob = new Blob([currentPageContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'landing-page.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function viewLivePreview() {
+            window.open(livePreviewURL, '_blank');
+        }
+    </script>
 </body>
 </html>
