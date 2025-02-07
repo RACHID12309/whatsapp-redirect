@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Landing Page Generator</title>
+    <title>Multi-Language Landing Generator</title>
     <style>
         :root {
             --primary-color: #FF4742;
@@ -39,7 +39,7 @@
             margin: 1.5rem 0;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 12px;
             margin: 8px 0;
@@ -74,27 +74,52 @@
         <div class="input-group">
             <input type="text" id="productPrice" placeholder="Sale Price ($99.99)" required>
         </div>
+        <div class="input-group">
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="zh-CN">中文</option>
+                <option value="ar">العربية</option>
+                <option value="ja">日本語</option>
+                <option value="ru">Русский</option>
+                <option value="pt">Português</option>
+                <option value="other">Other Language</option>
+            </select>
+        </div>
         <button onclick="generateLandingPage()">Generate Landing Page</button>
     </div>
 
     <script>
+        const translations = {
+            en: { price: "Special Price", cta: "Buy Now" },
+            es: { price: "Precio Especial", cta: "Comprar Ahora" },
+            fr: { price: "Prix Spécial", cta: "Acheter Maintenant" },
+            de: { price: "Sonderpreis", cta: "Jetzt Kaufen" },
+            'zh-CN': { price: "特价", cta: "立即购买" },
+            ar: { price: "السعر الخاص", cta: "اشتري الآن" },
+            ja: { price: "特別価格", cta: "今すぐ購入" },
+            ru: { price: "Специальная цена", cta: "Купить Сейчас" },
+            pt: { price: "Preço Especial", cta: "Comprar Agora" }
+        };
+
         async function generateLandingPage() {
             const productUrl = document.getElementById('productUrl').value;
             const price = document.getElementById('productPrice').value;
+            const lang = document.getElementById('languageSelect').value;
 
             if (!productUrl || !price) {
-                alert('Please fill in both fields');
+                alert('Please fill in all fields');
                 return;
             }
 
             try {
-                // Fetch product data
                 const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(productUrl)}`);
                 const data = await response.json();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(data.contents, "text/html");
 
-                // Extract product info
                 const title = doc.querySelector('meta[property="og:title"]')?.content || 
                             doc.querySelector('title')?.textContent || 
                             "Premium Product";
@@ -107,13 +132,12 @@
                                   doc.querySelector('meta[name="description"]')?.content || 
                                   "Amazing product at an incredible price";
 
-                // Create new window
                 const newWindow = window.open('', '_blank');
+                const translation = translations[lang] || translations.en;
                 
-                // Generate landing page HTML
                 newWindow.document.write(`
                     <!DOCTYPE html>
-                    <html lang="en">
+                    <html lang="${lang}">
                     <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,7 +156,7 @@
                                 padding: 2rem;
                                 border-radius: 10px;
                                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                                text-align: center;
+                                text-align: ${['ar', 'he'].includes(lang) ? 'right' : 'left'};
                             }
                             img {
                                 max-width: 100%;
@@ -165,8 +189,10 @@
                             <h1>${title}</h1>
                             <img src="${image}" alt="${title}">
                             <p>${description}</p>
-                            <div class="price">Special Price: ${price}</div>
-                            <a href="${productUrl}" class="buy-button" target="_blank">Buy Now</a>
+                            <div class="price">${translation.price}: ${price}</div>
+                            <a href="${productUrl}" class="buy-button" target="_blank">
+                                ${translation.cta}
+                            </a>
                         </div>
                     </body>
                     </html>
