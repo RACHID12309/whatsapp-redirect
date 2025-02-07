@@ -151,16 +151,17 @@
         }
 
         function generateLandingPage() {
-            const title = document.getElementById('productTitle').value;
-            const description = document.getElementById('productDescription').value;
-            const image = document.getElementById('productImage').value;
-            const price = document.getElementById('productPrice').value;
             const productUrl = document.getElementById('productUrl').value;
+            const price = document.getElementById('productPrice').value;
 
-            if (!title || !price || !productUrl) {
+            if (!productUrl || !price) {
                 alert("Please complete all fields.");
                 return;
             }
+
+            const title = "Product Title Example"; // You can add scraping logic here for the title
+            const description = "Product description here."; // Add scraping logic for description
+            const image = "https://via.placeholder.com/500"; // Add logic for image URL
 
             let landingHTML = `
             <html>
