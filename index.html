@@ -35,7 +35,7 @@
             font-weight: bold;
         }
 
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 12px;
             margin: 8px 0;
@@ -80,6 +80,24 @@
                 <input type="url" id="productUrl" placeholder="https://example.com/product" required>
             </div>
             
+            <button id="fetchDataBtn" onclick="fetchProductData()">Fetch Product Data</button>
+
+            <div class="input-group">
+                <label>Product Title:</label>
+                <input type="text" id="productTitle">
+            </div>
+
+            <div class="input-group">
+                <label>Product Description:</label>
+                <textarea id="productDescription"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Product Image:</label>
+                <input type="text" id="productImage">
+                <img id="previewImage" src="" alt="Product Image" style="max-width: 100%; margin-top: 10px; display: none;">
+            </div>
+            
             <div class="input-group">
                 <label>Sales Price:</label>
                 <input type="text" id="productPrice" placeholder="$99.99" required>
@@ -94,7 +112,7 @@
                     <option value="beauty">Beauty Products Template</option>
                 </select>
             </div>
-            
+
             <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
         </div>
 
@@ -112,40 +130,57 @@
         let currentPageContent = "";
         let livePreviewURL = "";
 
-        function generateLandingPage() {
+        async function fetchProductData() {
             const productUrl = document.getElementById('productUrl').value;
-            const price = document.getElementById('productPrice').value;
-            const template = document.getElementById('templateSelect').value;
-            const btn = document.getElementById('generateBtn');
-            
-            if (!productUrl || !price) {
-                alert("Please fill in all fields.");
+            if (!productUrl) {
+                alert("Please enter a product URL.");
                 return;
             }
-            
-            btn.innerText = 'Generating...';
-            btn.disabled = true;
 
-            let landingHTML = "";
-            if (template === "clothing") {
-                landingHTML = `<html><body><h1>Fashion Deal</h1><p>Get this stylish clothing item now!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
-            } else if (template === "electronics") {
-                landingHTML = `<html><body><h1>Exclusive Gadget</h1><p>Upgrade your tech today!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
-            } else if (template === "beauty") {
-                landingHTML = `<html><body><h1>Beauty Special</h1><p>Enhance your beauty with this product!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
-            } else {
-                landingHTML = `<html><body><h1>Exclusive Deal</h1><p>Get this amazing product now!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
+            try {
+                const response = await fetch(https://api.allorigins.win/get?url=${encodeURIComponent(productUrl)});
+                const data = await response.json();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data.contents, "text/html");
+
+                const title = doc.querySelector('meta[property="og:title"]')?.content || "No title found";
+                const image = doc.querySelector('meta[property="og:image"]')?.content || "";
+                const description = doc.querySelector('meta[property="og:description"]')?.content || "No description available";
+
+                document.getElementById('productTitle').value = title;
+                document.getElementById('productDescription').value = description;
+                document.getElementById('productImage').value = image;
+                
+                if (image) {
+                    document.getElementById('previewImage').src = image;
+                    document.getElementById('previewImage').style.display = "block";
+                }
+
+            } catch (error) {
+                alert("Failed to fetch product data.");
             }
-            
+        }
+
+        function generateLandingPage() {
+            const title = document.getElementById('productTitle').value;
+            const description = document.getElementById('productDescription').value;
+            const image = document.getElementById('productImage').value;
+            const price = document.getElementById('productPrice').value;
+            const template = document.getElementById('templateSelect').value;
+
+            if (!title || !price) {
+                alert("Please complete all fields.");
+                return;
+            }
+
+            let landingHTML = <html><body><h1>${title}</h1><img src="${image}" alt="Product Image"><p>${description}</p><p>Price: ${price}</p><a href="#">Buy Now</a></body></html>;
+
             currentPageContent = landingHTML;
             const blob = new Blob([landingHTML], { type: 'text/html' });
             livePreviewURL = URL.createObjectURL(blob);
 
             document.getElementById('landingPreview').textContent = landingHTML;
             document.getElementById('previewSection').style.display = 'block';
-            
-            btn.innerText = 'Generate Landing Page';
-            btn.disabled = false;
         }
 
         function downloadCode() {
