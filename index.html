@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data: blob:; connect-src *;">
     <title>AI Landing Page Generator PRO+</title>
     <style>
         :root {
@@ -17,6 +18,7 @@
             margin: 0;
             padding: 20px;
             text-align: center;
+            line-height: 1.6;
         }
 
         .container {
@@ -31,6 +33,7 @@
         h1 {
             font-size: 24px;
             color: var(--secondary-color);
+            margin-bottom: 1.5rem;
         }
 
         .input-group {
@@ -41,6 +44,8 @@
         label {
             font-weight: bold;
             color: #333;
+            display: block;
+            margin-bottom: 5px;
         }
 
         input, textarea {
@@ -50,6 +55,13 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(255, 71, 66, 0.3);
         }
 
         button {
@@ -60,11 +72,19 @@
             border-radius: 25px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
+            font-size: 16px;
+            margin: 10px;
         }
 
         button:hover {
             background-color: var(--button-hover);
             transform: scale(1.05);
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .preview-section {
@@ -81,30 +101,57 @@
             margin: 20px 0;
             white-space: pre-wrap;
             word-wrap: break-word;
+            text-align: left;
+            overflow-x: auto;
+            font-family: monospace;
         }
 
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-top: 10px;
+        .error-message {
+            color: #FF4742;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .loading {
+            display: none;
+            margin: 20px auto;
+        }
+
+        .loading:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>AI Landing Page Generator PRO+</h1>
 
         <div class="input-group">
             <label for="productUrl">Product URL:</label>
             <input type="url" id="productUrl" placeholder="https://example.com/product" required>
+            <div id="urlError" class="error-message">Please enter a valid URL</div>
         </div>
 
         <div class="input-group">
             <label for="productPrice">Sales Price:</label>
-            <input type="number" id="productPrice" placeholder="$99.99" required>
+            <input type="number" id="productPrice" placeholder="99.99" step="0.01" min="0" required>
+            <div id="priceError" class="error-message">Please enter a valid price</div>
         </div>
 
+        <div class="loading" id="loading"></div>
         <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
 
         <div class="preview-section" id="previewSection">
@@ -119,82 +166,168 @@
         let currentPageContent = "";
         let livePreviewURL = "";
 
-        async function fetchProductData() {
-            const productUrl = document.getElementById('productUrl').value;
-            if (!productUrl) {
-                alert("Please enter a product URL.");
-                return;
-            }
-
+        function validateURL(url) {
             try {
-                const response = await fetch(https://api.allorigins.win/get?url=${encodeURIComponent(productUrl)});
-                const data = await response.json();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data.contents, "text/html");
-
-                const title = doc.querySelector('meta[property="og:title"]')?.content || "No title found";
-                const image = doc.querySelector('meta[property="og:image"]')?.content || "";
-                const description = doc.querySelector('meta[property="og:description"]')?.content || "No description available";
-
-                document.getElementById('productTitle').value = title;
-                document.getElementById('productDescription').value = description;
-                document.getElementById('productImage').value = image;
-
-                if (image) {
-                    document.getElementById('previewImage').src = image;
-                    document.getElementById('previewImage').style.display = "block";
-                }
-
-            } catch (error) {
-                alert("Failed to fetch product data.");
+                new URL(url);
+                return true;
+            } catch {
+                return false;
             }
         }
 
-        function generateLandingPage() {
-            const productUrl = document.getElementById('productUrl').value;
-            const price = document.getElementById('productPrice').value;
+        function showError(elementId, show) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.style.display = show ? 'block' : 'none';
+        }
 
-            if (!productUrl || !price) {
-                alert("Please complete all fields.");
-                return;
+        function sanitizeHTML(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function fetchProductData(url) {
+            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+            
+            try {
+                const response = await fetch(proxyUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                return data.contents;
+            } catch (error) {
+                throw new Error('Failed to fetch product data: ' + error.message);
             }
+        }
 
-            const title = "Product Title Example"; // You can add scraping logic here for the title
-            const description = "Product description here."; // Add scraping logic for description
-            const image = "https://via.placeholder.com/500"; // Add logic for image URL
+        async function generateLandingPage() {
+            const productUrl = document.getElementById('productUrl').value.trim();
+            const price = document.getElementById('productPrice').value;
+            const generateBtn = document.getElementById('generateBtn');
+            const loading = document.getElementById('loading');
 
-            let landingHTML = `
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <title>${title}</title>
-                <style>
-                    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-                    .container { max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px; }
-                    img { max-width: 100%; border-radius: 10px; margin: 10px 0; }
-                    button { background: #FF4742; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; }
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <h1>${title}</h1>
-                    <img src="${image}" alt="Product Image">
-                    <p>${description}</p>
-                    <p><strong>Price: ${price}</strong></p>
-                    <a href="${productUrl}" target="_blank"><button>Buy Now</button></a>
-                </div>
-            </body>
-            </html>`;
+            // Reset errors
+            showError('urlError', false);
+            showError('priceError', false);
 
-            currentPageContent = landingHTML;
-            const blob = new Blob([landingHTML], { type: 'text/html' });
-            livePreviewURL = URL.createObjectURL(blob);
+            // Validate inputs
+            let hasError = false;
+            if (!validateURL(productUrl)) {
+                showError('urlError', true);
+                hasError = true;
+            }
+            if (!price || price <= 0) {
+                showError('priceError', true);
+                hasError = true;
+            }
+            if (hasError) return;
 
-            document.getElementById('landingPreview').textContent = landingHTML;
-            document.getElementById('previewSection').style.display = 'block';
+            // Show loading state
+            generateBtn.disabled = true;
+            loading.style.display = 'block';
+
+            try {
+                const htmlContent = await fetchProductData(productUrl);
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlContent, 'text/html');
+
+                const title = sanitizeHTML(doc.querySelector('meta[property="og:title"]')?.content || doc.title || 'Product Title');
+                const description = sanitizeHTML(doc.querySelector('meta[property="og:description"]')?.content || 'Product description not available');
+                const image = doc.querySelector('meta[property="og:image"]')?.content || '/api/placeholder/500/300';
+
+                const formattedPrice = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                }).format(price);
+
+                const landingHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .price {
+            font-size: 24px;
+            color: #FF4742;
+            margin: 20px 0;
+        }
+        .cta-button {
+            background-color: #FF4742;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: #FF1F1F;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>${title}</h1>
+        <img src="${image}" alt="${title}">
+        <p>${description}</p>
+        <p class="price">${formattedPrice}</p>
+        <a href="${productUrl}" class="cta-button" target="_blank">Buy Now</a>
+    </div>
+</body>
+</html>`;
+
+                currentPageContent = landingHTML;
+                const blob = new Blob([landingHTML], { type: 'text/html' });
+                if (livePreviewURL) {
+                    URL.revokeObjectURL(livePreviewURL);
+                }
+                livePreviewURL = URL.createObjectURL(blob);
+
+                document.getElementById('landingPreview').textContent = landingHTML;
+                document.getElementById('previewSection').style.display = 'block';
+
+            } catch (error) {
+                alert('Error generating landing page: ' + error.message);
+            } finally {
+                generateBtn.disabled = false;
+                loading.style.display = 'none';
+            }
         }
 
         function downloadCode() {
+            if (!currentPageContent) {
+                alert('Please generate a landing page first.');
+                return;
+            }
+
             const blob = new Blob([currentPageContent], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -208,11 +341,18 @@
 
         function viewLivePreview() {
             if (!livePreviewURL) {
-                alert("Please generate a landing page first.");
+                alert('Please generate a landing page first.');
                 return;
             }
             window.open(livePreviewURL, '_blank');
         }
+
+        // Clean up on page unload
+        window.addEventListener('unload', () => {
+            if (livePreviewURL) {
+                URL.revokeObjectURL(livePreviewURL);
+            }
+        });
     </script>
 </body>
 </html>
