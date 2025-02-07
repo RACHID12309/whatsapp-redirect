@@ -85,6 +85,16 @@
                 <input type="text" id="productPrice" placeholder="$99.99" required>
             </div>
             
+            <div class="input-group">
+                <label>Select Template:</label>
+                <select id="templateSelect">
+                    <option value="default">Default Template</option>
+                    <option value="clothing">Clothing Template</option>
+                    <option value="electronics">Electronics Template</option>
+                    <option value="beauty">Beauty Products Template</option>
+                </select>
+            </div>
+            
             <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
         </div>
 
@@ -102,9 +112,10 @@
         let currentPageContent = "";
         let livePreviewURL = "";
 
-        async function generateLandingPage() {
+        function generateLandingPage() {
             const productUrl = document.getElementById('productUrl').value;
             const price = document.getElementById('productPrice').value;
+            const template = document.getElementById('templateSelect').value;
             const btn = document.getElementById('generateBtn');
             
             if (!productUrl || !price) {
@@ -115,30 +126,16 @@
             btn.innerText = 'Generating...';
             btn.disabled = true;
 
-            // Simulated delay to mimic data fetching
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            const landingHTML = `<!DOCTYPE html>
-<html lang='en'>
-<head>
-<meta charset='UTF-8'>
-<title>Sample Landing Page</title>
-<style>
-  body { font-family: Arial; }
-  .header { text-align: center; background: #FF4742; color: white; padding: 20px; }
-  .content { padding: 20px; text-align: center; }
-  .price { font-size: 24px; color: #FF4742; }
-</style>
-</head>
-<body>
-  <div class='header'>Exclusive Deal</div>
-  <div class='content'>
-    <p>Get this amazing product now!</p>
-    <p class='price'>Special Price: ${price}</p>
-    <a href='${productUrl}' target='_blank'><button>Buy Now</button></a>
-  </div>
-</body>
-</html>`;
+            let landingHTML = "";
+            if (template === "clothing") {
+                landingHTML = `<html><body><h1>Fashion Deal</h1><p>Get this stylish clothing item now!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
+            } else if (template === "electronics") {
+                landingHTML = `<html><body><h1>Exclusive Gadget</h1><p>Upgrade your tech today!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
+            } else if (template === "beauty") {
+                landingHTML = `<html><body><h1>Beauty Special</h1><p>Enhance your beauty with this product!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
+            } else {
+                landingHTML = `<html><body><h1>Exclusive Deal</h1><p>Get this amazing product now!</p><p>Price: ${price}</p><a href='${productUrl}'>Buy Now</a></body></html>`;
+            }
             
             currentPageContent = landingHTML;
             const blob = new Blob([landingHTML], { type: 'text/html' });
