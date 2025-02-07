@@ -7,6 +7,7 @@
         :root {
             --primary-color: #FF4742;
             --secondary-color: #2B2D42;
+            --button-color: #FF4742;
         }
 
         body {
@@ -15,6 +16,7 @@
             margin: 0 auto;
             padding: 20px;
             background: #f5f5f5;
+            color: #333;
         }
 
         .generator-box {
@@ -22,6 +24,7 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         .input-group {
@@ -44,7 +47,7 @@
         }
 
         button {
-            background: var(--primary-color);
+            background: var(--button-color);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -52,6 +55,14 @@
             cursor: pointer;
             transition: transform 0.3s;
             margin: 5px;
+        }
+
+        .form-section {
+            margin-top: 2rem;
+        }
+
+        .form-section input {
+            width: 100%;
         }
 
         .preview-section {
@@ -115,17 +126,19 @@
         <div class="preview-section" id="previewSection" style="display: none;">
             <h2>Your Landing Page</h2>
             <div class="landing-preview" id="landingPreview"></div>
-            <div class="action-buttons">
-                <button onclick="downloadCode()">Download Code</button>
-                <button onclick="viewLivePreview()">Live Preview</button>
+            <div class="form-section">
+                <h3>Get In Touch</h3>
+                <form id="customerForm">
+                    <input type="text" placeholder="Full Name" id="fullName" required><br><br>
+                    <input type="text" placeholder="City" id="city" required><br><br>
+                    <input type="text" placeholder="Phone Number" id="phone" required><br><br>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
 
     <script>
-        let currentPageContent = "";
-        let livePreviewURL = "";
-
         async function fetchProductData() {
             const productUrl = document.getElementById('productUrl').value;
             if (!productUrl) {
@@ -189,35 +202,20 @@
                     <p><strong>Price: ${price}</strong></p>
                     <a href="${productUrl}" target="_blank"><button>Buy Now</button></a>
                 </div>
+                <div class="container">
+                    <h3>Get In Touch</h3>
+                    <form id="customerForm">
+                        <input type="text" placeholder="Full Name" required><br><br>
+                        <input type="text" placeholder="City" required><br><br>
+                        <input type="text" placeholder="Phone Number" required><br><br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
             </body>
             </html>`;
 
-            currentPageContent = landingHTML;
-            const blob = new Blob([landingHTML], { type: 'text/html' });
-            livePreviewURL = URL.createObjectURL(blob);
-
             document.getElementById('landingPreview').textContent = landingHTML;
             document.getElementById('previewSection').style.display = 'block';
-        }
-
-        function downloadCode() {
-            const blob = new Blob([currentPageContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'landing-page.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-
-        function viewLivePreview() {
-            if (!livePreviewURL) {
-                alert("Please generate a landing page first.");
-                return;
-            }
-            window.open(livePreviewURL, '_blank');
         }
     </script>
 </body>
