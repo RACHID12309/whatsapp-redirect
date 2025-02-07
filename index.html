@@ -68,6 +68,12 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -93,9 +99,9 @@
             </div>
 
             <div class="input-group">
-                <label>Product Image:</label>
+                <label>Product Image URL:</label>
                 <input type="text" id="productImage">
-                <img id="previewImage" src="" alt="Product Image" style="max-width: 100%; margin-top: 10px; display: none;">
+                <img id="previewImage" src="" alt="Product Image" style="display: none;">
             </div>
             
             <div class="input-group">
@@ -103,16 +109,6 @@
                 <input type="text" id="productPrice" placeholder="$99.99" required>
             </div>
             
-            <div class="input-group">
-                <label>Select Template:</label>
-                <select id="templateSelect">
-                    <option value="default">Default Template</option>
-                    <option value="clothing">Clothing Template</option>
-                    <option value="electronics">Electronics Template</option>
-                    <option value="beauty">Beauty Products Template</option>
-                </select>
-            </div>
-
             <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
         </div>
 
@@ -166,14 +162,35 @@
             const description = document.getElementById('productDescription').value;
             const image = document.getElementById('productImage').value;
             const price = document.getElementById('productPrice').value;
-            const template = document.getElementById('templateSelect').value;
+            const productUrl = document.getElementById('productUrl').value;
 
-            if (!title || !price) {
+            if (!title || !price || !productUrl) {
                 alert("Please complete all fields.");
                 return;
             }
 
-            let landingHTML = <html><body><h1>${title}</h1><img src="${image}" alt="Product Image"><p>${description}</p><p>Price: ${price}</p><a href="#">Buy Now</a></body></html>;
+            let landingHTML = `
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>${title}</title>
+                <style>
+                    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+                    .container { max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px; }
+                    img { max-width: 100%; border-radius: 10px; margin: 10px 0; }
+                    button { background: #FF4742; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>${title}</h1>
+                    <img src="${image}" alt="Product Image">
+                    <p>${description}</p>
+                    <p><strong>Price: ${price}</strong></p>
+                    <a href="${productUrl}" target="_blank"><button>Buy Now</button></a>
+                </div>
+            </body>
+            </html>`;
 
             currentPageContent = landingHTML;
             const blob = new Blob([landingHTML], { type: 'text/html' });
@@ -188,7 +205,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'sales-page.html';
+            a.download = 'landing-page.html';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
