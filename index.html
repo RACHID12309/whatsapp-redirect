@@ -2,143 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Landing Page Generator PRO+</title>
     <style>
         :root {
             --primary-color: #FF4742;
             --secondary-color: #2B2D42;
-            --button-color: #FF4742;
+            --button-hover: #FF1F1F;
         }
 
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
+            background-color: #f5f5f5;
+            margin: 0;
             padding: 20px;
-            background: #f5f5f5;
-            color: #333;
-        }
-
-        .generator-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             text-align: center;
         }
 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+
         .input-group {
-            margin-bottom: 1rem;
+            margin: 20px 0;
+            text-align: left;
         }
 
         label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
             font-weight: bold;
+            color: #333;
         }
 
-        input, select, textarea {
+        input, textarea {
             width: 100%;
             padding: 12px;
-            margin: 8px 0;
+            margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 16px;
         }
 
         button {
-            background: var(--button-color);
+            background-color: var(--primary-color);
             color: white;
             border: none;
             padding: 12px 24px;
             border-radius: 25px;
             cursor: pointer;
-            transition: transform 0.3s;
-            margin: 5px;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .form-section {
-            margin-top: 2rem;
-        }
-
-        .form-section input {
-            width: 100%;
+        button:hover {
+            background-color: var(--button-hover);
+            transform: scale(1.05);
         }
 
         .preview-section {
             margin-top: 2rem;
             border-top: 1px solid #eee;
             padding-top: 2rem;
+            display: none;
         }
 
         .landing-preview {
+            background-color: white;
+            padding: 20px;
             border: 1px solid #ddd;
             margin: 20px 0;
-            background: white;
-            padding: 10px;
             white-space: pre-wrap;
             word-wrap: break-word;
         }
 
         img {
             max-width: 100%;
-            display: block;
+            border-radius: 8px;
             margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="generator-box">
+
+    <div class="container">
         <h1>AI Landing Page Generator PRO+</h1>
-        
-        <div class="input-section">
-            <div class="input-group">
-                <label>Product URL:</label>
-                <input type="url" id="productUrl" placeholder="https://example.com/product" required>
-            </div>
-            
-            <button id="fetchDataBtn" onclick="fetchProductData()">Fetch Product Data</button>
 
-            <div class="input-group">
-                <label>Product Title:</label>
-                <input type="text" id="productTitle">
-            </div>
-
-            <div class="input-group">
-                <label>Product Description:</label>
-                <textarea id="productDescription"></textarea>
-            </div>
-
-            <div class="input-group">
-                <label>Product Image URL:</label>
-                <input type="text" id="productImage">
-                <img id="previewImage" src="" alt="Product Image" style="display: none;">
-            </div>
-            
-            <div class="input-group">
-                <label>Sales Price:</label>
-                <input type="text" id="productPrice" placeholder="$99.99" required>
-            </div>
-            
-            <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
+        <div class="input-group">
+            <label for="productUrl">Product URL:</label>
+            <input type="url" id="productUrl" placeholder="https://example.com/product" required>
         </div>
 
-        <div class="preview-section" id="previewSection" style="display: none;">
+        <div class="input-group">
+            <label for="productPrice">Sales Price:</label>
+            <input type="number" id="productPrice" placeholder="$99.99" required>
+        </div>
+
+        <button id="generateBtn" onclick="generateLandingPage()">Generate Landing Page</button>
+
+        <div class="preview-section" id="previewSection">
             <h2>Your Landing Page</h2>
             <div class="landing-preview" id="landingPreview"></div>
-            <div class="form-section">
-                <h3>Get In Touch</h3>
-                <form id="customerForm">
-                    <input type="text" placeholder="Full Name" id="fullName" required><br><br>
-                    <input type="text" placeholder="City" id="city" required><br><br>
-                    <input type="text" placeholder="Phone Number" id="phone" required><br><br>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
+            <button onclick="downloadCode()">Download Code</button>
+            <button onclick="viewLivePreview()">Live Preview</button>
         </div>
     </div>
 
     <script>
+        let currentPageContent = "";
+        let livePreviewURL = "";
+
         async function fetchProductData() {
             const productUrl = document.getElementById('productUrl').value;
             if (!productUrl) {
@@ -159,7 +139,7 @@
                 document.getElementById('productTitle').value = title;
                 document.getElementById('productDescription').value = description;
                 document.getElementById('productImage').value = image;
-                
+
                 if (image) {
                     document.getElementById('previewImage').src = image;
                     document.getElementById('previewImage').style.display = "block";
@@ -202,20 +182,35 @@
                     <p><strong>Price: ${price}</strong></p>
                     <a href="${productUrl}" target="_blank"><button>Buy Now</button></a>
                 </div>
-                <div class="container">
-                    <h3>Get In Touch</h3>
-                    <form id="customerForm">
-                        <input type="text" placeholder="Full Name" required><br><br>
-                        <input type="text" placeholder="City" required><br><br>
-                        <input type="text" placeholder="Phone Number" required><br><br>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
             </body>
             </html>`;
 
+            currentPageContent = landingHTML;
+            const blob = new Blob([landingHTML], { type: 'text/html' });
+            livePreviewURL = URL.createObjectURL(blob);
+
             document.getElementById('landingPreview').textContent = landingHTML;
             document.getElementById('previewSection').style.display = 'block';
+        }
+
+        function downloadCode() {
+            const blob = new Blob([currentPageContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'landing-page.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function viewLivePreview() {
+            if (!livePreviewURL) {
+                alert("Please generate a landing page first.");
+                return;
+            }
+            window.open(livePreviewURL, '_blank');
         }
     </script>
 </body>
