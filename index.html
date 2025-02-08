@@ -24,7 +24,7 @@
             <!-- Textarea for article input -->
             <div>
                 <label for="articleText" class="block text-sm font-medium text-gray-700">أدخل نص المقال هنا:</label>
-                <textarea id="articleText" rows="6" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="اكتب نص المقال..."></textarea>
+                <textarea id="articleText" name="articleText" rows="6" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="اكتب نص المقال..." required></textarea>
             </div>
 
             <!-- File upload for resources -->
@@ -51,7 +51,7 @@
     </div>
 
     <script>
-        document.getElementById('videoForm').addEventListener('submit', function(event) {
+        document.getElementById('videoForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const articleText = document.getElementById('articleText').value;
             const formData = new FormData();
@@ -68,29 +68,32 @@
             submitButton.innerHTML = 'جاري إنشاء الفيديو...';
             submitButton.disabled = true;
 
-            // Send data to the server
-            fetch('/generate_video', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
+            try {
+                // Send data to the server
+                const response = await fetch('/generate_video', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
                 if (data.videoUrl) {
                     document.getElementById('videoResult').src = data.videoUrl;
                     document.getElementById('videoResultSection').classList.remove('hidden');
                 } else {
                     alert('حدث خطأ أثناء إنشاء الفيديو.');
                 }
-            })
-            .catch(error => {
+            } catch (error) {
+                console.error('Error:', error);
                 alert('خطأ في الاتصال بالخادم.');
-            })
-            .finally(() => {
+            } finally {
                 submitButton.innerHTML = 'إنشاء الفيديو';
                 submitButton.disabled = false;
-            });
+            }
         });
     </script>
 </body>
 </html>
-```
