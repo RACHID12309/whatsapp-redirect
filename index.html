@@ -1,98 +1,309 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء فيديو من المقال</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>إنشاء فيديو متقدم من نص</title>
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.0"></script>
     <style>
-        /* Custom animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* أنماط CSS السابقة مع إضافة أنماط إبداعية */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+            text-align: center;
+            background: linear-gradient(135deg, #f4f4f9, #d1d1e0);
+            color: #333;
+            margin: 0;
+            padding: 20px;
         }
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 90%;
+            max-width: 800px;
+            height: 120px;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            margin: 20px auto;
+            resize: vertical;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        textarea:focus {
+            border-color: #0056b3;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        .settings-group {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            text-align: right;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .settings-group:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .settings-group label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .settings-group input[type="file"],
+        .settings-group input[type="number"],
+        .settings-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .settings-group input[type="file"]:focus,
+        .settings-group input[type="number"]:focus,
+        .settings-group select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        #generateButton {
+            animation: pulse 2s infinite;
+        }
+
+        #generateButton:hover {
+            animation: none;
+        }
+
+        video {
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        video:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #downloadLink {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #downloadLink:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            textarea {
+                height: 100px;
+                font-size: 1rem;
+            }
+            button {
+                width: 100%;
+                padding: 15px;
+                font-size: 1rem;
+            }
+            .settings-group {
+                padding: 15px;
+            }
         }
     </style>
 </head>
-<body class="bg-gradient-to-r from-purple-500 to-indigo-600 min-h-screen flex items-center justify-center p-6">
-    <div class="bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full fade-in">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">إنشاء فيديو من نص المقال</h1>
+<body>
+    <h1>إنشاء فيديو متقدم من نص</h1>
+    
+    <textarea id="textInput" placeholder="أدخل النص هنا"></textarea>
+    
+    <div class="settings-group">
+        <label for="audioInput">اختر ملفًا صوتيًا (اختياري)</label>
+        <input type="file" id="audioInput" accept="audio/*">
         
-        <form id="videoForm" enctype="multipart/form-data" class="space-y-6">
-            <!-- Textarea for article input -->
-            <div>
-                <label for="articleText" class="block text-sm font-medium text-gray-700">أدخل نص المقال هنا:</label>
-                <textarea id="articleText" name="articleText" rows="6" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="اكتب نص المقال..." required></textarea>
-            </div>
-
-            <!-- File upload for resources -->
-            <div>
-                <label for="resourceFiles" class="block text-sm font-medium text-gray-700">رفع ملفات الموسيقى والصور (اختياري):</label>
-                <input type="file" id="resourceFiles" name="resources" multiple class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
-            </div>
-
-            <!-- Submit button -->
-            <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200 flex items-center justify-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                إنشاء الفيديو
-            </button>
-        </form>
-
-        <!-- Video result section -->
-        <div id="videoResultSection" class="mt-8 hidden">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">الفيديو الناتج:</h2>
-            <video id="videoResult" controls class="w-full rounded-lg shadow-md"></video>
-        </div>
+        <label for="backgroundImageInput">اختر صورًا متعددة</label>
+        <input type="file" id="backgroundImageInput" accept="image/*" multiple>
     </div>
 
+    <div class="settings-group">
+        <label for="imageDuration">مدة عرض كل صورة (ثواني)</label>
+        <input type="number" id="imageDuration" value="3" min="1">
+        
+        <label for="transitionDuration">مدة الانتقال بين الصور (ثواني)</label>
+        <input type="number" id="transitionDuration" value="1" min="0.5" step="0.5">
+        
+        <label for="transitionType">اختر نوع الانتقال</label>
+        <select id="transitionType">
+            <option value="fade">انتقال تدريجي</option>
+            <option value="slide">انزلاق</option>
+            <option value="zoom">تكبير/تصغير</option>
+        </select>
+    </div>
+
+    <button id="generateButton">إنشاء الفيديو</button>
+
+    <video id="videoOutput" controls></video>
+
+    <a id="downloadLink" style="display:none;" download="output.mp4">تحميل الفيديو</a>
+
     <script>
-        document.getElementById('videoForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const articleText = document.getElementById('articleText').value;
-            const formData = new FormData();
-            formData.append('articleText', articleText);
-            
-            // Add uploaded files
-            const resources = document.getElementById('resourceFiles').files;
-            for (let i = 0; i < resources.length; i++) {
-                formData.append('resources', resources[i]);
+        const DEFAULT_AUDIO_URL = 'https://www.example.com/default-music.mp3'; // استبدل برابط حقيقي
+
+        document.getElementById('generateButton').addEventListener('click', async function () {
+            const text = document.getElementById('textInput').value.trim();
+            const audioFile = document.getElementById('audioInput').files[0];
+            const images = document.getElementById('backgroundImageInput').files;
+            const imageDuration = document.getElementById('imageDuration').value;
+            const transitionDuration = document.getElementById('transitionDuration').value;
+            const transitionType = document.getElementById('transitionType').value;
+
+            if (!text) {
+                alert("يرجى إدخال نص لإنشاء الفيديو!");
+                return;
             }
-            
-            // Show loading state
-            const submitButton = document.querySelector('button[type="submit"]');
-            submitButton.innerHTML = 'جاري إنشاء الفيديو...';
-            submitButton.disabled = true;
 
-            try {
-                // Send data to the server
-                const response = await fetch('/generate_video', {
-                    method: 'POST',
-                    body: formData
-                });
+            const { createFFmpeg, fetchFile } = FFmpeg;
+            const ffmpeg = createFFmpeg({ log: true });
 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+            document.getElementById('generateButton').disabled = true;
+            document.getElementById('generateButton').textContent = "جاري الإنشاء...";
 
-                const data = await response.json();
-                if (data.videoUrl) {
-                    document.getElementById('videoResult').src = data.videoUrl;
-                    document.getElementById('videoResultSection').classList.remove('hidden');
+            await ffmpeg.load();
+
+            // تحميل الصور
+            let filterChain = '';
+            let inputs = [];
+            for (let i = 0; i < images.length; i++) {
+                const imgName = `img${i}.png`;
+                ffmpeg.FS('writeFile', imgName, await fetchFile(images[i]));
+                inputs.push(`-loop 1 -t ${imageDuration} -i ${imgName}`);
+
+                if (i > 0) {
+                    switch (transitionType) {
+                        case 'fade':
+                            filterChain += `[v${i-1}][${i}]overlay=enable='between(t,${i*imageDuration},${i*imageDuration + transitionDuration})':alpha=1[tmp${i}]; `;
+                            break;
+                        case 'slide':
+                            filterChain += `[v${i-1}][${i}]overlay=x='if(gte(t,${i*imageDuration}), -w+(t-${i*imageDuration})*w/${transitionDuration}, NAN)':y=0[tmp${i}]; `;
+                            break;
+                        case 'zoom':
+                            filterChain += `[v${i-1}]scale=iw*2:ih*2[zoomed];[zoomed][${i}]overlay=x='(W-w)/2 + (t-${i*imageDuration})*W/${transitionDuration}':y='(H-h)/2'[tmp${i}]; `;
+                            break;
+                    }
+                    filterChain += `[tmp${i}]`;
                 } else {
-                    alert('حدث خطأ أثناء إنشاء الفيديو.');
+                    filterChain += `[0:v]`;
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('خطأ في الاتصال بالخادم.');
-            } finally {
-                submitButton.innerHTML = 'إنشاء الفيديو';
-                submitButton.disabled = false;
+                filterChain += `setpts=PTS-STARTPTS,scale=1280:720[v${i}];`;
             }
+
+            // تحميل الصوت
+            let audioBlob;
+            if (audioFile) {
+                audioBlob = await fetchFile(audioFile);
+            } else {
+                audioBlob = await fetch(DEFAULT_AUDIO_URL).then(r => r.blob());
+            }
+            ffmpeg.FS('writeFile', 'audio.mp3', audioBlob);
+
+            // إنشاء الفيديو
+            await ffmpeg.run(
+                ...inputs,
+                '-i', 'audio.mp3',
+                '-filter_complex', filterChain,
+                '-map', '[v' + (images.length - 1) + ']',
+                '-map', '1:a',
+                '-c:v', 'libx264',
+                '-c:a', 'aac',
+                '-shortest',
+                'output.mp4'
+            );
+
+            // عرض الفيديو
+            const data = ffmpeg.FS('readFile', 'output.mp4');
+            const videoBlob = new Blob([data.buffer], { type: 'video/mp4' });
+            const videoURL = URL.createObjectURL(videoBlob);
+            document.getElementById('videoOutput').src = videoURL;
+
+            // رابط التحميل
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = videoURL;
+            downloadLink.style.display = "block";
+            downloadLink.textContent = "تحميل الفيديو";
+
+            document.getElementById('generateButton').disabled = false;
+            document.getElementById('generateButton').textContent = "إنشاء الفيديو";
         });
     </script>
 </body>
