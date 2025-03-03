@@ -1,310 +1,1201 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء فيديو متقدم من نص</title>
-    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.0"></script>
+    <title>Digital Marketing Automation Suite | Triple Your Sales While You Sleep</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* أنماط CSS السابقة مع إضافة أنماط إبداعية */
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        :root {
+            --primary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --highlight-color: #f39c12;
+            --star-color: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Tajawal', sans-serif;
-            direction: rtl;
-            text-align: center;
-            background: linear-gradient(135deg, #f4f4f9, #d1d1e0);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
             color: #333;
-            margin: 0;
-            padding: 20px;
+            background-color: #f9f9f9;
         }
 
-        h1 {
-            color: #007bff;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        textarea {
-            width: 90%;
-            max-width: 800px;
-            height: 120px;
-            padding: 15px;
-            font-size: 1.1rem;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            margin: 20px auto;
-            resize: vertical;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        textarea:focus {
-            border-color: #0056b3;
-            outline: none;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-        }
-
-        .settings-group {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            width: 90%;
-            max-width: 800px;
-            text-align: right;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .settings-group:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .settings-group label {
-            display: block;
-            margin: 15px 0 5px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        .settings-group input[type="file"],
-        .settings-group input[type="number"],
-        .settings-group select {
-            width: 100%;
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .settings-group input[type="file"]:focus,
-        .settings-group input[type="number"]:focus,
-        .settings-group select:focus {
-            border-color: #007bff;
-            outline: none;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-        }
-
-        button {
-            padding: 12px 30px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        #generateButton {
-            animation: pulse 2s infinite;
-        }
-
-        #generateButton:hover {
-            animation: none;
-        }
-
-        video {
-            width: 90%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        video:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        #downloadLink {
+        .btn {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #28a745;
+            background: var(--primary-color);
             color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
 
-        #downloadLink:hover {
-            background-color: #218838;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-accent {
+            background: var(--accent-color);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #1a5276);
+            color: white;
+            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-image:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
+        /* Timer */
+        .timer-container {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 500px;
+        }
+
+        .timer-label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .timer-unit {
+            background: var(--light-color);
+            color: var(--dark-color);
+            padding: 10px;
+            border-radius: 5px;
+            width: 70px;
+            text-align: center;
+        }
+
+        .timer-number {
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .timer-text {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Problems Section */
+        .problems {
+            background: #fff;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+
+        .problems-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .problem-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .problem-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Products Section */
+        .products {
+            background: #f5f9fa;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-img-container {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            border-radius: 5px;
+        }
+
+        .product-details {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+        }
+
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-item:before {
+            content: "✓";
+            color: var(--success-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .regular-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 20px;
+        }
+
+        .actual-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: white;
+            text-align: center;
+        }
+
+        .pricing-box {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 50px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .pricing-table {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .pricing-label {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .pricing-value {
+            font-weight: bold;
+        }
+
+        .final-price {
+            background: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .savings {
+            color: var(--accent-color);
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .guarantee-icon {
+            font-size: 24px;
+            color: var(--success-color);
+        }
+
+        /* Bonuses Section */
+        .bonuses {
+            background: #f9f9f9;
+        }
+
+        .bonus-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bonus-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .bonus-icon {
+            font-size: 40px;
+            color: var(--highlight-color);
+            margin-bottom: 20px;
+        }
+
+        .bonus-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .bonus-value {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .testimonial-card {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-stars {
+            color: var(--star-color);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 40px;
+            color: #ddd;
+            position: absolute;
+        }
+
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .testimonial-btn {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+        }
+
+        .testimonial-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 8px;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #f5f9fa;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary-color), #1a5276);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .developer-message {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .developer-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .developer-name {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .ps-note {
+            margin-top: 30px;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .licenses-left {
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 32px;
             }
-            textarea {
-                height: 100px;
-                font-size: 1rem;
+
+            .hero p {
+                font-size: 18px;
             }
-            button {
-                width: 100%;
-                padding: 15px;
-                font-size: 1rem;
+
+            .section-title {
+                font-size: 28px;
             }
-            .settings-group {
-                padding: 15px;
+
+            .product-content {
+                flex-direction: column;
+            }
+
+            .timer {
+                gap: 5px;
+            }
+
+            .timer-unit {
+                width: 60px;
+            }
+
+            .timer-number {
+                font-size: 24px;
+            }
+
+            .testimonial-slide {
+                padding: 10px;
+            }
+
+            .testimonial-card {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>إنشاء فيديو متقدم من نص</h1>
-    
-    <textarea id="textInput" placeholder="أدخل النص هنا"></textarea>
-    
-    <div class="settings-group">
-        <label for="audioInput">اختر ملفًا صوتيًا (اختياري)</label>
-        <input type="file" id="audioInput" accept="audio/*">
-        
-        <label for="backgroundImageInput">اختر صورًا متعددة</label>
-        <input type="file" id="backgroundImageInput" accept="image/*" multiple>
-    </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">Digital Marketing Suite</div>
+        </div>
+    </header>
 
-    <div class="settings-group">
-        <label for="imageDuration">مدة عرض كل صورة (ثواني)</label>
-        <input type="number" id="imageDuration" value="3" min="1">
-        
-        <label for="transitionDuration">مدة الانتقال بين الصور (ثواني)</label>
-        <input type="number" id="transitionDuration" value="1" min="0.5" step="0.5">
-        
-        <label for="transitionType">اختر نوع الانتقال</label>
-        <select id="transitionType">
-            <option value="fade">انتقال تدريجي</option>
-            <option value="slide">انزلاق</option>
-            <option value="zoom">تكبير/تصغير</option>
-        </select>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="container">
+            <h1>Triple Your Sales With 3 Powerful Automation Tools That Work While You Sleep</h1>
+            <p>Save 20+ hours per week and boost your revenue by up to 300% with our all-in-one digital marketing automation solution.</p>
 
-    <button id="generateButton">إنشاء الفيديو</button>
+            <div class="hero-images">
+                <img src="images/Capture d'écran 2025-03-01 143428.png" alt="WooCommerce Google Sheets Integration" class="hero-image">
+                <img src="images/Capture d'écran 2025-03-01 143353.png" alt="Facebook Groups Autoposter" class="hero-image">
+                <img src="images/Capture d'écran 2025-03-01 143316.png" alt="Bulk WhatsApp Sender" class="hero-image">
+            </div>
 
-    <video id="videoOutput" controls></video>
+            <a href="#pricing" class="btn btn-accent">Get Instant Access Now</a>
 
-    <a id="downloadLink" style="display:none;" download="output.mp4">تحميل الفيديو</a>
+            <div class="timer-container">
+                <div class="timer-label">Limited Time Offer Ends In:</div>
+                <div class="timer">
+                    <div class="timer-unit">
+                        <div class="timer-number" id="hours">24</div>
+                        <div class="timer-text">Hours</div>
+                    </div>
+                    <div class="timer-unit">
+                        <div class="timer-number" id="minutes">00</div>
+                        <div class="timer-text">Minutes</div>
+                    </div>
+                    <div class="timer-unit">
+                        <div class="timer-number" id="seconds">00</div>
+                        <div class="timer-text">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="licenses-left">
+                Only <span id="licenses-count">37</span> Licenses Left at This Price!
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems section">
+        <div class="container">
+            <h2 class="section-title">Are These Problems Killing Your Business?</h2>
+
+            <div class="problems-container">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="problem-title">Manual Data Entry Nightmare</h3>
+                    <p>Spending countless hours manually transferring data between your store and spreadsheets? This tedious process not only wastes your valuable time but leads to costly errors that damage your business reputation.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="problem-title">Social Media Marketing Burnout</h3>
+                    <p>Struggling to maintain consistent posting across multiple Facebook groups? The time-consuming process of manual posting is limiting your reach and costing you thousands in potential sales.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="problem-title">Inefficient Customer Communication</h3>
+                    <p>Unable to personally connect with your customers at scale? Without direct, personalized messaging, you're missing crucial opportunities to convert prospects and retain existing customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products section">
+        <div class="container">
+            <h2 class="section-title">Your Complete Marketing Automation Solution</h2>
+
+            <div class="product-card">
+                <div class="product-content">
+                    <div class="product-img-container">
+                        <img src="images/Capture d'écran 2025-03-01 143428.png0" alt="WooCommerce Google Sheets Integration" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">WooCommerce Google Sheets Integration</h3>
+                        <p class="product-description">Seamlessly connects your WooCommerce store with Google Sheets for automated data management, saving you hours of manual work every day.</p>
+
+                        <ul class="features-list">
+                            <li class="feature-item"><strong>Real-time Synchronization:</strong> Instant data transfer between your store and spreadsheets — meaning you always have up-to-date information without lifting a finger.</li>
+                            <li class="feature-item"><strong>Custom Reports Generator:</strong> Create detailed sales and inventory reports with one click — giving you powerful insights to make better business decisions.</li>
+                            <li class="feature-item"><strong>Bulk Inventory Management:</strong> Update thousands of products simultaneously — eliminating hours of tedious work and preventing costly out-of-stock situations.</li>
+                            <li class="feature-item"><strong>Automated Order Processing:</strong> Convert orders to shipping labels and invoices automatically — reducing fulfillment time by up to 80%.</li>
+                        </ul>
+
+                        <div class="product-price">
+                            <div class="regular-price">Market Value: $149</div>
+                            <div class="actual-price">$79</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-content">
+                    <div class="product-img-container">
+                        <img src="images/Capture d'écran 2025-03-01 143353.png" alt="Facebook Groups Autoposter" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Facebook Groups Autoposter</h3>
+                        <p class="product-description">Automates posting to multiple Facebook groups to maximize your reach and engagement without hours of manual work.</p>
+
+                        <ul class="features-list">
+                            <li class="feature-item"><strong>Mass Posting to 100+ Groups:</strong> Share your content across all your groups with one click — reaching 10x more potential customers instantly.</li>
+                            <li class="feature-item"><strong>AI-powered Scheduling:</strong> Automatically posts at optimal engagement times — increasing your post visibility by up to 200%.</li>
+                            <li class="feature-item"><strong>Performance Analytics:</strong> Track engagement metrics across all groups — helping you refine your strategy for maximum impact.</li>
+                            <li class="feature-item"><strong>Content Variation:</strong> Automatically creates multiple versions of your posts — preventing Facebook's spam filters while maintaining your message.</li>
+                        </ul>
+
+                        <div class="product-price">
+                            <div class="regular-price">Market Value: $179</div>
+                            <div class="actual-price">$89</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-content">
+                    <div class="product-img-container">
+                        <img src="images/Capture d'écran 2025-03-01 143316.png" alt="Bulk WhatsApp Sender" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Bulk WhatsApp Sender</h3>
+                        <p class="product-description">Enables mass personalized messaging via WhatsApp for direct customer engagement that converts prospects and retains customers.</p>
+
+                        <ul class="features-list">
+                            <li class="feature-item"><strong>Unlimited Contact Messaging:</strong> Send personalized messages to thousands of contacts — creating personal connections at scale.</li>
+                            <li class="feature-item"><strong>Automated Sequences:</strong> Set up drip campaigns that nurture leads automatically — increasing conversion rates by up to 150%.</li>
+                            <li class="feature-item"><strong>Media Support:</strong> Include images, videos, and documents in your messages — boosting engagement with rich, compelling content.</li>
+                            <li class="feature-item"><strong>Contact Segmentation:</strong> Target specific customer groups with tailored messages — making your communication more relevant and effective.</li>
+                        </ul>
+
+                        <div class="product-price">
+                            <div class="regular-price">Market Value: $199</div>
+                            <div class="actual-price">$99</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Limited Time Special Offer</h2>
+
+            <div class="pricing-box">
+                <h3 class="pricing-title">Get All 3 Powerful Tools for One Low Price</h3>
+
+                <div class="pricing-table">
+                    <div class="pricing-row">
+                        <div class="pricing-label">WooCommerce Google Sheets Integration</div>
+                        <div class="pricing-value">$79</div>
+                    </div>
+                    <div class="pricing-row">
+                        <div class="pricing-label">Facebook Groups Autoposter</div>
+                        <div class="pricing-value">$89</div>
+                    </div>
+                    <div class="pricing-row">
+                        <div class="pricing-label">Bulk WhatsApp Sender</div>
+                        <div class="pricing-value">$99</div>
+                    </div>
+                    <div class="pricing-row">
+                        <div class="pricing-label">Total Individual Value</div>
+                        <div class="pricing-value">$267</div>
+                    </div>
+                </div>
+
+                <div class="savings">You Save 44%</div>
+
+                <div class="final-price">
+                    Pay Only $149 Today
+                </div>
+
+                <div class="guarantee">
+                    <span class="guarantee-icon"><i class="fas fa-shield-alt"></i></span>
+                    30-Day Money-Back Guarantee
+                </div>
+
+                <a href="#" class="btn btn-accent">Get Instant Access Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonuses Section -->
+    <section class="bonuses section">
+        <div class="container">
+            <h2 class="section-title">Plus These Exclusive Bonuses (Worth $300+)</h2>
+
+            <div class="bonus-container">
+                <div class="bonus-card">
+                    <div class="bonus-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="bonus-title">Ultimate Digital Marketing Guide</h3>
+                    <p>Our comprehensive 50-page guide with proven strategies to maximize your results with these tools.</p>
+                    <div class="bonus-value">Value: $97</div>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="bonus-title">Advanced Analytics Dashboard</h3>
+                    <p>Track all your marketing metrics in one place with our premium analytics dashboard.</p>
+                    <div class="bonus-value">Value: $147</div>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="bonus-title">Priority Support Access</h3>
+                    <p>Get 24/7 priority support from our expert team for all your technical needs.</p>
+                    <div class="bonus-value">Value: $147</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+
+            <div class="testimonial-carousel">
+                <div class="testimonial-slides">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"This suite has completely transformed our marketing efforts. We've seen a 300% increase in engagement!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Jane Doe</h4>
+                                    <p>Marketing Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The automation features have saved us countless hours. Our team can now focus on strategic initiatives instead of manual tasks."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>John Smith</h4>
+                                    <p>IT Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Testimonials -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The analytics dashboard is incredible. We can now track all our marketing efforts in one place and make data-driven decisions."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Operations Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The mobile app is a game-changer. I can manage all my campaigns from my phone while traveling."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>James Wilson</h4>
+                                    <p>Sales Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The customer support team is amazing. They were always available to help us during the onboarding process and beyond."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Olivia Brown</h4>
+                                    <p>Customer Success Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The reporting features are fantastic. We can now generate custom reports in minutes instead of hours."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>CEO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The platform's scalability has allowed us to grow our business without worrying about technical limitations."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Sophia Garcia</h4>
+                                    <p>Data Analyst</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The pricing is extremely competitive for the value we receive. It's one of the best investments we've made."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Daniel Martinez</h4>
+                                    <p>CTO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The onboarding process was smooth and well-organized. We were fully operational within a week."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>Isabella Rodriguez</h4>
+                                    <p>Finance Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The automation tools have streamlined our workflow, allowing us to focus on strategic initiatives rather than repetitive tasks."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="User avatar" class="author-img">
+                                <div class="author-info">
+                                    <h4>William Hernandez</h4>
+                                    <p>Project Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-nav">
+                    <button class="testimonial-btn" aria-label="Previous testimonial">‹</button>
+                    <button class="testimonial-btn" aria-label="Next testimonial">›</button>
+                </div>
+
+                <div class="testimonial-indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Is this a one-time payment?</div>
+                    <div class="faq-answer">Yes, it's a one-time payment. You'll get lifetime access to all tools and future updates.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Are there any hidden charges?</div>
+                    <div class="faq-answer">No, there are no hidden charges or recurring fees. All pricing is upfront and transparent.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer a money-back guarantee?</div>
+                    <div class="faq-answer">Absolutely! We offer a 30-day money-back guarantee, no questions asked. Your satisfaction is our priority.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta section">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Business?</h2>
+            <p>Join thousands of marketers who are already using our automation tools to save time and increase sales.</p>
+            <a href="#pricing" class="btn btn-accent">Get Instant Access Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Digital Marketing Suite. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        const DEFAULT_AUDIO_URL = 'https://www.example.com/default-music.mp3'; // استبدل برابط حقيقي
+        // Countdown Timer
+        const deadline = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours from now
+        const timer = document.querySelector('.timer');
+        const timerUnits = document.querySelectorAll('.timer-unit');
 
-        document.getElementById('generateButton').addEventListener('click', async function () {
-            const text = document.getElementById('textInput').value.trim();
-            const audioFile = document.getElementById('audioInput').files[0];
-            const images = document.getElementById('backgroundImageInput').files;
-            const imageDuration = document.getElementById('imageDuration').value;
-            const transitionDuration = document.getElementById('transitionDuration').value;
-            const transitionType = document.getElementById('transitionType').value;
-
-            if (!text) {
-                alert("يرجى إدخال نص لإنشاء الفيديو!");
+        function updateTimer() {
+            const timeLeft = deadline - new Date();
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
                 return;
             }
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
 
-            const { createFFmpeg, fetchFile } = FFmpeg;
-            const ffmpeg = createFFmpeg({ log: true });
+        let timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
 
-            document.getElementById('generateButton').disabled = true;
-            document.getElementById('generateButton').textContent = "جاري الإنشاء...";
+        // Testimonial Carousel
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dotsContainer = document.querySelector('.testimonial-indicators');
+        let currentIndex = 0;
+        let autoSlideInterval;
 
-            await ffmpeg.load();
+        function createDots() {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('testimonial-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
 
-            // تحميل الصور
-            let filterChain = '';
-            let inputs = [];
-            for (let i = 0; i < images.length; i++) {
-                const imgName = `img${i}.png`;
-                ffmpeg.FS('writeFile', imgName, await fetchFile(images[i]));
-                inputs.push(`-loop 1 -t ${imageDuration} -i ${imgName}`);
+        function updateDots() {
+            document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
 
-                if (i > 0) {
-                    switch (transitionType) {
-                        case 'fade':
-                            filterChain += `[v${i-1}][${i}]overlay=enable='between(t,${i*imageDuration},${i*imageDuration + transitionDuration})':alpha=1[tmp${i}]; `;
-                            break;
-                        case 'slide':
-                            filterChain += `[v${i-1}][${i}]overlay=x='if(gte(t,${i*imageDuration}), -w+(t-${i*imageDuration})*w/${transitionDuration}, NAN)':y=0[tmp${i}]; `;
-                            break;
-                        case 'zoom':
-                            filterChain += `[v${i-1}]scale=iw*2:ih*2[zoomed];[zoomed][${i}]overlay=x='(W-w)/2 + (t-${i*imageDuration})*W/${transitionDuration}':y='(H-h)/2'[tmp${i}]; `;
-                            break;
-                    }
-                    filterChain += `[tmp${i}]`;
-                } else {
-                    filterChain += `[0:v]`;
-                }
-                filterChain += `setpts=PTS-STARTPTS,scale=1280:720[v${i}];`;
-            }
+        function goToSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+            document.querySelector('.testimonial-slides').style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
+        }
 
-            // تحميل الصوت
-            let audioBlob;
-            if (audioFile) {
-                audioBlob = await fetchFile(audioFile);
-            } else {
-                audioBlob = await fetch(DEFAULT_AUDIO_URL).then(r => r.blob());
-            }
-            ffmpeg.FS('writeFile', 'audio.mp3', audioBlob);
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
 
-            // إنشاء الفيديو
-            await ffmpeg.run(
-                ...inputs,
-                '-i', 'audio.mp3',
-                '-filter_complex', filterChain,
-                '-map', '[v' + (images.length - 1) + ']',
-                '-map', '1:a',
-                '-c:v', 'libx264',
-                '-c:a', 'aac',
-                '-shortest',
-                'output.mp4'
-            );
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
 
-            // عرض الفيديو
-            const data = ffmpeg.FS('readFile', 'output.mp4');
-            const videoBlob = new Blob([data.buffer], { type: 'video/mp4' });
-            const videoURL = URL.createObjectURL(videoBlob);
-            document.getElementById('videoOutput').src = videoURL;
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
 
-            // رابط التحميل
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = videoURL;
-            downloadLink.style.display = "block";
-            downloadLink.textContent = "تحميل الفيديو";
+        document.querySelector('.testimonial-btn:first-child').addEventListener('click', prevSlide);
+        document.querySelector('.testimonial-btn:last-child').addEventListener('click', nextSlide);
 
-            document.getElementById('generateButton').disabled = false;
-            document.getElementById('generateButton').textContent = "إنشاء الفيديو";
-        });
+        createDots();
+        startAutoSlide();
     </script>
 </body>
 </html>
