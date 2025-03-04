@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Marketing Automation Suite | Triple Your Sales While You Sleep</title>
+    <title>Triple Your Sales in 90 Days or Your Money Back—But Only if You Act NOW!</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2980b9;
-            --accent-color: #e74c3c;
-            --success-color: #27ae60;
-            --dark-color: #2c3e50;
-            --light-color: #ecf0f1;
-            --highlight-color: #f39c12;
-            --star-color: #ffd700;
+            --primary-color: #ff4c4c; /* Urgency-inducing red */
+            --secondary-color: #333; /* Dark for contrast */
+            --accent-color: #ffd700; /* Gold for value and prestige */
+            --text-color: #fff; /* White for readability on dark backgrounds */
+            --background-color: #1a1a1a; /* Dark to amplify urgency */
+            --button-color: #ff4c4c; /* Bold red CTA */
+            --button-hover: #e60000; /* Darker red on hover */
+            --font-family: 'Arial', sans-serif; /* Clean, professional */
+            --border-radius: 8px;
+            --box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         * {
@@ -23,1181 +26,245 @@
         }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            text-align: center;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .btn-accent {
-            background: var(--accent-color);
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), #1a5276);
-            color: white;
-            text-align: center;
-            padding: 100px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero h1 {
-            font-size: 46px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-images {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 40px 0;
-            gap: 20px;
-        }
-
-        .hero-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.05);
-        }
-
-        /* Timer */
-        .timer-container {
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 500px;
-        }
-
-        .timer-label {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .timer-unit {
-            background: var(--light-color);
-            color: var(--dark-color);
-            padding: 10px;
-            border-radius: 5px;
-            width: 70px;
-            text-align: center;
-        }
-
-        .timer-number {
-            font-size: 30px;
-            font-weight: bold;
-            line-height: 1;
-        }
-
-        .timer-text {
-            font-size: 12px;
-            text-transform: uppercase;
-        }
-
-        /* Problems Section */
-        .problems {
-            background: #fff;
-        }
-
-        .section-title {
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: var(--dark-color);
-            text-align: center;
-        }
-
-        .problems-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .problem-card {
-            background: #f5f5f5;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 350px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .problem-icon {
-            font-size: 40px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .problem-title {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-
-        /* Products Section */
-        .products {
-            background: #f5f9fa;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .product-content {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .product-img-container {
-            flex: 1;
-            min-width: 300px;
-            background: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
 
-        .product-img {
-            max-width: 100%;
-            height: auto;
-            max-height: 250px;
-            border-radius: 5px;
-        }
-
-        .product-details {
-            flex: 2;
-            min-width: 300px;
-            padding: 30px;
-        }
-
-        .product-title {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .product-description {
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .feature-item {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .feature-item:before {
-            content: "✓";
-            color: var(--success-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .regular-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 20px;
-        }
-
-        .actual-price {
-            font-size: 28px;
+        /* Headline */
+        .headline {
+            font-size: 48px;
             font-weight: bold;
             color: var(--accent-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        /* Pricing Section */
-        .pricing {
-            background-color: white;
-            text-align: center;
-        }
-
-        .pricing-box {
-            background: var(--light-color);
-            border-radius: 15px;
-            padding: 50px 30px;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-title {
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: var(--dark-color);
-        }
-
-        .pricing-table {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .pricing-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .pricing-label {
-            font-weight: bold;
-            text-align: left;
-        }
-
-        .pricing-value {
-            font-weight: bold;
-        }
-
-        .final-price {
-            background: var(--success-color);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
+        /* Subheadline */
+        .subheadline {
             font-size: 24px;
-            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 40px;
         }
 
-        .savings {
-            color: var(--accent-color);
+        /* CTA Button */
+        .cta-button {
+            background-color: var(--button-color);
+            color: var(--text-color);
+            padding: 15px 30px;
             font-size: 20px;
             font-weight: bold;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Scarcity */
+        .scarcity {
+            font-size: 28px;
+            color: var(--accent-color);
             margin: 20px 0;
-        }
-
-        .guarantee {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 30px 0;
             font-weight: bold;
         }
 
-        .guarantee-icon {
-            font-size: 24px;
-            color: var(--success-color);
-        }
-
-        /* Bonuses Section */
-        .bonuses {
-            background: #f9f9f9;
-        }
-
-        .bonus-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .bonus-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            width: 300px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .bonus-icon {
-            font-size: 40px;
-            color: var(--highlight-color);
-            margin-bottom: 20px;
-        }
-
-        .bonus-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-
-        .bonus-value {
+        /* Timer */
+        .timer {
+            font-size: 36px;
             font-weight: bold;
             color: var(--accent-color);
-            font-size: 20px;
-            margin-top: 15px;
+            margin: 20px 0;
         }
 
         /* Testimonials */
         .testimonials {
-            background: white;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-
-        .testimonial-carousel {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .testimonial-slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .testimonial-slide {
-            min-width: 100%;
-            display: flex;
-            justify-content: center;
+            margin: 40px 0;
             padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
 
-        .testimonial-card {
-            background: #f5f5f5;
-            border-radius: 10px;
-            padding: 30px;
-            width: 100%;
-            max-width: 800px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .testimonial-stars {
-            color: var(--star-color);
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-text {
+        .testimonial {
             font-style: italic;
             margin-bottom: 20px;
-            position: relative;
-            padding: 0 15px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .testimonial-text:before,
-        .testimonial-text:after {
-            content: '"';
-            font-size: 40px;
-            color: #ddd;
-            position: absolute;
-        }
-
-        .testimonial-text:before {
-            top: -20px;
-            left: -10px;
-        }
-
-        .testimonial-text:after {
-            bottom: -40px;
-            right: -10px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .author-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: 5px;
             font-size: 18px;
         }
 
-        .author-info p {
-            color: #777;
-            font-size: 14px;
+        /* Guarantee */
+        .guarantee {
+            font-size: 18px;
+            margin: 40px 0;
+            color: var(--accent-color);
+            font-weight: bold;
         }
 
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-        }
-
-        .testimonial-btn {
-            background: var(--primary-color);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 16px;
-        }
-
-        .testimonial-btn:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        .testimonial-indicators {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 8px;
-        }
-
-        .testimonial-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ccc;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-dot.active {
-            background: var(--primary-color);
-            transform: scale(1.2);
-        }
-
-        /* FAQ Section */
+        /* FAQ */
         .faq {
-            background: #f5f9fa;
+            margin: 40px 0;
+            text-align: left;
         }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: 10px;
+        .faq h2 {
+            font-size: 24px;
             margin-bottom: 20px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            color: var(--accent-color);
+            text-align: center;
         }
 
         .faq-question {
-            padding: 20px;
-            font-weight: bold;
             font-size: 18px;
-            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            color: var(--text-color);
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            color: var(--text-color);
+            padding: 10px;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .faq-answer {
-            padding: 0 20px 20px;
-            border-top: 1px solid #eee;
-        }
-
-        /* Final CTA */
-        .final-cta {
-            background: linear-gradient(135deg, var(--primary-color), #1a5276);
-            color: white;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .developer-message {
-            max-width: 800px;
-            margin: 0 auto 40px;
+        .sticky-header .timer {
             font-size: 18px;
-            line-height: 1.8;
         }
 
-        .developer-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            object-fit: cover;
-            border: 3px solid white;
+        .sticky-header .cta-button {
+            font-size: 16px;
+            padding: 8px 16px;
         }
 
-        .developer-name {
-            font-size: 22px;
-            margin-bottom: 30px;
-        }
-
-        .ps-note {
-            margin-top: 30px;
-            font-style: italic;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        .licenses-left {
-            background: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+        /* Bullet Points */
+        .bullet-points {
+            list-style: none;
+            padding: 0;
             margin: 20px 0;
-            display: inline-block;
-            font-weight: bold;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
+        .bullet-points li {
+            font-size: 20px;
+            margin: 15px 0;
+            color: var(--text-color);
+        }
 
-            .hero p {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .product-content {
-                flex-direction: column;
-            }
-
-            .timer {
-                gap: 5px;
-            }
-
-            .timer-unit {
-                width: 60px;
-            }
-
-            .timer-number {
-                font-size: 24px;
-            }
-
-            .testimonial-slide {
-                padding: 10px;
-            }
-
-            .testimonial-card {
-                padding: 20px;
-            }
+        .bullet-points li::before {
+            content: "🔥";
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">Digital Marketing Suite</div>
+    <!-- Sticky Header -->
+    <div class="sticky-header">
+        <div class="timer" id="sticky-timer">Offer Ends In: 01:00:00</div>
+        <button class="cta-button" onclick="location.href='https://gumroad.com/checkout'">Buy Now</button>
+    </div>
+
+    <div class="container">
+        <!-- Headline -->
+        <h1 class="headline">Triple Your Sales in 90 Days or Your Money Back—But Only if You Act NOW!</h1>
+
+        <!-- Subheadline -->
+        <p class="subheadline">These Are the ONLY Tools Proven to Skyrocket Your Revenue and Crush Your Competition—Without Them, You’re Doomed to Fail.</p>
+
+        <!-- Primary CTA -->
+        <button class="cta-button" onclick="location.href='https://gumroad.com/checkout'">Buy Now Before It’s Too Late!</button>
+
+        <!-- Scarcity Section -->
+        <div class="scarcity">Only 5 Spots Left at $199 (Original Price $597)—Price Jumps to $397 After Today!</div>
+
+        <!-- Countdown Timer -->
+        <div class="timer" id="countdown-timer">01:00:00</div>
+
+        <!-- Key Bullet Points -->
+        <ul class="bullet-points">
+            <li>Stop Wasting Hours on Manual Tasks—Automate Your Marketing and Reclaim Your Life Before It’s Too Late.</li>
+            <li>Watch Your Revenue Skyrocket While You Sleep—These Tools Work 24/7, Unlike Your Competitors Who Are Already Using Them.</li>
+            <li>Don’t Let Your Rivals Steal Your Customers—Get the Edge You Need to Dominate Your Market NOW or Lose Everything.</li>
+        </ul>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h2>What Top Marketers Say</h2>
+            <div class="testimonial">"I was skeptical, but these tools paid for themselves in the first week. My sales are up 200%, and I’ve got my weekends back. Don’t miss out!" — John D., Small Business Owner, Chicago</div>
+            <div class="testimonial">"I’ve tested every marketing tool out there—nothing beats this bundle. It’s the real deal your competitors don’t want you to know about." — Sarah K., Digital Marketer, Toronto</div>
+            <div class="testimonial">"If you’re not using these tools, you’re throwing money away. My revenue tripled in 60 days—get them before they’re gone!" — Mike R., Marketing Consultant, Vancouver</div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero section">
-        <div class="container">
-            <h1>Triple Your Sales With 3 Powerful Automation Tools That Work While You Sleep</h1>
-            <p>Save 20+ hours per week and boost your revenue by up to 300% with our all-in-one digital marketing automation solution.</p>
+        <!-- Money-Back Guarantee -->
+        <div class="guarantee">100% Money-Back Guarantee—If You Don’t See Results in 30 Days, We’ll Refund Every Penny, No Questions Asked.</div>
 
-            <div class="hero-images">
-                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTAmgK18-InAAEM-3S6SnvVCIEuV4bpzt-Cj6h4ci3_HfKJPYTi" alt="WooCommerce Google Sheets Integration" class="hero-image">
-                <img src="https://s3.ap-south-1.amazonaws.com/blooup/uploads/images/202111/img_x300_619aa9cf39c826-89006069-38384703.jpg " alt="Facebook Groups Autoposter" class="hero-image">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/VW/MS/UG/118614775/bulk-whatsapp-marketing-software-with-licience-genrator-500x500.jpg
-                    " alt="Bulk WhatsApp Sender" class="hero-image">
-            </div>
+        <!-- Secondary CTA -->
+        <button class="cta-button" onclick="location.href='https://gumroad.com/checkout'">Buy Now Before It’s Too Late!</button>
 
-            <a href="#pricing" class="btn btn-accent">Get Instant Access Now</a>
-
-            <div class="timer-container">
-                <div class="timer-label">Limited Time Offer Ends In:</div>
-                <div class="timer">
-                    <div class="timer-unit">
-                        <div class="timer-number" id="hours">24</div>
-                        <div class="timer-text">Hours</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-number" id="minutes">00</div>
-                        <div class="timer-text">Minutes</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-number" id="seconds">00</div>
-                        <div class="timer-text">Seconds</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="licenses-left">
-                Only <span id="licenses-count">37</span> Licenses Left at This Price!
-            </div>
+        <!-- FAQ Section -->
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-question">Is this really worth $199?</div>
+            <p class="faq-answer">Yes—customers see an average ROI of 300% in 90 days. But only 5 spots remain at this price—act now or pay $397 later!</p>
+            <div class="faq-question">What if it doesn’t work for me?</div>
+            <p class="faq-answer">You’re covered by our 100% money-back guarantee. No results in 30 days? Full refund. Zero risk—but you must act fast!</p>
+            <div class="faq-question">Why only 5 spots?</div>
+            <p class="faq-answer">We’re limiting this deal to ensure premium support for early adopters. Once gone, the price doubles—don’t miss out!</p>
         </div>
-    </section>
+    </div>
 
-    <!-- Problems Section -->
-    <section class="problems section">
-        <div class="container">
-            <h2 class="section-title">Are These Problems Killing Your Business?</h2>
-
-            <div class="problems-container">
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="problem-title">Manual Data Entry Nightmare</h3>
-                    <p>Spending countless hours manually transferring data between your store and spreadsheets? This tedious process not only wastes your valuable time but leads to costly errors that damage your business reputation.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <h3 class="problem-title">Social Media Marketing Burnout</h3>
-                    <p>Struggling to maintain consistent posting across multiple Facebook groups? The time-consuming process of manual posting is limiting your reach and costing you thousands in potential sales.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                    <h3 class="problem-title">Inefficient Customer Communication</h3>
-                    <p>Unable to personally connect with your customers at scale? Without direct, personalized messaging, you're missing crucial opportunities to convert prospects and retain existing customers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products section">
-        <div class="container">
-            <h2 class="section-title">Your Complete Marketing Automation Solution</h2>
-
-            <div class="product-card">
-                <div class="product-content">
-                    <div class="product-img-container">
-                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTAmgK18-InAAEM-3S6SnvVCIEuV4bpzt-Cj6h4ci3_HfKJPYTi" alt="WooCommerce Google Sheets Integration" class="product-img">
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">WooCommerce Google Sheets Integration</h3>
-                        <p class="product-description">Seamlessly connects your WooCommerce store with Google Sheets for automated data management, saving you hours of manual work every day.</p>
-
-                        <ul class="features-list">
-                            <li class="feature-item"><strong>Real-time Synchronization:</strong> Instant data transfer between your store and spreadsheets — meaning you always have up-to-date information without lifting a finger.</li>
-                            <li class="feature-item"><strong>Custom Reports Generator:</strong> Create detailed sales and inventory reports with one click — giving you powerful insights to make better business decisions.</li>
-                            <li class="feature-item"><strong>Bulk Inventory Management:</strong> Update thousands of products simultaneously — eliminating hours of tedious work and preventing costly out-of-stock situations.</li>
-                            <li class="feature-item"><strong>Automated Order Processing:</strong> Convert orders to shipping labels and invoices automatically — reducing fulfillment time by up to 80%.</li>
-                        </ul>
-
-                        <div class="product-price">
-                            <div class="regular-price">Market Value: $149</div>
-                            <div class="actual-price">$79</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-content">
-                    <div class="product-img-container">
-                        <img src="https://s3.ap-south-1.amazonaws.com/blooup/uploads/images/202111/img_x300_619aa9cf39c826-89006069-38384703.jpg " alt="Facebook Groups Autoposter" class="product-img">
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">Facebook Groups Autoposter</h3>
-                        <p class="product-description">Automates posting to multiple Facebook groups to maximize your reach and engagement without hours of manual work.</p>
-
-                        <ul class="features-list">
-                            <li class="feature-item"><strong>Mass Posting to 100+ Groups:</strong> Share your content across all your groups with one click — reaching 10x more potential customers instantly.</li>
-                            <li class="feature-item"><strong>AI-powered Scheduling:</strong> Automatically posts at optimal engagement times — increasing your post visibility by up to 200%.</li>
-                            <li class="feature-item"><strong>Performance Analytics:</strong> Track engagement metrics across all groups — helping you refine your strategy for maximum impact.</li>
-                            <li class="feature-item"><strong>Content Variation:</strong> Automatically creates multiple versions of your posts — preventing Facebook's spam filters while maintaining your message.</li>
-                        </ul>
-
-                        <div class="product-price">
-                            <div class="regular-price">Market Value: $179</div>
-                            <div class="actual-price">$89</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-content">
-                    <div class="product-img-container">
-                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/VW/MS/UG/118614775/bulk-whatsapp-marketing-software-with-licience-genrator-500x500.jpg
-                            " alt="Bulk WhatsApp Sender" class="product-img">
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">Bulk WhatsApp Sender</h3>
-                        <p class="product-description">Enables mass personalized messaging via WhatsApp for direct customer engagement that converts prospects and retains customers.</p>
-
-                        <ul class="features-list">
-                            <li class="feature-item"><strong>Unlimited Contact Messaging:</strong> Send personalized messages to thousands of contacts — creating personal connections at scale.</li>
-                            <li class="feature-item"><strong>Automated Sequences:</strong> Set up drip campaigns that nurture leads automatically — increasing conversion rates by up to 150%.</li>
-                            <li class="feature-item"><strong>Media Support:</strong> Include images, videos, and documents in your messages — boosting engagement with rich, compelling content.</li>
-                            <li class="feature-item"><strong>Contact Segmentation:</strong> Target specific customer groups with tailored messages — making your communication more relevant and effective.</li>
-                        </ul>
-
-                        <div class="product-price">
-                            <div class="regular-price">Market Value: $199</div>
-                            <div class="actual-price">$99</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing section" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Limited Time Special Offer</h2>
-
-            <div class="pricing-box">
-                <h3 class="pricing-title">Get All 3 Powerful Tools for One Low Price</h3>
-
-                <div class="pricing-table">
-                    <div class="pricing-row">
-                        <div class="pricing-label">WooCommerce Google Sheets Integration</div>
-                        <div class="pricing-value">$79</div>
-                    </div>
-                    <div class="pricing-row">
-                        <div class="pricing-label">Facebook Groups Autoposter</div>
-                        <div class="pricing-value">$89</div>
-                    </div>
-                    <div class="pricing-row">
-                        <div class="pricing-label">Bulk WhatsApp Sender</div>
-                        <div class="pricing-value">$99</div>
-                    </div>
-                    <div class="pricing-row">
-                        <div class="pricing-label">Total Individual Value</div>
-                        <div class="pricing-value">$267</div>
-                    </div>
-                </div>
-
-                <div class="savings">You Save 44%</div>
-
-                <div class="final-price">
-                    Pay Only $149 Today
-                </div>
-
-                <div class="guarantee">
-                    <span class="guarantee-icon"><i class="fas fa-shield-alt"></i></span>
-                    30-Day Money-Back Guarantee
-                </div>
-
-                <a href="#" class="btn btn-accent">Get Instant Access Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bonuses Section -->
-    <section class="bonuses section">
-        <div class="container">
-            <h2 class="section-title">Plus These Exclusive Bonuses (Worth $300+)</h2>
-
-            <div class="bonus-container">
-                <div class="bonus-card">
-                    <div class="bonus-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3 class="bonus-title">Ultimate Digital Marketing Guide</h3>
-                    <p>Our comprehensive 50-page guide with proven strategies to maximize your results with these tools.</p>
-                    <div class="bonus-value">Value: $97</div>
-                </div>
-
-                <div class="bonus-card">
-                    <div class="bonus-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="bonus-title">Advanced Analytics Dashboard</h3>
-                    <p>Track all your marketing metrics in one place with our premium analytics dashboard.</p>
-                    <div class="bonus-value">Value: $147</div>
-                </div>
-
-                <div class="bonus-card">
-                    <div class="bonus-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="bonus-title">Priority Support Access</h3>
-                    <p>Get 24/7 priority support from our expert team for all your technical needs.</p>
-                    <div class="bonus-value">Value: $147</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials section">
-        <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-
-            <div class="testimonial-carousel">
-                <div class="testimonial-slides">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"This suite has completely transformed our marketing efforts. We've seen a 300% increase in engagement!"</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Jane Doe</h4>
-                                    <p>Marketing Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The automation features have saved us countless hours. Our team can now focus on strategic initiatives instead of manual tasks."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>John Smith</h4>
-                                    <p>IT Director</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Additional Testimonials -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The analytics dashboard is incredible. We can now track all our marketing efforts in one place and make data-driven decisions."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Sarah Johnson</h4>
-                                    <p>Operations Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The mobile app is a game-changer. I can manage all my campaigns from my phone while traveling."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>James Wilson</h4>
-                                    <p>Sales Director</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The customer support team is amazing. They were always available to help us during the onboarding process and beyond."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Olivia Brown</h4>
-                                    <p>Customer Success Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The reporting features are fantastic. We can now generate custom reports in minutes instead of hours."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Michael Chen</h4>
-                                    <p>CEO</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The platform's scalability has allowed us to grow our business without worrying about technical limitations."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Sophia Garcia</h4>
-                                    <p>Data Analyst</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The pricing is extremely competitive for the value we receive. It's one of the best investments we've made."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Daniel Martinez</h4>
-                                    <p>CTO</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The onboarding process was smooth and well-organized. We were fully operational within a week."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>Isabella Rodriguez</h4>
-                                    <p>Finance Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The automation tools have streamlined our workflow, allowing us to focus on strategic initiatives rather than repetitive tasks."</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="User avatar" class="author-img">
-                                <div class="author-info">
-                                    <h4>William Hernandez</h4>
-                                    <p>Project Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-nav">
-                    <button class="testimonial-btn" aria-label="Previous testimonial">‹</button>
-                    <button class="testimonial-btn" aria-label="Next testimonial">›</button>
-                </div>
-
-                <div class="testimonial-indicators"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">Is this a one-time payment?</div>
-                    <div class="faq-answer">Yes, it's a one-time payment. You'll get lifetime access to all tools and future updates.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Are there any hidden charges?</div>
-                    <div class="faq-answer">No, there are no hidden charges or recurring fees. All pricing is upfront and transparent.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Do you offer a money-back guarantee?</div>
-                    <div class="faq-answer">Absolutely! We offer a 30-day money-back guarantee, no questions asked. Your satisfaction is our priority.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta section">
-        <div class="container">
-            <h2 class="section-title">Ready to Transform Your Business?</h2>
-            <p>Join thousands of marketers who are already using our automation tools to save time and increase sales.</p>
-            <a href="#pricing" class="btn btn-accent">Get Instant Access Now</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Digital Marketing Suite. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <!-- Countdown Timer Script -->
     <script>
-        // Countdown Timer
-        const deadline = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours from now
-        const timer = document.querySelector('.timer');
-        const timerUnits = document.querySelectorAll('.timer-unit');
+        function startCountdown(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-        function updateTimer() {
-            const timeLeft = deadline - new Date();
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                return;
-            }
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0; // Stops at zero
+                }
+            }, 1000);
         }
 
-        let timerInterval = setInterval(updateTimer, 1000);
-        updateTimer();
-
-        // Testimonial Carousel
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const dotsContainer = document.querySelector('.testimonial-indicators');
-        let currentIndex = 0;
-        let autoSlideInterval;
-
-        function createDots() {
-            slides.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('testimonial-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
-            });
-        }
-
-        function updateDots() {
-            document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        function goToSlide(index) {
-            currentIndex = (index + slides.length) % slides.length;
-            document.querySelector('.testimonial-slides').style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots();
-        }
-
-        function nextSlide() {
-            goToSlide(currentIndex + 1);
-        }
-
-        function prevSlide() {
-            goToSlide(currentIndex - 1);
-        }
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 5000);
-        }
-
-        document.querySelector('.testimonial-btn:first-child').addEventListener('click', prevSlide);
-        document.querySelector('.testimonial-btn:last-child').addEventListener('click', nextSlide);
-
-        createDots();
-        startAutoSlide();
+        window.onload = function () {
+            const oneHour = 60 * 60, // 1 hour countdown
+                display = document.querySelector('#countdown-timer'),
+                stickyDisplay = document.querySelector('#sticky-timer');
+            startCountdown(oneHour, display);
+            startCountdown(oneHour, stickyDisplay);
+        };
     </script>
 </body>
 </html>
