@@ -1,106 +1,1707 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مجفف ملابس نصف أوتوماتيكي بحوض واحد، مثالي لتجفيف الملابس بسرعة وكفاءة في المساحات الصغيرة.">
-    <title>مجفف الملابس نصف الأوتوماتيكي - جفف ملابسك بسرعة وكفاءة</title>
+    <title>Digital Marketing Automation Suite | Triple Your Sales While You Sleep</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #2980b9;
+            --primary-dark: #1a5276;
+            --primary-light: #3498db;
+            --accent-color: #e74c3c;
+            --accent-dark: #c0392b;
+            --accent-light: #ff6b6b;
+            --success-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --highlight-color: #f39c12;
+            --star-color: #ffd700;
+            --text-color: #333;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-        h1 {
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
             text-align: center;
-            color: #007BFF;
-            margin-bottom: 20px;
         }
-        .product-images {
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: var(--primary-dark);
+        }
+
+        .btn-accent {
+            background: var(--accent-light);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-dark);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+            margin: 0 auto;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 25px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--light-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(145deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badges {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-        .product-images img {
-            width: 300px;
-            height: auto;
+
+        .hero-badge {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-badge i {
+            margin-right: 5px;
+            color: var(--success-color);
+        }
+
+        .hero-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }
-        .description {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 30px;
+
+        .hero-image:hover {
+            transform: scale(1.05);
         }
-        .benefits {
-            margin-bottom: 30px;
+
+        /* Timer */
+        .timer-container {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 30px auto;
+            max-width: 500px;
         }
-        .benefits h2 {
-            text-align: center;
-            color: #007BFF;
-            margin-bottom: 15px;
-        }
-        .benefits ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-        }
-        .benefits li {
+
+        .timer-label {
             font-size: 18px;
             margin-bottom: 10px;
         }
-        .cta {
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .timer-unit {
+            background: var(--light-color);
+            color: var(--dark-color);
+            padding: 10px;
+            border-radius: 5px;
+            width: 70px;
+            text-align: center;
+        }
+
+        .timer-number {
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .timer-text {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .licenses-left {
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        /* Trusted By Section */
+        .trusted-by {
+            background: #f9f9f9;
+            padding: 40px 0;
+        }
+
+        .trusted-title {
+            font-size: 18px;
+            color: #777;
             text-align: center;
             margin-bottom: 30px;
         }
-        .cta button {
-            background-color: #28A745;
-            color: white;
-            padding: 15px 30px;
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .client-logo {
+            height: 40px;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .client-logo:hover {
+            opacity: 1;
+        }
+
+        /* Problems Section */
+        .problems {
+            background: #fff;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+
+        .section-subtitle {
             font-size: 20px;
-            border: none;
+            color: #666;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .problems-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: #f5f5f5;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            max-width: 350px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .problem-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .problem-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Products Section */
+        .products {
+            background: #f5f9fa;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-img-container {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .product-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
             border-radius: 5px;
+        }
+
+        .product-demo-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .product-demo-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .product-details {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+        }
+
+        .product-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-item:before {
+            content: "✓";
+            color: var(--success-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .case-study {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .case-study-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .regular-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 20px;
+        }
+
+        .actual-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: white;
+            text-align: center;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            text-align: left;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--accent-dark);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: white;
+            text-align: center;
+        }
+
+        .pricing-box {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 50px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            transform: rotate(45deg);
+            padding: 5px 40px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .pricing-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .pricing-table {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        .pricing-label {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .pricing-value {
+            font-weight: bold;
+        }
+
+        .final-price {
+            background: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .savings {
+            color: var(--accent-color);
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .guarantee-icon {
+            font-size: 24px;
+            color: var(--success-color);
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .security-badge {
+            padding: 10px 15px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .security-badge i {
+            color: var(--success-color);
+            font-size: 18px;
+        }
+
+        /* Bonuses Section */
+        .bonuses {
+            background: #f9f9f9;
+        }
+
+        .bonus-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bonus-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .bonus-icon {
+            font-size: 40px;
+            color: var(--highlight-color);
+            margin-bottom: 20px;
+        }
+
+        .bonus-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .bonus-value {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .testimonial-stars {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .star {
+            color: #ccc;
+            font-size: 20px;
+            margin-right: 2px;
+        }
+
+        .star.filled {
+            color: var(--star-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 40px;
+            color: #ddd;
+            position: absolute;
+        }
+
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .author-company {
+            display: block;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .testimonial-result {
+            background: var(--primary-light);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .testimonial-result i {
+            margin-right: 5px;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .testimonial-btn {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+        }
+
+        .testimonial-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 8px;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #f5f9fa;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            transition: var(--transition);
+        }
+
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: var(--transition);
             cursor: pointer;
         }
-        .cta button:hover {
-            background-color: #218838;
+
+        .footer-link:hover {
+            color: var(--primary-light);
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-link {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--primary-light);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                padding: 20px;
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            .product-content {
+                flex-direction: column;
+            }
+
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>جفف ملابسك بسرعة وكفاءة مع مجفف الملابس نصف الأوتوماتيكي!</h1>
-
-        <div class="product-images">
-            <img src="https://s.alicdn.com/@sc04/kf/H6b11b0d2399e4fdb9be0ff35b1fa1ced1.jpg_720x720q50.jpg" alt="مجفف الملابس - منظر أمامي">
-            <img src="https://s.alicdn.com/@sc04/kf/H2ac7355067ef471ea390937ad81881a6S.jpg_720x720q50.jpg" alt="مجفف الملابس - منظر جانبي">
-            <img src="https://s.alicdn.com/@sc04/kf/Hfaf973fe35e24af9aa5bcf21e6399750Q.jpg_720x720q50.jpg" alt="مجفف الملابس - في الاستخدام">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-rocket"></i></span>
+                    Digital Marketing Suite
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Get Started</a></li>
+                </ul>
+            </div>
         </div>
+    </header>
 
-        <div class="description">
-            <p>تم تصميم مجفف الملابس نصف الأوتوماتيكي لتجفيف الملابس بسرعة وكفاءة. بفضل تصميمه بحوض واحد، يناسب المساحات الصغيرة ويمكنه استيعاب ما يصل إلى 5.6 كجم من الغسيل. كل ما عليك هو وضع الملابس، ضبط المؤقت، وترك المجفف يقوم بالمهمة.</p>
+    <!-- Hero Section -->
+    <section class="hero section" data-aos="fade-down">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Triple Your Sales With 3 Powerful Automation Tools That Work While You Sleep</h1>
+                <p>Save 20+ hours per week and boost your revenue by up to 300% with our all-in-one digital marketing automation solution.</p>
+                <div class="hero-badges">
+                    <div class="hero-badge"><i class="fas fa-check-circle"></i> No Coding Required</div>
+                    <div class="hero-badge"><i class="fas fa-check-circle"></i> Easy 5-Min Setup</div>
+                    <div class="hero-badge"><i class="fas fa-check-circle"></i> 24/7 Support</div>
+                </div>
+                <div class="hero-images">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTAmgK18-InAAEM-3S6SnvVCIEuV4bpzt-Cj6h4ci3_HfKJPYTi" alt="WooCommerce Google Sheets Integration" class="hero-image">
+                    <img src="https://s3.ap-south-1.amazonaws.com/blooup/uploads/images/202111/img_x300_619aa9cf39c826-89006069-38384703.jpg" alt="Facebook Groups Autoposter" class="hero-image">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/VW/MS/UG/118614775/bulk-whatsapp-marketing-software-with-licience-genrator-500x500.jpg" alt="Bulk WhatsApp Sender" class="hero-image">
+                </div>
+                <a href="https://gumroad.com/checkout" class="btn btn-accent" target="_blank">Get Instant Access Now</a>
+                <div class="timer-container">
+                    <div class="timer-label">Limited Time Offer Ends In:</div>
+                    <div class="timer">
+                        <div class="timer-unit"><div class="timer-number" id="hours">24</div><div class="timer-text">Hours</div></div>
+                        <div class="timer-unit"><div class="timer-number" id="minutes">00</div><div class="timer-text">Minutes</div></div>
+                        <div class="timer-unit"><div class="timer-number" id="seconds">00</div><div class="timer-text">Seconds</div></div>
+                    </div>
+                </div>
+                <div class="licenses-left">Only <span id="licenses-count">37</span> Licenses Left at This Price!</div>
+            </div>
         </div>
+    </section>
 
-        <div class="benefits">
-            <h2>لماذا تختار مجفف الملابس نصف الأوتوماتيكي؟</h2>
-            <ul>
-                <li>توفير الوقت: يجفف الملابس بسرعة أكبر من الطرق التقليدية.</li>
-                <li>كفاءة في استهلاك الطاقة: يقلل من تكاليف الكهرباء.</li>
-                <li>محمول ومدمج: يسهل تخزينه ونقله.</li>
-            </ul>
+    <!-- Trusted By Section -->
+    <section class="trusted-by" data-aos="fade-up">
+        <div class="container">
+            <div class="trusted-title">TRUSTED BY BUSINESSES WORLDWIDE</div>
+            <div class="client-logos">
+                <img src="https://www.waymore.io/wp-content/uploads/2021/10/woo.svg" alt="WooCommerce" class="client-logo">
+                <img src="https://cookiefirst.com/wp-content/uploads/2022/09/Shopify-Logo.png" alt="Shopify" class="client-logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjKYmBc3E7ztL3FwPPn8kC1JDw0kMjGyPoJA&s" alt="Facebook" class="client-logo">
+                <img src="https://www.tourmag.com/photo/art/grande/19852438-23570482.jpg?v=1518184371" alt="WhatsApp" class="client-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/800px-Google_2015_logo.svg.png" alt="Google" class="client-logo">
+            </div>
         </div>
+    </section>
 
-        <div class="cta">
-            <button>اطلب الآن واستمتع بتجفيف أسرع!</button>
+    <div class="section-divider"></div>
+
+    <!-- Problems Section -->
+    <section class="problems section" id="features" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Are These Problems Killing Your Business?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Our customers were facing these exact challenges before discovering our automation tools.</p>
+            <div class="problems-container">
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="problem-title">Manual Data Entry Nightmare</h3>
+                    <p>Tired of copying order data from your store to spreadsheets? This busy work steals 5-10 hours of your week and leads to costly mistakes that damage customer trust.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="problem-icon"><i class="fas fa-share-alt"></i></div>
+                    <h3 class="problem-title">Social Media Marketing Burnout</h3>
+                    <p>Posting to multiple Facebook groups manually? This time-consuming process limits your reach to just 10-20% of potential customers, leaving thousands in sales on the table.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="problem-icon"><i class="fas fa-comment-dots"></i></div>
+                    <h3 class="problem-title">Missed Connection Opportunities</h3>
+                    <p>Can't personally message your growing customer base? Without direct communication, you're missing the 40% conversion boost that comes from personalized follow-ups.</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Products Section -->
+    <section class="products section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Your Complete Marketing Automation Solution</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Powerful tools designed to eliminate manual tasks and multiply your sales results</p>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-content">
+                    <div class="product-img-container">
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTAmgK18-InAAEM-3S6SnvVCIEuV4bpzt-Cj6h4ci3_HfKJPYTi" alt="WooCommerce Google Sheets Integration" class="product-img">
+                        <button class="product-demo-btn"><i class="fas fa-play"></i> See Demo</button>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">WooCommerce Google Sheets Integration</h3>
+                        <p class="product-description">Forget manual copying and pasting. Our tool automatically syncs your store data with Google Sheets, saving hours each day while eliminating costly errors.</p>
+                        <ul class="features-list">
+                            <li class="feature-item"><strong>Live Data Sync:</strong> Changes in your store appear in your spreadsheets instantly—no more outdated information causing inventory problems.</li>
+                            <li class="feature-item"><strong>One-Click Reports:</strong> Generate detailed sales and inventory reports with a single click—spot trends and make smart decisions faster.</li>
+                            <li class="feature-item"><strong>Bulk Updates:</strong> Change thousands of products at once through your familiar spreadsheet interface—cutting hours of tedious work.</li>
+                            <li class="feature-item"><strong>Order Automation:</strong> Automatically create shipping labels and invoices as orders come in—fulfilling orders up to 80% faster.</li>
+                        </ul>
+                        <div class="case-study">
+                            <div class="case-study-title">Success Story: Harper's Online Boutique</div>
+                            <p>Harper was spending 15 hours weekly on manual data entry. After implementing our integration, she automated 95% of this work and redirected her time to marketing, increasing sales by 127% in just 60 days.</p>
+                        </div>
+                        <div class="product-price">
+                            <div class="regular-price">Market Value: $149</div>
+                            <div class="actual-price">$79</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-content">
+                    <div class="product-img-container">
+                        <img src="https://s3.ap-south-1.amazonaws.com/blooup/uploads/images/202111/img_x300_619aa9cf39c826-89006069-38384703.jpg" alt="Facebook Groups Autoposter" class="product-img">
+                        <button class="product-demo-btn"><i class="fas fa-play"></i> See Demo</button>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Facebook Groups Autoposter</h3>
+                        <p class="product-description">Stop wasting time posting manually. Schedule and autopost to hundreds of Facebook groups instantly, reaching massive audiences without the burnout.</p>
+                        <ul class="features-list">
+                            <li class="feature-item"><strong>Multi-Group Posting:</strong> Share to 100+ groups in one click—expand your reach by up to 300% effortlessly.</li>
+                            <li class="feature-item"><strong>Smart Scheduling:</strong> Set posts to go live at peak engagement times—maximize visibility without being online.</li>
+                            <li class="feature-item"><strong>Content Library:</strong> Store and reuse your best posts—save time creating new content every day.</li>
+                            <li class="feature-item"><strong>Analytics Tracking:</strong> See which posts drive the most traffic—focus on what works to boost conversions.</li>
+                        </ul>
+                        <div class="case-study">
+                            <div class="case-study-title">Success Story: TechTrend Innovations</div>
+                            <p>TechTrend struggled to reach their audience across 50+ groups. With our autoposter, they tripled their engagement and saw a 180% sales increase in 90 days.</p>
+                        </div>
+                        <div class="product-price">
+                            <div class="regular-price">Market Value: $169</div>
+                            <div class="actual-price">$89</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="product-content">
+                    <div class="product-img-container">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/VW/MS/UG/118614775/bulk-whatsapp-marketing-software-with-licience-genrator-500x500.jpg" alt="Bulk WhatsApp Sender" class="product-img">
+                        <button class="product-demo-btn"><i class="fas fa-play"></i> See Demo</button>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Bulk WhatsApp Sender</h3>
+                        <p class="product-description">Reach your customers instantly with personalized messages. Send bulk campaigns that convert without risking your account.</p>
+                        <ul class="features-list">
+                            <li class="feature-item"><strong>Mass Messaging:</strong> Contact thousands of customers in seconds—boost conversions by up to 40% with direct outreach.</li>
+                            <li class="feature-item"><strong>Personalization:</strong> Add names and custom details to each message—make every customer feel valued.</li>
+                            <li class="feature-item"><strong>Safe Sending:</strong> Built-in delays and limits keep your account secure—no bans or blocks.</li>
+                            <li class="feature-item"><strong>Response Tracking:</strong> Monitor replies and follow up automatically—turn leads into sales faster.</li>
+                        </ul>
+                        <div class="case-study">
+                            <div class="case-study-title">Success Story: FitLife Gym</div>
+                            <p>FitLife used our sender to re-engage inactive members. Their first campaign brought back 200+ clients, increasing revenue by 95% in one month.</p>
+                        </div>
+                        <div class="product-price">
+                            <div class="regular-price">Market Value: $189</div>
+                            <div class="actual-price">$99</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section" id="how-it-works" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">How It Works: Simple 4-Step Implementation</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Get up and running in less than an hour with our streamlined setup process</p>
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Day 1: Quick Setup (5-10 minutes)</div>
+                        <p>Install our tools with our one-click setup wizard. No technical knowledge required—if you can use email, you can set this up.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Day 1: Configuration (15-20 minutes)</div>
+                        <p>Follow our guided setup to connect your accounts and customize settings. Our team is available via live chat if you need any assistance.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Day 1-2: Initial Results</div>
+                        <p>Watch as your first automated processes begin working. Most users see their first results within 24 hours of setup.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Week 2+: Optimization & Growth</div>
+                        <p>Use the analytics dashboard to refine your approach and scale up your marketing efforts. Our weekly optimization tips help you maximize results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Pricing Section -->
+    <section class="pricing section" id="pricing" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Limited Time Special Offer</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Get all three powerful automation tools for one low price</p>
+            <div class="pricing-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-badge">SAVE 44%</div>
+                <h3 class="pricing-title">Complete Marketing Automation Bundle</h3>
+                <div class="pricing-table">
+                    <div class="pricing-row">
+                        <div class="pricing-label">WooCommerce Google Sheets Integration</div>
+                        <div class="pricing-value">$79</div>
+                    </div>
+                    <div class="pricing-row">
+                        <div class="pricing-label">Facebook Groups Autoposter</div>
+                        <div class="pricing-value">$89</div>
+                    </div>
+                    <div class="pricing-row">
+                        <div class="pricing-label">Bulk WhatsApp Sender</div>
+                        <div class="pricing-value">$99</div>
+                    </div>
+                    <div class="pricing-row">
+                        <div class="pricing-label">Total Individual Value</div>
+                        <div class="pricing-value">$267</div>
+                    </div>
+                </div>
+                <div class="savings">You Save $118 Today!</div>
+                <a href="https://gumroad.com/checkout" target="_blank" class="final-price-link" style="text-decoration: none; display: block;">
+                    <div class="final-price">Pay Only $149 Today</div>
+                </a>
+                <div class="guarantee">
+                    <span class="guarantee-icon"><i class="fas fa-shield-alt"></i></span>
+                    30-Day Money-Back Guarantee
+                </div>
+                <a href="https://gumroad.com/checkout" class="btn btn-accent" target="_blank">Get Instant Access Now</a>
+                <div class="security-badges">
+                    <div class="security-badge"><i class="fas fa-lock"></i> Secure Payment</div>
+                    <div class="security-badge"><i class="fas fa-shield-alt"></i> GDPR Compliant</div>
+                    <div class="security-badge"><i class="fas fa-user-shield"></i> Data Protection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Bonuses Section -->
+    <section class="bonuses section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Plus These Exclusive Bonuses (Worth $300+)</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Act now and receive these valuable extras at no additional cost</p>
+            <div class="bonus-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="bonus-title">Ultimate Digital Marketing Guide</h3>
+                    <p>Our comprehensive 50-page guide with proven strategies to maximize your results with these tools.</p>
+                    <div class="bonus-value">Value: $97</div>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="bonus-title">Advanced Analytics Dashboard</h3>
+                    <p>Track all your marketing metrics in one place with our premium analytics dashboard.</p>
+                    <div class="bonus-value">Value: $147</div>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fas fa-headset"></i></div>
+                    <h3 class="bonus-title">Priority Support Access</h3>
+                    <p>Get 24/7 priority support from our expert team for all your technical needs.</p>
+                    <div class="bonus-value">Value: $147</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What Our Customers Say</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Real results from businesses just like yours</p>
+            <div class="testimonial-carousel" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-slides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"This suite has completely transformed our marketing efforts. The Facebook Autoposter alone saved us 15 hours per week while reaching 3x more potential customers!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah Johnson" class="author-img">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Marketing Manager</p>
+                                    <span class="author-company">NorthStar Apparel</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Increased sales by 213% in 3 months</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"The WhatsApp Sender brought back so many lost customers. It’s like having a personal sales team working 24/7!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Mark Thompson" class="author-img">
+                                <div class="author-info">
+                                    <h4>Mark Thompson</h4>
+                                    <p>Gym Owner</p>
+                                    <span class="author-company">FitLife Gym</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> 95% revenue boost in 1 month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-btn" id="prev-testimonial" aria-label="Previous testimonial">‹</button>
+                    <button class="testimonial-btn" id="next-testimonial" aria-label="Next testimonial">›</button>
+                </div>
+                <div class="testimonial-indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Get answers to common questions about our suite of tools</p>
+            <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item">
+                    <div class="faq-question">Is this a one-time payment or a subscription?</div>
+                    <div class="faq-answer">It's a one-time payment. You'll get lifetime access to all three tools and all future updates without any recurring fees or hidden charges.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need technical skills to use these tools?</div>
+                    <div class="faq-answer">No technical skills are required. Our setup wizards and support team make it easy for anyone to get started in minutes.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I'm not satisfied with the tools?</div>
+                    <div class="faq-answer">We offer a 30-day money-back guarantee. If you're not happy, just contact us for a full refund—no questions asked.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Ready to Transform Your Business?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Join thousands of marketers who are already using our automation tools to save time and increase sales.</p>
+            <a href="https://gumroad.com/checkout" class="btn btn-accent" target="_blank" data-aos="fade-up" data-aos-delay="200">Get Instant Access Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <span class="footer-link" id="privacy-policy-link">Privacy Policy</span>
+                <span class="footer-link" id="terms-of-service-link">Terms of Service</span>
+                <span class="footer-link" id="gdpr-compliance-link">GDPR Compliance</span>
+                <span class="footer-link" id="contact-us-link">Contact Us</span>
+                <span class="footer-link" id="support-link">Support</span>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Digital Marketing Suite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('show');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                document.querySelector('.nav-menu').classList.remove('show');
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const answer = this.nextElementSibling;
+                answer.classList.toggle('show');
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== this) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    }
+                });
+            });
+        });
+
+        // Testimonial Carousel
+        const testimonialSlides = document.querySelector('.testimonial-slides');
+        const testimonialItems = document.querySelectorAll('.testimonial-slide');
+        const indicatorsContainer = document.querySelector('.testimonial-indicators');
+        let currentSlide = 0;
+        const totalSlides = testimonialItems.length;
+
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('testimonial-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.setAttribute('data-slide', i);
+            indicatorsContainer.appendChild(dot);
+            dot.addEventListener('click', function() {
+                goToSlide(parseInt(this.getAttribute('data-slide')));
+            });
+        }
+
+        function goToSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            testimonialSlides.style.transform = `translateX(-${index * 100}%)`;
+            currentSlide = index;
+            document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        document.getElementById('next-testimonial').addEventListener('click', function() {
+            goToSlide(currentSlide + 1);
+        });
+
+        document.getElementById('prev-testimonial').addEventListener('click', function() {
+            goToSlide(currentSlide - 1);
+        });
+
+        let testimonialInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+
+        document.querySelector('.testimonial-carousel').addEventListener('mouseenter', function() {
+            clearInterval(testimonialInterval);
+        });
+
+        document.querySelector('.testimonial-carousel').addEventListener('mouseleave', function() {
+            testimonialInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        });
+
+        // Back to top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Countdown Timer
+        function updateTimer() {
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+            let h = parseInt(hours.textContent);
+            let m = parseInt(minutes.textContent);
+            let s = parseInt(seconds.textContent);
+            s = s - 1;
+            if (s < 0) {
+                s = 59;
+                m = m - 1;
+                if (m < 0) {
+                    m = 59;
+                    h = h - 1;
+                    if (h < 0) {
+                        h = 24;
+                        m = 0;
+                        s = 0;
+                    }
+                }
+            }
+            hours.textContent = h.toString().padStart(2, '0');
+            minutes.textContent = m.toString().padStart(2, '0');
+            seconds.textContent = s.toString().padStart(2, '0');
+        }
+        setInterval(updateTimer, 1000);
+
+        // Limited Licenses Counter
+        function updateLicenses() {
+            const licensesElement = document.getElementById('licenses-count');
+            let count = parseInt(licensesElement.textContent);
+            if (Math.random() < 0.05 && count > 5) {
+                count -= 1;
+                licensesElement.textContent = count;
+                licensesElement.style.color = 'white';
+                setTimeout(() => {
+                    licensesElement.style.color = '';
+                }, 500);
+            }
+        }
+        setInterval(updateLicenses, 30000);
+    </script>
 </body>
 </html>
