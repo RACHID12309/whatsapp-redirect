@@ -430,28 +430,6 @@
             border-radius: 5px;
         }
 
-        .product-demo-btn {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: var(--transition);
-        }
-
-        .product-demo-btn:hover {
-            background: var(--primary-dark);
-        }
-
         .product-details {
             flex: 2;
             min-width: 300px;
@@ -1066,6 +1044,148 @@
             transform: translateY(-5px);
         }
 
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 40px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .modal-text {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .modal-text h3 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: var(--dark-color);
+        }
+
+        .modal-text p {
+            margin-bottom: 15px;
+        }
+
+        .modal-text ul, .modal-text ol {
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+
+        .modal-text li {
+            margin-bottom: 8px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--accent-color);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .form-button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Support Section */
+        .support-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .support-option {
+            flex: 1;
+            min-width: 250px;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .support-option h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .support-icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -1236,7 +1356,6 @@
                 <div class="product-content">
                     <div class="product-img-container">
                         <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTAmgK18-InAAEM-3S6SnvVCIEuV4bpzt-Cj6h4ci3_HfKJPYTi" alt="WooCommerce Google Sheets Integration" class="product-img">
-                        <button class="product-demo-btn"><i class="fas fa-play"></i> See Demo</button>
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">WooCommerce Google Sheets Integration</h3>
@@ -1262,7 +1381,6 @@
                 <div class="product-content">
                     <div class="product-img-container">
                         <img src="https://s3.ap-south-1.amazonaws.com/blooup/uploads/images/202111/img_x300_619aa9cf39c826-89006069-38384703.jpg" alt="Facebook Groups Autoposter" class="product-img">
-                        <button class="product-demo-btn"><i class="fas fa-play"></i> See Demo</button>
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Facebook Groups Autoposter</h3>
@@ -1288,7 +1406,6 @@
                 <div class="product-content">
                     <div class="product-img-container">
                         <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/VW/MS/UG/118614775/bulk-whatsapp-marketing-software-with-licience-genrator-500x500.jpg" alt="Bulk WhatsApp Sender" class="product-img">
-                        <button class="product-demo-btn"><i class="fas fa-play"></i> See Demo</button>
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Bulk WhatsApp Sender</h3>
@@ -1464,7 +1581,7 @@
                                 <div class="star filled"><i class="fas fa-star"></i></div>
                                 <div class="star filled"><i class="fas fa-star"></i></div>
                             </div>
-                            <p class="testimonial-text">"The WhatsApp Sender brought back so many lost customers. It’s like having a personal sales team working 24/7!"</p>
+                            <p class="testimonial-text">"The WhatsApp Sender brought back so many lost customers. It's like having a personal sales team working 24/7!"</p>
                             <div class="testimonial-author">
                                 <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Mark Thompson" class="author-img">
                                 <div class="author-info">
@@ -1472,6 +1589,174 @@
                                     <p>Gym Owner</p>
                                     <span class="author-company">FitLife Gym</span>
                                     <div class="testimonial-result"><i class="fas fa-chart-line"></i> 95% revenue boost in 1 month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"I was skeptical about the Google Sheets integration, but it's revolutionary. I've cut data entry time by 90% and our inventory accuracy improved to 99.8%!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Jennifer Lee" class="author-img">
+                                <div class="author-info">
+                                    <h4>Jennifer Lee</h4>
+                                    <p>E-commerce Director</p>
+                                    <span class="author-company">StyleSpot Fashion</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Saved 22 hours weekly on admin tasks</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"The automation bundle has been a game-changer for our small business. We're now competing with companies 5x our size thanks to these tools!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Carlos Rodriguez" class="author-img">
+                                <div class="author-info">
+                                    <h4>Carlos Rodriguez</h4>
+                                    <p>Small Business Owner</p>
+                                    <span class="author-company">Artisan Home Decor</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Revenue up 156% year-over-year</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"We've tried dozens of marketing tools over the years. This is the only suite that delivered on all its promises. The ROI has been incredible."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Rebecca Mitchell" class="author-img">
+                                <div class="author-info">
+                                    <h4>Rebecca Mitchell</h4>
+                                    <p>CEO</p>
+                                    <span class="author-company">Bright Path Digital</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> 387% ROI within first quarter</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"The Facebook Groups Autoposter changed our online presence overnight. We went from posting in 15 groups to over 100, and our engagement skyrocketed!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="David Wilson" class="author-img">
+                                <div class="author-info">
+                                    <h4>David Wilson</h4>
+                                    <p>Social Media Manager</p>
+                                    <span class="author-company">Wilson Photography</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Bookings increased by 245%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"As a one-person business, these tools have been like hiring a marketing team without the salary overhead. I can now focus on product development while my marketing runs itself."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/7.jpg" alt="Lisa Chen" class="author-img">
+                                <div class="author-info">
+                                    <h4>Lisa Chen</h4>
+                                    <p>Founder</p>
+                                    <span class="author-company">EcoFriendly Products</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Business growth of 178% in 6 months</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"The WhatsApp Sender has revolutionized how we communicate with clients. Our appointment no-shows dropped by 85% almost immediately!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/8.jpg" alt="Michael Sanders" class="author-img">
+                                <div class="author-info">
+                                    <h4>Michael Sanders</h4>
+                                    <p>Clinic Director</p>
+                                    <span class="author-company">Wellness Center</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Client retention improved by 67%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"We've tried countless marketing tools over the years, but this suite offers the perfect balance of power and ease of use. Even my non-technical team mastered it in days."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/9.jpg" alt="Emma Taylor" class="author-img">
+                                <div class="author-info">
+                                    <h4>Emma Taylor</h4>
+                                    <p>Marketing Director</p>
+                                    <span class="author-company">Global Educational Services</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Lead generation up 205%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                                <div class="star filled"><i class="fas fa-star"></i></div>
+                            </div>
+                            <p class="testimonial-text">"In the competitive real estate market, these tools have given us a massive edge. We can now respond to leads instantly and manage our property data effortlessly."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="James Peterson" class="author-img">
+                                <div class="author-info">
+                                    <h4>James Peterson</h4>
+                                    <p>Real Estate Broker</p>
+                                    <span class="author-company">Premier Properties</span>
+                                    <div class="testimonial-result"><i class="fas fa-chart-line"></i> Closed 42% more deals in first quarter</div>
                                 </div>
                             </div>
                         </div>
@@ -1539,7 +1824,7 @@
                 <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="copyright">
-                <p>© 2023 Digital Marketing Suite. All rights reserved.</p>
+                <p>© 2025 Digital Marketing Suite. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1547,6 +1832,367 @@
     <!-- Back to top button -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Modal: Privacy Policy -->
+    <div class="modal" id="privacy-policy-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-privacy">&times;</span>
+            <h2 class="modal-title">Privacy Policy</h2>
+            <div class="modal-text">
+                <p>Last Updated: March 5, 2025</p>
+                
+                <h3>1. Introduction</h3>
+                <p>Digital Marketing Suite ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our digital marketing automation tools and services.</p>
+                
+                <h3>2. Information We Collect</h3>
+                <p>We collect information that you provide directly to us, including:</p>
+                <ul>
+                    <li>Personal information (name, email address, phone number, billing information)</li>
+                    <li>Account credentials for authorized third-party services</li>
+                    <li>Marketing data and content you upload to our platform</li>
+                    <li>Communications you have with us</li>
+                </ul>
+                
+                <p>We also automatically collect certain information when you use our services:</p>
+                <ul>
+                    <li>Log data (IP address, browser type, pages visited, time spent)</li>
+                    <li>Device information (hardware model, operating system)</li>
+                    <li>Usage data (features used, actions taken, performance metrics)</li>
+                    <li>Cookies and similar tracking technologies</li>
+                </ul>
+                
+                <h3>3. How We Use Your Information</h3>
+                <p>We use your information for various purposes, including:</p>
+                <ul>
+                    <li>Providing, maintaining, and improving our services</li>
+                    <li>Processing transactions and sending related information</li>
+                    <li>Responding to your comments, questions, and requests</li>
+                    <li>Sending technical notices, updates, security alerts, and support messages</li>
+                    <li>Monitoring and analyzing trends, usage, and activities</li>
+                    <li>Personalizing and improving your experience</li>
+                    <li>Detecting, investigating, and preventing fraudulent or unauthorized activities</li>
+                </ul>
+                
+                <h3>4. Sharing Your Information</h3>
+                <p>We may share your information with:</p>
+                <ul>
+                    <li>Service providers who perform services on our behalf</li>
+                    <li>Third-party applications that you authorize to receive your information</li>
+                    <li>Business partners with your consent</li>
+                    <li>In response to legal process or when we believe it's necessary to protect our rights</li>
+                    <li>In connection with a business transaction such as a merger or acquisition</li>
+                </ul>
+                
+                <h3>5. Your Choices</h3>
+                <p>You can manage your information and privacy preferences:</p>
+                <ul>
+                    <li>Update your account information through your account settings</li>
+                    <li>Opt-out of marketing communications</li>
+                    <li>Disable cookies through your browser settings</li>
+                    <li>Request access, correction, or deletion of your personal information</li>
+                </ul>
+                
+                <h3>6. Security</h3>
+                <p>We implement reasonable security measures to protect your information. However, no method of transmission over the Internet or electronic storage is 100% secure, so we cannot guarantee absolute security.</p>
+                
+                <h3>7. International Data Transfers</h3>
+                <p>Your information may be transferred to, and processed in, countries other than the one in which you reside. These countries may have different data protection laws than your country of residence.</p>
+                
+                <h3>8. Changes to This Policy</h3>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.</p>
+                
+                <h3>9. Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p>Email: privacy@digitalmarketingsuite.com<br>
+                Address: 123 Marketing Street, Suite 456, San Francisco, CA 94105, USA<br>
+                Phone: (555) 123-4567</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Terms of Service -->
+    <div class="modal" id="terms-of-service-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-terms">&times;</span>
+            <h2 class="modal-title">Terms of Service</h2>
+            <div class="modal-text">
+                <p>Last Updated: March 5, 2025</p>
+                
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing or using Digital Marketing Suite's services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use our services.</p>
+                
+                <h3>2. Description of Services</h3>
+                <p>Digital Marketing Suite provides digital marketing automation tools, including WooCommerce Google Sheets Integration, Facebook Groups Autoposter, and Bulk WhatsApp Sender ("Services"). We reserve the right to modify, suspend, or discontinue any part of our Services at any time.</p>
+                
+                <h3>3. Account Registration and Security</h3>
+                <p>To use certain features of our Services, you must register for an account. You agree to provide accurate, current, and complete information and to update this information to maintain its accuracy. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+                
+                <h3>4. License and Restrictions</h3>
+                <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable license to use our Services for your internal business purposes. You may not:</p>
+                <ul>
+                    <li>Copy, modify, or create derivative works of our Services</li>
+                    <li>Reverse engineer, decompile, or disassemble our Services</li>
+                    <li>Sell, resell, rent, lease, or license our Services</li>
+                    <li>Use our Services for any illegal purpose or in violation of any laws or regulations</li>
+                    <li>Use our Services to send unsolicited communications</li>
+                    <li>Use our Services in any manner that could damage, disable, overburden, or impair our systems</li>
+                </ul>
+                
+                <h3>5. Your Content</h3>
+                <p>You retain all rights to the content you upload, submit, or display through our Services ("Your Content"). By providing Your Content, you grant us a worldwide, royalty-free, non-exclusive license to use, reproduce, modify, adapt, publish, transmit, and display Your Content solely for the purpose of providing and improving our Services.</p>
+                
+                <h3>6. Payment and Refunds</h3>
+                <p>The purchase of our Services is subject to our pricing and payment terms. All payments are non-refundable except as expressly provided in our 30-day money-back guarantee. If you're not satisfied with our Services within 30 days of purchase, you may request a full refund.</p>
+                
+                <h3>7. Intellectual Property</h3>
+                <p>Our Services and their content, features, and functionality are owned by Digital Marketing Suite and are protected by copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+                
+                <h3>8. Third-Party Services</h3>
+                <p>Our Services may integrate with or contain links to third-party services. We do not control these third-party services and are not responsible for their content, privacy policies, or practices.</p>
+                
+                <h3>9. Disclaimer of Warranties</h3>
+                <p>OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
+                
+                <h3>10. Limitation of Liability</h3>
+                <p>IN NO EVENT SHALL DIGITAL MARKETING SUITE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITIES, WHETHER BASED ON CONTRACT, TORT, STRICT LIABILITY, OR OTHERWISE.</p>
+                
+                <h3>11. Indemnification</h3>
+                <p>You agree to defend, indemnify, and hold harmless Digital Marketing Suite from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees arising out of or relating to your violation of these Terms or your use of our Services.</p>
+                
+                <h3>12. Termination</h3>
+                <p>We may terminate or suspend your access to our Services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms.</p>
+                
+                <h3>13. Governing Law</h3>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions.</p>
+                
+                <h3>14. Changes to These Terms</h3>
+                <p>We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on our website and updating the "Last Updated" date.</p>
+                
+                <h3>15. Contact Us</h3>
+                <p>If you have any questions about these Terms, please contact us at:</p>
+                <p>Email: terms@digitalmarketingsuite.com<br>
+                Address: 123 Marketing Street, Suite 456, San Francisco, CA 94105, USA<br>
+                Phone: (555) 123-4567</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: GDPR Compliance -->
+    <div class="modal" id="gdpr-compliance-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-gdpr">&times;</span>
+            <h2 class="modal-title">GDPR Compliance</h2>
+            <div class="modal-text">
+                <p>Last Updated: March 5, 2025</p>
+                
+                <h3>1. Introduction</h3>
+                <p>Digital Marketing Suite is committed to compliance with the General Data Protection Regulation (GDPR) and respecting the privacy rights of individuals in the European Union (EU) and European Economic Area (EEA). This policy outlines our approach to GDPR compliance.</p>
+                
+                <h3>2. Data Protection Principles</h3>
+                <p>We adhere to the following data protection principles:</p>
+                <ul>
+                    <li><strong>Lawfulness, fairness, and transparency:</strong> We process personal data lawfully, fairly, and transparently.</li>
+                    <li><strong>Purpose limitation:</strong> We collect personal data for specified, explicit, and legitimate purposes.</li>
+                    <li><strong>Data minimization:</strong> We limit personal data collection to what is necessary.</li>
+                    <li><strong>Accuracy:</strong> We keep personal data accurate and up to date.</li>
+                    <li><strong>Storage limitation:</strong> We retain personal data only as long as necessary.</li>
+                    <li><strong>Integrity and confidentiality:</strong> We process personal data securely.</li>
+                    <li><strong>Accountability:</strong> We demonstrate compliance with these principles.</li>
+                </ul>
+                
+                <h3>3. Legal Basis for Processing</h3>
+                <p>We process personal data only when we have a legal basis to do so, including:</p>
+                <ul>
+                    <li><strong>Consent:</strong> The individual has given clear consent for us to process their personal data for a specific purpose.</li>
+                    <li><strong>Contract:</strong> Processing is necessary for a contract with the individual or to take steps at their request before entering into a contract.</li>
+                    <li><strong>Legal obligation:</strong> Processing is necessary to comply with the law.</li>
+                    <li><strong>Legitimate interests:</strong> Processing is necessary for our legitimate interests or those of a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the individual.</li>
+                </ul>
+                
+                <h3>4. Individual Rights</h3>
+                <p>We respect and facilitate the exercise of the following individual rights:</p>
+                <ul>
+                    <li><strong>Right to access:</strong> Individuals can request access to their personal data.</li>
+                    <li><strong>Right to rectification:</strong> Individuals can request correction of inaccurate personal data.</li>
+                    <li><strong>Right to erasure:</strong> Individuals can request deletion of their personal data.</li>
+                    <li><strong>Right to restrict processing:</strong> Individuals can request restriction of processing of their personal data.</li>
+                    <li><strong>Right to data portability:</strong> Individuals can request transfer of their personal data to another controller.</li>
+                    <li><strong>Right to object:</strong> Individuals can object to processing of their personal data.</li>
+                    <li><strong>Rights related to automated decision making and profiling:</strong> Individuals can request human intervention in automated decisions that significantly affect them.</li>
+                </ul>
+                
+                <h3>5. Data Protection Impact Assessments</h3>
+                <p>We conduct Data Protection Impact Assessments (DPIAs) when processing is likely to result in a high risk to individuals' rights and freedoms, such as when implementing new technologies or processing sensitive data on a large scale.</p>
+                
+                <h3>6. Data Breach Notification</h3>
+                <p>In the event of a personal data breach, we will:</p>
+                <ul>
+                    <li>Notify the relevant supervisory authority within 72 hours of becoming aware of the breach, where feasible, unless the breach is unlikely to result in a risk to individuals' rights and freedoms.</li>
+                    <li>Notify affected individuals without undue delay when the breach is likely to result in a high risk to their rights and freedoms.</li>
+                    <li>Document all breaches, including the facts, effects, and remedial action taken.</li>
+                </ul>
+                
+                <h3>7. International Data Transfers</h3>
+                <p>When transferring personal data outside the EU/EEA, we ensure appropriate safeguards are in place, such as:</p>
+                <ul>
+                    <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
+                    <li>Binding Corporate Rules (BCRs)</li>
+                    <li>Adequacy decisions by the European Commission</li>
+                </ul>
+                
+                <h3>8. Data Protection Officer</h3>
+                <p>We have appointed a Data Protection Officer (DPO) responsible for overseeing our GDPR compliance. Contact details of our DPO:</p>
+                <p>Email: dpo@digitalmarketingsuite.com<br>
+                Address: 123 Marketing Street, Suite 456, San Francisco, CA 94105, USA<br>
+                Phone: (555) 123-8910</p>
+                
+                <h3>9. GDPR Training</h3>
+                <p>We provide regular training to our staff on data protection and GDPR requirements to ensure awareness and compliance throughout our organization.</p>
+                
+                <h3>10. Contact Us</h3>
+                <p>If you have any questions about our GDPR compliance or wish to exercise your rights, please contact us at:</p>
+                <p>Email: privacy@digitalmarketingsuite.com<br>
+                Address: 123 Marketing Street, Suite 456, San Francisco, CA 94105, USA<br>
+                Phone: (555) 123-4567</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Contact Us -->
+    <div class="modal" id="contact-us-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-contact">&times;</span>
+            <h2 class="modal-title">Contact Us</h2>
+            <div class="modal-text">
+                <p>We'd love to hear from you! Get in touch with our team for any questions, feedback, or assistance.</p>
+                
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> info@digitalmarketingsuite.com</p>
+                <p><strong>Phone:</strong> (555) 123-4567</p>
+                <p><strong>Address:</strong> 123 Marketing Street, Suite 456<br>San Francisco, CA 94105<br>USA</p>
+                
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM (Pacific Time)<br>
+                Saturday: 10:00 AM - 2:00 PM (Pacific Time)<br>
+                Sunday: Closed</p>
+                
+                <h3>Send Us a Message</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-input form-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="form-button">Send Message</button>
+                </form>
+                
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for the latest updates, tips, and success stories:</p>
+                <div class="social-links" style="margin-top: 15px;">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Support -->
+    <div class="modal" id="support-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-support">&times;</span>
+            <h2 class="modal-title">Customer Support</h2>
+            <div class="modal-text">
+                <p>Our dedicated support team is here to help you make the most of your Digital Marketing Suite tools. We offer multiple ways to get assistance.</p>
+                
+                <h3>Support Options</h3>
+                <div class="support-options">
+                    <div class="support-option">
+                        <div class="support-icon"><i class="fas fa-comments"></i></div>
+                        <h3>Live Chat Support</h3>
+                        <p>Get real-time assistance from our team of experts. Available Monday-Friday, 9 AM - 6 PM PT.</p>
+                        <button class="form-button">Start Chat</button>
+                    </div>
+                    
+                    <div class="support-option">
+                        <div class="support-icon"><i class="fas fa-envelope"></i></div>
+                        <h3>Email Support</h3>
+                        <p>Send us an email and receive a response within 24 hours.</p>
+                        <p><strong>Email:</strong> support@digitalmarketingsuite.com</p>
+                    </div>
+                    
+                    <div class="support-option">
+                        <div class="support-icon"><i class="fas fa-phone-alt"></i></div>
+                        <h3>Phone Support</h3>
+                        <p>Speak directly with our customer care team for urgent issues.</p>
+                        <p><strong>Phone:</strong> (555) 123-7890</p>
+                        <p>Hours: Mon-Fri, 9 AM - 6 PM PT</p>
+                    </div>
+                </div>
+                
+                <h3>Knowledge Base</h3>
+                <p>Find answers to common questions and detailed guides in our comprehensive knowledge base.</p>
+                <button class="form-button">Browse Knowledge Base</button>
+                
+                <h3>Video Tutorials</h3>
+                <p>Learn how to use our tools effectively with our step-by-step video tutorials.</p>
+                <button class="form-button">Watch Tutorials</button>
+                
+                <h3>Submit a Support Ticket</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="support-name" class="form-label">Your Name</label>
+                        <input type="text" id="support-name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="support-email" class="form-label">Email Address</label>
+                        <input type="email" id="support-email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="support-product" class="form-label">Product</label>
+                        <select id="support-product" class="form-input" required>
+                            <option value="">Select a product</option>
+                            <option value="woocommerce">WooCommerce Google Sheets Integration</option>
+                            <option value="facebook">Facebook Groups Autoposter</option>
+                            <option value="whatsapp">Bulk WhatsApp Sender</option>
+                            <option value="bundle">Complete Bundle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="support-priority" class="form-label">Priority</label>
+                        <select id="support-priority" class="form-input" required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="support-issue" class="form-label">Describe Your Issue</label>
+                        <textarea id="support-issue" class="form-input form-textarea" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="support-file" class="form-label">Attach Screenshots (optional)</label>
+                        <input type="file" id="support-file" class="form-input">
+                    </div>
+                    <button type="submit" class="form-button">Submit Ticket</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -1702,6 +2348,46 @@
             }
         }
         setInterval(updateLicenses, 30000);
+
+        // Modal functionality
+        function setupModal(modalId, triggerId, closeId) {
+            const modal = document.getElementById(modalId);
+            const trigger = document.getElementById(triggerId);
+            const close = document.getElementById(closeId);
+            
+            trigger.addEventListener('click', function() {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            close.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // Setup all modals
+        setupModal('privacy-policy-modal', 'privacy-policy-link', 'close-privacy');
+        setupModal('terms-of-service-modal', 'terms-of-service-link', 'close-terms');
+        setupModal('gdpr-compliance-modal', 'gdpr-compliance-link', 'close-gdpr');
+        setupModal('contact-us-modal', 'contact-us-link', 'close-contact');
+        setupModal('support-modal', 'support-link', 'close-support');
+
+        // Form submission handling
+        document.querySelectorAll('.contact-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your submission! We will get back to you shortly.');
+                form.reset();
+            });
+        });
     </script>
 </body>
 </html>
