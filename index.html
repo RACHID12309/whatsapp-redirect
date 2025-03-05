@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triple Your Sales in 90 Days or Your Money Back—But Only if You Act NOW!</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Digital Marketing Automation Suite | Triple Your Sales While You Sleep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ff4c4c; /* Urgency-inducing red */
-            --secondary-color: #333; /* Dark for contrast */
-            --accent-color: #ffd700; /* Gold for value and prestige */
-            --text-color: #fff; /* White for readability on dark backgrounds */
-            --background-color: #1a1a1a; /* Dark to amplify urgency */
-            --button-color: #ff4c4c; /* Bold red CTA */
-            --button-hover: #e60000; /* Darker red on hover */
-            --font-family: 'Arial', sans-serif; /* Clean, professional */
-            --border-radius: 8px;
-            --box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            /* Colors */
+            --primary-blue-start: #007BFF;
+            --primary-blue-end: #0056b3;
+            --cta-red: #E63946;
+            --cta-red-hover: #FF6B6B;
+            --white: #FFFFFF;
+            --light-gray: #F2F2F2;
+            --dark-gray: #333;
+            --medium-gray: #666;
+
+            /* Typography */
+            --font-family: 'Poppins', sans-serif;
+            --headline-size: 36px;
+            --subheadline-size: 18px;
+            --body-size: 16px;
+            --cta-size: 18px;
+            --feature-headline-size: 24px;
         }
 
         * {
@@ -27,244 +34,119 @@
 
         body {
             font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--text-color);
             line-height: 1.6;
-            text-align: center;
+            color: var(--dark-gray);
+            background-color: var(--white);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        /* Headline */
-        .headline {
-            font-size: 48px;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        /* Subheadline */
-        .subheadline {
-            font-size: 24px;
-            color: var(--text-color);
-            margin-bottom: 40px;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            background-color: var(--button-color);
-            color: var(--text-color);
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            background-color: var(--button-hover);
-        }
-
-        /* Scarcity */
-        .scarcity {
-            font-size: 28px;
-            color: var(--accent-color);
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        /* Timer */
-        .timer {
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin: 20px 0;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            margin: 40px 0;
-            padding: 20px;
-            background-color: #2a2a2a;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .testimonial {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        /* Guarantee */
-        .guarantee {
-            font-size: 18px;
-            margin: 40px 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* FAQ */
-        .faq {
-            margin: 40px 0;
-            text-align: left;
-        }
-
-        .faq h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--accent-color);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, var(--primary-blue-start), var(--primary-blue-end));
+            padding: 100px 0;
             text-align: center;
         }
 
-        .faq-question {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: var(--text-color);
-        }
-
-        .faq-answer {
-            font-size: 16px;
+        .headline {
+            font-size: var(--headline-size);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--white);
             margin-bottom: 20px;
-            color: var(--text-color);
         }
 
-        /* Sticky Header */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #000;
-            color: var(--text-color);
-            padding: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .subheadline {
+            font-size: var(--subheadline-size);
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--white);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .sticky-header .timer {
-            font-size: 18px;
+        .cta-button {
+            background: var(--cta-red);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: var(--cta-size);
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            display: inline-block;
         }
 
-        .sticky-header .cta-button {
-            font-size: 16px;
-            padding: 8px 16px;
+        .cta-button:hover {
+            background: var(--cta-red-hover);
         }
 
-        /* Bullet Points */
-        .bullet-points {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
+        /* Feature Section */
+        .features {
+            background: var(--white);
+            padding: 60px 0;
         }
 
-        .bullet-points li {
-            font-size: 20px;
-            margin: 15px 0;
-            color: var(--text-color);
+        .feature {
+            margin-bottom: 40px;
+            max-width: 350px;
         }
 
-        .bullet-points li::before {
-            content: "🔥";
-            margin-right: 10px;
+        .feature-headline {
+            font-size: var(--feature-headline-size);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .feature-text {
+            font-size: var(--body-size);
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--medium-gray);
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .mb-40 {
+            margin-bottom: 40px;
         }
     </style>
 </head>
 <body>
-    <!-- Sticky Header -->
-    <div class="sticky-header">
-        <div class="timer" id="sticky-timer">Offer Ends In: 01:00:00</div>
-        <button class="cta-button" onclick="location.href='https://gumroad.com/checkout'">Buy Now</button>
-    </div>
-
-    <div class="container">
-        <!-- Headline -->
-        <h1 class="headline">Triple Your Sales in 90 Days or Your Money Back—But Only if You Act NOW!</h1>
-
-        <!-- Subheadline -->
-        <p class="subheadline">These Are the ONLY Tools Proven to Skyrocket Your Revenue and Crush Your Competition—Without Them, You’re Doomed to Fail.</p>
-
-        <!-- Primary CTA -->
-        <button class="cta-button" onclick="location.href='https://gumroad.com/checkout'">Buy Now Before It’s Too Late!</button>
-
-        <!-- Scarcity Section -->
-        <div class="scarcity">Only 5 Spots Left at $199 (Original Price $597)—Price Jumps to $397 After Today!</div>
-
-        <!-- Countdown Timer -->
-        <div class="timer" id="countdown-timer">01:00:00</div>
-
-        <!-- Key Bullet Points -->
-        <ul class="bullet-points">
-            <li>Stop Wasting Hours on Manual Tasks—Automate Your Marketing and Reclaim Your Life Before It’s Too Late.</li>
-            <li>Watch Your Revenue Skyrocket While You Sleep—These Tools Work 24/7, Unlike Your Competitors Who Are Already Using Them.</li>
-            <li>Don’t Let Your Rivals Steal Your Customers—Get the Edge You Need to Dominate Your Market NOW or Lose Everything.</li>
-        </ul>
-
-        <!-- Testimonials Section -->
-        <div class="testimonials">
-            <h2>What Top Marketers Say</h2>
-            <div class="testimonial">"I was skeptical, but these tools paid for themselves in the first week. My sales are up 200%, and I’ve got my weekends back. Don’t miss out!" — John D., Small Business Owner, Chicago</div>
-            <div class="testimonial">"I’ve tested every marketing tool out there—nothing beats this bundle. It’s the real deal your competitors don’t want you to know about." — Sarah K., Digital Marketer, Toronto</div>
-            <div class="testimonial">"If you’re not using these tools, you’re throwing money away. My revenue tripled in 60 days—get them before they’re gone!" — Mike R., Marketing Consultant, Vancouver</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="headline">Triple Your Sales Today</h1>
+            <p class="subheadline">Boost conversions with our automation tools.</p>
+            <a href="#" class="cta-button">Get Started</a>
         </div>
+    </section>
 
-        <!-- Money-Back Guarantee -->
-        <div class="guarantee">100% Money-Back Guarantee—If You Don’t See Results in 30 Days, We’ll Refund Every Penny, No Questions Asked.</div>
-
-        <!-- Secondary CTA -->
-        <button class="cta-button" onclick="location.href='https://gumroad.com/checkout'">Buy Now Before It’s Too Late!</button>
-
-        <!-- FAQ Section -->
-        <div class="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-question">Is this really worth $199?</div>
-            <p class="faq-answer">Yes—customers see an average ROI of 300% in 90 days. But only 5 spots remain at this price—act now or pay $397 later!</p>
-            <div class="faq-question">What if it doesn’t work for me?</div>
-            <p class="faq-answer">You’re covered by our 100% money-back guarantee. No results in 30 days? Full refund. Zero risk—but you must act fast!</p>
-            <div class="faq-question">Why only 5 spots?</div>
-            <p class="faq-answer">We’re limiting this deal to ensure premium support for early adopters. Once gone, the price doubles—don’t miss out!</p>
+    <!-- Feature Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h2 class="feature-headline">Feature One</h2>
+                <p class="feature-text">Description of feature one goes here.</p>
+            </div>
+            <!-- Add more features as needed -->
         </div>
-    </div>
-
-    <!-- Countdown Timer Script -->
-    <script>
-        function startCountdown(duration, display) {
-            let timer = duration, hours, minutes, seconds;
-            setInterval(function () {
-                hours = parseInt(timer / 3600, 10);
-                minutes = parseInt((timer % 3600) / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                display.textContent = hours + ":" + minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    timer = 0; // Stops at zero
-                }
-            }, 1000);
-        }
-
-        window.onload = function () {
-            const oneHour = 60 * 60, // 1 hour countdown
-                display = document.querySelector('#countdown-timer'),
-                stickyDisplay = document.querySelector('#sticky-timer');
-            startCountdown(oneHour, display);
-            startCountdown(oneHour, stickyDisplay);
-        };
-    </script>
+    </section>
 </body>
 </html>
