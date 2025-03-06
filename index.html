@@ -1290,7 +1290,7 @@
                     <img src="https://s3.ap-south-1.amazonaws.com/blooup/uploads/images/202111/img_x300_619aa9cf39c826-89006069-38384703.jpg" alt="Facebook Groups Autoposter" class="hero-image">
                     <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/VW/MS/UG/118614775/bulk-whatsapp-marketing-software-with-licience-genrator-500x500.jpg" alt="Bulk WhatsApp Sender" class="hero-image">
                 </div>
-                <a href="https://gum.co/DigitalMarketingPowerBundle" class="btn btn-accent gumroad-button">Get Instant Access Now</a>
+                <a href="https://gumroad.com/l/DigitalMarketingPowerBundle" class="btn btn-accent gumroad-button">Get Instant Access Now</a>
                 <div class="timer-container">
                     <div class="timer-label">Limited Time Offer Ends In:</div>
                     <div class="timer">
@@ -1495,14 +1495,14 @@
                     </div>
                 </div>
                 <div class="savings">You Save $118 Today!</div>
-                <a href="https://gum.co/DigitalMarketingPowerBundle" target="_blank" class="final-price-link gumroad-button" style="text-decoration: none; display: block;">
+                <a href="https://gumroad.com/l/DigitalMarketingPowerBundle" class="final-price-link gumroad-button" style="text-decoration: none; display: block;">
                     <div class="final-price">Pay Only $149 Today</div>
                 </a>
                 <div class="guarantee">
                     <span class="guarantee-icon"><i class="fas fa-shield-alt"></i></span>
                     30-Day Money-Back Guarantee
                 </div>
-                <a href="https://gum.co/DigitalMarketingPowerBundle" class="btn btn-accent gumroad-button">Get Instant Access Now</a>
+                <a href="https://gumroad.com/l/DigitalMarketingPowerBundle" class="btn btn-accent gumroad-button">Get Instant Access Now</a>
                 <div class="security-badges">
                     <div class="security-badge"><i class="fas fa-lock"></i> Secure Payment</div>
                     <div class="security-badge"><i class="fas fa-shield-alt"></i> GDPR Compliant</div>
@@ -1802,7 +1802,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Ready to Transform Your Business?</h2>
             <p data-aos="fade-up" data-aos-delay="100">Join thousands of marketers who are already using our automation tools to save time and increase sales.</p>
-            <a href="https://gum.co/DigitalMarketingPowerBundle" class="btn btn-accent gumroad-button" data-aos="fade-up" data-aos-delay="200">Get Instant Access Now</a>
+            <a href="https://gumroad.com/l/DigitalMarketingPowerBundle" class="btn btn-accent gumroad-button" data-aos="fade-up" data-aos-delay="200">Get Instant Access Now</a>
         </div>
     </section>
 
@@ -2199,6 +2199,16 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://gumroad.com/js/gumroad.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sure Gumroad overlay is properly initialized
+            if (typeof Gumroad !== 'undefined') {
+                // Force Gumroad to reinitialize overlay buttons if needed
+                if (typeof Gumroad.reload === 'function') {
+                    Gumroad.reload();
+                }
+            }
+        });
+
         AOS.init({
             duration: 1000,
             once: true
