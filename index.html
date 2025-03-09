@@ -3,2052 +3,939 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="غسالة ملابس محمولة قابلة للطي - الحل الأمثل للمساحات الصغيرة بسعر 189 ريال فقط. توفير في الماء والكهرباء والمساحة!">
-    <meta name="keywords" content="غسالة ملابس محمولة, غسالة صغيرة, غسالة للسفر, غسالة للشقق الصغيرة, غسالة اقتصادية">
-    <title>غسالة ملابس محمولة قابلة للطي | حل مبتكر للمساحات الصغيرة</title>
-    
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="غسالة ملابس محمولة قابلة للطي - عرض خاص">
-    <meta property="og:description" content="الحل الأمثل للمساحات الصغيرة والشقق والرحلات - وفر الوقت والمال والمساحة! عرض محدود لفترة محدودة.">
-    <meta property="og:image" content="https://cdn.youcan.shop/stores/774c77a1bd4cb8590f6cf7c2da8b62b5/products/pNSQLT1TriwDpZVIZ3y00v8IaEPaTy9vzVdwtcZ5.jpg">
-    
+    <title>مولّد الفيديوهات الإعلانية | AI Video Creator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
+        
         :root {
-            --primary-color: #7448db;
-            --secondary-color: #ff6b35;
-            --dark-color: #333;
-            --light-color: #fff;
-            --accent-color: #ffd700;
-            --font-family: 'Tajawal', sans-serif;
-            --gradient-bg: linear-gradient(135deg, #7448db, #6039be);
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            --border-radius: 10px;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25%, 75% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes highlight {
-            0%, 100% { background-color: transparent; }
-            50% { background-color: rgba(255, 215, 0, 0.3); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            --primary-color: #4776E6;
+            --primary-gradient: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+            --secondary-color: #8E54E9;
         }
         
-        @keyframes slideBg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Tajawal', sans-serif;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        
+        .ltr {
+            direction: ltr;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
         }
-
+        
+        .light-mode {
+            --bg-color: #f5f7fa;
+            --bg-card: #ffffff;
+            --text-color: #1a202c;
+            --text-secondary: #4a5568;
+            --border-color: #e2e8f0;
+        }
+        
+        .dark-mode {
+            --bg-color: #1a202c;
+            --bg-card: #2d3748;
+            --text-color: #f7fafc;
+            --text-secondary: #cbd5e0;
+            --border-color: #4a5568;
+        }
+        
         body {
-            font-family: var(--font-family);
-            color: var(--dark-color);
-            background-color: #f7f7f7;
-            line-height: 1.6;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            font-size: 32px;
+        
+        .secondary-text {
+            color: var(--text-secondary);
+        }
+        
+        .gradient-button {
+            background: var(--primary-gradient);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-container {
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+        }
+        
+        .loader {
+            border-top-color: var(--secondary-color);
+            animation: spinner 1.5s linear infinite;
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .template-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .template-card.selected {
+            border: 2px solid var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .label-floating {
+            position: absolute;
+            pointer-events: none;
+            transition: 0.2s ease all;
+            color: var(--text-secondary);
+        }
+        
+        .rtl .label-floating {
+            right: 12px;
+            top: 11px;
+        }
+        
+        .ltr .label-floating {
+            left: 12px;
+            top: 11px;
+        }
+        
+        .rtl input:focus ~ .label-floating,
+        .rtl input:not(:placeholder-shown) ~ .label-floating,
+        .rtl textarea:focus ~ .label-floating,
+        .rtl textarea:not(:placeholder-shown) ~ .label-floating {
+            top: -10px;
+            right: 10px;
+            font-size: 12px;
+            background: var(--bg-card);
+            padding: 0 4px;
+            color: var(--secondary-color);
+        }
+        
+        .ltr input:focus ~ .label-floating,
+        .ltr input:not(:placeholder-shown) ~ .label-floating,
+        .ltr textarea:focus ~ .label-floating,
+        .ltr textarea:not(:placeholder-shown) ~ .label-floating {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            background: var(--bg-card);
+            padding: 0 4px;
+            color: var(--secondary-color);
+        }
+        
+        .progress-step {
             position: relative;
-            padding-bottom: 15px;
         }
-
-        .section-title::after {
+        
+        .progress-step:not(:last-child)::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--border-color);
+            top: 15px;
+            left: 50%;
+            z-index: 0;
+        }
+        
+        .progress-step.active:not(:last-child)::after {
+            background: var(--primary-gradient);
+        }
+        
+        .step-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--bg-card);
+            color: var(--text-color);
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 100;
+            bottom: 125%;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gradient-bg);
-            border-radius: 3px;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--light-color);
-            box-shadow: var(--box-shadow);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-left: 10px;
-            font-size: 28px;
-        }
-
-        .header-cta {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: none;
-        }
-
-        .header-cta:hover {
-            background-color: #e5582d;
-            transform: scale(1.05);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 70px 0 50px;
-            background-image: linear-gradient(45deg, #f0f0f0, rgba(255, 255, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f8f8"/><circle cx="50" cy="50" r="40" fill="%23f0f0f0"/></svg>');
-            background-size: cover;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-badge {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            transform: rotate(10deg);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            animation: shake 5s infinite;
-            z-index: 10;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-subtitle {
-            font-size: 22px;
-            color: #555;
-            margin-bottom: 30px;
-            max-width: 800px;
-        }
-
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .hero-feature i {
-            color: var(--primary-color);
-            margin-left: 10px;
-            font-size: 20px;
-        }
-
-        .hero-image-container {
-            position: relative;
-            margin: 30px 0;
-            display: inline-block;
-        }
-
-        .hero-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.03) translateY(-10px);
-        }
-
-        .hero-price-tag {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            background-color: var(--accent-color);
-            color: var(--dark-color);
-            width: 100px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transform: rotate(15deg);
-            animation: pulse 3s infinite;
-            z-index: 2;
-        }
-
-        .price-now {
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .price-before {
-            text-decoration: line-through;
-            font-size: 16px;
-            color: #666;
-        }
-
-        .hero-cta {
-            background: linear-gradient(45deg, var(--accent-color), #ffb700);
-            color: var(--dark-color);
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: inline-flex;
-            align-items: center;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid transparent;
-            animation: pulse 2s infinite;
-        }
-
-        .hero-cta i {
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            border-color: var(--accent-color);
-        }
-
-        .hero-cta:hover i {
-            transform: translateX(-5px);
-        }
-
-        .hero-cta::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.7s ease;
-        }
-
-        .hero-cta:hover::before {
-            left: 100%;
-        }
-
-        /* Urgency Bar */
-        .urgency-bar {
-            background-color: #ff3a3a;
-            color: var(--light-color);
-            padding: 12px 0;
-            text-align: center;
-            font-weight: 700;
-            animation: highlight 2s infinite;
-        }
-
-        .urgency-bar i {
-            margin-left: 10px;
-            animation: pulse 1s infinite;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-
-        .pain-points {
-            background-color: #fff4e5;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: var(--box-shadow);
-            text-align: center;
-        }
-
-        .pain-points h3 {
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .pain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .pain-item {
-            display: flex;
-            align-items: flex-start;
-            text-align: right;
-        }
-
-        .pain-item i {
-            color: #ff3a3a;
-            margin-left: 15px;
-            min-width: 20px;
-            margin-top: 5px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .benefit-card {
-            background-color: var(--light-color);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .benefit-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient-bg);
-        }
-
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-bg);
-            color: var(--light-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            font-size: 30px;
-        }
-
-        .benefit-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            font-size: 22px;
-        }
-
-        .benefit-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        .benefit-stat {
-            display: inline-block;
-            background-color: rgba(116, 72, 219, 0.1);
-            color: var(--primary-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-top: 15px;
-            font-weight: 700;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: var(--light-color);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-            border-color: var(--primary-color);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background-color: rgba(116, 72, 219, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 36px;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            transform: rotateY(180deg);
-        }
-
-        .feature-card h3 {
-            margin: 15px 0;
-            color: var(--primary-color);
-            font-size: 20px;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0;
-            background-color: #f5f5f5;
-        }
-
-        .gallery-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .gallery-tab {
-            padding: 10px 20px;
-            margin: 0 10px 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-tab.active, .gallery-tab:hover {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            border-color: var(--primary-color);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: var(--light-color);
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .gallery-title {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .gallery-desc {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background-color: var(--light-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials::before {
-            content: '"';
-            position: absolute;
-            top: 30px;
-            left: 5%;
-            font-size: 200px;
-            color: rgba(116, 72, 219, 0.05);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .testimonials-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: var(--box-shadow);
-            position: relative;
-            transition: all 0.3s ease;
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .testimonial-rating {
-            color: var(--accent-color);
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-text {
-            font-size: 18px;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            font-size: 24px;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .author-info h4 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: #777;
-            font-size: 14px;
-        }
-
-        .testimonial-indicators {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .indicator.active {
-            background-color: var(--primary-color);
-            transform: scale(1.3);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: var(--gradient-bg);
-            color: var(--light-color);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 50px;
-            opacity: 0.3;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-description {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-
-        .price-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .discount-badge {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 15px 15px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: shake 5s infinite;
-        }
-
-        .discount-badge::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: slideBg 3s infinite;
-        }
-
-        .price-wrapper {
-            display: flex;
-            align-items: center;
-            margin: 0 15px 15px;
-        }
-
-        .current-price {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--accent-color);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .original-price {
-            font-size: 28px;
-            text-decoration: line-through;
-            color: rgba(255, 255, 255, 0.7);
-            margin-right: 15px;
-            position: relative;
-        }
-
-        .original-price::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background-color: rgba(255, 59, 59, 0.8);
-            transform: translateY(-50%) rotate(-10deg);
-        }
-
-        .urgency-badge {
-            display: inline-block;
-            background-color: rgba(255, 59, 59, 0.9);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: shake 3s infinite;
-        }
-
-        .limited-offer {
-            font-size: 18px;
-            color: var(--accent-color);
-            margin: 15px 0;
-            font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .remaining-units {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            max-width: 400px;
-            margin: 30px auto;
-            border: 2px solid var(--accent-color);
-            animation: pulse 3s infinite;
-        }
-
-        .remaining-units p {
-            margin: 0 0 10px;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .remaining-units p i {
-            margin-left: 10px;
-            animation: pulse 1.5s infinite;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            width: 15%;
-            background-color: var(--accent-color);
-            animation: progress-animation 2s ease;
-        }
-
-        @keyframes progress-animation {
-            0% { width: 0; }
-            100% { width: 15%; }
-        }
-
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 15px 20px;
-            border-radius: var(--border-radius);
-            min-width: 150px;
-            transition: all 0.3s ease;
-        }
-
-        .trust-item:hover {
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .trust-item i {
-            font-size: 30px;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .trust-item p {
-            text-align: center;
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--accent-color), #ffb700);
-            color: var(--dark-color);
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 22px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid transparent;
-            animation: pulse 2s infinite;
-        }
-
-        .cta-btn i {
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent-color);
-        }
-
-        .cta-btn:hover i {
-            transform: translateX(-5px);
-        }
-
-        .cta-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.7s ease;
-        }
-
-        .cta-btn:hover::before {
-            left: 100%;
-        }
-
-        .social-proof {
-            margin-top: 30px;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-proof i {
-            margin-left: 10px;
-            color: var(--accent-color);
-        }
-
-        /* Guarantee Section */
-        .guarantee {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
-
-        .guarantee-content {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: var(--light-color);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            position: relative;
-        }
-
-        .guarantee-badge {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 30px;
-            animation: float 3s infinite;
-        }
-
-        .guarantee-content h3 {
-            color: var(--primary-color);
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .guarantee-content p {
-            color: #666;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .guarantee-signature {
-            margin-top: 30px;
-            font-style: italic;
-            color: #777;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 80px 0;
-            background-color: var(--light-color);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .faq-question {
-            padding: 20px;
-            background-color: #f8f9fa;
-            font-weight: 700;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .faq-question i {
-            margin-left: 15px;
-            color: var(--primary-color);
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active {
-            color: var(--primary-color);
-        }
-
-        .faq-question.active i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            background-color: white;
-        }
-
-        .faq-answer-inner {
-            padding: 20px 0;
-            color: #666;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h3 {
-            color: var(--light-color);
-            margin-bottom: 20px;
-            font-size: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-
-        .footer-column p {
-            color: #bbb;
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-links a i {
-            margin-left: 10px;
-            color: var(--accent-color);
-        }
-
-        .footer-links a:hover {
-            color: var(--light-color);
-            transform: translateX(-5px);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--light-color);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-icon:hover {
-            background-color: var(--accent-color);
-            color: var(--dark-color);
-            transform: translateY(-5px);
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .contact-item i {
-            margin-left: 15px;
-            color: var(--accent-color);
-            min-width: 20px;
-            margin-top: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 999;
-            display: none;
-        }
-
-        .floating-btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .floating-btn:hover {
-            background-color: white;
-            color: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-
-        .floating-btn i {
-            margin-right: 10px;
-        }
-
-        /* Notification */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: white;
-            padding: 15px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            max-width: 300px;
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
         }
 
-        .notification-content {
-            display: flex;
-            align-items: center;
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
-
-        .notification-icon {
-            color: var(--secondary-color);
-            font-size: 24px;
-            margin-left: 15px;
-        }
-
-        .notification-text {
-            color: var(--dark-color);
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .notification-close {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: #999;
+        
+        .feature-tag {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 3px 10px;
             font-size: 12px;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-            }
-            
-            .price-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .price-wrapper {
-                margin-top: 20px;
-            }
-            
-            .current-price {
-                font-size: 36px;
-            }
-            
-            .original-price {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .hero h1 {
-                font-size: 30px;
-            }
-            
-            .hero-subtitle {
-                font-size: 16px;
-            }
-            
-            .hero-feature {
-                width: 100%;
-            }
-            
-            .hero-price-tag {
-                width: 80px;
-                height: 80px;
-                top: -10px;
-                right: -10px;
-            }
-            
-            .price-now {
-                font-size: 20px;
-            }
-            
-            .hero-cta, .cta-btn {
-                padding: 12px 25px;
-                font-size: 16px;
-            }
-            
-            .benefit-card, .feature-card {
-                padding: 20px;
-            }
-            
-            .trust-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .trust-item {
-                width: 100%;
-                max-width: 250px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                width: 95%;
-            }
-            
-            .hero h1 {
-                font-size: 24px;
-            }
-            
-            .hero-features {
-                gap: 15px;
-            }
-            
-            .current-price {
-                font-size: 30px;
-            }
-            
-            .original-price {
-                font-size: 20px;
-            }
-            
-            .discount-badge {
-                font-size: 16px;
-                padding: 8px 15px;
-            }
-            
-            .testimonial-card {
-                padding: 20px;
-            }
-            
-            .testimonial-text {
-                font-size: 16px;
-            }
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background: var(--primary-gradient);
+            color: white;
         }
     </style>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Urgency Bar -->
-    <div class="urgency-bar">
-        <i class="fas fa-bolt"></i> عرض لفترة محدودة - خصم 30% ينتهي بعد 24 ساعة!
+<body class="p-4 md:p-0 light-mode rtl">
+    <div class="container mx-auto py-8 px-4 max-w-4xl">
+        <!-- Header with language and theme toggles -->
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <button id="themeSwitcher" class="p-2 rounded-full focus:outline-none mr-2">
+                    <i class="fas fa-sun text-yellow-500 dark:text-gray-400" id="themeIcon"></i>
+                </button>
+                <div class="border border-gray-300 dark:border-gray-600 rounded-full p-1 flex">
+                    <button id="arabicLang" class="px-3 py-1 rounded-full bg-indigo-600 text-white">العربية</button>
+                    <button id="englishLang" class="px-3 py-1 rounded-full">English</button>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="hidden md:inline secondary-text" id="aiPowered">مدعوم بالذكاء الاصطناعي</span>
+                <img src="/api/placeholder/40/40" alt="AI Logo" class="ml-2 rounded-full">
+            </div>
+        </header>
+        
+        <!-- Progress indicator -->
+        <div class="flex justify-between mb-8 px-4">
+            <div class="progress-step active flex flex-col items-center w-1/3">
+                <div class="step-circle bg-indigo-600 text-white">1</div>
+                <p class="mt-2 text-sm font-medium" id="stepOneText">اختيار القالب</p>
+            </div>
+            <div class="progress-step flex flex-col items-center w-1/3" id="stepTwoIndicator">
+                <div class="step-circle bg-gray-200 text-gray-600">2</div>
+                <p class="mt-2 text-sm font-medium" id="stepTwoText">تفاصيل المنتج</p>
+            </div>
+            <div class="progress-step flex flex-col items-center w-1/3" id="stepThreeIndicator">
+                <div class="step-circle bg-gray-200 text-gray-600">3</div>
+                <p class="mt-2 text-sm font-medium" id="stepThreeText">المعاينة والتحميل</p>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="form-container card p-6 mb-8">
+            <div id="step1" class="transition-all duration-500">
+                <h2 class="text-2xl font-bold mb-2" id="chooseTemplateTitle">اختر قالب الفيديو</h2>
+                <p class="mb-6 secondary-text" id="chooseTemplateDesc">كل قالب مصمم لنوع محدد من المحتوى الإعلاني</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="template-card card p-4 rounded-lg text-center" data-template="product">
+                        <div class="rounded-lg p-2 mb-3 flex justify-center">
+                            <img src="/api/placeholder/150/100" alt="عرض المنتج" class="rounded">
+                        </div>
+                        <div class="tooltip">
+                            <h3 class="font-bold" id="productShowcaseTitle">عرض المنتج</h3>
+                            <span class="tooltiptext" id="productShowcaseTooltip">يعرض منتجك من عدة زوايا مع التركيز على الميزات الفريدة</span>
+                        </div>
+                        <p class="text-sm mt-2 secondary-text" id="productShowcaseDesc">عرض المنتج من زوايا مختلفة مع إبراز المميزات</p>
+                    </div>
+                    
+                    <div class="template-card card p-4 rounded-lg text-center" data-template="problem-solution">
+                        <div class="rounded-lg p-2 mb-3 flex justify-center">
+                            <img src="/api/placeholder/150/100" alt="مشكلة وحل" class="rounded">
+                        </div>
+                        <div class="tooltip">
+                            <h3 class="font-bold" id="problemSolutionTitle">مشكلة وحل</h3>
+                            <span class="tooltiptext" id="problemSolutionTooltip">يوضح المشكلة التي يواجهها العملاء ثم يقدم منتجك كحل مثالي</span>
+                        </div>
+                        <p class="text-sm mt-2 secondary-text" id="problemSolutionDesc">عرض المشكلة ثم كيف يحلها المنتج بطريقة فعالة</p>
+                    </div>
+                    
+                    <div class="template-card card p-4 rounded-lg text-center" data-template="testimonial">
+                        <div class="rounded-lg p-2 mb-3 flex justify-center">
+                            <img src="/api/placeholder/150/100" alt="شهادة عميل" class="rounded">
+                        </div>
+                        <div class="tooltip">
+                            <h3 class="font-bold" id="testimonialTitle">شهادة عميل</h3>
+                            <span class="tooltiptext" id="testimonialTooltip">يعرض تجربة حقيقية للعملاء قبل وبعد استخدام منتجك</span>
+                        </div>
+                        <p class="text-sm mt-2 secondary-text" id="testimonialDesc">قصة نجاح قصيرة مع إظهار النتائج قبل وبعد</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button id="nextToStep2" class="gradient-button text-white px-8 py-3 rounded-lg font-bold flex items-center">
+                        <span id="nextButtonText">التالي</span>
+                        <i class="fas fa-arrow-left mr-2 rtl-icon"></i>
+                        <i class="fas fa-arrow-right ml-2 ltr-icon hidden"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="step2" class="hidden transition-all duration-500">
+                <h2 class="text-2xl font-bold mb-2" id="productDetailsTitle">أدخل تفاصيل المنتج</h2>
+                <p class="mb-6 secondary-text" id="productDetailsDesc">كلما كانت التفاصيل أكثر دقة، كان الفيديو أكثر فعالية</p>
+                
+                <div class="mb-6">
+                    <div class="relative">
+                        <input type="text" id="productName" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-transparent bg-transparent border-gray-300 dark:border-gray-600" placeholder=" ">
+                        <label for="productName" class="label-floating" id="productNameLabel">اسم المنتج</label>
+                    </div>
+                    <p class="text-xs secondary-text mt-1 mr-1" id="productNameHelper">أدخل اسم واضح ومميز لمنتجك</p>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="relative">
+                        <textarea id="productDescription" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-transparent bg-transparent border-gray-300 dark:border-gray-600" placeholder=" "></textarea>
+                        <label for="productDescription" class="label-floating" id="productDescriptionLabel">وصف المنتج وميزاته الرئيسية</label>
+                    </div>
+                    <p class="text-xs secondary-text mt-1 mr-1" id="productDescriptionHelper">أدخل وصفاً تفصيلياً يشمل الميزات والفوائد والجمهور المستهدف</p>
+                    
+                    <div class="mt-3">
+                        <p class="text-sm font-medium mb-2" id="suggestedFeaturesText">اضغط لإضافة ميزات مقترحة:</p>
+                        <div class="flex flex-wrap mt-1">
+                            <span class="feature-tag cursor-pointer" data-feature="سهل الاستخدام">سهل الاستخدام</span>
+                            <span class="feature-tag cursor-pointer" data-feature="جودة عالية">جودة عالية</span>
+                            <span class="feature-tag cursor-pointer" data-feature="سعر تنافسي">سعر تنافسي</span>
+                            <span class="feature-tag cursor-pointer" data-feature="ضمان لمدة سنة">ضمان لمدة سنة</span>
+                            <span class="feature-tag cursor-pointer" data-feature="توصيل مجاني">توصيل مجاني</span>
+                            <span class="feature-tag cursor-pointer" data-feature="الأفضل مبيعاً">الأفضل مبيعاً</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block secondary-text mb-2 font-medium" id="productImageLabel">صورة المنتج (اختياري)</label>
+                    <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
+                        <div id="uploadPlaceholder">
+                            <svg class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H8m36-12h-4m4 0H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <p class="mt-1 text-sm secondary-text" id="dragDropText">
+                                اسحب وأفلت الصورة هنا أو
+                                <span class="text-purple-600 font-medium cursor-pointer" id="chooseFileText">اختر ملف</span>
+                            </p>
+                            <p class="mt-1 text-xs secondary-text" id="acceptedFormatsText">PNG, JPG حتى 5MB</p>
+                        </div>
+                        <div id="uploadPreview" class="hidden">
+                            <img id="previewImage" src="" alt="صورة المنتج" class="mx-auto max-h-48 rounded">
+                            <button id="removeImage" class="mt-2 text-red-500 text-sm">
+                                <i class="fas fa-times mr-1"></i>
+                                <span id="removeImageText">إزالة</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-xs secondary-text mt-1 mr-1" id="imageHelper">صورة واضحة للمنتج ستحسن من جودة الفيديو</p>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block secondary-text mb-2 font-medium" id="videoDurationLabel">مدة الفيديو</label>
+                    <div class="card p-3 rounded-lg">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <div class="flex items-center flex-1 p-2 border rounded-lg border-gray-300 dark:border-gray-600 hover:border-purple-500 cursor-pointer duration-option" data-duration="15">
+                                <input type="radio" id="duration15" name="duration" value="15" class="w-4 h-4 text-purple-600" checked>
+                                <div class="ml-2 mr-2">
+                                    <label for="duration15" class="font-medium cursor-pointer" id="duration15Label">15 ثانية</label>
+                                    <p class="text-xs secondary-text" id="duration15Desc">مثالي للإعلانات القصيرة</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center flex-1 p-2 border rounded-lg border-gray-300 dark:border-gray-600 hover:border-purple-500 cursor-pointer duration-option" data-duration="30">
+                                <input type="radio" id="duration30" name="duration" value="30" class="w-4 h-4 text-purple-600">
+                                <div class="ml-2 mr-2">
+                                    <label for="duration30" class="font-medium cursor-pointer" id="duration30Label">30 ثانية</label>
+                                    <p class="text-xs secondary-text" id="duration30Desc">يناسب معظم الإعلانات</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center flex-1 p-2 border rounded-lg border-gray-300 dark:border-gray-600 hover:border-purple-500 cursor-pointer duration-option" data-duration="60">
+                                <input type="radio" id="duration60" name="duration" value="60" class="w-4 h-4 text-purple-600">
+                                <div class="ml-2 mr-2">
+                                    <label for="duration60" class="font-medium cursor-pointer" id="duration60Label">60 ثانية</label>
+                                    <p class="text-xs secondary-text" id="duration60Desc">تفاصيل أكثر وقصة كاملة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between">
+                    <button id="backToStep1" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
+                        <i class="fas fa-arrow-right mr-2 rtl-icon"></i>
+                        <i class="fas fa-arrow-left ml-2 ltr-icon hidden"></i>
+                        <span id="backButtonText">رجوع</span>
+                    </button>
+                    <button id="generateVideo" class="gradient-button text-white px-8 py-3 rounded-lg font-bold flex items-center">
+                        <i class="fas fa-magic mr-2"></i>
+                        <span id="generateButtonText">إنشاء الفيديو</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="processing" class="hidden text-center py-10">
+                <div class="loader mx-auto mb-4 w-12 h-12 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
+                <h2 class="text-2xl font-bold mb-2" id="processingTitle">جاري إنشاء الفيديو...</h2>
+                <p class="secondary-text" id="processingDesc">يستغرق الأمر حوالي 30-60 ثانية</p>
+                <div class="mt-6 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full" style="width: 10%"></div>
+                </div>
+                <p id="statusMessage" class="mt-2 text-sm secondary-text">جاري تحليل المعلومات...</p>
+                <div class="mt-10 text-center">
+                    <button id="cancelProcessing" class="text-sm text-red-500 hover:underline">
+                        <i class="fas fa-times mr-1"></i>
+                        <span id="cancelProcessingText">إلغاء</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="result" class="hidden py-6">
+                <h2 class="text-2xl font-bold mb-2" id="videoReadyTitle">الفيديو جاهز! 🎉</h2>
+                <p class="secondary-text mb-6" id="videoReadyDesc">يمكنك الآن مشاهدة وتحميل الفيديو</p>
+                
+                <div class="bg-black rounded-lg overflow-hidden mb-6">
+                    <video id="resultVideo" controls class="w-full h-auto">
+                        <source src="" type="video/mp4">
+                        <span id="browserNotSupported">متصفحك لا يدعم تشغيل الفيديو.</span>
+                    </video>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold mb-2" id="videoStatsTitle">معلومات الفيديو:</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="card p-3 rounded-lg text-center">
+                            <i class="fas fa-clock text-purple-500 mb-1"></i>
+                            <p class="text-xs secondary-text" id="durationStatLabel">المدة</p>
+                            <p class="font-bold" id="durationStat">15 ثانية</p>
+                        </div>
+                        <div class="card p-3 rounded-lg text-center">
+                            <i class="fas fa-film text-purple-500 mb-1"></i>
+                            <p class="text-xs secondary-text" id="qualityStatLabel">الجودة</p>
+                            <p class="font-bold" id="qualityStat">1080p</p>
+                        </div>
+                        <div class="card p-3 rounded-lg text-center">
+                            <i class="fas fa-file-video text-purple-500 mb-1"></i>
+                            <p class="text-xs secondary-text" id="formatStatLabel">الصيغة</p>
+                            <p class="font-bold" id="formatStat">MP4</p>
+                        </div>
+                        <div class="card p-3 rounded-lg text-center">
+                            <i class="fas fa-weight text-purple-500 mb-1"></i>
+                            <p class="text-xs secondary-text" id="sizeStatLabel">الحجم</p>
+                            <p class="font-bold" id="sizeStat">4.2 MB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button id="downloadVideo" class="gradient-button text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <i class="fas fa-download mr-2"></i>
+                        <span id="downloadButtonText">تحميل الفيديو</span>
+                    </button>
+                    <button id="createNew" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
+                        <i class="fas fa-plus mr-2"></i>
+                        <span id="createNewButtonText">إنشاء فيديو جديد</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center secondary-text text-sm">
+            <p id="footerText">© 2025 جميع الحقوق محفوظة | مدعوم بتقنية الذكاء الاصطناعي من Fal.ai</p>
+        </div>
     </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo"><i class="fas fa-tshirt"></i> الغسالة المبتكرة</div>
-            <a href="#order" class="header-cta">اطلب الآن</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-badge">خصم 30%</div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>غسالة ملابس محمولة قابلة للطي</h1>
-                <p class="hero-subtitle">الحل العصري الأمثل للمساحات الصغيرة، الشقق، والرحلات - احصل على ملابس نظيفة بكل سهولة في أي مكان!</p>
-                
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <i class="fas fa-compress-arrows-alt"></i>
-                        <span>قابلة للطي والتخزين</span>
-                    </div>
-                    <div class="hero-feature">
-                        <i class="fas fa-tint-slash"></i>
-                        <span>توفير 60% من الماء</span>
-                    </div>
-                    <div class="hero-feature">
-                        <i class="fas fa-bolt"></i>
-                        <span>استهلاك منخفض للكهرباء</span>
-                    </div>
-                </div>
-                
-                <div class="hero-image-container">
-                    <img src="https://cdn.youcan.shop/stores/774c77a1bd4cb8590f6cf7c2da8b62b5/products/pNSQLT1TriwDpZVIZ3y00v8IaEPaTy9vzVdwtcZ5.jpg" alt="غسالة ملابس محمولة قابلة للطي" class="hero-image">
-                    <div class="hero-price-tag">
-                        <div class="price-now">189 ر.س</div>
-                        <div class="price-before">269 ر.س</div>
-                    </div>
-                </div>
-                
-                <a href="#order" class="hero-cta">
-                    <i class="fas fa-shopping-cart"></i>
-                    احصل عليها الآن!
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">لماذا تحتاج إليها كل أسرة سعودية؟</h2>
-            
-            <div class="pain-points">
-                <h3><i class="fas fa-exclamation-circle"></i> هل تعاني من هذه المشكلات؟</h3>
-                <div class="pain-grid">
-                    <div class="pain-item">
-                        <i class="fas fa-times"></i>
-                        <p>ازدحام الحمام بالغسالة الكبيرة التي تشغل مساحة كبيرة</p>
-                    </div>
-                    <div class="pain-item">
-                        <i class="fas fa-times"></i>
-                        <p>ارتفاع فواتير الماء والكهرباء بسبب الغسالات التقليدية</p>
-                    </div>
-                    <div class="pain-item">
-                        <i class="fas fa-times"></i>
-                        <p>صعوبة غسل كميات صغيرة من الملابس دون هدر</p>
-                    </div>
-                    <div class="pain-item">
-                        <i class="fas fa-times"></i>
-                        <p>عدم وجود حل لغسل الملابس أثناء السفر والرحلات</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-home"></i></div>
-                    <h3>مثالية للشقق الصغيرة</h3>
-                    <p>مع ارتفاع أسعار العقارات في المملكة، أصبحت الشقق أصغر. غسالتنا المحمولة توفر 70% من المساحة، ويمكن تخزينها بسهولة تحت السرير أو في أي خزانة.</p>
-                    <span class="benefit-stat">توفير 70% من المساحة</span>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-money-bill-wave"></i></div>
-                    <h3>توفير كبير في الفواتير</h3>
-                    <p>تستهلك كمية أقل بنسبة 60% من الماء و50% من الكهرباء مقارنة بالغسالات التقليدية، مما يساعدك على خفض فواتيرك الشهرية بشكل ملحوظ.</p>
-                    <span class="benefit-stat">وفر ما يصل إلى 500 ريال سنوياً</span>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-suitcase"></i></div>
-                    <h3>رفيقك المثالي في الرحلات</h3>
-                    <p>خذها معك في رحلات التخييم أو العطلات العائلية واغسل ملابسك بسهولة. مثالية لرحلات البر والشاليهات وغيرها من الأماكن التي لا تتوفر فيها غسالات.</p>
-                    <span class="benefit-stat">خفيفة الوزن - 3.5 كجم فقط!</span>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>صديقة للبيئة</h3>
-                    <p>ساهم في حماية البيئة من خلال تقليل استهلاك الماء والكهرباء. تماشياً مع رؤية المملكة 2030 للاستدامة وترشيد استهلاك الموارد الطبيعية.</p>
-                    <span class="benefit-stat">تقليل البصمة الكربونية بنسبة 40%</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">مميزات فريدة تجعلها الاختيار الأمثل</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-compress-arrows-alt"></i></div>
-                    <h3>قابلة للطي</h3>
-                    <p>تصميم مبتكر يمكن طيه وتخزينه في أي مكان، توفر 70% من المساحة مقارنة بالغسالات التقليدية. الأبعاد عند الطي: 35×35×20 سم فقط!</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-tint"></i></div>
-                    <h3>اقتصادية</h3>
-                    <p>توفر 60% من استهلاك الماء و50% من الكهرباء، مما يعني وفورات كبيرة في فواتيرك الشهرية على المدى الطويل.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>آمنة تماماً</h3>
-                    <p>صنعت من مواد عالية الجودة حاصلة على شهادات سلامة عالمية، آمنة للاستخدام مع جميع أنواع الأقمشة بما فيها الحساسة.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-feather"></i></div>
-                    <h3>خفيفة الوزن</h3>
-                    <p>بوزن لا يتجاوز 3.5 كجم، يمكن حملها ونقلها بسهولة، مثالية للاستخدام في المنزل أو أثناء السفر والرحلات.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                    <h3>سريعة وفعالة</h3>
-                    <p>دورة غسيل كاملة في 15-20 دقيقة فقط، مما يوفر وقتك الثمين ويتيح لك غسل الملابس حتى في أكثر الأوقات انشغالاً.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-adjust"></i></div>
-                    <h3>متعددة الاستخدامات</h3>
-                    <p>مناسبة لغسل مختلف أنواع الملابس والمنسوجات، من الملابس اليومية إلى الملابس الرياضية والأقمشة الحساسة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2 class="section-title">شاهد الغسالة المبتكرة من جميع الزوايا</h2>
-            
-            <div class="gallery-tabs">
-                <div class="gallery-tab active">جميع الصور</div>
-                <div class="gallery-tab">طريقة الاستخدام</div>
-                <div class="gallery-tab">المميزات</div>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://cdn.youcan.shop/stores/774c77a1bd4cb8590f6cf7c2da8b62b5/products/pNSQLT1TriwDpZVIZ3y00v8IaEPaTy9vzVdwtcZ5.jpg" alt="غسالة ملابس محمولة - منظر أمامي" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4 class="gallery-title">المنظر الأمامي</h4>
-                        <p class="gallery-desc">تصميم عصري أنيق يناسب جميع ديكورات المنزل</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://cdn.youcan.shop/stores/774c77a1bd4cb8590f6cf7c2da8b62b5/others/ekIVW98qOzUeGDSHBrhKQfwm4zpED8rplpHDndCS.jpg" alt="غسالة ملابس محمولة - منظر جانبي" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4 class="gallery-title">المنظر الجانبي</h4>
-                        <p class="gallery-desc">تصميم مدمج يوفر المساحة في منزلك</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://cdn.youcan.shop/stores/774c77a1bd4cb8590f6cf7c2da8b62b5/products/5gRhnY8sA7oMoucSky6HV0E8H9jjyhOKHrPq6Hxf_lg.jpg" alt="غسالة ملابس محمولة - قيد الاستخدام" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4 class="gallery-title">سهلة الاستخدام</h4>
-                        <p class="gallery-desc">لوحة تحكم بسيطة ومريحة للاستخدام اليومي</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">ماذا يقول عملاؤنا عنها؟</h2>
-            
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">اشتريت الغسالة المحمولة قبل شهر وأنا سعيدة جداً بها! لدي شقة صغيرة في الرياض وهذه الغسالة حلت مشكلة كبيرة. أستطيع الآن غسل ملابسي يومياً بدون الحاجة لتجميعها لأيام. أكثر ما أعجبني فيها هو سهولة تخزينها في خزانة الملابس عندما لا أحتاجها!</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">س</div>
-                        <div class="author-info">
-                            <h4>سارة محمد</h4>
-                            <p>الرياض</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card" style="display:none;">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">كنت متردداً في البداية، لكن بعد استخدامها لمدة أسبوعين أستطيع القول أنها من أفضل الاستثمارات! سهلة الاستخدام وتنظف الملابس بشكل ممتاز. أخذتها معي في رحلة برية وكانت مثالية لغسل ملابسنا. وفرت علي الكثير من المال والإزعاج!</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ف</div>
-                        <div class="author-info">
-                            <h4>فهد العتيبي</h4>
-                            <p>جدة</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card" style="display:none;">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="testimonial-text">اشتريتها كهدية لابنتي التي تدرس في الجامعة وتعيش في سكن طلابي. تقول أنها غيرت حياتها تماماً ووفرت عليها الكثير من المال والوقت! لم تعد مضطرة للذهاب إلى مغسلة الملابس المشتركة في السكن. تصميمها العملي والمدمج مثالي للطلاب والمساحات الصغيرة.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">م</div>
-                        <div class="author-info">
-                            <h4>منال السعيد</h4>
-                            <p>الدمام</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="order">
-        <div class="container">
-            <div class="cta-content">
-                <h2>لا تفوت هذا العرض الحصري والمحدود!</h2>
-                <p class="cta-description">احصل على غسالتك المحمولة القابلة للطي الآن واستمتع بحياة أسهل وأكثر راحة</p>
-                
-                <div class="price-container">
-                    <div class="discount-badge">خصم 30%</div>
-                    <div class="price-wrapper">
-                        <div class="original-price">269 ريال</div>
-                        <div class="current-price">189 ريال</div>
-                    </div>
-                </div>
-                
-                <div class="urgency-badge">
-                    <i class="fas fa-clock"></i> عرض محدود لفترة قصيرة
-                </div>
-                
-                <div class="limited-offer" id="countdown-timer">
-                    <!-- سيتم ملؤه عبر JavaScript -->
-                </div>
-                
-                <div class="remaining-units">
-                    <p><i class="fas fa-exclamation-triangle"></i> باقي 7 وحدات فقط في المخزون</p>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                </div>
-                
-                <div class="trust-badges">
-                    <div class="trust-item">
-                        <i class="fas fa-shipping-fast"></i>
-                        <p>شحن سريع لجميع مناطق المملكة</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-hand-holding-usd"></i>
-                        <p>الدفع عند الاستلام متاح</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <p>ضمان استرداد لمدة 30 يوم</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-headset"></i>
-                        <p>دعم فني على مدار الساعة</p>
-                    </div>
-                </div>
-                
-                <a href="#" class="cta-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    اطلب الآن - شحن مجاني!
-                </a>
-                
-                <p class="social-proof">
-                    <i class="fas fa-users"></i>
-                    تم شراء هذا المنتج من قبل أكثر من 500 شخص في آخر أسبوع
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Guarantee Section -->
-    <section class="guarantee">
-        <div class="container">
-            <h2 class="section-title">ضمان استرداد الأموال</h2>
-            <div class="guarantee-content">
-                <img src="https://cdn.youcan.shop/stores/774c77a1bd4cb8590f6cf7c2da8b62b5/others/E2bHiIR1143rFwl9FVphR9iFvznhzgwi5EM7fYfZ.png" alt="ضمان الجودة" class="guarantee-badge">
-                <h3>نحن واثقون من جودة منتجنا</h3>
-                <p>لذلك نقدم ضمان استرداد كامل للمبلغ خلال 30 يوماً إذا لم تكن راضياً عن المنتج لأي سبب. فقط أعد المنتج إلينا ونحن سنرد لك المبلغ كاملاً دون أي أسئلة.</p>
-                <p>بالإضافة إلى ذلك، تأتي الغسالة مع ضمان لمدة سنة كاملة ضد عيوب التصنيع.</p>
-                <p class="guarantee-signature">رضاك هو أولويتنا الأولى</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title">الأسئلة الشائعة</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        ما هي أبعاد الغسالة عند طيها وعند فتحها؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            الأبعاد عند الطي: 35×35×20 سم. الأبعاد عند الفتح: 35×35×60 سم. هذا يعني أنها توفر مساحة كبيرة عند تخزينها مقارنة بالغسالات التقليدية.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        ما هي سعة الغسالة؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            يمكن للغسالة استيعاب حتى 3 كيلوغرام من الملابس الخفيفة في الدورة الواحدة. هذا يجعلها مثالية للاستخدام اليومي ولغسل كميات صغيرة من الملابس دون هدر الماء والكهرباء.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        هل هي مناسبة لجميع أنواع الأقمشة؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            نعم، الغسالة آمنة للاستخدام مع جميع أنواع الأقمشة بما في ذلك القطن والحرير والصوف والملابس الرياضية. يُنصح باستخدام كيس غسيل للملابس الحساسة للحفاظ عليها.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        ما هي مدة الضمان؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            تأتي الغسالة مع ضمان لمدة سنة كاملة ضد عيوب التصنيع. بالإضافة إلى ضمان استرداد الأموال لمدة 30 يوماً إذا لم تكن راضياً عن المنتج لأي سبب.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        كم تستغرق دورة الغسيل الكاملة؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            تستغرق دورة الغسيل العادية من 15 إلى 20 دقيقة، بينما تستغرق دورة الغسيل المكثف من 25 إلى 30 دقيقة. هذا يوفر وقتك مقارنة بالغسالات التقليدية التي قد تستغرق ساعة أو أكثر.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        هل يتم توصيلها بمصدر ماء أم يجب ملؤها يدوياً؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            تُملأ الغسالة يدوياً بالماء، مما يمنحك تحكماً كاملاً في كمية الماء ودرجة حرارته المستخدمة. هذا يجعلها مثالية للاستخدام في أي مكان، حتى في الأماكن التي لا تتوفر فيها توصيلات ماء.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        كيف يتم تصريف الماء منها؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            تأتي الغسالة مع خرطوم تصريف سهل الاستخدام يمكن توجيهه إلى أي مصرف في الحمام أو المطبخ. كما يمكن تصريف الماء يدوياً عن طريق إمالة الغسالة في حالة عدم وجود مصرف قريب.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        كم تستهلك من الكهرباء؟
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            تستهلك الغسالة حوالي 200 واط فقط خلال دورة الغسيل، وهو أقل بنسبة 50% من الغسالات التقليدية. هذا يساعد في خفض فاتورة الكهرباء الشهرية بشكل ملحوظ.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>عن الشركة</h3>
-                    <p>نحن شركة متخصصة في توفير أحدث الحلول المبتكرة للمنازل العصرية، مع التركيز على المنتجات التي توفر المساحة والطاقة والمال.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-angle-left"></i> الصفحة الرئيسية</a></li>
-                        <li><a href="#"><i class="fas fa-angle-left"></i> المميزات</a></li>
-                        <li><a href="#"><i class="fas fa-angle-left"></i> كيفية الاستخدام</a></li>
-                        <li><a href="#"><i class="fas fa-angle-left"></i> الشهادات</a></li>
-                        <li><a href="#"><i class="fas fa-angle-left"></i> الأسئلة الشائعة</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>اتصل بنا</h3>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <p>اتصل بنا:</p>
-                                <p dir="ltr">+966 50 123 4567</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <p>البريد الإلكتروني:</p>
-                                <p dir="ltr">info@example.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <p>العنوان:</p>
-                                <p>الرياض، المملكة العربية السعودية</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>جميع الحقوق محفوظة © 2025 - الغسالة المبتكرة</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating CTA Button -->
-    <div class="floating-cta">
-        <a href="#order" class="floating-btn">
-            <i class="fas fa-shopping-cart"></i>
-            اطلب الآن - 189 ريال فقط!
-        </a>
-    </div>
-
+    
     <script>
-        // FAQ Functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
+        // التبديل بين اللغات
+        const arabicLang = document.getElementById('arabicLang');
+        const englishLang = document.getElementById('englishLang');
+        
+        // قاموس للترجمة
+        const translations = {
+            'aiPowered': {
+                'ar': 'مدعوم بالذكاء الاصطناعي',
+                'en': 'Powered by AI'
+            },
+            'stepOneText': {
+                'ar': 'اختيار القالب',
+                'en': 'Choose Template'
+            },
+            'stepTwoText': {
+                'ar': 'تفاصيل المنتج',
+                'en': 'Product Details'
+            },
+            'stepThreeText': {
+                'ar': 'المعاينة والتحميل',
+                'en': 'Preview & Download'
+            },
+            'chooseTemplateTitle': {
+                'ar': 'اختر قالب الفيديو',
+                'en': 'Choose Video Template'
+            },
+            'chooseTemplateDesc': {
+                'ar': 'كل قالب مصمم لنوع محدد من المحتوى الإعلاني',
+                'en': 'Each template is designed for a specific type of advertising content'
+            },
+            'productShowcaseTitle': {
+                'ar': 'عرض المنتج',
+                'en': 'Product Showcase'
+            },
+            'productShowcaseTooltip': {
+                'ar': 'يعرض منتجك من عدة زوايا مع التركيز على الميزات الفريدة',
+                'en': 'Displays your product from multiple angles highlighting unique features'
+            },
+            'productShowcaseDesc': {
+                'ar': 'عرض المنتج من زوايا مختلفة مع إبراز المميزات',
+                'en': 'Show product from different angles with feature highlights'
+            },
+            'problemSolutionTitle': {
+                'ar': 'مشكلة وحل',
+                'en': 'Problem & Solution'
+            },
+            'problemSolutionTooltip': {
+                'ar': 'يوضح المشكلة التي يواجهها العملاء ثم يقدم منتجك كحل مثالي',
+                'en': 'Shows the problem customers face then presents your product as the ideal solution'
+            },
+            'problemSolutionDesc': {
+                'ar': 'عرض المشكلة ثم كيف يحلها المنتج بطريقة فعالة',
+                'en': 'Present the problem and how your product solves it effectively'
+            },
+            'testimonialTitle': {
+                'ar': 'شهادة عميل',
+                'en': 'Customer Testimonial'
+            },
+            'testimonialTooltip': {
+                'ar': 'يعرض تجربة حقيقية للعملاء قبل وبعد استخدام منتجك',
+                'en': 'Shows real customer experience before and after using your product'
+            },
+            'testimonialDesc': {
+                'ar': 'قصة نجاح قصيرة مع إظهار النتائج قبل وبعد',
+                'en': 'Short success story showing before and after results'
+            },
+            'nextButtonText': {
+                'ar': 'التالي',
+                'en': 'Next'
+            },
+            'productDetailsTitle': {
+                'ar': 'أدخل تفاصيل المنتج',
+                'en': 'Enter Product Details'
+            },
+            'productDetailsDesc': {
+                'ar': 'كلما كانت التفاصيل أكثر دقة، كان الفيديو أكثر فعالية',
+                'en': 'The more detailed your information, the more effective the video'
+            },
+            'productNameLabel': {
+                'ar': 'اسم المنتج',
+                'en': 'Product Name'
+            },
+            'productNameHelper': {
+                'ar': 'أدخل اسم واضح ومميز لمنتجك',
+                'en': 'Enter a clear, distinctive name for your product'
+            },
+            'productDescriptionLabel': {
+                'ar': 'وصف المنتج وميزاته الرئيسية',
+                'en': 'Product Description & Key Features'
+            },
+            'productDescriptionHelper': {
+                'ar': 'أدخل وصفاً تفصيلياً يشمل الميزات والفوائد والجمهور المستهدف',
+                'en': 'Enter detailed description including features, benefits and target audience'
+            },
+            'suggestedFeaturesText': {
+                'ar': 'اضغط لإضافة ميزات مقترحة:',
+                'en': 'Click to add suggested features:'
+            },
+            'productImageLabel': {
+                'ar': 'صورة المنتج (اختياري)',
+                'en': 'Product Image (Optional)'
+            },
+            'dragDropText': {
+                'ar': 'اسحب وأفلت الصورة هنا أو',
+                'en': 'Drag and drop image here or'
+            },
+            'chooseFileText': {
+                'ar': 'اختر ملف',
+                'en': 'choose file'
+            },
+            'acceptedFormatsText': {
+                'ar': 'PNG, JPG حتى 5MB',
+                'en': 'PNG, JPG up to 5MB'
+            },
+            'removeImageText': {
+                'ar': 'إزالة',
+                'en': 'Remove'
+            },
+            'imageHelper': {
+                'ar': 'صورة واضحة للمنتج ستحسن من جودة الفيديو',
+                'en': 'A clear product image will enhance video quality'
+            },
+            'videoDurationLabel': {
+                'ar': 'مدة الفيديو',
+                'en': 'Video Duration'
+            },
+            'duration15Label': {
+                'ar': '15 ثانية',
+                'en': '15 seconds'
+            },
+            'duration15Desc': {
+                'ar': 'مثالي للإعلانات القصيرة',
+                'en': 'Perfect for short ads'
+            },
+            'duration30Label': {
+                'ar': '30 ثانية',
+                'en': '30 seconds'
+            },
+            'duration30Desc': {
+                'ar': 'يناسب معظم الإعلانات',
+                'en': 'Suitable for most ads'
+            },
+            'duration60Label': {
+                'ar': '60 ثانية',
+                'en': '60 seconds'
+            },
+            'duration60Desc': {
+                'ar': 'تفاصيل أكثر وقصة كاملة',
+                'en': 'More details and complete story'
+            },
+            'backButtonText': {
+                'ar': 'رجوع',
+                'en': 'Back'
+            },
+            'generateButtonText': {
+                'ar': 'إنشاء الفيديو',
+                'en': 'Generate Video'
+            },
+            'processingTitle': {
+                'ar': 'جاري إنشاء الفيديو...',
+                'en': 'Creating Your Video...'
+            },
+            'processingDesc': {
+                'ar': 'يستغرق الأمر حوالي 30-60 ثانية',
+                'en': 'This takes about 30-60 seconds'
+            },
+            'cancelProcessingText': {
+                'ar': 'إلغاء',
+                'en': 'Cancel'
+            },
+            'videoReadyTitle': {
+                'ar': 'الفيديو جاهز! 🎉',
+                'en': 'Video Ready! 🎉'
+            },
+            'videoReadyDesc': {
+                'ar': 'يمكنك الآن مشاهدة وتحميل الفيديو',
+                'en': 'You can now watch and download your video'
+            },
+            'browserNotSupported': {
+                'ar': 'متصفحك لا يدعم تشغيل الفيديو.',
+                'en': 'Your browser does not support video playback.'
+            },
+            'videoStatsTitle': {
+                'ar': 'معلومات الفيديو:',
+                'en': 'Video Information:'
+            },
+            'durationStatLabel': {
+                'ar': 'المدة',
+                'en': 'Duration'
+            },
+            'qualityStatLabel': {
+                'ar': 'الجودة',
+                'en': 'Quality'
+            },
+            'formatStatLabel': {
+                'ar': 'الصيغة',
+                'en': 'Format'
+            },
+            'sizeStatLabel': {
+                'ar': 'الحجم',
+                'en': 'Size'
+            },
+            'downloadButtonText': {
+                'ar': 'تحميل الفيديو',
+                'en': 'Download Video'
+            },
+            'createNewButtonText': {
+                'ar': 'إنشاء فيديو جديد',
+                'en': 'Create New Video'
+            },
+            'footerText': {
+                'ar': '© 2025 جميع الحقوق محفوظة | مدعوم بتقنية الذكاء الاصطناعي من Fal.ai',
+                'en': '© 2025 All Rights Reserved | Powered by Fal.ai AI Technology'
+            }
+        };
+        
+        // تطبيق الترجمة
+        function applyTranslation(lang) {
+            for (const [id, translations] of Object.entries(translations)) {
+                const element = document.getElementById(id);
+                if (element && translations[lang]) {
+                    element.textContent = translations[lang];
+                }
+            }
+        }
+        
+        arabicLang.addEventListener('click', function() {
+            document.body.classList.remove('ltr');
+            document.body.classList.add('rtl');
+            document.querySelectorAll('.rtl-icon').forEach(el => el.classList.remove('hidden'));
+            document.querySelectorAll('.ltr-icon').forEach(el => el.classList.add('hidden'));
+            arabicLang.classList.add('bg-indigo-600', 'text-white');
+            englishLang.classList.remove('bg-indigo-600', 'text-white');
+            applyTranslation('ar');
+        });
+        
+        englishLang.addEventListener('click', function() {
+            document.body.classList.remove('rtl');
+            document.body.classList.add('ltr');
+            document.querySelectorAll('.rtl-icon').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.ltr-icon').forEach(el => el.classList.remove('hidden'));
+            englishLang.classList.add('bg-indigo-600', 'text-white');
+            arabicLang.classList.remove('bg-indigo-600', 'text-white');
+            applyTranslation('en');
+        });
+        
+        // التبديل بين الوضعين الليلي والنهاري
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        themeSwitcher.addEventListener('click', function() {
+            if (document.body.classList.contains('light-mode')) {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-sun', 'text-yellow-500');
+                themeIcon.classList.add('fa-moon', 'text-blue-300');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                themeIcon.classList.remove('fa-moon', 'text-blue-300');
+                themeIcon.classList.add('fa-sun', 'text-yellow-500');
+            }
+        });
+        
+        // التنقل بين الخطوات
+        document.getElementById('nextToStep2').addEventListener('click', function() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+            // تحديث مؤشر التقدم
+            document.getElementById('stepTwoIndicator').classList.add('active');
+            document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.remove('bg-gray-200', 'text-gray-600');
+            document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.add('bg-indigo-600', 'text-white');
+        });
+        
+        document.getElementById('backToStep1').addEventListener('click', function() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+            // تحديث مؤشر التقدم
+            document.getElementById('stepTwoIndicator').classList.remove('active');
+            document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
+            document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
+        });
+        
+        // اختيار القوالب
+        const templateCards = document.querySelectorAll('.template-card');
+        templateCards.forEach(card => {
+            card.addEventListener('click', function() {
+                templateCards.forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // معاينة الصورة المرفوعة
+        document.querySelector('.text-purple-600').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.getElementById('previewImage').src = event.target.result;
+                        document.getElementById('uploadPlaceholder').classList.add('hidden');
+                        document.getElementById('uploadPreview').classList.remove('hidden');
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+            
+            input.click();
+        });
+        
+        document.getElementById('removeImage').addEventListener('click', function() {
+            document.getElementById('previewImage').src = '';
+            document.getElementById('uploadPreview').classList.add('hidden');
+            document.getElementById('uploadPlaceholder').classList.remove('hidden');
+        });
+        
+        // إضافة الميزات المقترحة
+        const featureTags = document.querySelectorAll('.feature-tag');
+        featureTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                const productDescription = document.getElementById('productDescription');
+                const feature = this.getAttribute('data-feature');
                 
-                // Close all FAQs
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
-                    q.nextElementSibling.style.maxHeight = '0';
-                });
-                
-                // Open clicked FAQ if it was not active
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                if (productDescription.value) {
+                    productDescription.value += '\n- ' + feature;
+                } else {
+                    productDescription.value = '- ' + feature;
                 }
             });
         });
-
-        // Testimonials Slider
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const indicators = document.querySelectorAll('.indicator');
-        let currentIndex = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.style.display = i === index ? 'block' : 'none';
-            });
-            
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-        }
-
-        indicators.forEach((indicator, i) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = i;
-                showTestimonial(currentIndex);
+        
+        // خيارات المدة
+        const durationOptions = document.querySelectorAll('.duration-option');
+        durationOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input[type="radio"]');
+                input.checked = true;
             });
         });
-
-        function nextTestimonial() {
-            currentIndex = (currentIndex + 1) % testimonials.length;
-            showTestimonial(currentIndex);
-        }
-
-        // Auto-rotate testimonials every 5 seconds
-        setInterval(nextTestimonial, 5000);
-
-        // Countdown Timer
-        const countdownDate = new Date();
-        countdownDate.setHours(countdownDate.getHours() + 24);
         
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+        // توليد الفيديو (محاكاة)
+        document.getElementById('generateVideo').addEventListener('click', function() {
+            // التحقق من الحقول المطلوبة
+            const productName = document.getElementById('productName').value;
+            const productDescription = document.getElementById('productDescription').value;
             
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('countdown-timer').innerHTML = `
-                <i class="fas fa-clock"></i> ينتهي العرض خلال: 
-                <span style="color: #ff3a3a; font-weight: bold;">${hours} ساعة و ${minutes} دقيقة و ${seconds} ثانية فقط!</span>
-            `;
-            
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                document.getElementById('countdown-timer').innerHTML = "انتهى العرض!";
+            if (!productName || !productDescription) {
+                alert(document.body.classList.contains('rtl') ? 'يرجى ملء جميع الحقول المطلوبة.' : 'Please fill in all required fields.');
+                return;
             }
-        }
-        
-        const timerInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // Show header CTA on scroll
-        window.addEventListener('scroll', () => {
-            const headerCta = document.querySelector('.header-cta');
-            const floatingCta = document.querySelector('.floating-cta');
             
-            if (window.scrollY > 300) {
-                headerCta.style.display = 'block';
-                floatingCta.style.display = 'block';
-            } else {
-                headerCta.style.display = 'none';
-                floatingCta.style.display = 'none';
+            // إظهار شاشة المعالجة
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('processing').classList.remove('hidden');
+            
+            // تحديث مؤشر التقدم
+            document.getElementById('stepThreeIndicator').classList.add('active');
+            document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.remove('bg-gray-200', 'text-gray-600');
+            document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.add('bg-indigo-600', 'text-white');
+            
+            // محاكاة شريط التقدم
+            let progress = 10;
+            const statusMessages = {
+                'ar': [
+                    'جاري تحليل المعلومات...',
+                    'إنشاء سيناريو الفيديو...',
+                    'توليد المشاهد...',
+                    'تحريك المشاهد...',
+                    'إضافة التأثيرات الصوتية...',
+                    'دمج الفيديو النهائي...'
+                ],
+                'en': [
+                    'Analyzing information...',
+                    'Creating video script...',
+                    'Generating scenes...',
+                    'Animating scenes...',
+                    'Adding sound effects...',
+                    'Compositing final video...'
+                ]
+            };
+            
+            const lang = document.body.classList.contains('rtl') ? 'ar' : 'en';
+            let currentStatus = 0;
+            document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
+            
+            const progressInterval = setInterval(() => {
+                progress += 3;
+                document.getElementById('progressBar').style.width = ${progress}%;
+                
+                if (progress >= 30 && currentStatus === 0) {
+                    currentStatus = 1;
+                    document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
+                } else if (progress >= 50 && currentStatus === 1) {
+                    currentStatus = 2;
+                    document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
+                } else if (progress >= 70 && currentStatus === 2) {
+                    currentStatus = 3;
+                    document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
+                } else if (progress >= 85 && currentStatus === 3) {
+                    currentStatus = 4;
+                    document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
+                } else if (progress >= 95 && currentStatus === 4) {
+                    currentStatus = 5;
+                    document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // هنا يجب أن يكون الاتصال بـ API
+                    // محاكاة استجابة الـ API بعد ثانيتين
+                    setTimeout(() => {
+                        document.getElementById('processing').classList.add('hidden');
+                        document.getElementById('result').classList.remove('hidden');
+                        
+                        // تحديث إحصائيات الفيديو
+                        const duration = document.querySelector('input[name="duration"]:checked').value;
+                        document.getElementById('durationStat').textContent = document.body.classList.contains('rtl') 
+                            ? duration + ' ثانية'
+                            : duration + ' seconds';
+                        
+                        // هنا يجب وضع رابط الفيديو الحقيقي
+                        document.getElementById('resultVideo').src = "https://example.com/sample-video.mp4";
+                    }, 2000);
+                }
+            }, 150);
+        });
+        
+        // إلغاء المعالجة
+        document.getElementById('cancelProcessing').addEventListener('click', function() {
+            if (confirm(document.body.classList.contains('rtl') ? 'هل أنت متأكد من إلغاء إنشاء الفيديو؟' : 'Are you sure you want to cancel video creation?')) {
+                document.getElementById('processing').classList.add('hidden');
+                document.getElementById('step2').classList.remove('hidden');
+                
+                // إعادة مؤشر التقدم
+                document.getElementById('stepThreeIndicator').classList.remove('active');
+                document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
+                document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
             }
         });
         
-        // Gallery Tabs
-        const galleryTabs = document.querySelectorAll('.gallery-tab');
-        
-        galleryTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                galleryTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Here you would typically filter gallery items
-                // But we'll keep it simple for this demo
-            });
+        // إعادة البدء
+        document.getElementById('createNew').addEventListener('click', function() {
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('productName').value = '';
+            document.getElementById('productDescription').value = '';
+            document.getElementById('removeImage').click();
+            document.getElementById('duration15').checked = true;
+            templateCards.forEach(c => c.classList.remove('selected'));
+            
+            // إعادة ضبط مؤشر التقدم
+            document.getElementById('stepTwoIndicator').classList.remove('active');
+            document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
+            document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
+            
+            document.getElementById('stepThreeIndicator').classList.remove('active');
+            document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
+            document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
         });
         
-        // Recent purchase notifications
-        const notifications = [
-            "قام شخص من الرياض بشراء غسالة للتو!",
-            "قامت سارة من جدة بشراء غسالتين!",
-            "قام فهد من الدمام بشراء غسالة قبل 3 دقائق!",
-            "قامت نورة من مكة بشراء غسالة!",
-            "قام عبدالله من المدينة باقتناء غسالة قبل دقيقة!"
-        ];
-        
-        function showRandomNotification() {
-            const notificationDiv = document.createElement('div');
-            notificationDiv.classList.add('notification');
-            
-            const randomIndex = Math.floor(Math.random() * notifications.length);
-            notificationDiv.innerHTML = `
-                <div class="notification-content">
-                    <i class="fas fa-shopping-cart notification-icon"></i>
-                    <p class="notification-text">${notifications[randomIndex]}</p>
-                </div>
-                <span class="notification-close">×</span>
-            `;
-            
-            document.body.appendChild(notificationDiv);
-            
-            notificationDiv.querySelector('.notification-close').addEventListener('click', () => {
-                notificationDiv.style.opacity = '0';
-                notificationDiv.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    document.body.removeChild(notificationDiv);
-                }, 300);
-            });
-            
-            setTimeout(() => {
-                notificationDiv.style.opacity = '0';
-                notificationDiv.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    if (document.body.contains(notificationDiv)) {
-                        document.body.removeChild(notificationDiv);
-                    }
-                }, 300);
-            }, 5000);
-        }
-        
-        // Show first notification after 5 seconds
-        setTimeout(() => {
-            showRandomNotification();
-            
-            // Then show random notifications at intervals between 20-40 seconds
-            setInterval(() => {
-                const randomDelay = Math.floor(Math.random() * 20000) + 20000; // 20-40 seconds
-                setTimeout(showRandomNotification, randomDelay);
-            }, 30000);
-        }, 5000);
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        // تحميل الفيديو (محاكاة)
+        document.getElementById('downloadVideo').addEventListener('click', function() {
+            alert(document.body.classList.contains('rtl') ? 'جاري تحميل الفيديو...' : 'Downloading video...');
+            // هنا يمكن تنفيذ عملية التحميل الحقيقية
         });
     </script>
 </body>
