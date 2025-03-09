@@ -1,2201 +1,434 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة إنشاء الفيديوهات الذكية | AI Video Platform</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Video Ad Generator - fal.ai</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
-        
-        :root {
-            --primary-color: #4776E6;
-            --primary-gradient: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
-            --secondary-color: #8E54E9;
-        }
-        
-        .rtl {
-            direction: rtl;
-            text-align: right;
-            font-family: 'Tajawal', sans-serif;
-        }
-        
-        .ltr {
-            direction: ltr;
-            text-align: left;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .light-mode {
-            --bg-color: #f5f7fa;
-            --bg-card: #ffffff;
-            --text-color: #1a202c;
-            --text-secondary: #4a5568;
-            --border-color: #e2e8f0;
-        }
-        
-        .dark-mode {
-            --bg-color: #1a202c;
-            --bg-card: #2d3748;
-            --text-color: #f7fafc;
-            --text-secondary: #cbd5e0;
-            --border-color: #4a5568;
-        }
-        
         body {
-            background: var(--bg-color);
-            color: var(--text-color);
-            transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
         }
-        
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .secondary-text {
-            color: var(--text-secondary);
-        }
-        
-        .gradient-button {
-            background: var(--primary-gradient);
-            transition: all 0.3s ease;
-        }
-        
-        .gradient-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-        }
-        
-        .form-container {
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-        }
-        
-        .loader {
-            border-top-color: var(--secondary-color);
-            animation: spinner 1.5s linear infinite;
-        }
-        
-        @keyframes spinner {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .template-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .template-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .template-card.selected {
-            border: 2px solid var(--secondary-color);
-            transform: translateY(-5px);
-        }
-        
-        .label-floating {
-            position: absolute;
-            pointer-events: none;
-            transition: 0.2s ease all;
-            color: var(--text-secondary);
-        }
-        
-        .rtl .label-floating {
-            right: 12px;
-            top: 11px;
-        }
-        
-        .ltr .label-floating {
-            left: 12px;
-            top: 11px;
-        }
-        
-        .rtl input:focus ~ .label-floating,
-        .rtl input:not(:placeholder-shown) ~ .label-floating,
-        .rtl textarea:focus ~ .label-floating,
-        .rtl textarea:not(:placeholder-shown) ~ .label-floating {
-            top: -10px;
-            right: 10px;
-            font-size: 12px;
-            background: var(--bg-card);
-            padding: 0 4px;
-            color: var(--secondary-color);
-        }
-        
-        .ltr input:focus ~ .label-floating,
-        .ltr input:not(:placeholder-shown) ~ .label-floating,
-        .ltr textarea:focus ~ .label-floating,
-        .ltr textarea:not(:placeholder-shown) ~ .label-floating {
-            top: -10px;
-            left: 10px;
-            font-size: 12px;
-            background: var(--bg-card);
-            padding: 0 4px;
-            color: var(--secondary-color);
-        }
-        
-        .progress-step {
-            position: relative;
-        }
-        
-        .progress-step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: var(--border-color);
-            top: 15px;
-            left: 50%;
-            z-index: 0;
-        }
-        
-        .progress-step.active:not(:last-child)::after {
-            background: var(--primary-gradient);
-        }
-        
-        .step-circle {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--bg-card);
-            color: var(--text-color);
+        h1 {
+            color: #2c3e50;
             text-align: center;
-            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        textarea, input, select {
+            width: 100%;
             padding: 10px;
-            position: absolute;
-            z-index: 100;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border-color);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+        textarea {
+            min-height: 100px;
+            resize: vertical;
         }
-        
-        .feature-tag {
-            display: inline-block;
-            border-radius: 20px;
-            padding: 3px 10px;
-            font-size: 12px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            background: var(--primary-gradient);
+        button {
+            background-color: #3498db;
             color: white;
-        }
-
-        /* Navigation Tabs */
-        .nav-tab {
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
         }
-
-        .nav-tab:hover {
-            background-color: rgba(139, 92, 246, 0.1);
+        button:hover {
+            background-color: #2980b9;
         }
-
-        .nav-tab.active {
-            background-color: var(--primary-color);
-            color: white;
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
         }
-
-        /* File Upload Styles */
-        .file-upload-area {
-            border: 2px dashed var(--border-color);
-            transition: all 0.3s ease;
+        .result {
+            margin-top: 30px;
+            display: none;
         }
-        
-        .file-upload-area.dragging {
-            border-color: var(--secondary-color);
-            background-color: rgba(139, 92, 246, 0.05);
+        .result h2 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .video-container {
+            width: 100%;
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .loading-text {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        .steps {
+            margin-top: 20px;
+            display: none;
+        }
+        .step {
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            background-color: #f1f9ff;
+        }
+        .step.completed {
+            background-color: #d4edda;
+        }
+        .api-key-form {
+            margin-bottom: 30px;
         }
     </style>
 </head>
-<body class="p-4 md:p-0 light-mode rtl">
-    <div class="container mx-auto py-8 px-4 max-w-4xl">
-        <!-- Header with language and theme toggles -->
-        <header class="flex justify-between items-center mb-8">
-            <div class="flex items-center">
-                <button id="themeSwitcher" class="p-2 rounded-full focus:outline-none mr-2">
-                    <i class="fas fa-sun text-yellow-500 dark:text-gray-400" id="themeIcon"></i>
-                </button>
-                <button id="apiSettings" class="p-2 rounded-full focus:outline-none mr-2">
-                    <i class="fas fa-cog text-gray-500 dark:text-gray-400"></i>
-                </button>
-                <div class="border border-gray-300 dark:border-gray-600 rounded-full p-1 flex">
-                    <button id="arabicLang" class="px-3 py-1 rounded-full bg-indigo-600 text-white">العربية</button>
-                    <button id="englishLang" class="px-3 py-1 rounded-full">English</button>
-                </div>
-            </div>
-            <div class="flex items-center">
-                <span class="hidden md:inline secondary-text" id="aiPowered">مدعوم بالذكاء الاصطناعي</span>
-                <img src="/api/placeholder/40/40" alt="AI Logo" class="ml-2 rounded-full">
-            </div>
-        </header>
-
-        <!-- Navigation Tabs -->
-        <div class="flex mb-6 border-b border-gray-300 dark:border-gray-600">
-            <div id="videoGeneratorTab" class="nav-tab active flex items-center px-4 py-2 border-b-2 border-indigo-600">
-                <i class="fas fa-video mr-2"></i>
-                <span id="videoGeneratorTabText">إنشاء فيديو</span>
-            </div>
-            <div id="lipsyncTab" class="nav-tab flex items-center px-4 py-2">
-                <i class="fas fa-microphone-alt mr-2"></i>
-                <span id="lipsyncTabText">مزامنة الشفاه</span>
+<body>
+    <div class="container">
+        <h1>Video Ad Generator</h1>
+        
+        <div class="api-key-form">
+            <div class="form-group">
+                <label for="api-key">fal.ai API Key</label>
+                <input type="text" id="api-key" placeholder="Enter your fal.ai API key" required>
+                <small>Your key is stored locally and never sent to our servers</small>
             </div>
         </div>
         
-        <!-- Video Generator Section -->
-        <div id="videoGeneratorSection">
-            <!-- Progress indicator -->
-            <div class="flex justify-between mb-8 px-4">
-                <div class="progress-step active flex flex-col items-center w-1/3">
-                    <div class="step-circle bg-indigo-600 text-white">1</div>
-                    <p class="mt-2 text-sm font-medium" id="stepOneText">اختيار القالب</p>
-                </div>
-                <div class="progress-step flex flex-col items-center w-1/3" id="stepTwoIndicator">
-                    <div class="step-circle bg-gray-200 text-gray-600">2</div>
-                    <p class="mt-2 text-sm font-medium" id="stepTwoText">تفاصيل المنتج</p>
-                </div>
-                <div class="progress-step flex flex-col items-center w-1/3" id="stepThreeIndicator">
-                    <div class="step-circle bg-gray-200 text-gray-600">3</div>
-                    <p class="mt-2 text-sm font-medium" id="stepThreeText">المعاينة والتحميل</p>
-                </div>
-            </div>
-            
-            <!-- Main content -->
-            <div class="form-container card p-6 mb-8">
-                <div id="step1" class="transition-all duration-500">
-                    <h2 class="text-2xl font-bold mb-2" id="chooseTemplateTitle">اختر قالب الفيديو</h2>
-                    <p class="mb-6 secondary-text" id="chooseTemplateDesc">كل قالب مصمم لنوع محدد من المحتوى الإعلاني</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        <div class="template-card card p-4 rounded-lg text-center" data-template="product">
-                            <div class="rounded-lg p-2 mb-3 flex justify-center">
-                                <img src="/api/placeholder/150/100" alt="عرض المنتج" class="rounded">
-                            </div>
-                            <div class="tooltip">
-                                <h3 class="font-bold" id="productShowcaseTitle">عرض المنتج</h3>
-                                <span class="tooltiptext" id="productShowcaseTooltip">يعرض منتجك من عدة زوايا مع التركيز على الميزات الفريدة</span>
-                            </div>
-                            <p class="text-sm mt-2 secondary-text" id="productShowcaseDesc">عرض المنتج من زوايا مختلفة مع إبراز المميزات</p>
-                        </div>
-                        
-                        <div class="template-card card p-4 rounded-lg text-center" data-template="problem-solution">
-                            <div class="rounded-lg p-2 mb-3 flex justify-center">
-                                <img src="/api/placeholder/150/100" alt="مشكلة وحل" class="rounded">
-                            </div>
-                            <div class="tooltip">
-                                <h3 class="font-bold" id="problemSolutionTitle">مشكلة وحل</h3>
-                                <span class="tooltiptext" id="problemSolutionTooltip">يوضح المشكلة التي يواجهها العملاء ثم يقدم منتجك كحل مثالي</span>
-                            </div>
-                            <p class="text-sm mt-2 secondary-text" id="problemSolutionDesc">عرض المشكلة ثم كيف يحلها المنتج بطريقة فعالة</p>
-                        </div>
-                        
-                        <div class="template-card card p-4 rounded-lg text-center" data-template="testimonial">
-                            <div class="rounded-lg p-2 mb-3 flex justify-center">
-                                <img src="/api/placeholder/150/100" alt="شهادة عميل" class="rounded">
-                            </div>
-                            <div class="tooltip">
-                                <h3 class="font-bold" id="testimonialTitle">شهادة عميل</h3>
-                                <span class="tooltiptext" id="testimonialTooltip">يعرض تجربة حقيقية للعملاء قبل وبعد استخدام منتجك</span>
-                            </div>
-                            <p class="text-sm mt-2 secondary-text" id="testimonialDesc">قصة نجاح قصيرة مع إظهار النتائج قبل وبعد</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-center">
-                        <button id="nextToStep2" class="gradient-button text-white px-8 py-3 rounded-lg font-bold flex items-center">
-                            <span id="nextButtonText">التالي</span>
-                            <i class="fas fa-arrow-left mr-2 rtl-icon"></i>
-                            <i class="fas fa-arrow-right ml-2 ltr-icon hidden"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="step2" class="hidden transition-all duration-500">
-                    <h2 class="text-2xl font-bold mb-2" id="productDetailsTitle">أدخل تفاصيل المنتج</h2>
-                    <p class="mb-6 secondary-text" id="productDetailsDesc">كلما كانت التفاصيل أكثر دقة، كان الفيديو أكثر فعالية</p>
-                    
-                    <div class="mb-6">
-                        <div class="relative">
-                            <input type="text" id="productName" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-transparent bg-transparent border-gray-300 dark:border-gray-600" placeholder=" ">
-                            <label for="productName" class="label-floating" id="productNameLabel">اسم المنتج</label>
-                        </div>
-                        <p class="text-xs secondary-text mt-1 mr-1" id="productNameHelper">أدخل اسم واضح ومميز لمنتجك</p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <div class="relative">
-                            <textarea id="productDescription" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-transparent bg-transparent border-gray-300 dark:border-gray-600" placeholder=" "></textarea>
-                            <label for="productDescription" class="label-floating" id="productDescriptionLabel">وصف المنتج وميزاته الرئيسية</label>
-                        </div>
-                        <p class="text-xs secondary-text mt-1 mr-1" id="productDescriptionHelper">أدخل وصفاً تفصيلياً يشمل الميزات والفوائد والجمهور المستهدف</p>
-                        
-                        <div class="mt-3">
-                            <p class="text-sm font-medium mb-2" id="suggestedFeaturesText">اضغط لإضافة ميزات مقترحة:</p>
-                            <div class="flex flex-wrap mt-1">
-                                <span class="feature-tag cursor-pointer" data-feature="سهل الاستخدام">سهل الاستخدام</span>
-                                <span class="feature-tag cursor-pointer" data-feature="جودة عالية">جودة عالية</span>
-                                <span class="feature-tag cursor-pointer" data-feature="سعر تنافسي">سعر تنافسي</span>
-                                <span class="feature-tag cursor-pointer" data-feature="ضمان لمدة سنة">ضمان لمدة سنة</span>
-                                <span class="feature-tag cursor-pointer" data-feature="توصيل مجاني">توصيل مجاني</span>
-                                <span class="feature-tag cursor-pointer" data-feature="الأفضل مبيعاً">الأفضل مبيعاً</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block secondary-text mb-2 font-medium" id="productImageLabel">صورة المنتج (اختياري)</label>
-                        <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
-                            <div id="uploadPlaceholder">
-                                <svg class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H8m36-12h-4m4 0H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <p class="mt-1 text-sm secondary-text" id="dragDropText">
-                                    اسحب وأفلت الصورة هنا أو
-                                    <span class="text-purple-600 font-medium cursor-pointer" id="chooseFileText">اختر ملف</span>
-                                </p>
-                                <p class="mt-1 text-xs secondary-text" id="acceptedFormatsText">PNG, JPG حتى 5MB</p>
-                            </div>
-                            <div id="uploadPreview" class="hidden">
-                                <img id="previewImage" src="" alt="صورة المنتج" class="mx-auto max-h-48 rounded">
-                                <button id="removeImage" class="mt-2 text-red-500 text-sm">
-                                    <i class="fas fa-times mr-1"></i>
-                                    <span id="removeImageText">إزالة</span>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text-xs secondary-text mt-1 mr-1" id="imageHelper">صورة واضحة للمنتج ستحسن من جودة الفيديو</p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block secondary-text mb-2 font-medium" id="videoDurationLabel">مدة الفيديو</label>
-                        <div class="card p-3 rounded-lg">
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <div class="flex items-center flex-1 p-2 border rounded-lg border-gray-300 dark:border-gray-600 hover:border-purple-500 cursor-pointer duration-option" data-duration="15">
-                                    <input type="radio" id="duration15" name="duration" value="15" class="w-4 h-4 text-purple-600" checked>
-                                    <div class="ml-2 mr-2">
-                                        <label for="duration15" class="font-medium cursor-pointer" id="duration15Label">15 ثانية</label>
-                                        <p class="text-xs secondary-text" id="duration15Desc">مثالي للإعلانات القصيرة</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center flex-1 p-2 border rounded-lg border-gray-300 dark:border-gray-600 hover:border-purple-500 cursor-pointer duration-option" data-duration="30">
-                                    <input type="radio" id="duration30" name="duration" value="30" class="w-4 h-4 text-purple-600">
-                                    <div class="ml-2 mr-2">
-                                        <label for="duration30" class="font-medium cursor-pointer" id="duration30Label">30 ثانية</label>
-                                        <p class="text-xs secondary-text" id="duration30Desc">يناسب معظم الإعلانات</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center flex-1 p-2 border rounded-lg border-gray-300 dark:border-gray-600 hover:border-purple-500 cursor-pointer duration-option" data-duration="60">
-                                    <input type="radio" id="duration60" name="duration" value="60" class="w-4 h-4 text-purple-600">
-                                    <div class="ml-2 mr-2">
-                                        <label for="duration60" class="font-medium cursor-pointer" id="duration60Label">60 ثانية</label>
-                                        <p class="text-xs secondary-text" id="duration60Desc">تفاصيل أكثر وقصة كاملة</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-between">
-                        <button id="backToStep1" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
-                            <i class="fas fa-arrow-right mr-2 rtl-icon"></i>
-                            <i class="fas fa-arrow-left ml-2 ltr-icon hidden"></i>
-                            <span id="backButtonText">رجوع</span>
-                        </button>
-                        <button id="generateVideo" class="gradient-button text-white px-8 py-3 rounded-lg font-bold flex items-center">
-                            <i class="fas fa-magic mr-2"></i>
-                            <span id="generateButtonText">إنشاء الفيديو</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="processing" class="hidden text-center py-10">
-                    <div class="loader mx-auto mb-4 w-12 h-12 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
-                    <h2 class="text-2xl font-bold mb-2" id="processingTitle">جاري إنشاء الفيديو...</h2>
-                    <p class="secondary-text" id="processingDesc">يستغرق الأمر حوالي 30-60 ثانية</p>
-                    <div class="mt-6 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full" style="width: 10%"></div>
-                    </div>
-                    <p id="statusMessage" class="mt-2 text-sm secondary-text">جاري تحليل المعلومات...</p>
-                    <div class="mt-10 text-center">
-                        <button id="cancelProcessing" class="text-sm text-red-500 hover:underline">
-                            <i class="fas fa-times mr-1"></i>
-                            <span id="cancelProcessingText">إلغاء</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="result" class="hidden py-6">
-                    <h2 class="text-2xl font-bold mb-2" id="videoReadyTitle">الفيديو جاهز! 🎉</h2>
-                    <p class="secondary-text mb-6" id="videoReadyDesc">يمكنك الآن مشاهدة وتحميل الفيديو</p>
-                    
-                    <div class="bg-black rounded-lg overflow-hidden mb-6">
-                        <video id="resultVideo" controls class="w-full h-auto">
-                            <source src="" type="video/mp4">
-                            <span id="browserNotSupported">متصفحك لا يدعم تشغيل الفيديو.</span>
-                        </video>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-bold mb-2" id="videoStatsTitle">معلومات الفيديو:</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-clock text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="durationStatLabel">المدة</p>
-                                <p class="font-bold" id="durationStat">15 ثانية</p>
-                            </div>
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-film text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="qualityStatLabel">الجودة</p>
-                                <p class="font-bold" id="qualityStat">1080p</p>
-                            </div>
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-file-video text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="formatStatLabel">الصيغة</p>
-                                <p class="font-bold" id="formatStat">MP4</p>
-                            </div>
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-weight text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="sizeStatLabel">الحجم</p>
-                                <p class="font-bold" id="sizeStat">4.2 MB</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4 justify-center">
-                        <button id="downloadVideo" class="gradient-button text-white px-6 py-3 rounded-lg font-bold flex items-center">
-                            <i class="fas fa-download mr-2"></i>
-                            <span id="downloadButtonText">تحميل الفيديو</span>
-                        </button>
-                        <button id="createNew" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span id="createNewButtonText">إنشاء فيديو جديد</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Lipsync Feature Section -->
-        <div id="lipsyncSection" class="hidden">
-            <div class="form-container card p-6 mb-8">
-                <div id="lipsyncStep1">
-                    <h2 class="text-2xl font-bold mb-2" id="lipsyncTitle">مزامنة الشفاه</h2>
-                    <p class="mb-6 secondary-text" id="lipsyncDescription">قم بمزامنة حركة الشفاه في فيديو مع ملف صوتي</p>
-                    
-                    <!-- Video Upload Section -->
-                    <div class="mb-6">
-                        <label class="block secondary-text mb-2 font-medium" id="videoUploadLabel">فيديو الوجه (MP4)</label>
-                        <div class="file-upload-area border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
-                            <div id="videoUploadPlaceholder">
-                                <svg class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H8m36-12h-4m4 0H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <p class="mt-1 text-sm secondary-text" id="videoUploadText">
-                                    اسحب وأفلت فيديو هنا أو
-                                    <span class="text-purple-600 font-medium cursor-pointer" id="chooseVideoFileText">اختر ملف</span>
-                                </p>
-                                <p class="mt-1 text-xs secondary-text" id="videoFormatText">فيديو بوضوح عالي يحتوي على وجه شخص - MP4</p>
-                            </div>
-                            <div id="videoUploadPreview" class="hidden">
-                                <video id="videoPreview" class="mx-auto max-h-48 rounded" controls></video>
-                                <button id="removeVideoBtn" class="mt-2 text-red-500 text-sm">
-                                    <i class="fas fa-times mr-1"></i>
-                                    <span id="removeVideoText">إزالة</span>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text-xs secondary-text mt-1 mr-1" id="videoHelper">استخدم فيديو واضح للوجه لنتائج أفضل. يجب أن يكون الوجه مرئياً بوضوح.</p>
-                    </div>
-                    
-                    <!-- Audio Upload Section -->
-                    <div class="mb-6">
-                        <label class="block secondary-text mb-2 font-medium" id="audioUploadLabel">الملف الصوتي (MP3/WAV)</label>
-                        <div class="file-upload-area border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
-                            <div id="audioUploadPlaceholder">
-                                <svg class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                    <path d="M25 6a4 4 0 00-4 4v10a4 4 0 108 0V10a4 4 0 00-4-4zM10 25h6a2 2 0 012 2v1a2 2 0 002 2h6a2 2 0 002-2v-1a2 2 0 012-2h6a2 2 0 012 2v11a2 2 0 01-2 2H10a2 2 0 01-2-2V27a2 2 0 012-2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <p class="mt-1 text-sm secondary-text" id="audioUploadText">
-                                    اسحب وأفلت ملف صوتي هنا أو
-                                    <span class="text-purple-600 font-medium cursor-pointer" id="chooseAudioFileText">اختر ملف</span>
-                                </p>
-                                <p class="mt-1 text-xs secondary-text" id="audioFormatText">MP3 أو WAV بجودة واضحة</p>
-                            </div>
-                            <div id="audioUploadPreview" class="hidden">
-                                <audio id="audioPreview" class="w-full mt-2" controls></audio>
-                                <button id="removeAudioBtn" class="mt-2 text-red-500 text-sm">
-                                    <i class="fas fa-times mr-1"></i>
-                                    <span id="removeAudioText">إزالة</span>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text-xs secondary-text mt-1 mr-1" id="audioHelper">استخدم تسجيلاً صوتياً واضحاً بدون ضوضاء خلفية للحصول على أفضل النتائج.</p>
-                    </div>
-                    
-                    <!-- Advanced Options (collapsible) -->
-                    <div class="mb-6">
-                        <div class="flex items-center cursor-pointer" id="advancedOptionsToggle">
-                            <i class="fas fa-cog text-purple-500 mr-2"></i>
-                            <span class="font-medium" id="advancedOptionsText">خيارات متقدمة</span>
-                            <i class="fas fa-chevron-down text-gray-500 mr-2"></i>
-                        </div>
-                        
-                        <div id="advancedOptionsPanel" class="hidden mt-3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                            <!-- URL Input Option -->
-                            <div class="mb-3">
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="useUrls" class="w-4 h-4 text-purple-600">
-                                    <label for="useUrls" class="ml-2 mr-2 text-sm font-medium" id="useUrlsLabel">استخدام روابط بدلاً من الملفات</label>
-                                </div>
-                                <p class="text-xs secondary-text mt-1 mr-1" id="useUrlsHelper">حدد هذا الخيار إذا كنت تريد استخدام روابط فيديو وصوت موجودة بدلاً من تحميل ملفات.</p>
-                            </div>
-                            
-                            <!-- Video URL Input (shown when useUrls is checked) -->
-                            <div id="videoUrlContainer" class="mb-3 hidden">
-                                <div class="relative">
-                                    <input type="text" id="videoUrl" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-transparent bg-transparent border-gray-300 dark:border-gray-600" placeholder=" ">
-                                    <label for="videoUrl" class="label-floating" id="videoUrlLabel">رابط الفيديو</label>
-                                </div>
-                                <p class="text-xs secondary-text mt-1 mr-1" id="videoUrlHelper">أدخل رابط مباشر لملف فيديو MP4 يحتوي على وجه.</p>
-                            </div>
-                            
-                            <!-- Audio URL Input (shown when useUrls is checked) -->
-                            <div id="audioUrlContainer" class="mb-3 hidden">
-                                <div class="relative">
-                                    <input type="text" id="audioUrl" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-transparent bg-transparent border-gray-300 dark:border-gray-600" placeholder=" ">
-                                    <label for="audioUrl" class="label-floating" id="audioUrlLabel">رابط الملف الصوتي</label>
-                                </div>
-                                <p class="text-xs secondary-text mt-1 mr-1" id="audioUrlHelper">أدخل رابط مباشر لملف صوتي MP3 أو WAV.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-center">
-                        <button id="startLipsync" class="gradient-button text-white px-8 py-3 rounded-lg font-bold flex items-center">
-                            <i class="fas fa-magic mr-2"></i>
-                            <span id="startLipsyncText">بدء مزامنة الشفاه</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Lipsync Processing Screen -->
-                <div id="lipsyncProcessing" class="hidden text-center py-10">
-                    <div class="loader mx-auto mb-4 w-12 h-12 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
-                    <h2 class="text-2xl font-bold mb-2" id="lipsyncProcessingTitle">جاري مزامنة الشفاه...</h2>
-                    <p class="secondary-text" id="lipsyncProcessingDesc">تستغرق العملية حوالي 1-3 دقائق حسب طول الفيديو</p>
-                    <div class="mt-6 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div id="lipsyncProgressBar" class="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full" style="width: 10%"></div>
-                    </div>
-                    <p id="lipsyncStatusMessage" class="mt-2 text-sm secondary-text">جاري تحميل الملفات...</p>
-                    <div class="mt-10 text-center">
-                        <button id="cancelLipsync" class="text-sm text-red-500 hover:underline">
-                            <i class="fas fa-times mr-1"></i>
-                            <span id="cancelLipsyncText">إلغاء</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Lipsync Result Screen -->
-                <div id="lipsyncResult" class="hidden py-6">
-                    <h2 class="text-2xl font-bold mb-2" id="lipsyncReadyTitle">تمت مزامنة الشفاه! 🎉</h2>
-                    <p class="secondary-text mb-6" id="lipsyncReadyDesc">يمكنك الآن مشاهدة وتحميل الفيديو الناتج</p>
-                    
-                    <div class="bg-black rounded-lg overflow-hidden mb-6">
-                        <video id="lipsyncResultVideo" controls class="w-full h-auto">
-                            <source src="" type="video/mp4">
-                            <span id="lipsyncBrowserNotSupported">متصفحك لا يدعم تشغيل الفيديو.</span>
-                        </video>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-bold mb-2" id="lipsyncVideoStatsTitle">معلومات الفيديو:</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-clock text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="lipsyncDurationStatLabel">المدة</p>
-                                <p class="font-bold" id="lipsyncDurationStat">--</p>
-                            </div>
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-file-video text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="lipsyncFormatStatLabel">الصيغة</p>
-                                <p class="font-bold" id="lipsyncFormatStat">MP4</p>
-                            </div>
-                            <div class="card p-3 rounded-lg text-center">
-                                <i class="fas fa-weight text-purple-500 mb-1"></i>
-                                <p class="text-xs secondary-text" id="lipsyncSizeStatLabel">الحجم</p>
-                                <p class="font-bold" id="lipsyncSizeStat">--</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4 justify-center">
-                        <button id="downloadLipsyncVideo" class="gradient-button text-white px-6 py-3 rounded-lg font-bold flex items-center">
-                            <i class="fas fa-download mr-2"></i>
-                            <span id="downloadLipsyncButtonText">تحميل الفيديو</span>
-                        </button>
-                        <button id="createNewLipsync" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span id="createNewLipsyncButtonText">إنشاء مزامنة جديدة</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="marketing-text">Marketing Text</label>
+            <textarea id="marketing-text" placeholder="Enter your marketing copy or product description" required></textarea>
         </div>
         
-        <div class="text-center secondary-text text-sm">
-            <p id="footerText">© 2025 جميع الحقوق محفوظة | مدعوم بتقنية الذكاء الاصطناعي من Fal.ai</p>
+        <div class="form-group">
+            <label for="brand">Brand Name</label>
+            <input type="text" id="brand" placeholder="Enter your brand name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="style">Visual Style</label>
+            <select id="style">
+                <option value="modern">Modern - Clean visuals with smooth transitions</option>
+                <option value="vintage">Vintage - Nostalgic feel with film grain and warm tones</option>
+                <option value="energetic">Energetic - High energy with bold colors and quick cuts</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="voice">Voice Style</label>
+            <select id="voice">
+                <option value="professional">Professional - Clear and authoritative</option>
+                <option value="friendly">Friendly - Warm and approachable</option>
+                <option value="authoritative">Authoritative - Commanding and confident</option>
+            </select>
+        </div>
+        
+        <button id="generate-btn">Generate Video Ad</button>
+        
+        <div class="error" id="error-message"></div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner">
+                <svg width="40" height="40" viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="#3498db" stroke-width="5">
+                        <animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate>
+                        <animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate>
+                    </circle>
+                </svg>
+            </div>
+            <div class="loading-text">Generating your video ad... This may take a few minutes</div>
+        </div>
+        
+        <div class="steps" id="steps">
+            <div class="step" id="step1">1. Creating enhanced visual prompts from your marketing text...</div>
+            <div class="step" id="step2">2. Generating video based on your brand and style...</div>
+            <div class="step" id="step3">3. Creating voiceover with selected voice style...</div>
+            <div class="step" id="step4">4. Combining video and audio into final advertisement...</div>
+        </div>
+        
+        <div class="result" id="result">
+            <h2>Your Generated Video Ad</h2>
+            <div class="video-container">
+                <video id="video-result" controls>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </div>
-    
-    <!-- API Key Modal -->
-    <div id="apiKeyModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold" id="apiKeyModalTitle">إعداد مفتاح API</h3>
-                <button id="closeApiKeyModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            
-            <p class="mb-4 text-gray-600 dark:text-gray-400" id="apiKeyDescription">
-                لإنشاء الفيديوهات، يجب إدخال مفتاح API من Fal.ai. سيتم تخزينه بشكل آمن على جهازك فقط.
-            </p>
-            
-            <div class="mb-4">
-                <label for="apiKeyInput" class="block mb-2 text-sm font-medium" id="apiKeyInputLabel">
-                    مفتاح API من Fal.ai
-                </label>
-                <div class="relative">
-                    <input type="password" id="apiKeyInput" 
-                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-transparent border-gray-300 dark:border-gray-600"
-                           placeholder="f79e0142-****-****-****-********:****************">
-                    <button id="toggleApiKeyVisibility" class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400" id="apiKeyHelperText">
-                    يمكنك الحصول على مفتاح API من لوحة تحكم Fal.ai
-                </p>
-            </div>
-            
-            <div class="flex justify-end">
-                <button id="saveApiKey" class="gradient-button text-white px-4 py-2 rounded-lg font-bold">
-                    <span id="saveApiKeyText">حفظ المفتاح</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    
+
     <script>
-        // قاموس للترجمة
-        const translations = {
-            'aiPowered': {
-                'ar': 'مدعوم بالذكاء الاصطناعي',
-                'en': 'Powered by AI'
-            },
-            'stepOneText': {
-                'ar': 'اختيار القالب',
-                'en': 'Choose Template'
-            },
-            'stepTwoText': {
-                'ar': 'تفاصيل المنتج',
-                'en': 'Product Details'
-            },
-            'stepThreeText': {
-                'ar': 'المعاينة والتحميل',
-                'en': 'Preview & Download'
-            },
-            'chooseTemplateTitle': {
-                'ar': 'اختر قالب الفيديو',
-                'en': 'Choose Video Template'
-            },
-            'chooseTemplateDesc': {
-                'ar': 'كل قالب مصمم لنوع محدد من المحتوى الإعلاني',
-                'en': 'Each template is designed for a specific type of advertising content'
-            },
-            'productShowcaseTitle': {
-                'ar': 'عرض المنتج',
-                'en': 'Product Showcase'
-            },
-            'productShowcaseTooltip': {
-                'ar': 'يعرض منتجك من عدة زوايا مع التركيز على الميزات الفريدة',
-                'en': 'Displays your product from multiple angles highlighting unique features'
-            },
-            'productShowcaseDesc': {
-                'ar': 'عرض المنتج من زوايا مختلفة مع إبراز المميزات',
-                'en': 'Show product from different angles with feature highlights'
-            },
-            'problemSolutionTitle': {
-                'ar': 'مشكلة وحل',
-                'en': 'Problem & Solution'
-            },
-            'problemSolutionTooltip': {
-                'ar': 'يوضح المشكلة التي يواجهها العملاء ثم يقدم منتجك كحل مثالي',
-                'en': 'Shows the problem customers face then presents your product as the ideal solution'
-            },
-            'problemSolutionDesc': {
-                'ar': 'عرض المشكلة ثم كيف يحلها المنتج بطريقة فعالة',
-                'en': 'Present the problem and how your product solves it effectively'
-            },
-            'testimonialTitle': {
-                'ar': 'شهادة عميل',
-                'en': 'Customer Testimonial'
-            },
-            'testimonialTooltip': {
-                'ar': 'يعرض تجربة حقيقية للعملاء قبل وبعد استخدام منتجك',
-                'en': 'Shows real customer experience before and after using your product'
-            },
-            'testimonialDesc': {
-                'ar': 'قصة نجاح قصيرة مع إظهار النتائج قبل وبعد',
-                'en': 'Short success story showing before and after results'
-            },
-            'nextButtonText': {
-                'ar': 'التالي',
-                'en': 'Next'
-            },
-            'productDetailsTitle': {
-                'ar': 'أدخل تفاصيل المنتج',
-                'en': 'Enter Product Details'
-            },
-            'productDetailsDesc': {
-                'ar': 'كلما كانت التفاصيل أكثر دقة، كان الفيديو أكثر فعالية',
-                'en': 'The more detailed your information, the more effective the video'
-            },
-            'productNameLabel': {
-                'ar': 'اسم المنتج',
-                'en': 'Product Name'
-            },
-            'productNameHelper': {
-                'ar': 'أدخل اسم واضح ومميز لمنتجك',
-                'en': 'Enter a clear, distinctive name for your product'
-            },
-            'productDescriptionLabel': {
-                'ar': 'وصف المنتج وميزاته الرئيسية',
-                'en': 'Product Description & Key Features'
-            },
-            'productDescriptionHelper': {
-                'ar': 'أدخل وصفاً تفصيلياً يشمل الميزات والفوائد والجمهور المستهدف',
-                'en': 'Enter detailed description including features, benefits and target audience'
-            },
-            'suggestedFeaturesText': {
-                'ar': 'اضغط لإضافة ميزات مقترحة:',
-                'en': 'Click to add suggested features:'
-            },
-            'productImageLabel': {
-                'ar': 'صورة المنتج (اختياري)',
-                'en': 'Product Image (Optional)'
-            },
-            'dragDropText': {
-                'ar': 'اسحب وأفلت الصورة هنا أو',
-                'en': 'Drag and drop image here or'
-            },
-            'chooseFileText': {
-                'ar': 'اختر ملف',
-                'en': 'choose file'
-            },
-            'acceptedFormatsText': {
-                'ar': 'PNG, JPG حتى 5MB',
-                'en': 'PNG, JPG up to 5MB'
-            },
-            'removeImageText': {
-                'ar': 'إزالة',
-                'en': 'Remove'
-            },
-            'imageHelper': {
-                'ar': 'صورة واضحة للمنتج ستحسن من جودة الفيديو',
-                'en': 'A clear product image will enhance video quality'
-            },
-            'videoDurationLabel': {
-                'ar': 'مدة الفيديو',
-                'en': 'Video Duration'
-            },
-            'duration15Label': {
-                'ar': '15 ثانية',
-                'en': '15 seconds'
-            },
-            'duration15Desc': {
-                'ar': 'مثالي للإعلانات القصيرة',
-                'en': 'Perfect for short ads'
-            },
-            'duration30Label': {
-                'ar': '30 ثانية',
-                'en': '30 seconds'
-            },
-            'duration30Desc': {
-                'ar': 'يناسب معظم الإعلانات',
-                'en': 'Suitable for most ads'
-            },
-            'duration60Label': {
-                'ar': '60 ثانية',
-                'en': '60 seconds'
-            },
-            'duration60Desc': {
-                'ar': 'تفاصيل أكثر وقصة كاملة',
-                'en': 'More details and complete story'
-            },
-            'backButtonText': {
-                'ar': 'رجوع',
-                'en': 'Back'
-            },
-            'generateButtonText': {
-                'ar': 'إنشاء الفيديو',
-                'en': 'Generate Video'
-            },
-            'processingTitle': {
-                'ar': 'جاري إنشاء الفيديو...',
-                'en': 'Creating Your Video...'
-            },
-            'processingDesc': {
-                'ar': 'يستغرق الأمر حوالي 30-60 ثانية',
-                'en': 'This takes about 30-60 seconds'
-            },
-            'cancelProcessingText': {
-                'ar': 'إلغاء',
-                'en': 'Cancel'
-            },
-            'videoReadyTitle': {
-                'ar': 'الفيديو جاهز! 🎉',
-                'en': 'Video Ready! 🎉'
-            },
-            'videoReadyDesc': {
-                'ar': 'يمكنك الآن مشاهدة وتحميل الفيديو',
-                'en': 'You can now watch and download your video'
-            },
-            'browserNotSupported': {
-                'ar': 'متصفحك لا يدعم تشغيل الفيديو.',
-                'en': 'Your browser does not support video playback.'
-            },
-            'videoStatsTitle': {
-                'ar': 'معلومات الفيديو:',
-                'en': 'Video Information:'
-            },
-            'durationStatLabel': {
-                'ar': 'المدة',
-                'en': 'Duration'
-            },
-            'qualityStatLabel': {
-                'ar': 'الجودة',
-                'en': 'Quality'
-            },
-            'formatStatLabel': {
-                'ar': 'الصيغة',
-                'en': 'Format'
-            },
-            'sizeStatLabel': {
-                'ar': 'الحجم',
-                'en': 'Size'
-            },
-            'downloadButtonText': {
-                'ar': 'تحميل الفيديو',
-                'en': 'Download Video'
-            },
-            'createNewButtonText': {
-                'ar': 'إنشاء فيديو جديد',
-                'en': 'Create New Video'
-            },
-            'footerText': {
-                'ar': '© 2025 جميع الحقوق محفوظة | مدعوم بتقنية الذكاء الاصطناعي من Fal.ai',
-                'en': '© 2025 All Rights Reserved | Powered by Fal.ai AI Technology'
-            },
-            'videoGeneratorTabText': {
-                'ar': 'إنشاء فيديو',
-                'en': 'Video Generator'
-            },
-            'lipsyncTabText': {
-                'ar': 'مزامنة الشفاه',
-                'en': 'Lip Sync'
-            },
-            'lipsyncTitle': {
-                'ar': 'مزامنة الشفاه',
-                'en': 'Lip Sync'
-            },
-            'lipsyncDescription': {
-                'ar': 'قم بمزامنة حركة الشفاه في فيديو مع ملف صوتي',
-                'en': 'Synchronize lip movements in a video with an audio file'
-            },
-            'videoUploadLabel': {
-                'ar': 'فيديو الوجه (MP4)',
-                'en': 'Face Video (MP4)'
-            },
-            'videoUploadText': {
-                'ar': 'اسحب وأفلت فيديو هنا أو',
-                'en': 'Drag and drop video here or'
-            },
-            'chooseVideoFileText': {
-                'ar': 'اختر ملف',
-                'en': 'choose file'
-            },
-            'videoFormatText': {
-                'ar': 'فيديو بوضوح عالي يحتوي على وجه شخص - MP4',
-                'en': 'High quality video with a person\'s face - MP4'
-            },
-            'videoHelper': {
-                'ar': 'استخدم فيديو واضح للوجه لنتائج أفضل. يجب أن يكون الوجه مرئياً بوضوح.',
-                'en': 'Use a clear face video for best results. The face should be clearly visible.'
-            },
-            'audioUploadLabel': {
-                'ar': 'الملف الصوتي (MP3/WAV)',
-                'en': 'Audio File (MP3/WAV)'
-            },
-            'audioUploadText': {
-                'ar': 'اسحب وأفلت ملف صوتي هنا أو',
-                'en': 'Drag and drop audio file here or'
-            },
-            'chooseAudioFileText': {
-                'ar': 'اختر ملف',
-                'en': 'choose file'
-            },
-            'audioFormatText': {
-                'ar': 'MP3 أو WAV بجودة واضحة',
-                'en': 'Clear quality MP3 or WAV'
-            },
-            'audioHelper': {
-                'ar': 'استخدم تسجيلاً صوتياً واضحاً بدون ضوضاء خلفية للحصول على أفضل النتائج.',
-                'en': 'Use clear audio recording without background noise for best results.'
-            },
-            'removeVideoText': {
-                'ar': 'إزالة',
-                'en': 'Remove'
-            },
-            'removeAudioText': {
-                'ar': 'إزالة',
-                'en': 'Remove'
-            },
-            'advancedOptionsText': {
-                'ar': 'خيارات متقدمة',
-                'en': 'Advanced Options'
-            },
-            'useUrlsLabel': {
-                'ar': 'استخدام روابط بدلاً من الملفات',
-                'en': 'Use URLs instead of files'
-            },
-            'useUrlsHelper': {
-                'ar': 'حدد هذا الخيار إذا كنت تريد استخدام روابط فيديو وصوت موجودة بدلاً من تحميل ملفات.',
-                'en': 'Check this if you want to use existing video and audio URLs instead of uploading files.'
-            },
-            'videoUrlLabel': {
-                'ar': 'رابط الفيديو',
-                'en': 'Video URL'
-            },
-            'videoUrlHelper': {
-                'ar': 'أدخل رابط مباشر لملف فيديو MP4 يحتوي على وجه.',
-                'en': 'Enter a direct link to an MP4 video file containing a face.'
-            },
-            'audioUrlLabel': {
-                'ar': 'رابط الملف الصوتي',
-                'en': 'Audio URL'
-            },
-            'audioUrlHelper': {
-                'ar': 'أدخل رابط مباشر لملف صوتي MP3 أو WAV.',
-                'en': 'Enter a direct link to an MP3 or WAV audio file.'
-            },
-            'startLipsyncText': {
-                'ar': 'بدء مزامنة الشفاه',
-                'en': 'Start Lip Sync'
-            },
-           'lipsyncProcessingTitle': {
-    'ar': 'جاري مزامنة الشفاه...',
-    'en': 'Syncing Lips...'
-},
-'lipsyncProcessingDesc': {
-    'ar': 'تستغرق العملية حوالي 1-3 دقائق حسب طول الفيديو',
-    'en': 'This takes about 1-3 minutes depending on video length'
-},
-'cancelLipsyncText': {
-    'ar': 'إلغاء',
-    'en': 'Cancel'
-},
-'lipsyncReadyTitle': {
-    'ar': 'تمت مزامنة الشفاه! 🎉',
-    'en': 'Lip Sync Complete! 🎉'
-},
-'lipsyncReadyDesc': {
-    'ar': 'يمكنك الآن مشاهدة وتحميل الفيديو الناتج',
-    'en': 'You can now watch and download the resulting video'
-},
-'lipsyncBrowserNotSupported': {
-    'ar': 'متصفحك لا يدعم تشغيل الفيديو.',
-    'en': 'Your browser does not support video playback.'
-},
-'lipsyncVideoStatsTitle': {
-    'ar': 'معلومات الفيديو:',
-    'en': 'Video Information:'
-},
-'lipsyncDurationStatLabel': {
-    'ar': 'المدة',
-    'en': 'Duration'
-},
-'lipsyncFormatStatLabel': {
-    'ar': 'الصيغة',
-    'en': 'Format'
-},
-'lipsyncSizeStatLabel': {
-    'ar': 'الحجم',
-    'en': 'Size'
-},
-'downloadLipsyncButtonText': {
-    'ar': 'تحميل الفيديو',
-    'en': 'Download Video'
-},
-'createNewLipsyncButtonText': {
-    'ar': 'إنشاء مزامنة جديدة',
-    'en': 'Create New Lip Sync'
-},
-'apiKeyModalTitle': {
-    'ar': 'إعداد مفتاح API',
-    'en': 'API Key Setup'
-},
-'apiKeyDescription': {
-    'ar': 'لإنشاء الفيديوهات، يجب إدخال مفتاح API من Fal.ai. سيتم تخزينه بشكل آمن على جهازك فقط.',
-    'en': 'To generate videos, you need to enter your Fal.ai API key. It will be stored securely on your device only.'
-},
-'apiKeyInputLabel': {
-    'ar': 'مفتاح API من Fal.ai',
-    'en': 'Fal.ai API Key'
-},
-'apiKeyHelperText': {
-    'ar': 'يمكنك الحصول على مفتاح API من لوحة تحكم Fal.ai',
-    'en': 'You can get your API key from the Fal.ai dashboard'
-},
-'saveApiKeyText': {
-    'ar': 'حفظ المفتاح',
-    'en': 'Save Key'
-}
-};
-
-// تطبيق الترجمة
-function applyTranslation(lang) {
-    for (const [id, translations] of Object.entries(translations)) {
-        const element = document.getElementById(id);
-        if (element && translations[lang]) {
-            element.textContent = translations[lang];
-        }
-    }
-}
-
-// API Key Manager
-class ApiKeyManager {
-    // Encrypts the API key for somewhat better security in localStorage
-    static secureStoreKey(apiKey) {
-        try {
-            // Simple obfuscation (not true encryption)
-            const encoded = btoa(apiKey.split('').reverse().join(''));
-            localStorage.setItem('falApiKeySecure', encoded);
-            return true;
-        } catch (error) {
-            console.error('Error storing API key:', error);
-            return false;
-        }
-    }
-
-    // Retrieves and decodes the stored API key
-    static getStoredKey() {
-        try {
-            const encoded = localStorage.getItem('falApiKeySecure');
-            if (!encoded) return null;
-            
-            // Decode the obfuscated key
-            const decoded = atob(encoded).split('').reverse().join('');
-            return decoded;
-        } catch (error) {
-            console.error('Error retrieving API key:', error);
-            return null;
-        }
-    }
-
-    // Validate API key format
-    static isValidKeyFormat(apiKey) {
-        // Fal.ai API keys typically follow a format like: uuid:hexstring
-        const keyPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}:[a-f0-9]{32}$/i;
-        return keyPattern.test(apiKey);
-    }
-    
-    // Clear stored API key
-    static clearStoredKey() {
-        localStorage.removeItem('falApiKeySecure');
-    }
-}
-
-// Fal.ai Lipsync Service
-class FalLipsyncService {
-    constructor(apiKey) {
-        this.apiKey = apiKey;
-        this.baseUrl = 'https://api.fal.ai/v1';
-        this.abortController = null;
-    }
-    
-    // Synchronize lip movements in a video with an audio track
-    async syncLips(options) {
-        // Cancel any in-progress requests
-        if (this.abortController) {
-            this.abortController.abort();
-        }
-        
-        this.abortController = new AbortController();
-        
-        try {
-            // First, we need to upload the files if they're not already URLs
-            let videoUrl = options.videoFile;
-            let audioUrl = options.audioFile;
-            
-            if (!options.useUrls) {
-                // Update progress
-                if (options.onProgress) {
-                    options.onProgress({
-                        status: 'UPLOADING',
-                        message: 'Uploading video and audio files...',
-                        progress: 10
-                    });
-                }
-                
-                // Upload video file
-                if (options.videoFile instanceof File) {
-                    videoUrl = await this.uploadFile(options.videoFile, 'video');
-                }
-                
-                // Upload audio file
-                if (options.audioFile instanceof File) {
-                    audioUrl = await this.uploadFile(options.audioFile, 'audio');
-                }
-            }
-            
-            // Update progress
-            if (options.onProgress) {
-                options.onProgress({
-                    status: 'PROCESSING',
-                    message: 'Processing lipsync...',
-                    progress: 30
-                });
-            }
-            
-            // Make the lipsync API request
-            const response = await fetch(`${this.baseUrl}/lipsync`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Key ${this.apiKey}`,
-                    'Accept': 'application/json'
+        // Configuration
+        const config = {
+            fal: {
+                baseUrl: 'https://api.fal.ai/v1',
+                models: {
+                    textToVideo: 'fal-ai/fast-sdxl-video',
+                    textToSpeech: 'fal-ai/realistic-voice',
+                    videoComposition: 'fal-ai/video-composition'
                 },
-                body: JSON.stringify({
-                    video_url: videoUrl,
-                    audio_url: audioUrl,
-                    webhook_url: options.webhookUrl || null
-                }),
-                signal: this.abortController.signal
-            });
-            
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Fal.ai API error: ${errorData.message || response.statusText}`);
-            }
-            
-            // Parse response
-            const data = await response.json();
-            
-            // For synchronous response (most cases)
-            if (data.output && data.output.video_url) {
-                // Update progress to complete
-                if (options.onProgress) {
-                    options.onProgress({
-                        status: 'COMPLETED',
-                        message: 'Lipsync completed successfully!',
-                        progress: 100
-                    });
+                stylePresets: {
+                    modern: "A sleek, modern advertisement with clean visuals and smooth transitions",
+                    vintage: "A nostalgic, vintage advertisement with film grain and warm tones",
+                    energetic: "A high-energy, dynamic advertisement with bold colors and quick cuts"
+                },
+                voicePresets: {
+                    professional: { voiceId: "en-US-ryan", speed: 1.0, pitch: 0 },
+                    friendly: { voiceId: "en-US-amy", speed: 1.1, pitch: 1 },
+                    authoritative: { voiceId: "en-US-davis", speed: 0.9, pitch: -1 }
                 }
+            }
+        };
+
+        // DOM Elements
+        const generateBtn = document.getElementById('generate-btn');
+        const apiKeyInput = document.getElementById('api-key');
+        const marketingText = document.getElementById('marketing-text');
+        const brandInput = document.getElementById('brand');
+        const styleSelect = document.getElementById('style');
+        const voiceSelect = document.getElementById('voice');
+        const loadingEl = document.getElementById('loading');
+        const resultEl = document.getElementById('result');
+        const videoResult = document.getElementById('video-result');
+        const errorMessage = document.getElementById('error-message');
+        const stepsEl = document.getElementById('steps');
+        const steps = {
+            step1: document.getElementById('step1'),
+            step2: document.getElementById('step2'),
+            step3: document.getElementById('step3'),
+            step4: document.getElementById('step4')
+        };
+
+        // Check if API key is saved in local storage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedApiKey = localStorage.getItem('falApiKey');
+            if (savedApiKey) {
+                apiKeyInput.value = savedApiKey;
+            }
+        });
+
+        // Event Listeners
+        generateBtn.addEventListener('click', generateAd);
+
+        async function generateAd() {
+            // Reset UI
+            errorMessage.style.display = 'none';
+            resultEl.style.display = 'none';
+            
+            // Get input values
+            const apiKey = apiKeyInput.value.trim();
+            const text = marketingText.value.trim();
+            const brand = brandInput.value.trim();
+            const style = styleSelect.value;
+            const voice = voiceSelect.value;
+            
+            // Validate inputs
+            if (!apiKey) {
+                showError('Please enter your fal.ai API key');
+                return;
+            }
+            
+            if (!text) {
+                showError('Please enter your marketing text');
+                return;
+            }
+            
+            if (!brand) {
+                showError('Please enter your brand name');
+                return;
+            }
+            
+            // Save API key to local storage
+            localStorage.setItem('falApiKey', apiKey);
+            
+            // Show loading state
+            generateBtn.disabled = true;
+            loadingEl.style.display = 'flex';
+            stepsEl.style.display = 'block';
+            
+            try {
+                // Step 1: Create enhanced prompt
+                updateStep('step1', 'in-progress');
+                const videoPrompt = createEnhancedPrompt(text, brand, style);
+                updateStep('step1', 'completed');
                 
-                return {
-                    videoUrl: data.output.video_url,
-                    requestId: data.request_id,
-                    metadata: {
-                        duration: 'Unknown', // We'd need to get this from the video
-                        format: 'MP4',
-                        size: await this.estimateVideoSize(data.output.video_url)
-                    }
-                };
-            } 
-            // For asynchronous processing that requires polling
-            else if (data.request_id) {
-                // Poll for result
-                return await this.pollForResult(data.request_id, options.onProgress);
+                // Step 2: Generate video
+                updateStep('step2', 'in-progress');
+                const videoResult = await generateVideo(apiKey, videoPrompt, style);
+                updateStep('step2', 'completed');
+                
+                // Step 3: Generate voiceover
+                updateStep('step3', 'in-progress');
+                const audioResult = await generateVoiceover(apiKey, text, voice);
+                updateStep('step3', 'completed');
+                
+                // Step 4: Combine video and audio
+                updateStep('step4', 'in-progress');
+                const finalVideo = await combineVideoAudio(apiKey, videoResult.videoUrl, audioResult.audioUrl);
+                updateStep('step4', 'completed');
+                
+                // Show result
+                displayResult(finalVideo);
+            } catch (error) {
+                showError(error.message || 'An error occurred while generating your video');
+                console.error('Error:', error);
+            } finally {
+                generateBtn.disabled = false;
+                loadingEl.style.display = 'none';
             }
-            
-            throw new Error('Unexpected API response format');
-            
-        } catch (error) {
-            if (error.name === 'AbortError') {
-                console.log('Lipsync request was cancelled');
-                return null;
-            }
-            throw error;
         }
-    }
-    
-    // Upload a file to Fal.ai's storage
-    async uploadFile(file, type) {
-        // First, get a pre-signed URL for upload
-        const urlResponse = await fetch(`${this.baseUrl}/storage/upload-url`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Key ${this.apiKey}`
-            },
-            body: JSON.stringify({
-                file_name: file.name,
-                content_type: file.type
-            })
-        });
-        
-        if (!urlResponse.ok) {
-            const errorData = await urlResponse.json();
-            throw new Error(`Failed to get upload URL: ${errorData.message || urlResponse.statusText}`);
+
+        function createEnhancedPrompt(text, brand, style) {
+            const stylePrompt = config.fal.stylePresets[style] || config.fal.stylePresets.modern;
+            return `Create an advertisement for ${brand} brand: "${text}". ${stylePrompt}. Brand: ${brand}.`;
         }
-        
-        const urlData = await urlResponse.json();
-        const uploadUrl = urlData.url;
-        const fileUrl = urlData.file_url;
-        
-        // Now upload the file to the pre-signed URL
-        const uploadResponse = await fetch(uploadUrl, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': file.type
-            },
-            body: file
-        });
-        
-        if (!uploadResponse.ok) {
-            throw new Error(`Failed to upload ${type} file: ${uploadResponse.statusText}`);
-        }
-        
-        return fileUrl;
-    }
-    
-    // Poll for the result of an asynchronous lipsync request
-    async pollForResult(requestId, onProgress) {
-        let attempts = 0;
-        const maxAttempts = 60; // 5 minutes at 5-second intervals
-        
-        while (attempts < maxAttempts) {
-            attempts++;
-            
-            // Update progress (from 30% to 95% based on attempts)
-            if (onProgress) {
-                const progress = 30 + Math.min(65, (attempts / maxAttempts) * 65);
-                onProgress({
-                    status: 'PROCESSING',
-                    message: `Processing lipsync... (${Math.round(progress)}%)`,
-                    progress
+
+        async function generateVideo(apiKey, prompt, style) {
+            try {
+                const response = await fetch(`${config.fal.baseUrl}/models/${config.fal.models.textToVideo}/run`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Key ${apiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        prompt,
+                        negative_prompt: "poor quality, blurry, amateur, text overlay, watermark",
+                        num_frames: 24,  // 1 second at 24fps
+                        width: 1024,
+                        height: 576,
+                        num_inference_steps: 30
+                    })
                 });
-            }
-            
-            // Check the status
-            const statusResponse = await fetch(`${this.baseUrl}/requests/${requestId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Key ${this.apiKey}`,
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if (!statusResponse.ok) {
-                // If we get an error, wait and try again
-                await new Promise(resolve => setTimeout(resolve, 5000));
-                continue;
-            }
-            
-            const statusData = await statusResponse.json();
-            
-            // Check if processing is complete
-            if (statusData.status === 'COMPLETED' && statusData.output && statusData.output.video_url) {
-                // Update progress to complete
-                if (onProgress) {
-                    onProgress({
-                        status: 'COMPLETED',
-                        message: 'Lipsync completed successfully!',
-                        progress: 100
-                    });
+                
+                if (!response.ok) {
+                    throw new Error(`Video generation failed with status: ${response.status}`);
                 }
                 
-                return {
-                    videoUrl: statusData.output.video_url,
-                    requestId: requestId,
-                    metadata: {
-                        duration: 'Unknown',
-                        format: 'MP4',
-                        size: await this.estimateVideoSize(statusData.output.video_url)
-                    }
-                };
+                const data = await response.json();
+                return { videoUrl: data.video_url || data.url || "video_url_placeholder" };
+            } catch (error) {
+                console.error('Error generating video:', error);
+                throw new Error('Failed to generate video. Please check your API key and try again.');
             }
-            
-            // Check if processing failed
-            if (statusData.status === 'FAILED') {
-                throw new Error(`Lipsync processing failed: ${statusData.error || 'Unknown error'}`);
-            }
-            
-            // Wait before polling again
-            await new Promise(resolve => setTimeout(resolve, 5000));
         }
-        
-        throw new Error('Lipsync processing timed out after 5 minutes');
-    }
-    
-    // Estimate the size of a video from its URL
-    async estimateVideoSize(url) {
-        try {
-            const response = await fetch(url, { method: 'HEAD' });
-            const size = response.headers.get('content-length');
-            if (size) {
-                const sizeInMB = (size / (1024 * 1024)).toFixed(1);
-                return `${sizeInMB} MB`;
-            }
-            return 'Unknown';
-        } catch (error) {
-            console.error('Error getting video size:', error);
-            return 'Unknown';
-        }
-    }
-    
-    // Cancel any ongoing lipsync requests
-    cancelOperation() {
-        if (this.abortController) {
-            this.abortController.abort();
-            this.abortController = null;
-        }
-    }
-}
 
-// Global variables
-let falLipsyncService = null;  // For lipsync functionality
-
-// Initialize on document ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if we have a stored API key
-    const storedKey = ApiKeyManager.getStoredKey();
-    
-    // For development (REMOVE IN PRODUCTION)
-    if (!storedKey) {
-        ApiKeyManager.secureStoreKey("f79e0142-6c3e-41fd-814f-952ba4344c50:00fe356d981e8fa781f89935f28ffd7e");
-    }
-    
-    // Setup API key modal
-    setupApiKeyModal();
-    
-    // Initialize services if we have an API key
-    initializeServices();
-    
-    // Setup language switching
-    setupLanguageSwitching();
-    
-    // Setup theme switching
-    setupThemeSwitching();
-    
-    // Setup tab switching
-    setupTabSwitching();
-    
-    // Setup lipsync functionality
-    setupLipsyncFeature();
-    
-    // Setup video generation flow
-    setupVideoGenerationFlow();
-});
-
-// Setup API Key Modal
-function setupApiKeyModal() {
-    // Show modal button
-    document.getElementById('apiSettings').addEventListener('click', function() {
-        document.getElementById('apiKeyModal').classList.remove('hidden');
-        
-        // Pre-fill with stored key if available
-        const storedKey = ApiKeyManager.getStoredKey();
-        if (storedKey) {
-            document.getElementById('apiKeyInput').value = storedKey;
-        }
-    });
-    
-    // Close modal button
-    document.getElementById('closeApiKeyModal').addEventListener('click', function() {
-        document.getElementById('apiKeyModal').classList.add('hidden');
-    });
-    
-    // Toggle API key visibility
-    document.getElementById('toggleApiKeyVisibility').addEventListener('click', function() {
-        const input = document.getElementById('apiKeyInput');
-        if (input.type === 'password') {
-            input.type = 'text';
-            this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd" /><path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" /></svg>';
-        } else {
-            input.type = 'password';
-            this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>';
-        }
-    });
-    
-    // Save API key button
-    document.getElementById('saveApiKey').addEventListener('click', function() {
-        const apiKey = document.getElementById('apiKeyInput').value.trim();
-        
-        if (!apiKey) {
-            alert(document.body.classList.contains('rtl') 
-                ? 'يرجى إدخال مفتاح API.' 
-                : 'Please enter an API key.');
-            return;
-        }
-        
-        // Validate key format
-        if (!ApiKeyManager.isValidKeyFormat(apiKey)) {
-            alert(document.body.classList.contains('rtl') 
-                ? 'صيغة مفتاح API غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.' 
-                : 'Invalid API key format. Please check and try again.');
-            return;
-        }
-        
-        // Store the key
-        if (ApiKeyManager.secureStoreKey(apiKey)) {
-            // Initialize services
-            initializeServices();
-            
-            // Close the modal
-            document.getElementById('apiKeyModal').classList.add('hidden');
-            
-            // Show success message
-            alert(document.body.classList.contains('rtl') 
-                ? 'تم حفظ مفتاح API بنجاح!' 
-                : 'API key saved successfully!');
-        } else {
-            alert(document.body.classList.contains('rtl') 
-                ? 'فشل في حفظ مفتاح API. يرجى المحاولة مرة أخرى.' 
-                : 'Failed to save API key. Please try again.');
-        }
-    });
-}
-
-// Initialize Fal.ai services
-function initializeServices() {
-    const apiKey = ApiKeyManager.getStoredKey();
-    if (!apiKey) return;
-    
-    try {
-        falLipsyncService = new FalLipsyncService(apiKey);
-        console.log('Fal.ai services initialized successfully');
-    } catch (error) {
-        console.error('Error initializing Fal.ai services:', error);
-    }
-}
-
-// Setup language switching
-function setupLanguageSwitching() {
-    document.getElementById('arabicLang').addEventListener('click', function() {
-        document.body.classList.remove('ltr');
-        document.body.classList.add('rtl');
-        document.querySelectorAll('.rtl-icon').forEach(el => el.classList.remove('hidden'));
-        document.querySelectorAll('.ltr-icon').forEach(el => el.classList.add('hidden'));
-        this.classList.add('bg-indigo-600', 'text-white');
-        document.getElementById('englishLang').classList.remove('bg-indigo-600', 'text-white');
-        applyTranslation('ar');
-    });
-    
-    document.getElementById('englishLang').addEventListener('click', function() {
-        document.body.classList.remove('rtl');
-        document.body.classList.add('ltr');
-        document.querySelectorAll('.rtl-icon').forEach(el => el.classList.add('hidden'));
-        document.querySelectorAll('.ltr-icon').forEach(el => el.classList.remove('hidden'));
-        this.classList.add('bg-indigo-600', 'text-white');
-        document.getElementById('arabicLang').classList.remove('bg-indigo-600', 'text-white');
-        applyTranslation('en');
-    });
-}
-
-// Setup theme switching
-function setupThemeSwitching() {
-    document.getElementById('themeSwitcher').addEventListener('click', function() {
-        if (document.body.classList.contains('light-mode')) {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-            document.getElementById('themeIcon').classList.remove('fa-sun', 'text-yellow-500');
-            document.getElementById('themeIcon').classList.add('fa-moon', 'text-blue-300');
-        } else {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-            document.getElementById('themeIcon').classList.remove('fa-moon', 'text-blue-300');
-            document.getElementById('themeIcon').classList.add('fa-sun', 'text-yellow-500');
-        }
-    });
-}
-
-// Setup tab switching
-function setupTabSwitching() {
-    document.getElementById('videoGeneratorTab').addEventListener('click', function() {
-        document.getElementById('videoGeneratorSection').classList.remove('hidden');
-        document.getElementById('lipsyncSection').classList.add('hidden');
-        
-        this.classList.add('active', 'border-b-2', 'border-indigo-600');
-        document.getElementById('lipsyncTab').classList.remove('active', 'border-b-2', 'border-indigo-600');
-    });
-    
-    document.getElementById('lipsyncTab').addEventListener('click', function() {
-        document.getElementById('videoGeneratorSection').classList.add('hidden');
-        document.getElementById('lipsyncSection').classList.remove('hidden');
-        
-        this.classList.add('active', 'border-b-2', 'border-indigo-600');
-        document.getElementById('videoGeneratorTab').classList.remove('active', 'border-b-2', 'border-indigo-600');
-    });
-}
-
-// Setup lipsync feature
-function setupLipsyncFeature() {
-    // Setup file uploads
-    setupLipsyncFileUploads();
-    
-    // Setup advanced options
-    setupLipsyncAdvancedOptions();
-    
-    // Setup buttons
-    setupLipsyncButtons();
-}
-
-// Handle file uploads for video and audio
-function setupLipsyncFileUploads() {
-    // Video file upload
-    document.getElementById('chooseVideoFileText').addEventListener('click', function() {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'video/mp4,video/webm,video/quicktime';
-        
-        input.onchange = e => {
-            const file = e.target.files[0];
-            if (file) {
-                // Display video preview
-                const videoPreview = document.getElementById('videoPreview');
-                videoPreview.src = URL.createObjectURL(file);
-                videoPreview.file = file; // Store the file reference for later use
+        async function generateVoiceover(apiKey, text, voiceType) {
+            try {
+                const voiceSettings = config.fal.voicePresets[voiceType] || config.fal.voicePresets.professional;
                 
-                document.getElementById('videoUploadPlaceholder').classList.add('hidden');
-                document.getElementById('videoUploadPreview').classList.remove('hidden');
-            }
-        }
-        
-        input.click();
-    });
-    
-    // Remove video button
-    document.getElementById('removeVideoBtn').addEventListener('click', function() {
-        const videoPreview = document.getElementById('videoPreview');
-        URL.revokeObjectURL(videoPreview.src);
-        videoPreview.src = '';
-        videoPreview.file = null;
-        
-        document.getElementById('videoUploadPreview').classList.add('hidden');
-        document.getElementById('videoUploadPlaceholder').classList.remove('hidden');
-    });
-    
-    // Audio file upload
-    document.getElementById('chooseAudioFileText').addEventListener('click', function() {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'audio/mp3,audio/wav,audio/mpeg';
-        
-        input.onchange = e => {
-            const file = e.target.files[0];
-            if (file) {
-                // Display audio preview
-                const audioPreview = document.getElementById('audioPreview');
-                audioPreview.src = URL.createObjectURL(file);
-                audioPreview.file = file; // Store the file reference for later use
+                const response = await fetch(`${config.fal.baseUrl}/models/${config.fal.models.textToSpeech}/run`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Key ${apiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text,
+                        ...voiceSettings
+                    })
+                });
                 
-                document.getElementById('audioUploadPlaceholder').classList.add('hidden');
-                document.getElementById('audioUploadPreview').classList.remove('hidden');
-            }
-        }
-        
-        input.click();
-    });
-    
-    // Remove audio button
-    document.getElementById('removeAudioBtn').addEventListener('click', function() {
-        const audioPreview = document.getElementById('audioPreview');
-        URL.revokeObjectURL(audioPreview.src);
-        audioPreview.src = '';
-        audioPreview.file = null;
-        
-        document.getElementById('audioUploadPreview').classList.add('hidden');
-        document.getElementById('audioUploadPlaceholder').classList.remove('hidden');
-    });
-    
-    // Add drag and drop functionality for video
-    const videoDropZone = document.querySelector('.file-upload-area:first-of-type');
-    
-    videoDropZone.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.add('dragging');
-    });
-    
-    videoDropZone.addEventListener('dragleave', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.remove('dragging');
-    });
-    
-    videoDropZone.addEventListener('drop', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.remove('dragging');
-        
-        const file = e.dataTransfer.files[0];
-        if (file && file.type.startsWith('video/')) {
-            const videoPreview = document.getElementById('videoPreview');
-            videoPreview.src = URL.createObjectURL(file);
-            videoPreview.file = file;
-            
-            document.getElementById('videoUploadPlaceholder').classList.add('hidden');
-            document.getElementById('videoUploadPreview').classList.remove('hidden');
-        }
-    });
-    
-    // Add drag and drop functionality for audio
-    const audioDropZone = document.querySelector('.file-upload-area:last-of-type');
-    
-    audioDropZone.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.add('dragging');
-    });
-    
-    audioDropZone.addEventListener('dragleave', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.remove('dragging');
-    });
-    
-    audioDropZone.addEventListener('drop', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.remove('dragging');
-        
-        const file = e.dataTransfer.files[0];
-        if (file && (file.type.startsWith('audio/') || file.name.endsWith('.mp3') || file.name.endsWith('.wav'))) {
-            const audioPreview = document.getElementById('audioPreview');
-            audioPreview.src = URL.createObjectURL(file);
-            audioPreview.file = file;
-            
-            document.getElementById('audioUploadPlaceholder').classList.add('hidden');
-            document.getElementById('audioUploadPreview').classList.remove('hidden');
-        }
-    });
-}
-
-// Handle advanced options
-function setupLipsyncAdvancedOptions() {
-    // Toggle advanced options panel
-    document.getElementById('advancedOptionsToggle').addEventListener('click', function() {
-        const panel = document.getElementById('advancedOptionsPanel');
-        const icon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
-        
-        if (panel.classList.contains('hidden')) {
-            panel.classList.remove('hidden');
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-        } else {
-            panel.classList.add('hidden');
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-        }
-    });
-    
-    // Toggle URL input fields based on checkbox
-    document.getElementById('useUrls').addEventListener('change', function() {
-        if (this.checked) {
-            document.getElementById('videoUrlContainer').classList.remove('hidden');
-            document.getElementById('audioUrlContainer').classList.remove('hidden');
-            document.getElementById('videoUploadLabel').parentElement.classList.add('opacity-50');
-            document.getElementById('audioUploadLabel').parentElement.classList.add('opacity-50');
-        } else {
-            document.getElementById('videoUrlContainer').classList.add('hidden');
-            document.getElementById('audioUrlContainer').classList.add('hidden');
-            document.getElementById('videoUploadLabel').parentElement.classList.remove('opacity-50');
-            document.getElementById('audioUploadLabel').parentElement.classList.remove('opacity-50');
-        }
-    });
-}
-
-// Setup lipsync-related buttons
-function setupLipsyncButtons() {
-    // Start lipsync button
-    document.getElementById('startLipsync').addEventListener('click', startLipsyncProcess);
-    
-    // Cancel lipsync button
-    document.getElementById('cancelLipsync').addEventListener('click', function() {
-        const confirmMessage = document.body.classList.contains('rtl') 
-            ? 'هل أنت متأكد من إلغاء عملية مزامنة الشفاه؟' 
-            : 'Are you sure you want to cancel the lip sync process?';
-        
-        if (confirm(confirmMessage)) {
-            // Cancel the API call
-            if (falLipsyncService) {
-                falLipsyncService.cancelOperation();
-            }
-            
-            // Return to step 1
-            document.getElementById('lipsyncProcessing').classList.add('hidden');
-            document.getElementById('lipsyncStep1').classList.remove('hidden');
-        }
-    });
-    
-    // Download lip synced video
-    document.getElementById('downloadLipsyncVideo').addEventListener('click', async function() {
-        const videoUrl = document.getElementById('lipsyncResultVideo').src;
-        
-        if (!videoUrl || videoUrl === '') {
-            alert(document.body.classList.contains('rtl') 
-                ? 'لا يوجد فيديو للتحميل.' 
-                : 'No video available for download.');
-            return;
-        }
-        
-        try {
-            // Create a download link
-            const response = await fetch(videoUrl);
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            
-            // Set filename
-            a.download = `lipsync_video_${new Date().getTime()}.mp4`;
-            
-            document.body.appendChild(a);
-            a.click();
-            
-            // Clean up
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-        } catch (error) {
-            console.error('Error downloading video:', error);
-            alert(document.body.classList.contains('rtl') 
-                ? `فشل تحميل الفيديو: ${error.message}` 
-                : `Failed to download video: ${error.message}`);
-        }
-    });
-    
-    // Create new lipsync button
-    document.getElementById('createNewLipsync').addEventListener('click', function() {
-        // Reset the UI
-        document.getElementById('lipsyncResult').classList.add('hidden');
-        document.getElementById('lipsyncStep1').classList.remove('hidden');
-        
-        // Clear uploaded files
-        if (document.getElementById('videoUploadPreview').classList.contains('hidden') === false) {
-            document.getElementById('removeVideoBtn').click();
-        }
-        
-        if (document.getElementById('audioUploadPreview').classList.contains('hidden') === false) {
-            document.getElementById('removeAudioBtn').click();
-        }
-        
-        // Reset URL inputs if they exist
-        if (document.getElementById('videoUrl')) {
-            document.getElementById('videoUrl').value = '';
-        }
-        
-        if (document.getElementById('audioUrl')) {
-            document.getElementById('audioUrl').value = '';
-        }
-        
-        // Reset the useUrls checkbox
-        document.getElementById('useUrls').checked = false;
-        document.getElementById('videoUrlContainer').classList.add('hidden');
-        document.getElementById('audioUrlContainer').classList.add('hidden');
-        document.getElementById('videoUploadLabel').parentElement.classList.remove('opacity-50');
-        document.getElementById('audioUploadLabel').parentElement.classList.remove('opacity-50');
-    });
-}
-
-// Start the lipsync process
-async function startLipsyncProcess() {
-    // Check if we have an API key and service
-    if (!falLipsyncService) {
-        const storedKey = ApiKeyManager.getStoredKey();
-        if (!storedKey) {
-            // Show API key modal
-            document.getElementById('apiKeyModal').classList.remove('hidden');
-            return;
-        }
-        falLipsyncService = new FalLipsyncService(storedKey);
-    }
-    
-    // Get video and audio sources
-    let videoSource, audioSource, useUrls = false;
-    
-    // Check if we're using URLs or files
-    if (document.getElementById('useUrls').checked) {
-        useUrls = true;
-        videoSource = document.getElementById('videoUrl').value.trim();
-        audioSource = document.getElementById('audioUrl').value.trim();
-        
-        // Validate URLs
-        if (!videoSource || !audioSource) {
-            alert(document.body.classList.contains('rtl') 
-                ? 'يرجى إدخال روابط الفيديو والصوت.' 
-                : 'Please enter both video and audio URLs.');
-            return;
-        }
-    } else {
-        // Get files from previews
-        const videoPreview = document.getElementById('videoPreview');
-        const audioPreview = document.getElementById('audioPreview');
-        
-        if (!videoPreview.file || !audioPreview.file) {
-            alert(document.body.classList.contains('rtl') 
-                ? 'يرجى تحميل ملفات الفيديو والصوت.' 
-                : 'Please upload both video and audio files.');
-            return;
-        }
-        
-        videoSource = videoPreview.file;
-        audioSource = audioPreview.file;
-    }
-    
-    // Show processing screen
-    document.getElementById('lipsyncStep1').classList.add('hidden');
-    document.getElementById('lipsyncProcessing').classList.remove('hidden');
-    
-    // Update progress bar initially
-    document.getElementById('lipsyncProgressBar').style.width = '10%';
-    
-    // Set initial status message based on language
-    const lang = document.body.classList.contains('rtl') ? 'ar' : 'en';
-    const initialStatus = lang === 'ar' ? 'جاري تحميل الملفات...' : 'Uploading files...';
-    document.getElementById('lipsyncStatusMessage').textContent = initialStatus;
-    
-    try {
-        // Start the lipsync process
-        const result = await falLipsyncService.syncLips({
-            videoFile: videoSource,
-            audioFile: audioSource,
-            useUrls: useUrls,
-            onProgress: updateLipsyncProgress
-        });
-        
-        if (result) {
-            // Process completed successfully, show results
-            document.getElementById('lipsyncProcessing').classList.add('hidden');
-            document.getElementById('lipsyncResult').classList.remove('hidden');
-            
-            // Update video and stats
-            document.getElementById('lipsyncResultVideo').src = result.videoUrl;
-            document.getElementById('lipsyncFormatStat').textContent = result.metadata.format;
-            document.getElementById('lipsyncSizeStat').textContent = result.metadata.size;
-            
-            // Try to get the actual duration from the video element
-            const videoElement = document.getElementById('lipsyncResultVideo');
-            videoElement.onloadedmetadata = function() {
-                const minutes = Math.floor(videoElement.duration / 60);
-                const seconds = Math.floor(videoElement.duration % 60);
-                document.getElementById('lipsyncDurationStat').textContent = 
-                    `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-            };
-        }
-    } catch (error) {
-        console.error('Error in lipsync process:', error);
-        
-        // Show error message
-        alert(document.body.classList.contains('rtl') 
-            ? `حدث خطأ أثناء مزامنة الشفاه: ${error.message}` 
-            : `Error during lip sync: ${error.message}`);
-        
-        // Return to step 1
-        document.getElementById('lipsyncProcessing').classList.add('hidden');
-        document.getElementById('lipsyncStep1').classList.remove('hidden');
-    }
-}
-
-// Update the progress display during lipsync processing
-function updateLipsyncProgress(progressData) {
-    // Update progress bar
-    document.getElementById('lipsyncProgressBar').style.width = `${progressData.progress}%`;
-    
-    // Update status message
-    document.getElementById('lipsyncStatusMessage').textContent = progressData.message;
-    
-    // If completed, set to 100%
-    if (progressData.status === 'COMPLETED') {
-        document.getElementById('lipsyncProgressBar').style.width = '100%';
-    }
-}
-
-// Setup video generation flow
-function setupVideoGenerationFlow() {
-    // Step 1 to Step 2
-    document.getElementById('nextToStep2').addEventListener('click', function() {
-        document.getElementById('step1').classList.add('hidden');
-        document.getElementById('step2').classList.remove('hidden');
-        // Update progress indicator
-        document.getElementById('stepTwoIndicator').classList.add('active');
-        document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.remove('bg-gray-200', 'text-gray-600');
-        document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.add('bg-indigo-600', 'text-white');
-    });
-    
-    // Step 2 to Step 1 (back)
-    document.getElementById('backToStep1').addEventListener('click', function() {
-        document.getElementById('step2').classList.add('hidden');
-        document.getElementById('step1').classList.remove('hidden');
-        // Update progress indicator
-        document.getElementById('stepTwoIndicator').classList.remove('active');
-        document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
-        document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
-    });
-    
-    // Template selection
-    const templateCards = document.querySelectorAll('.template-card');
-    templateCards.forEach(card => {
-        card.addEventListener('click', function() {
-            templateCards.forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-        });
-    });
-    
-    // Image upload
-    document.getElementById('chooseFileText').addEventListener('click', function() {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        
-        input.onchange = e => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    document.getElementById('previewImage').src = event.target.result;
-                    document.getElementById('uploadPlaceholder').classList.add('hidden');
-                    document.getElementById('uploadPreview').classList.remove('hidden');
+                if (!response.ok) {
+                    throw new Error(`Voiceover generation failed with status: ${response.status}`);
                 }
-                reader.readAsDataURL(file);
+                
+                const data = await response.json();
+                return { audioUrl: data.audio_url || data.url || "audio_url_placeholder" };
+            } catch (error) {
+                console.error('Error generating voiceover:', error);
+                throw new Error('Failed to generate voiceover. Please check your API key and try again.');
             }
         }
-        
-        input.click();
-    });
-    
-    // Remove image button
-    document.getElementById('removeImage').addEventListener('click', function() {
-        document.getElementById('previewImage').src = '';
-        document.getElementById('uploadPreview').classList.add('hidden');
-        document.getElementById('uploadPlaceholder').classList.remove('hidden');
-    });
-    
-    // Feature tags
-    const featureTags = document.querySelectorAll('.feature-tag');
-    featureTags.forEach(tag => {
-        tag.addEventListener('click', function() {
-            const productDescription = document.getElementById('productDescription');
-            const feature = this.getAttribute('data-feature');
-            
-            if (productDescription.value) {
-                productDescription.value += '\n- ' + feature;
-            } else {
-                productDescription.value = '- ' + feature;
-            }
-        });
-    });
-    
-    // Duration options
-    const durationOptions = document.querySelectorAll('.duration-option');
-    durationOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const input = this.querySelector('input[type="radio"]');
-            input.checked = true;
-        });
-    });
-    
-    // Generate video button (simulate for now)
-    document.getElementById('generateVideo').addEventListener('click', function() {
-        // Validation
-        const productName = document.getElementById('productName').value;
-        const productDescription = document.getElementById('productDescription').value;
-        
-        if (!productName || !productDescription) {
-            alert(document.body.classList.contains('rtl') 
-                ? 'يرجى ملء جميع الحقول المطلوبة.' 
-                : 'Please fill in all required fields.');
-            return;
-        }
-        
-        // Check if a template is selected
-        const selectedTemplate = document.querySelector('.template-card.selected');
-        if (!selectedTemplate) {
-            alert(document.body.classList.contains('rtl') 
-                ? 'يرجى اختيار قالب.' 
-                : 'Please select a template.');
-            return;
-        }
-        
-        // Show processing screen
-        document.getElementById('step2').classList.add('hidden');
-        document.getElementById('processing').classList.remove('hidden');
-        
-        // Update progress indicator
-        document.getElementById('stepThreeIndicator').classList.add('active');
-        document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.remove('bg-gray-200', 'text-gray-600');
-        document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.add('bg-indigo-600', 'text-white');
-        
-        // Simulate video generation
-        simulateVideoGeneration();
-    });
-    
-    // Cancel processing button
-    document.getElementById('cancelProcessing').addEventListener('click', function() {
-        if (confirm(document.body.classList.contains('rtl') 
-            ? 'هل أنت متأكد من إلغاء إنشاء الفيديو؟' 
-            : 'Are you sure you want to cancel video creation?')) {
-            
-            document.getElementById('processing').classList.add('hidden');
-            document.getElementById('step2').classList.remove('hidden');
-            
-            // Reset progress indicator
-            document.getElementById('stepThreeIndicator').classList.remove('active');
-            document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
-            document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
-        }
-    });
-    
-    // Download video button (simulation)
-    document.getElementById('downloadVideo').addEventListener('click', function() {
-        alert(document.body.classList.contains('rtl') 
-            ? 'جاري تحميل الفيديو...' 
-            : 'Downloading video...');
-        // Implement actual download functionality when video generation is implemented
-    });
-    
-    // Create new video button
-    document.getElementById('createNew').addEventListener('click', function() {
-        document.getElementById('result').classList.add('hidden');
-        document.getElementById('step1').classList.remove('hidden');
-        
-        // Reset form
-        document.getElementById('productName').value = '';
-        document.getElementById('productDescription').value = '';
-        if (document.getElementById('removeImage')) {
-            document.getElementById('removeImage').click();
-        }
-        document.getElementById('duration15').checked = true;
-        
-        // Reset template selection
-        templateCards.forEach(c => c.classList.remove('selected'));
-        
-        // Reset progress indicators
-        document.getElementById('stepTwoIndicator').classList.remove('active');
-        document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
-        document.getElementById('stepTwoIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
-        
-        document.getElementById('stepThreeIndicator').classList.remove('active');
-        document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.add('bg-gray-200', 'text-gray-600');
-        document.getElementById('stepThreeIndicator').querySelector('.step-circle').classList.remove('bg-indigo-600', 'text-white');
-    });
-}
 
-// Simulate video generation (to be replaced with real API call)
-function simulateVideoGeneration() {
-    // Setup progress simulation
-    let progress = 10;
-    const lang = document.body.classList.contains('rtl') ? 'ar' : 'en';
-    
-    const statusMessages = {
-        'ar': [
-            'جاري تحليل المعلومات...',
-            'إنشاء سيناريو الفيديو...',
-            'توليد المشاهد...',
-            'تحريك المشاهد...',
-            'إضافة التأثيرات الصوتية...',
-            'دمج الفيديو النهائي...'
-        ],
-        'en': [
-            'Analyzing information...',
-            'Creating video script...',
-            'Generating scenes...',
-            'Animating scenes...',
-            'Adding sound effects...',
-            'Compositing final video...'
-        ]
-    };
-    
-    let currentStatus = 0;
-    document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
-    
-    const progressInterval = setInterval(() => {
-        progress += 3;
-        document.getElementById('progressBar').style.width = `${progress}%`;
-        
-        // Update status message at certain progress points
-        if (progress >= 30 && currentStatus === 0) {
-            currentStatus = 1;
-            document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
-        } else if (progress >= 50 && currentStatus === 1) {
-            currentStatus = 2;
-            document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
-        } else if (progress >= 70 && currentStatus === 2) {
-            currentStatus = 3;
-            document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
-        } else if (progress >= 85 && currentStatus === 3) {
-            currentStatus = 4;
-            document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
-        } else if (progress >= 95 && currentStatus === 4) {
-            currentStatus = 5;
-            document.getElementById('statusMessage').textContent = statusMessages[lang][currentStatus];
-        }
-        
-        if (progress >= 100) {
-            clearInterval(progressInterval);
-            
-            // Simulate API response
-            setTimeout(() => {
-                document.getElementById('processing').classList.add('hidden');
-                document.getElementById('result').classList.remove('hidden');
+        async function combineVideoAudio(apiKey, videoUrl, audioUrl) {
+            try {
+                const response = await fetch(`${config.fal.baseUrl}/models/${config.fal.models.videoComposition}/run`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Key ${apiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        video_url: videoUrl,
+                        audio_url: audioUrl,
+                        output_format: "mp4"
+                    })
+                });
                 
-                // Update video stats for demonstration
-                const duration = document.querySelector('input[name="duration"]:checked').value;
-                document.getElementById('durationStat').textContent = document.body.classList.contains('rtl') 
-                    ? `${duration} ثانية`
-                    : `${duration} seconds`;
+                if (!response.ok) {
+                    throw new Error(`Video composition failed with status: ${response.status}`);
+                }
                 
-                // Use a sample video for demonstration
-                document.getElementById('resultVideo').src = "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-            }, 2000);
+                const data = await response.json();
+                return data.output_url || data.url || "final_video_url_placeholder";
+            } catch (error) {
+                console.error('Error combining video and audio:', error);
+                throw new Error('Failed to combine video and audio. Please check your API key and try again.');
+            }
         }
-    }, 150);
-}
+
+        function updateStep(stepId, status) {
+            const step = steps[stepId];
+            if (status === 'in-progress') {
+                step.classList.remove('completed');
+            } else if (status === 'completed') {
+                step.classList.add('completed');
+            }
+        }
+
+        function displayResult(videoUrl) {
+            videoResult.src = videoUrl;
+            resultEl.style.display = 'block';
+            // Scroll to result
+            resultEl.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
