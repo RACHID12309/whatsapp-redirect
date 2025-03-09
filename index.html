@@ -5,193 +5,272 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Ad Generator - fal.ai</title>
     <style>
+        :root {
+            --primary-color: #3498db;
+            --success-color: #27ae60;
+            --error-color: #e74c3c;
+            --text-color: #2c3e50;
+            --bg-color: #f9f9f9;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
         }
+
         h1 {
-            color: #2c3e50;
+            color: var(--text-color);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
         }
+
         .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
+
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 600;
         }
-        textarea, input, select {
+
+        input, textarea, select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
-        textarea {
-            min-height: 100px;
-            resize: vertical;
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         }
+
         button {
-            background-color: #3498db;
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
+            transition: 
+                background-color 0.3s ease,
+                transform 0.1s ease;
+            font-weight: 600;
         }
-        button:hover {
-            background-color: #2980b9;
+
+        button:active {
+            transform: scale(0.98);
         }
+
+        button:hover:not(:disabled) {
+            background: #2980b9;
+        }
+
         button:disabled {
-            background-color: #95a5a6;
+            background: #95a5a6;
             cursor: not-allowed;
         }
-        .result {
-            margin-top: 30px;
-            display: none;
+
+        .status-indicators {
+            margin: 2rem 0;
         }
-        .result h2 {
-            margin-bottom: 15px;
-            color: #2c3e50;
+
+        .step {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
         }
-        .video-container {
-            width: 100%;
-            background-color: #eee;
-            padding: 20px;
-            border-radius: 4px;
-            text-align: center;
+
+        .step.active {
+            opacity: 1;
+            border-left: 4px solid var(--primary-color);
         }
-        video {
-            max-width: 100%;
-            border-radius: 4px;
+
+        .step.completed {
+            background: #e8f4fc;
+            opacity: 1;
         }
-        .status {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 4px;
-            text-align: center;
-            display: none;
+
+        .step.error {
+            background: #f8d7da;
+            border-color: var(--error-color);
         }
+
         .loading {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
-            display: none;
+            gap: 1rem;
+            margin: 2rem 0;
         }
-        .loading-text {
-            margin-top: 10px;
-            font-style: italic;
+
+        .spinner {
+            animation: rotate 1.5s linear infinite;
         }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner circle {
+            animation: dash 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dash {
+            0% { stroke-dasharray: 1, 200; }
+            50% { stroke-dasharray: 89, 200; }
+            100% { stroke-dasharray: 89, 200; }
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            background: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .error {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 20px;
+            background: #f8d7da;
+            color: var(--error-color);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
             display: none;
         }
-        .steps {
-            margin-top: 20px;
-            display: none;
-        }
-        .step {
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 4px;
-            background-color: #f1f9ff;
-        }
-        .step.completed {
-            background-color: #d4edda;
-        }
-        .api-key-form {
-            margin-bottom: 30px;
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Video Ad Generator</h1>
+        <h1>🎥 Video Ad Generator</h1>
         
-        <div class="api-key-form">
+        <form id="ad-form" aria-label="Video ad generation form">
             <div class="form-group">
                 <label for="api-key">fal.ai API Key</label>
-                <input type="text" id="api-key" placeholder="Enter your fal.ai API key" required>
-                <small>Your key is stored locally and never sent to our servers</small>
+                <input type="password" id="api-key" required
+                       autocomplete="off"
+                       aria-describedby="api-key-help">
+                <small id="api-key-help" class="help-text">
+                    Your API key is stored locally in browser storage
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="marketing-text">Marketing Content</label>
+                <textarea id="marketing-text" required
+                          placeholder="Describe your product or service..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Brand Name</label>
+                <input type="text" id="brand" required
+                       placeholder="Your company/brand name">
+            </div>
+
+            <div class="form-group">
+                <label for="style">Visual Style</label>
+                <select id="style">
+                    <option value="modern">Modern - Clean and professional</option>
+                    <option value="vintage">Vintage - Classic retro feel</option>
+                    <option value="energetic">Energetic - Dynamic and bold</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="voice">Voice Style</label>
+                <select id="voice">
+                    <option value="professional">Professional</option>
+                    <option value="friendly">Friendly</option>
+                    <option value="authoritative">Authoritative</option>
+                </select>
+            </div>
+
+            <button type="submit" id="generate-btn">
+                Generate Video Ad
+            </button>
+        </form>
+
+        <div class="error" id="error-message" role="alert" aria-live="assertive"></div>
+
+        <div class="status-indicators">
+            <div class="step" id="step1">
+                <span aria-hidden="true">⏳</span>
+                Creating visual concept...
+            </div>
+            <div class="step" id="step2">
+                <span aria-hidden="true">⏳</span>
+                Generating video content...
+            </div>
+            <div class="step" id="step3">
+                <span aria-hidden="true">⏳</span>
+                Producing voiceover...
+            </div>
+            <div class="step" id="step4">
+                <span aria-hidden="true">⏳</span>
+                Finalizing composition...
             </div>
         </div>
-        
-        <div class="form-group">
-            <label for="marketing-text">Marketing Text</label>
-            <textarea id="marketing-text" placeholder="Enter your marketing copy or product description" required></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label for="brand">Brand Name</label>
-            <input type="text" id="brand" placeholder="Enter your brand name" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="style">Visual Style</label>
-            <select id="style">
-                <option value="modern">Modern - Clean visuals with smooth transitions</option>
-                <option value="vintage">Vintage - Nostalgic feel with film grain and warm tones</option>
-                <option value="energetic">Energetic - High energy with bold colors and quick cuts</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="voice">Voice Style</label>
-            <select id="voice">
-                <option value="professional">Professional - Clear and authoritative</option>
-                <option value="friendly">Friendly - Warm and approachable</option>
-                <option value="authoritative">Authoritative - Commanding and confident</option>
-            </select>
-        </div>
-        
-        <button id="generate-btn">Generate Video Ad</button>
-        
-        <div class="error" id="error-message"></div>
-        
+
         <div class="loading" id="loading">
             <div class="spinner">
-                <svg width="40" height="40" viewBox="0 0 50 50">
-                    <circle cx="25" cy="25" r="20" fill="none" stroke="#3498db" stroke-width="5">
-                        <animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate>
-                        <animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate>
-                    </circle>
+                <svg width="40" height="40" viewBox="0 0 50 50" role="status">
+                    <circle cx="25" cy="25" r="20" fill="none" 
+                            stroke="currentColor" stroke-width="5"
+                            stroke-linecap="round" />
+                    <title>Loading indicator</title>
                 </svg>
             </div>
-            <div class="loading-text">Generating your video ad... This may take a few minutes</div>
+            <div class="loading-text">Generating your video ad...</div>
         </div>
-        
-        <div class="steps" id="steps">
-            <div class="step" id="step1">1. Creating enhanced visual prompts from your marketing text...</div>
-            <div class="step" id="step2">2. Generating video based on your brand and style...</div>
-            <div class="step" id="step3">3. Creating voiceover with selected voice style...</div>
-            <div class="step" id="step4">4. Combining video and audio into final advertisement...</div>
-        </div>
-        
-        <div class="result" id="result">
-            <h2>Your Generated Video Ad</h2>
+
+        <div id="result" class="result" aria-live="polite">
+            <h2>Your Video Ad</h2>
             <div class="video-container">
-                <video id="video-result" controls>
+                <video id="video-result" controls playsinline>
+                    <track kind="captions" label="English" srclang="en" default>
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -199,134 +278,150 @@
     </div>
 
     <script>
-        // Configuration
-        const config = {
-            fal: {
-                baseUrl: 'https://api.fal.ai/v1',
-                models: {
-                    textToVideo: 'fal-ai/fast-sdxl-video',
-                    textToSpeech: 'fal-ai/realistic-voice',
-                    videoComposition: 'fal-ai/video-composition'
+        (function() {
+            'use strict';
+
+            const config = {
+                fal: {
+                    baseUrl: 'https://api.fal.ai/v1',
+                    endpoints: {
+                        video: 'fal-ai/fast-sdxl-video',
+                        voice: 'fal-ai/realistic-voice',
+                        compose: 'fal-ai/video-composition'
+                    },
+                    defaults: {
+                        duration: 8, // seconds
+                        resolution: { width: 1024, height: 576 }
+                    }
                 },
-                stylePresets: {
-                    modern: "A sleek, modern advertisement with clean visuals and smooth transitions",
-                    vintage: "A nostalgic, vintage advertisement with film grain and warm tones",
-                    energetic: "A high-energy, dynamic advertisement with bold colors and quick cuts"
-                },
-                voicePresets: {
-                    professional: { voiceId: "en-US-ryan", speed: 1.0, pitch: 0 },
-                    friendly: { voiceId: "en-US-amy", speed: 1.1, pitch: 1 },
-                    authoritative: { voiceId: "en-US-davis", speed: 0.9, pitch: -1 }
+                storageKey: 'falVideoGeneratorSettings'
+            };
+
+            const state = {
+                isProcessing: false,
+                currentStep: null,
+                apiKey: '',
+                userSettings: {}
+            };
+
+            // DOM Elements
+            const form = document.getElementById('ad-form');
+            const videoResult = document.getElementById('video-result');
+            const errorEl = document.getElementById('error-message');
+            const steps = Array.from(document.querySelectorAll('.step'));
+            
+            // Initialize
+            function init() {
+                loadSettings();
+                setupEventListeners();
+            }
+
+            function loadSettings() {
+                const savedSettings = localStorage.getItem(config.storageKey);
+                if (savedSettings) {
+                    try {
+                        const settings = JSON.parse(savedSettings);
+                        document.getElementById('api-key').value = settings.apiKey || '';
+                        document.getElementById('brand').value = settings.brand || '';
+                        // Add more settings as needed
+                    } catch (e) {
+                        console.error('Error loading settings:', e);
+                    }
                 }
             }
-        };
 
-        // DOM Elements
-        const generateBtn = document.getElementById('generate-btn');
-        const apiKeyInput = document.getElementById('api-key');
-        const marketingText = document.getElementById('marketing-text');
-        const brandInput = document.getElementById('brand');
-        const styleSelect = document.getElementById('style');
-        const voiceSelect = document.getElementById('voice');
-        const loadingEl = document.getElementById('loading');
-        const resultEl = document.getElementById('result');
-        const videoResult = document.getElementById('video-result');
-        const errorMessage = document.getElementById('error-message');
-        const stepsEl = document.getElementById('steps');
-        const steps = {
-            step1: document.getElementById('step1'),
-            step2: document.getElementById('step2'),
-            step3: document.getElementById('step3'),
-            step4: document.getElementById('step4')
-        };
+            function saveSettings() {
+                const settings = {
+                    apiKey: document.getElementById('api-key').value.trim(),
+                    brand: document.getElementById('brand').value.trim()
+                };
+                localStorage.setItem(config.storageKey, JSON.stringify(settings));
+            }
 
-        // Check if API key is saved in local storage
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedApiKey = localStorage.getItem('falApiKey');
-            if (savedApiKey) {
-                apiKeyInput.value = savedApiKey;
+            function setupEventListeners() {
+                form.addEventListener('submit', handleSubmit);
+                form.addEventListener('input', debounce(saveSettings, 500));
             }
-        });
 
-        // Event Listeners
-        generateBtn.addEventListener('click', generateAd);
+            async function handleSubmit(e) {
+                e.preventDefault();
+                if (state.isProcessing) return;
 
-        async function generateAd() {
-            // Reset UI
-            errorMessage.style.display = 'none';
-            resultEl.style.display = 'none';
-            
-            // Get input values
-            const apiKey = apiKeyInput.value.trim();
-            const text = marketingText.value.trim();
-            const brand = brandInput.value.trim();
-            const style = styleSelect.value;
-            const voice = voiceSelect.value;
-            
-            // Validate inputs
-            if (!apiKey) {
-                showError('Please enter your fal.ai API key');
-                return;
+                try {
+                    state.isProcessing = true;
+                    resetUIState();
+                    
+                    const formData = getFormData();
+                    validateFormData(formData);
+                    
+                    updateProcessingState(true);
+                    await processGenerationSteps(formData);
+                    
+                } catch (error) {
+                    handleError(error);
+                } finally {
+                    updateProcessingState(false);
+                    state.isProcessing = false;
+                }
             }
-            
-            if (!text) {
-                showError('Please enter your marketing text');
-                return;
+
+            function getFormData() {
+                return {
+                    apiKey: document.getElementById('api-key').value.trim(),
+                    text: document.getElementById('marketing-text').value.trim(),
+                    brand: document.getElementById('brand').value.trim(),
+                    style: document.getElementById('style').value,
+                    voice: document.getElementById('voice').value
+                };
             }
-            
-            if (!brand) {
-                showError('Please enter your brand name');
-                return;
+
+            function validateFormData({ apiKey, text, brand }) {
+                if (!apiKey) throw new Error('API key is required');
+                if (!text) throw new Error('Marketing text is required');
+                if (!brand) throw new Error('Brand name is required');
             }
-            
-            // Save API key to local storage
-            localStorage.setItem('falApiKey', apiKey);
-            
-            // Show loading state
-            generateBtn.disabled = true;
-            loadingEl.style.display = 'flex';
-            stepsEl.style.display = 'block';
-            
-            try {
-                // Step 1: Create enhanced prompt
-                updateStep('step1', 'in-progress');
-                const videoPrompt = createEnhancedPrompt(text, brand, style);
-                updateStep('step1', 'completed');
+
+            async function processGenerationSteps(formData) {
+                try {
+                    // Step 1: Generate video concept
+                    updateStep(0, 'active');
+                    const videoPrompt = createVideoPrompt(formData);
+                    
+                    // Step 2: Generate video
+                    updateStep(1, 'active');
+                    const video = await generateVideo(formData.apiKey, videoPrompt);
+                    
+                    // Step 3: Generate audio
+                    updateStep(2, 'active');
+                    const audio = await generateAudio(formData);
+                    
+                    // Step 4: Combine assets
+                    updateStep(3, 'active');
+                    const finalVideo = await combineAssets(formData.apiKey, video, audio);
+                    
+                    // Display result
+                    displayResult(finalVideo);
+                    steps.forEach(step => updateStep(step, 'completed'));
+                    
+                } catch (error) {
+                    steps.forEach(step => updateStep(step, 'error'));
+                    throw error;
+                }
+            }
+
+            function createVideoPrompt({ text, brand, style }) {
+                const stylePresets = {
+                    modern: "Sleek modern design with clean typography and smooth transitions",
+                    vintage: "Retro aesthetic with film grain and warm color grading",
+                    energetic: "Dynamic motion graphics with bold colors and quick cuts"
+                };
+                return `${stylePresets[style]} | Brand: ${brand} | Content: ${text}`;
+            }
+
+            async function generateVideo(apiKey, prompt) {
+                const endpoint = `${config.fal.baseUrl}/models/${config.fal.endpoints.video}/run`;
                 
-                // Step 2: Generate video
-                updateStep('step2', 'in-progress');
-                const videoResult = await generateVideo(apiKey, videoPrompt, style);
-                updateStep('step2', 'completed');
-                
-                // Step 3: Generate voiceover
-                updateStep('step3', 'in-progress');
-                const audioResult = await generateVoiceover(apiKey, text, voice);
-                updateStep('step3', 'completed');
-                
-                // Step 4: Combine video and audio
-                updateStep('step4', 'in-progress');
-                const finalVideo = await combineVideoAudio(apiKey, videoResult.videoUrl, audioResult.audioUrl);
-                updateStep('step4', 'completed');
-                
-                // Show result
-                displayResult(finalVideo);
-            } catch (error) {
-                showError(error.message || 'An error occurred while generating your video');
-                console.error('Error:', error);
-            } finally {
-                generateBtn.disabled = false;
-                loadingEl.style.display = 'none';
-            }
-        }
-
-        function createEnhancedPrompt(text, brand, style) {
-            const stylePrompt = config.fal.stylePresets[style] || config.fal.stylePresets.modern;
-            return `Create an advertisement for ${brand} brand: "${text}". ${stylePrompt}. Brand: ${brand}.`;
-        }
-
-        async function generateVideo(apiKey, prompt, style) {
-            try {
-                const response = await fetch(`${config.fal.baseUrl}/models/${config.fal.models.textToVideo}/run`, {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Key ${apiKey}`,
@@ -334,31 +429,30 @@
                     },
                     body: JSON.stringify({
                         prompt,
-                        negative_prompt: "poor quality, blurry, amateur, text overlay, watermark",
-                        num_frames: 24,  // 1 second at 24fps
-                        width: 1024,
-                        height: 576,
-                        num_inference_steps: 30
+                        negative_prompt: "low quality, blurry, text",
+                        num_frames: config.fal.defaults.duration * 24,
+                        ...config.fal.defaults.resolution
                     })
                 });
-                
-                if (!response.ok) {
-                    throw new Error(`Video generation failed with status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                return { videoUrl: data.video_url || data.url || "video_url_placeholder" };
-            } catch (error) {
-                console.error('Error generating video:', error);
-                throw new Error('Failed to generate video. Please check your API key and try again.');
-            }
-        }
 
-        async function generateVoiceover(apiKey, text, voiceType) {
-            try {
-                const voiceSettings = config.fal.voicePresets[voiceType] || config.fal.voicePresets.professional;
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Video generation failed');
+                }
+
+                return response.json();
+            }
+
+            async function generateAudio({ apiKey, text, voice }) {
+                const voiceSettings = {
+                    professional: { voiceId: "en-US-ryan", speed: 1.0 },
+                    friendly: { voiceId: "en-US-amy", speed: 1.1 },
+                    authoritative: { voiceId: "en-US-davis", speed: 0.9 }
+                };
+
+                const endpoint = `${config.fal.baseUrl}/models/${config.fal.endpoints.voice}/run`;
                 
-                const response = await fetch(`${config.fal.baseUrl}/models/${config.fal.models.textToSpeech}/run`, {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Key ${apiKey}`,
@@ -366,69 +460,85 @@
                     },
                     body: JSON.stringify({
                         text,
-                        ...voiceSettings
+                        ...voiceSettings[voice]
                     })
                 });
-                
-                if (!response.ok) {
-                    throw new Error(`Voiceover generation failed with status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                return { audioUrl: data.audio_url || data.url || "audio_url_placeholder" };
-            } catch (error) {
-                console.error('Error generating voiceover:', error);
-                throw new Error('Failed to generate voiceover. Please check your API key and try again.');
-            }
-        }
 
-        async function combineVideoAudio(apiKey, videoUrl, audioUrl) {
-            try {
-                const response = await fetch(`${config.fal.baseUrl}/models/${config.fal.models.videoComposition}/run`, {
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Audio generation failed');
+                }
+
+                return response.json();
+            }
+
+            async function combineAssets(apiKey, video, audio) {
+                const endpoint = `${config.fal.baseUrl}/models/${config.fal.endpoints.compose}/run`;
+                
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Key ${apiKey}`,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        video_url: videoUrl,
-                        audio_url: audioUrl,
+                        video_url: video.url,
+                        audio_url: audio.url,
                         output_format: "mp4"
                     })
                 });
-                
+
                 if (!response.ok) {
-                    throw new Error(`Video composition failed with status: ${response.status}`);
+                    const error = await response.json();
+                    throw new Error(error.message || 'Composition failed');
                 }
-                
-                const data = await response.json();
-                return data.output_url || data.url || "final_video_url_placeholder";
-            } catch (error) {
-                console.error('Error combining video and audio:', error);
-                throw new Error('Failed to combine video and audio. Please check your API key and try again.');
+
+                return response.json();
             }
-        }
 
-        function updateStep(stepId, status) {
-            const step = steps[stepId];
-            if (status === 'in-progress') {
-                step.classList.remove('completed');
-            } else if (status === 'completed') {
-                step.classList.add('completed');
+            function updateStep(index, status) {
+                const step = steps[index];
+                step.setAttribute('class', 'step');
+                step.classList.add(status);
             }
-        }
 
-        function displayResult(videoUrl) {
-            videoResult.src = videoUrl;
-            resultEl.style.display = 'block';
-            // Scroll to result
-            resultEl.scrollIntoView({ behavior: 'smooth' });
-        }
+            function displayResult(result) {
+                videoResult.src = result.url;
+                videoResult.load();
+                document.getElementById('result').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
 
-        function showError(message) {
-            errorMessage.textContent = message;
-            errorMessage.style.display = 'block';
-        }
+            function handleError(error) {
+                console.error('Error:', error);
+                errorEl.textContent = error.message;
+                errorEl.style.display = 'block';
+            }
+
+            function resetUIState() {
+                errorEl.style.display = 'none';
+                steps.forEach(step => step.classList.remove('active', 'error'));
+            }
+
+            function updateProcessingState(isProcessing) {
+                document.getElementById('generate-btn').disabled = isProcessing;
+                document.getElementById('loading').style.display = 
+                    isProcessing ? 'flex' : 'none';
+                document.getElementById('result').style.display = 
+                    isProcessing ? 'none' : 'block';
+            }
+
+            function debounce(fn, delay) {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => fn(...args), delay);
+                };
+            }
+
+            init();
+        })();
     </script>
 </body>
 </html>
