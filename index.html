@@ -3,29 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="فرصة عمل حقيقية من المنزل للسيدات الراغبات في تحسين دخلهن عبر التجارة الإلكترونية.">
-    <meta name="keywords" content="عمل من المنزل, تجارة إلكترونية, فرص عمل للسيدات, دخل إضافي">
-    <meta name="author" content="Your Name">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="فرصة عمل من المنزل للسيدات">
-    <meta property="og:description" content="فرصة عمل حقيقية من المنزل للسيدات الراغبات في تحسين دخلهن عبر التجارة الإلكترونية.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <title>فرصة عمل من المنزل | ابدئي رحلتك في التجارة الإلكترونية</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="فرصة عمل حقيقية من المنزل للسيدات - ابدئي مشروعك في التجارة الإلكترونية مع دعم مباشر عبر واتساب">
+    <title>فرصة عمل من المنزل - تجارة إلكترونية للسيدات</title>
+    <link rel="icon" type="image/x-icon" href="whatsapp-favicon.ico">
     <style>
         :root {
             --primary-color: #25D366;
-            --primary-hover: #1ebe5d;
-            --text-dark: #333;
-            --text-light: #555;
-            --background-gradient-1: #ff9a9e;
-            --background-gradient-2: #fad0c4;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            --secondary-color: #1ebe5d;
+            --text-dark: #2d3748;
+            --text-light: #4a5568;
         }
 
         * {
@@ -35,216 +21,156 @@
         }
 
         body {
-            font-family: 'Tajawal', Arial, sans-serif;
-            background: linear-gradient(135deg, var(--background-gradient-1), var(--background-gradient-2));
-            margin: 0;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 1rem;
             line-height: 1.6;
-            color: var(--text-light);
         }
 
         .container {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        header {
-            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            margin: 1rem;
         }
 
         .whatsapp-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            gap: 10px;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
-        .whatsapp-header img {
-            width: 40px;
-            height: 40px;
-            margin-left: 10px;
-        }
-
-        .whatsapp-header span {
-            font-size: 20px;
-            color: #000000;
-            font-weight: bold;
+        .whatsapp-icon {
+            width: 48px;
+            height: 48px;
+            animation: bounce 2s infinite;
         }
 
         h1 {
             color: var(--text-dark);
-            font-size: 28px;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        h2 {
-            color: var(--text-dark);
-            font-size: 20px;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        p {
+        .description {
             color: var(--text-light);
-            line-height: 1.8;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .benefits {
-            text-align: right;
-            margin: 25px 0;
-            padding: 0 15px;
-        }
-
-        .benefits ul {
-            list-style-type: none;
-            padding-right: 20px;
-        }
-
-        .benefits li {
-            position: relative;
-            padding: 5px 25px 5px 0;
-        }
-
-        .benefits li::before {
-            content: "✓";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            right: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
         }
 
         .contact-button {
-            display: inline-block;
-            padding: 15px 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
             background-color: var(--primary-color);
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            border-radius: 50px;
-            margin-top: 10px;
+            font-weight: bold;
+            border-radius: 2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            animation: pulse 1.5s infinite;
+            width: 100%;
+            margin: 1rem 0;
+            animation: pulseButton 2s infinite;
         }
 
         .contact-button:hover {
-            background-color: var(--primary-hover);
+            background-color: var(--secondary-color);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation-play-state: paused;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .testimonial {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .testimonial::before {
-            content: """;
-            font-size: 60px;
-            color: rgba(37, 211, 102, 0.2);
-            position: absolute;
-            top: -15px;
-            right: 10px;
-        }
-
-        .testimonial-author {
-            font-weight: 500;
-            text-align: left;
-            margin-top: 10px;
+        .whatsapp-button-icon {
+            margin-left: 8px;
+            width: 24px;
+            height: 24px;
         }
 
         .privacy-policy {
-            margin-top: 25px;
-            font-size: 12px;
-            color: #777;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 15px;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 1.5rem;
         }
 
         .privacy-policy a {
-            color: #007BFF;
+            color: var(--primary-color);
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
         }
 
         .privacy-policy a:hover {
-            text-decoration: underline;
+            border-bottom-color: currentColor;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pulseButton {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 20px;
+                padding: 1.5rem;
             }
             
             h1 {
-                font-size: 24px;
-            }
-            
-            .contact-button {
-                padding: 12px 25px;
-                font-size: 16px;
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
-    <main class="container">
-        <header>
-            <div class="whatsapp-header" aria-label="واتساب للتواصل">
-                <img src="whatsapp-icon.svg" alt="واتساب" width="40" height="40" loading="lazy">
-                <span>تواصلي معي في واتساب كي أشرح لك</span>
-            </div>
-        </header>
-        
-        <section>
-            <h1>ابدئي عملك من المنزل الآن!</h1>
-            <p>فرصة رائعة لزيادة دخلك من خلال التجارة الإلكترونية بسهولة ومرونة. نقدم لك كل الدعم والتوجيه لتحقيق النجاح في عالم التجارة الإلكترونية.</p>
-            
-            <div class="benefits" aria-labelledby="benefits-heading">
-                <h2 id="benefits-heading">لماذا هذه الفرصة مناسبة لك؟</h2>
-                <ul>
-                    <li>العمل بمرونة من المنزل وفق جدولك الخاص</li>
-                    <li>دخل إضافي يتناسب مع مجهودك</li>
-                    <li>تدريب كامل وإرشاد مستمر</li>
-                    <li>لا تحتاجين لخبرة سابقة</li>
-                    <li>فرصة لبناء مشروعك الخاص</li>
-                </ul>
-            </div>
-            
-            <div class="testimonial" aria-label="قصص نجاح">
-                <p>"بدأت العمل قبل 6 أشهر فقط، والآن أستطيع المساهمة في مصاريف المنزل وتحقيق أحلامي بفضل هذه الفرصة الرائعة."</p>
-                <p class="testimonial-author">- سمية من الرباط</p>
-            </div>
-            
-            <a href="https://wa.me/212694785590?text=مرحبا، أرغب في معرفة المزيد عن فرصة العمل من المنزل. شكرًا." class="contact-button" aria-label="تواصلي معي على واتساب">
-                تواصلي معي على واتساب
-            </a>
-        </section>
-        
-        <footer class="privacy-policy">
-            <p>سيتم التعامل مع بياناتك بخصوصية تامة. لمزيد من المعلومات، يرجى الاطلاع على <a href="https://yourwebsite.com/privacy-policy" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a>.</p>
-        </footer>
-    </main>
+    <div class="container">
+        <div class="whatsapp-header">
+            <!-- Inline WhatsApp SVG icon instead of external file -->
+            <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#25D366" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            <span>تواصلي معي مباشرة على واتساب للتفاصيل</span>
+        </div>
+
+        <h1>فرصة عمل منزلية مرنة تناسب التزاماتك العائلية</h1>
+        <p class="description">انضمي إلى برنامجنا التدريبي في التجارة الإلكترونية مع:
+            <br>- دعم يومي مباشر
+            <br>- أدوات مجانية للبدء
+            <br>- مرونة كاملة في العمل
+        </p>
+
+        <a href="https://wa.me/212694785590?text=مرحبا، أرغب في المزيد من التفاصيل عن العمل من المنزل" 
+           class="contact-button"
+           aria-label="تواصل عبر واتساب">
+            <!-- Added inline WhatsApp icon to button -->
+            <svg class="whatsapp-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            ابدأي الآن عبر واتساب
+        </a>
+
+        <div class="privacy-policy">
+            <p>نضمن خصوصية بياناتك. اقرأي 
+                <a href="https://vitalityrecipe.com/privacy-policy" target="_blank" rel="noopener">
+                    سياسة الخصوصية
+                </a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>
