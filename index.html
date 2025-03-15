@@ -640,374 +640,704 @@
         
         .back-to-top.active {
             opacity: 1;
-            visibility: visible
-                        .back-to-top:hover {
-                background-color: var(--primary-hover);
-                transform: translateY(-5px);
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+        
+        .footer-column .contact-info {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column .contact-info i {
+            margin-left: 10px;
+            color: var(--primary-color);
+            font-size: 18px;
+            min-width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: var(--light-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        
+        .payment-methods {
+            margin: 20px 0;
+        }
+        
+        .payment-methods img {
+            height: 30px;
+            margin: 0 5px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
-            
-            /* Footer */
-            footer {
-                background-color: var(--dark-color);
-                color: var(--light-color);
-                padding: 60px 20px 20px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            
-            .footer-content {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-                margin-bottom: 40px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            
-            .footer-column h3 {
-                margin-bottom: 20px;
-                color: var(--primary-color);
-                position: relative;
-                padding-bottom: 10px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            
-            .footer-column h3:after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 50px;
-                height: 2px;
-                background-color: var(--primary-color);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
             }
-            
-            .footer-column ul {
-                list-style: none;
+            50% {
+                transform: scale(1.05);
             }
-            
-            .footer-column ul li {
-                margin-bottom: 15px;
+            100% {
+                transform: scale(1);
             }
-            
-            .footer-column ul li a {
-                color: #ddd;
-                text-decoration: none;
-                transition: var(--transition);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
                 display: block;
             }
             
-            .footer-column ul li a:hover {
-                color: var(--primary-color);
-                transform: translateX(-5px);
-            }
-            
-            .footer-column .contact-info {
-                display: flex;
-                margin-bottom: 15px;
-            }
-            
-            .footer-column .contact-info i {
-                margin-left: 10px;
-                color: var(--primary-color);
-                font-size: 18px;
-                min-width: 20px;
-            }
-            
-            .social-links {
-                display: flex;
-                margin-top: 20px;
-            }
-            
-            .social-links a {
-                display: inline-block;
-                width: 40px;
-                height: 40px;
-                background-color: #333;
-                color: var(--light-color);
-                border-radius: 50%;
-                text-align: center;
-                line-height: 40px;
-                margin-left: 10px;
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 50px 0;
                 transition: var(--transition);
             }
             
-            .social-links a:hover {
-                background-color: var(--primary-color);
-                transform: translateY(-5px);
+            .nav-links.active {
+                right: 0;
             }
             
-            .footer-bottom {
-                padding-top: 20px;
-                border-top: 1px solid #333;
-                text-align: center;
+            .nav-links li {
+                margin: 15px 0;
             }
             
-            .payment-methods {
-                margin: 20px 0;
+            .hero h1 {
+                font-size: 32px;
             }
             
-            .payment-methods img {
-                height: 30px;
-                margin: 0 5px;
+            .hero p {
+                font-size: 18px;
             }
             
-            /* Animations */
-            @keyframes fadeInDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .section-title {
+                font-size: 28px;
             }
             
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
             
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
-                }
-                100% {
-                    transform: scale(1);
-                }
+            .testimonial-container {
+                grid-template-columns: 1fr;
             }
             
-            /* Media Queries */
-            @media (max-width: 992px) {
-                .hero h1 {
-                    font-size: 36px;
-                }
+            .footer-content {
+                grid-template-columns: 1fr;
             }
-            
-            @media (max-width: 768px) {
-                .mobile-menu-btn {
-                    display: block;
-                }
-                
-                .nav-links {
-                    position: fixed;
-                    top: 70px;
-                    right: -100%;
-                    width: 70%;
-                    height: calc(100vh - 70px);
-                    background-color: var(--dark-color);
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 50px 0;
-                    transition: var(--transition);
-                }
-                
-                .nav-links.active {
-                    right: 0;
-                }
-                
-                .nav-links li {
-                    margin: 15px 0;
-                }
-                
-                .hero h1 {
-                    font-size: 32px;
-                }
-                
-                .hero p {
-                    font-size: 18px;
-                }
-                
-                .section-title {
-                    font-size: 28px;
-                }
-                
-                .feature-grid {
-                    grid-template-columns: 1fr;
-                }
-                
-                .testimonial-container {
-                    grid-template-columns: 1fr;
-                }
-                
-                .footer-content {
-                    grid-template-columns: 1fr;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Offer Banner -->
-        <div class="offer-banner">
-            <span class="countdown" id="countdown">23:59:59</span> - عرض خاص! خصم 20% لفترة محدودة
+        }
+    </style>
+</head>
+<body>
+    <!-- Offer Banner -->
+    <div class="offer-banner">
+        <span class="countdown" id="countdown">23:59:59</span> - عرض خاص! خصم 20% لفترة محدودة
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-shield-alt"></i>
+                تاكتيكال سيكيورتي
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#gallery">صور المنتج</a></li>
+                <li><a href="#specs">المواصفات</a></li>
+                <li><a href="#faq">الأسئلة الشائعة</a></li>
+                <li><a href="#order">اطلب الآن</a></li>
+            </ul>
         </div>
-        
-        <!-- Header -->
-        <header>
-            <div class="container header-container">
-                <a href="#" class="logo">
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>مصباح يدوي تكتيكي مزود بأشواك للدفاع عن النفس</h1>
+            <p>رفيقك الموثوق للحماية الشخصية والإضاءة القوية في حالات الطوارئ وأثناء الرحلات الخارجية</p>
+            <a href="#order" class="cta-button">اطلب الآن مع خصم 20%</a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">مميزات فريدة</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="feature-title">إضاءة LED قوية</h3>
+                    <p>مصباح LED بقوة 2000 لومن يضيء لمسافة تصل إلى 500 متر مع عمر بطارية طويل</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">حماية فعالة</h3>
+                    <p>مزود بأشواك قابلة للسحب من سبائك الألمنيوم عالية المتانة للدفاع عن النفس عند الحاجة</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <h3 class="feature-title">مقاوم للماء</h3>
+                    <p>مقاوم للماء بمعيار IPX6 مما يجعله مثاليًا للاستخدام في جميع الظروف الجوية</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="feature-title">متعدد الأوضاع</h3>
+                    <p>خمسة أوضاع للإضاءة تشمل: قوي، متوسط، منخفض، وامض، و SOS للطوارئ</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="feature-title">بطارية قابلة للشحن</h3>
+                    <p>بطارية ليثيوم قابلة للشحن عبر USB مع مؤشر لمستوى الشحن</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="feature-title">متانة عالية</h3>
+                    <p>مصنوع من سبائك الألمنيوم عالية المتانة مع مقاومة للصدمات والسقوط من ارتفاع 3 أمتار</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Gallery -->
+    <section class="product-gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">صور المنتج</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="مصباح تكتيكي للدفاع عن النفس - أمامي">
+                    <div class="gallery-caption">
+                        <h3>المصباح التكتيكي - منظر أمامي</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="مصباح تكتيكي للدفاع عن النفس - خلفي">
+                    <div class="gallery-caption">
+                        <h3>المصباح التكتيكي - منظر خلفي</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="أشواك قابلة للسحب">
+                    <div class="gallery-caption">
+                        <h3>الأشواك القابلة للسحب للدفاع عن النفس</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="مصباح تكتيكي للدفاع عن النفس - استخدام ليلي">
+                    <div class="gallery-caption">
+                        <h3>إضاءة قوية في الظلام</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء العملاء</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">اشتريت هذا المصباح للرحلات البرية وتجاوز توقعاتي. قوي جدًا وبطاريته تدوم لفترة طويلة. أشعر بأمان أكبر عند حمله خلال المشي ليلاً.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/100/100" alt="صورة أحمد" class="testimonial-avatar">
+                        <div>
+                            <h4>أحمد م.</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">جودة ممتازة! استخدمه عند المشي بالليل وفي رحلات التخييم. الإضاءة قوية جداً والتصميم متين. ميزة الأشواك للدفاع عن النفس تعطي شعوراً بالأمان الإضافي.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/100/100" alt="صورة سارة" class="testimonial-avatar">
+                        <div>
+                            <h4>سارة ع.</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">اشتريت هذا المصباح لابني الذي يعمل في مناطق نائية، وهو سعيد جداً به. الشحن يدوم طويلاً، والإضاءة ممتازة في الظلام الدامس. المتانة والجودة تستحق السعر.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/100/100" alt="صورة محمد" class="testimonial-avatar">
+                        <div>
+                            <h4>محمد ر.</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Specifications -->
+    <section class="specifications" id="specs">
+        <div class="container">
+            <h2 class="section-title">المواصفات التقنية</h2>
+            <div class="specs-table">
+                <table>
+                    <tr>
+                        <th>المواصفات</th>
+                        <th>التفاصيل</th>
+                    </tr>
+                    <tr>
+                        <td>المادة</td>
+                        <td>سبائك ألمنيوم عالية المتانة</td>
+                    </tr>
+                    <tr>
+                        <td>قوة الإضاءة</td>
+                        <td>2000 لومن</td>
+                    </tr>
+                    <tr>
+                        <td>مسافة الإضاءة</td>
+                        <td>حتى 500 متر</td>
+                    </tr>
+                    <tr>
+                        <td>عمر البطارية</td>
+                        <td>4-6 ساعات على الوضع القوي، 20 ساعة على الوضع المنخفض</td>
+                    </tr>
+                    <tr>
+                        <td>نوع البطارية</td>
+                        <td>ليثيوم أيون 3.7 فولت قابلة للشحن</td>
+                    </tr>
+                    <tr>
+                        <td>وقت الشحن</td>
+                        <td>3-4 ساعات</td>
+                    </tr>
+                    <tr>
+                        <td>أوضاع الإضاءة</td>
+                        <td>5 أوضاع (قوي، متوسط، منخفض، وامض، SOS)</td>
+                    </tr>
+                    <tr>
+                        <td>مقاومة الماء</td>
+                        <td>IPX6 (مقاوم للرذاذ والمطر)</td>
+                    </tr>
+                    <tr>
+                        <td>الأبعاد</td>
+                        <td>15 سم × 3.5 سم</td>
+                    </tr>
+                    <tr>
+                        <td>الوزن</td>
+                        <td>280 جرام</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">الأسئلة الشائعة</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        هل المصباح التكتيكي قانوني للاستخدام؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        نعم، المصباح التكتيكي قانوني للاستخدام في معظم المناطق كأداة للإضاءة وللدفاع عن النفس عند الحاجة. ومع ذلك، ننصح بالتحقق من القوانين المحلية في منطقتك.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        كم من الوقت تستغرق عملية الشحن؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        يستغرق شحن المصباح بالكامل حوالي 3-4 ساعات باستخدام كابل USB المرفق.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        هل يمكن استخدام المصباح في الظروف الجوية السيئة؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        نعم، المصباح مقاوم للماء بتصنيف IPX6 مما يعني أنه يمكن استخدامه في المطر والظروف الجوية السيئة دون مشاكل.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        ما هي مدة الضمان المقدمة مع المنتج؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        نقدم ضمان لمدة سنة كاملة ضد عيوب التصنيع. كما نوفر خدمة ما بعد البيع على مدار الساعة.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        كم من الوقت تستغرق عملية التوصيل؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        التوصيل يستغرق 2-5 أيام عمل داخل المملكة العربية السعودية، وقد يستغرق من 7-14 يوم للتوصيل الدولي.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Order Section -->
+    <section id="order" class="order-section">
+        <div class="container order-container">
+            <h2 class="section-title">اطلب الآن</h2>
+            <p>احصل على مصباح الدفاع عن النفس واستمتع بالإضاءة القوية والحماية الشخصية. متوفر باللون الأسود والذهبي مع شحن مجاني.</p>
+            <div class="price">
+                399 ريال
+                <span class="old-price">499 ريال</span>
+            </div>
+            
+            <div class="product-options">
+                <div class="color-option">
+                    <div class="color-select black active" data-color="black"></div>
+                    <span>أسود</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-select gold" data-color="gold"></div>
+                    <span>ذهبي</span>
+                </div>
+            </div>
+            
+            <div class="quantity-select">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-btn plus">+</button>
+            </div>
+            
+            <div class="order-benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-truck"></i>
+                    <span>شحن مجاني</span>
+                </div>
+                <div class="benefit-item">
                     <i class="fas fa-shield-alt"></i>
-                    تاكتيكال سيكيورتي
-                </a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#features">المميزات</a></li>
-                    <li><a href="#gallery">صور المنتج</a></li>
-                    <li><a href="#specs">المواصفات</a></li>
-                    <li><a href="#faq">الأسئلة الشائعة</a></li>
-                    <li><a href="#order">اطلب الآن</a></li>
-                </ul>
-            </div>
-        </header>
-        
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1>مصباح يدوي تكتيكي مزود بأشواك للدفاع عن النفس</h1>
-                <p>رفيقك الموثوق للحماية الشخصية والإضاءة القوية في حالات الطوارئ وأثناء الرحلات الخارجية</p>
-                <a href="#order" class="cta-button">اطلب الآن مع خصم 20%</a>
-            </div>
-        </section>
-        
-        <!-- Features Section -->
-        <section class="features" id="features">
-            <div class="container">
-                <h2 class="section-title">مميزات فريدة</h2>
-                <div class="feature-grid">
-                    <!-- Feature items here -->
+                    <span>ضمان لمدة سنة</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-undo"></i>
+                    <span>استرجاع خلال 14 يوم</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-headset"></i>
+                    <span>دعم فني 24/7</span>
                 </div>
             </div>
-        </section>
-        
-        <!-- Product Gallery -->
-        <section class="product-gallery" id="gallery">
-            <div class="container">
-                <h2 class="section-title">صور المنتج</h2>
-                <div class="gallery-container">
-                    <!-- Gallery items here -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials -->
-        <section class="testimonials">
-            <div class="container">
-                <h2 class="section-title">آراء العملاء</h2>
-                <div class="testimonial-container">
-                    <!-- Testimonial items here -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- Specifications -->
-        <section class="specifications" id="specs">
-            <div class="container">
-                <h2 class="section-title">المواصفات التقنية</h2>
-                <div class="specs-table">
-                    <!-- Table content here -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- FAQ Section -->
-        <section class="faq-section" id="faq">
-            <div class="container">
-                <h2 class="section-title">الأسئلة الشائعة</h2>
-                <div class="faq-container">
-                    <!-- FAQ items here -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- Order Section -->
-        <section id="order" class="order-section">
-            <div class="container order-container">
-                <h2 class="section-title">اطلب الآن</h2>
-                <p>احصل على مصباح الدفاع عن النفس واستمتع بالإضاءة القوية والحماية الشخصية. متوفر باللون الأسود والذهبي مع شحن مجاني.</p>
-                <div class="price">
-                    399 ريال
-                    <span class="old-price">499 ريال</span>
-                </div>
-                <a href="#" class="cta-button">أضف إلى السلة</a>
-            </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <!-- Footer columns here -->
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 تاكتيكال سيكيورتي - جميع الحقوق محفوظة</p>
-                </div>
-            </div>
-        </footer>
-        
-        <!-- Floating Buttons -->
-        <a href="https://wa.me/966123456789" class="float-contact" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        
-        <a href="#" class="back-to-top" id="backToTop">
-            <i class="fas fa-arrow-up"></i>
-        </a>
-        
-        <!-- JavaScript -->
-        <script>
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
             
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Back to Top Button
-            const backToTopBtn = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('active');
-                } else {
-                    backToTopBtn.classList.remove('active');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            // Countdown Timer
-            function updateCountdown() {
-                const countdownEl = document.getElementById('countdown');
-                const timeString = countdownEl.textContent;
-                const [hours, minutes, seconds] = timeString.split(':').map(num => parseInt(num));
-                
-                let totalSeconds = hours * 3600 + minutes * 60 + seconds;
-                
-                if (totalSeconds > 0) {
-                    totalSeconds--;
-                    
-                    const newHours = Math.floor(totalSeconds / 3600);
-                    const newMinutes = Math.floor((totalSeconds % 3600) / 60);
-                    const newSeconds = totalSeconds % 60;
-                    
-                    countdownEl.textContent = `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}:${String(newSeconds).padStart(2, '0')}`;
-                } else {
-                    clearInterval(countdownInterval);
-                }
+            <a href="#" class="cta-button">أضف إلى السلة</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#gallery">صور المنتج</a></li>
+                        <li><a href="#specs">المواصفات</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                        <li><a href="#order">الطلب</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الشحن والتوصيل</a></li>
+                        <li><a href="#">طرق الدفع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>الرياض، المملكة العربية السعودية</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+966 123 456 789</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@tacticalsecurity.sa</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>النشرة الإخبارية</h3>
+                    <p>اشترك في نشرتنا الإخبارية للحصول على آخر العروض والمنتجات الجديدة</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشتراك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="payment-methods">
+                    <img src="/api/placeholder/40/25" alt="فيزا">
+                    <img src="/api/placeholder/40/25" alt="ماستركارد">
+                    <img src="/api/placeholder/40/25" alt="مدى">
+                    <img src="/api/placeholder/40/25" alt="آبل باي">
+                </div>
+                <p>&copy; 2025 تاكتيكال سيكيورتي - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/966123456789" class="float-contact" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
             }
+        });
+        
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const countdownEl = document.getElementById('countdown');
+            const timeString = countdownEl.textContent;
+            const [hours, minutes, seconds] = timeString.split(':').map(num => parseInt(num));
             
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        </script>
-    </body>
+            let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+            
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                
+                const newHours = Math.floor(totalSeconds / 3600);
+                const newMinutes = Math.floor((totalSeconds % 3600) / 60);
+                const newSeconds = totalSeconds % 60;
+                
+                countdownEl.textContent = `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}:${String(newSeconds).padStart(2, '0')}`;
+            } else {
+                clearInterval(countdownInterval);
+            }
+        }
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Toggle FAQ answers
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+        
+        // Color selection
+        const colorOptions = document.querySelectorAll('.color-select');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                // Add active class to clicked option
+                this.classList.add('active');
+            });
+        });
+        
+        // Quantity buttons
+        const minusBtn = document.querySelector('.minus');
+        const plusBtn = document.querySelector('.plus');
+        const quantityInput = document.querySelector('.quantity-input');
+        
+        minusBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+        
+        plusBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        });
+    </script>
+</body>
 </html>
