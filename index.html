@@ -1,822 +1,689 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل تأسيس الشركات البريطانية للمستثمر السعودي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Découvrez l'histoire de MBN (Moroccan Bloggers Network), un collectif dédié à la promotion de la cuisine marocaine authentique.">
+    <meta name="keywords" content="MBN, Moroccan Bloggers Network, cuisine marocaine, recettes marocaines, blog culinaire">
+    <title>Notre Histoire - MBN (Moroccan Bloggers Network)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #132B43;
-            --primary-dark: #0A1622;
-            --primary-light: #2A476A;
-            --secondary: #00843D;
-            --secondary-dark: #006830;
-            --secondary-light: #26A35A;
-            --accent: #C8A732;
-            --accent-dark: #B09120;
-            --accent-light: #E0BD40;
-            --light: #F7F9FC;
-            --dark: #0A1622;
-            --success: #4CAF50;
-            --warning: #ff9800;
-            --danger: #f44336;
-            --gray-100: #f8f9fa;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-400: #ced4da;
-            --gray-500: #adb5bd;
-            --gray-600: #6c757d;
-            --gray-700: #495057;
-            --gray-800: #343a40;
-            --gray-900: #212529;
+            --primary-color: #c53211;
+            --secondary-color: #004225;
+            --accent-color: #f2a007;
+            --light-color: #f5f5f5;
+            --dark-color: #333333;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
         }
         
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--light-color);
+            color: var(--dark-color);
             line-height: 1.6;
-            min-height: 100vh;
+            font-family: var(--font-body);
             overflow-x: hidden;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        section {
-            padding: 5rem 0;
-            position: relative;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 2;
+            padding: 0 20px;
         }
         
-        .section-heading {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-        
-        .section-heading h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .section-heading p {
-            font-size: 1.25rem;
-            color: var(--gray-700);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .section-heading::after {
-            content: "";
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        /* Advanced Button Styles */
-        .btn {
-            display: inline-block;
-            font-weight: 600;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            user-select: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.4s ease-in-out;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            left: 0;
-        }
-        
-        .btn-primary {
-            background-color: var(--secondary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(0, 132, 61, 0.4);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary-dark);
-            box-shadow: 0 6px 20px rgba(0, 132, 61, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        .btn-large {
-            padding: 1rem 2.5rem;
-            font-size: 1.25rem;
-            border-radius: 10px;
-        }
-        
-        .btn-shadow {
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn-center {
-            display: block;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-        
-        .btn-pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 14px rgba(0, 132, 61, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 6px 20px rgba(0, 132, 61, 0.6);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 14px rgba(0, 132, 61, 0.4);
-            }
-        }
-        
-        /* Enhanced Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            z-index: 100;
         }
         
-        header.scrolled {
-            padding: 0.7rem 0;
-            background: rgba(19, 43, 67, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        
-        .header-container {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .nav-links {
             display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            opacity: 0.8;
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            opacity: 1;
-        }
-        
-        .header-cta {
-            padding: 0.5rem 1rem;
-            background-color: var(--accent);
-            color: var(--primary-dark);
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .header-cta:hover {
-            background-color: var(--accent-light);
-            transform: translateY(-2px);
-        }
-        
-        /* Enhanced Countdown */
-        .countdown {
-            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-            color: var(--primary-dark);
-            padding: 0.75rem 0;
-            text-align: center;
-            font-weight: 600;
-            position: fixed;
-            width: 100%;
-            top: 60px;
-            z-index: 999;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .countdown-container {
-            display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 0.5rem;
         }
         
-        .countdown-text {
-            display: inline-block;
+        .logo h1 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-left: 10px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
         }
         
-        #countdown-timer {
-            display: inline-flex;
-            gap: 0.25rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-dark);
+        .logo span {
+            color: var(--secondary-color);
+            font-weight: 300;
         }
         
-        .countdown-unit {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            min-width: 2.5ch;
-            text-align: center;
+        nav ul {
+            display: flex;
+            list-style: none;
         }
         
-        /* Enhanced Hero Section */
-        .hero {
-            padding: 12rem 0 8rem;
-            background: linear-gradient(rgba(19, 43, 67, 0.9), rgba(19, 43, 67, 0.85)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+        nav ul li {
+            margin-left: 35px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
             position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
             color: white;
-            overflow: hidden;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
         }
         
         .hero::before {
-            content: "";
+            content: '';
             position: absolute;
-            width: 150%;
-            height: 100px;
-            background: var(--light);
-            bottom: -50px;
-            left: -25%;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            text-align: center;
             position: relative;
-            z-index: 2;
+            z-index: 1;
+            padding: 0 20px;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        .hero h2 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            font-weight: 400;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
         }
         
-        /* Enhanced Limited Offer */
-        .limited-offer {
-            background: linear-gradient(135deg, var(--accent-light), var(--accent));
-            color: var(--primary-dark);
-            padding: 1.25rem 0;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.25rem;
-            animation: pulse-bg 2s infinite;
-            position: relative;
-        }
-        
-        @keyframes pulse-bg {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        
-        .limited-offer::before,
-        .limited-offer::after {
-            content: "🔥";
-            margin: 0 1rem;
-            animation: bounce 1s infinite alternate;
-        }
-        
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
-        }
-        
-        /* Enhanced Features Section */
-        .features {
-            padding: 6rem 0;
-            background-color: white;
-            position: relative;
-        }
-        
-        .features::after {
-            content: "";
-            position: absolute;
-            height: 100px;
-            width: 150%;
-            background: var(--light);
-            bottom: -50px;
-            left: -25%;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border: 1px solid var(--gray-200);
-            height: 100%;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--secondary-light);
-        }
-        
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 132, 61, 0.2);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
             font-weight: 600;
-            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(197, 50, 17, 0.3);
         }
         
-        .feature-card p {
-            color: var(--gray-700);
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .btn:hover {
+            background-color: #a42a0e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(197, 50, 17, 0.4);
         }
         
-        /* Enhanced Testimonials */
-        .social-proof {
-            padding: 8rem 0 6rem;
-            background-color: var(--light);
+        .btn:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+        
+        .pattern-section {
             position: relative;
         }
         
-        .testimonials-grid {
+        .pattern-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23004225' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: #666;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-box {
+            padding: 15px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-box.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-box:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-box:nth-child(even) {
+            left: 50%;
+            transform: translateX(30px);
+        }
+        
+        .timeline-box:nth-child(even).visible {
+            transform: translateX(0);
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-box h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        .timeline-box p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .timeline-box::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(242, 160, 7, 0.2);
+        }
+        
+        .timeline-box:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-box:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-box:nth-child(odd) .timeline-date {
+            right: -180px;
+        }
+        
+        .timeline-box:nth-child(even) .timeline-date {
+            left: -180px;
+        }
+        
+        .story-content {
+            padding: 50px 0;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -20px;
+        }
+        
+        .col {
+            flex: 1;
+            padding: 0 20px;
+            min-width: 300px;
+        }
+        
+        .col h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+        
+        .col p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .story-image {
+            position: relative;
+            margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.5s ease;
+        }
+        
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .team {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-img {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .member:hover .member-img img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        .member-info p {
+            color: #777;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .social-links a:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        .testimonials {
+            background-color: var(--secondary-color);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .testimonials .section-title h2 {
+            color: white;
+        }
+        
+        .testimonials .section-title h2::after {
+            background-color: var(--accent-color);
+        }
+        
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .testimonial {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
             position: relative;
-            transition: all 0.3s ease;
-            border: 1px solid var(--gray-200);
-        }
-        
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
         }
         
         .testimonial::before {
-            content: """;
-            font-size: 5rem;
+            content: '\201C';
+            font-family: Georgia, serif;
             position: absolute;
-            top: 10px;
-            right: 20px;
-            color: var(--gray-200);
-            font-family: serif;
+            top: 0;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.1);
             line-height: 1;
         }
         
         .testimonial p {
-            position: relative;
-            z-index: 1;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--gray-800);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .testimonial-author {
-            margin-top: 1.5rem;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         
-        .author-image {
-            width: 50px;
-            height: 50px;
+        .author-img {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            margin-left: 15px;
-            object-fit: cover;
-            border: 2px solid var(--secondary);
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--accent-color);
         }
         
-        .author-details {
-            flex: 1;
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info {
+            text-align: left;
         }
         
         .author-name {
             font-weight: 700;
-            color: var(--primary);
             font-size: 1.1rem;
+            margin-bottom: 5px;
         }
         
-        .author-title {
-            color: var(--gray-600);
+        .author-role {
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
         
-        /* Enhanced Pricing Section */
-        .pricing {
-            padding: 6rem 0;
-            background-color: white;
-            position: relative;
+        .gallery {
+            margin-top: 60px;
         }
         
-        .price-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid var(--secondary);
-            z-index: 2;
+            border-radius: 8px;
+            height: 250px;
         }
         
-        .price-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .price-card::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary-light), transparent);
-            top: -150px;
-            right: -150px;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        
-        .price-card::after {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-light), transparent);
-            bottom: -100px;
-            left: -100px;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        
-        .ribbon {
-            position: absolute;
-            top: 30px;
-            right: -35px;
-            transform: rotate(45deg);
-            background: var(--accent);
-            padding: 0.5rem 3rem;
-            font-weight: 700;
-            color: var(--dark);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 3;
-        }
-        
-        .original-price {
-            text-decoration: line-through;
-            color: var(--gray-500);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-        
-        .current-price {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--secondary);
-            margin: 0.5rem 0 1rem;
-            line-height: 1;
-        }
-        
-        .save-text {
-            display: inline-block;
-            background: rgba(0, 132, 61, 0.1);
-            color: var(--secondary);
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .price-features {
-            margin: 2rem 0;
-            text-align: right;
-        }
-        
-        .price-feature-item {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            color: var(--gray-800);
-        }
-        
-        .price-feature-icon {
-            margin-left: 0.75rem;
-            color: var(--secondary);
-            font-size: 1.25rem;
-        }
-        
-        /* Added Guarantee Section */
-        .guarantee {
-            padding: 6rem 0;
-            background-color: var(--light);
-            text-align: center;
-        }
-        
-        .guarantee-content {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .guarantee-icon {
-            font-size: 5rem;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .guarantee-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .guarantee-text {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: var(--gray-700);
-        }
-        
-        /* Added FAQ Section */
-        .faq {
-            padding: 6rem 0;
-            background-color: white;
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--gray-300);
-            padding-bottom: 1.5rem;
-        }
-        
-        .faq-question {
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            position: relative;
-            cursor: pointer;
-            padding-right: 2rem;
-        }
-        
-        .faq-question::after {
-            content: "+";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            color: var(--secondary);
-            transition: all 0.3s ease;
-        }
-        
-        .faq-question.active::after {
-            transform: translateY(-50%) rotate(45deg);
-        }
-        
-        .faq-answer {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--gray-700);
-            max-height: 0;
-            overflow: hidden;
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: all 0.5s ease;
         }
         
-        .faq-answer.show {
-            max-height: 1000px;
-            margin-top: 1rem;
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
         
-        /* Added Author Section */
-        .author {
-            padding: 6rem 0;
-            background-color: var(--light);
-        }
-        
-        .author-container {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .author-image-large {
-            flex: 0 0 200px;
-            height: 200px;
-            border-radius: 16px;
-            object-fit: cover;
-            border: 3px solid var(--secondary);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .author-bio-content h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .author-title-large {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .author-bio {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--gray-700);
-        }
-        
-        .author-credentials {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .credential-badge {
-            background: rgba(0, 132, 61, 0.1);
-            color: var(--secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        /* Enhanced Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
-        }
-        
-        footer::before {
-            content: "";
+        .gallery-caption {
             position: absolute;
-            width: 150%;
-            height: 100px;
-            background: white;
-            top: -50px;
-            left: -25%;
-            border-radius: 50%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+            text-align: center;
         }
         
         .footer-content {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
         }
         
-        .footer-column h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            position: relative;
-            padding-bottom: 0.75rem;
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+            text-align: left;
         }
         
-        .footer-column h4::after {
-            content: "";
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
             position: absolute;
             width: 40px;
-            height: 3px;
-            background: var(--accent);
+            height: 2px;
+            background-color: var(--accent-color);
             bottom: 0;
-            right: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
         
         .footer-links {
@@ -824,600 +691,563 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: #aaa;
+            text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
         
         .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .footer-links a:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        .footer-social {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
             color: white;
-            padding-right: 5px;
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-social a:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
         
         .copyright {
-            text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+            color: #777;
             font-size: 0.9rem;
         }
         
-        /* Enhanced Payment Methods */
-        .payment-methods {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .payment-method {
+        .scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             width: 50px;
-            height: 30px;
-            background: white;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: var(--gray-700);
-        }
-        
-        /* Final CTA Section */
-        .final-cta {
-            padding: 6rem 0;
-            background: linear-gradient(rgba(19, 43, 67, 0.9), rgba(19, 43, 67, 0.95)), 
-                        url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
-            text-align: center;
+            height: 50px;
+            background-color: var(--primary-color);
             color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
         }
         
-        .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
+        .scrollToTop.active {
+            opacity: 1;
+            visibility: visible;
         }
         
-        .final-cta p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
+        .scrollToTop:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
         }
         
-        /* Enhanced Mobile Responsiveness */
+        .scrollToTop:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
         @media (max-width: 992px) {
-            .hero h1 {
+            .hero h2 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
                 font-size: 2.5rem;
             }
             
-            .author-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .author-image-large {
-                margin: 0 auto;
-            }
-            
-            .author-credentials {
-                justify-content: center;
+            .timeline-box:nth-child(odd) .timeline-date,
+            .timeline-box:nth-child(even) .timeline-date {
+                position: static;
+                margin-bottom: 10px;
+                text-align: left;
             }
         }
         
         @media (max-width: 768px) {
-            .section-heading h2 {
-                font-size: 2rem;
+            .navbar {
+                flex-direction: column;
             }
             
-            .hero {
-                padding: 10rem 0 6rem;
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            nav ul li {
+                margin: 0 15px 10px;
             }
             
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .feature-grid {
-                gap: 1.5rem;
-            }
-            
-            .current-price {
-                font-size: 3rem;
-            }
-            
-            .price-card {
-                padding: 2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .countdown {
-                top: 51px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.75rem;
+            .hero h2 {
+                font-size: 2.8rem;
             }
             
             .hero p {
                 font-size: 1.1rem;
             }
             
-            .current-price {
-                font-size: 2.5rem;
+            .timeline::after {
+                left: 40px;
             }
             
-            .ribbon {
-                right: -40px;
-                font-size: 0.8rem;
+            .timeline-box {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 20px;
+                text-align: left;
             }
             
-            .btn-large {
-                padding: 0.75rem 1.5rem;
-                font-size: 1.1rem;
+            .timeline-box:nth-child(odd),
+            .timeline-box:nth-child(even) {
+                left: 0;
             }
             
-            .countdown-unit {
-                padding: 0.15rem 0.3rem;
-                font-size: 1rem;
+            .timeline-box::after {
+                left: 32px !important;
             }
-            
-            .countdown-text {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Added Animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 1s ease-in-out;
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 1s ease-in-out;
-        }
-        
-        .slide-in-bottom {
-            animation: slideInBottom 1s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInBottom {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
-    <header id="header">
-        <div class="container header-container">
-            <div class="logo">الدليل الشامل للشركات البريطانية</div>
-            <nav class="nav-links">
-                <a href="#features">المميزات</a>
-                <a href="#testimonials">آراء العملاء</a>
-                <a href="#pricing">السعر</a>
-                <a href="#faq">الأسئلة الشائعة</a>
-            </nav>
-            <a href="#pricing" class="header-cta">احصل عليه الآن</a>
+    <a href="#story" class="skip-link">Aller au contenu</a>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>MBN<span>Cuisine</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="recipes.html">Recettes</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
-    
-    <!-- Countdown Timer -->
-    <div class="countdown">
-        <div class="container countdown-container">
-            <span class="countdown-text">العرض ينتهي خلال:</span>
-            <div id="countdown-timer">
-                <span class="countdown-unit hours">23</span>:
-                <span class="countdown-unit minutes">59</span>:
-                <span class="countdown-unit seconds">59</span>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content fade-in">
-            <h1>اكتشف الطريقة المضمونة لتأسيس شركتك البريطانية بنفسك</h1>
-            <p>دليل شامل باللغة العربية يوفر عليك أكثر من 15,000 ريال من رسوم وكلاء التأسيس</p>
-            <a href="#pricing" class="btn btn-primary btn-large btn-pulse">احصل على نسختك الآن</a>
-        </div>
-    </section>
-    
-    <!-- Limited Offer Banner -->
-    <section class="limited-offer">
+
+    <section class="hero" role="img" aria-label="Image de fond représentant la cuisine marocaine">
         <div class="container">
-            فقط لأول 50 مستثمر: خصم 300 ريال + استشارة مجانية لمدة 30 دقيقة مع خبير الضرائب الدولية
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-heading">
-                <h2>لماذا تأسيس شركة في بريطانيا هو خيارك الأفضل؟</h2>
-                <p>اكتشف المزايا التي جعلت آلاف المستثمرين السعوديين يختارون المملكة المتحدة لأعمالهم</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card slide-in-bottom">
-                    <div class="feature-icon">🌐</div>
-                    <h3>سمعة عالمية مرموقة</h3>
-                    <p>استفد من المكانة العالمية للشركات البريطانية في فتح أسواق جديدة وبناء ثقة العملاء والشركاء التجاريين</p>
-                </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.2s;">
-                    <div class="feature-icon">💼</div>
-                    <h3>حماية أصولك</h3>
-                    <p>هيكلة قانونية متطورة تفصل بين أصولك الشخصية وأعمالك التجارية لتوفير حماية قانونية كاملة لثروتك</p>
-                </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.4s;">
-                    <div class="feature-icon">🔒</div>
-                    <h3>خصوصية وأمان</h3>
-                    <p>حلول قانونية لحماية هويتك وخصوصية معلوماتك الشخصية مع الحفاظ على جميع المتطلبات القانونية</p>
-                </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.6s;">
-                    <div class="feature-icon">💰</div>
-                    <h3>مزايا ضريبية</h3>
-                    <p>استفد من اتفاقيات منع الازدواج الضريبي بين المملكة المتحدة والسعودية والأنظمة الضريبية المرنة</p>
-                </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 0.8s;">
-                    <div class="feature-icon">🏦</div>
-                    <h3>حسابات بنكية دولية</h3>
-                    <p>خطوات محددة لفتح حسابات مصرفية بريطانية وعالمية لشركتك تسهل عمليات التحويل والتعاملات الدولية</p>
-                </div>
-                <div class="feature-card slide-in-bottom" style="animation-delay: 1s;">
-                    <div class="feature-icon">🚀</div>
-                    <h3>توسيع نطاق أعمالك</h3>
-                    <p>أساس متين للنمو والتوسع في أسواق أوروبا والعالم مع إمكانية الحصول على تأشيرات أعمال متعددة</p>
-                </div>
+            <div class="hero-content">
+                <h2>Notre Histoire</h2>
+                <p>Découvrez comment MBN (Moroccan Bloggers Network) est née et comment nous partageons notre passion pour la cuisine marocaine à travers le monde</p>
+                <a href="#story" class="btn">Notre Parcours</a>
             </div>
         </div>
     </section>
-    
-    <!-- Testimonials Section -->
-    <section class="social-proof" id="testimonials">
+
+    <section id="story" class="pattern-section">
         <div class="container">
-            <div class="section-heading">
-                <h2>ماذا يقول المستثمرون الذين استخدموا هذا الدليل؟</h2>
-                <p>تجارب حقيقية من رواد أعمال سعوديين استفادوا من الدليل في تأسيس شركاتهم البريطانية</p>
+            <div class="section-title">
+                <h2>L'Histoire de MBN</h2>
+                <p>Un voyage passionnant de la création à aujourd'hui</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial slide-in-left">
-                    <p>"كنت سأدفع أكثر من 15,000 ريال لوكيل تأسيس، لكن هذا الدليل مكنني من تأسيس شركتي البريطانية بنفسي خلال أسبوع فقط. شرح مفصل وواضح جداً يناسب حتى من ليس لديه خبرة سابقة."</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="صورة محمد العتيبي" class="author-image">
-                        <div class="author-details">
-                            <div class="author-name">محمد العتيبي</div>
-                            <div class="author-title">رجل أعمال سعودي</div>
-                        </div>
+            <div class="timeline">
+                <div class="timeline-box">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018</div>
+                        <h3>Les débuts</h3>
+                        <p>C'est autour d'une table de ftour pendant le mois de Ramadan que l'idée est née. Cinq passionnés de cuisine marocaine décident de partager leurs recettes en ligne, chacun sur son propre blog.</p>
                     </div>
                 </div>
-                <div class="testimonial slide-in-right">
-                    <p>"بفضل هذا الدليل، تمكنت من فتح حساب بنكي تجاري في لندن وتوسيع أعمالي للسوق الأوروبي. كل التفاصيل القانونية والإجرائية موضحة بشكل ممتاز باللغة العربية، مما جعل العملية أسهل بكثير."</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="صورة سارة الدوسري" class="author-image">
-                        <div class="author-details">
-                            <div class="author-name">سارة الدوسري</div>
-                            <div class="author-title">صاحبة متجر إلكتروني</div>
-                        </div>
+                <div class="timeline-box">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019</div>
+                        <h3>La naissance de MBN</h3>
+                        <p>Après une année de partage individuel, nous avons réalisé la force du collectif. MBN (Moroccan Bloggers Network) est officiellement créé pour unir nos voix et amplifier notre impact sur la scène culinaire digitale.</p>
                     </div>
                 </div>
-                <div class="testimonial slide-in-left" style="animation-delay: 0.3s;">
-                    <p>"أنصح بشدة بهذا الدليل لكل مستثمر سعودي. وفر علي الكثير من الوقت والمال والجهد. النماذج الجاهزة والشروحات خطوة بخطوة لا تقدر بثمن. الآن لدي ثلاث شركات في بريطانيا بفضل هذا الدليل."</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="صورة فهد القحطاني" class="author-image">
-                        <div class="author-details">
-                            <div class="author-name">فهد القحطاني</div>
-                            <div class="author-title">مستثمر عقاري</div>
-                        </div>
+                <div class="timeline-box">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h3>Expansion pendant la pandémie</h3>
+                        <p>La pandémie a été un catalyseur pour notre réseau. Avec plus de personnes cuisinant à la maison, notre communauté a doublé, passant à plus de dix blogueurs partageant l'authenticité de la cuisine marocaine.</p>
+                    </div>
+                </div>
+                <div class="timeline-box">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021</div>
+                        <h3>Lancement de cuisinembn.com</h3>
+                        <p>Pour centraliser notre contenu et offrir une meilleure expérience à nos lecteurs, nous avons lancé cuisinembn.com, regroupant toutes nos recettes en un seul endroit, facilitant la découverte de la richesse culinaire marocaine.</p>
+                    </div>
+                </div>
+                <div class="timeline-box">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h3>Reconnaissance internationale</h3>
+                        <p>Notre collectif a été mentionné dans plusieurs magazines internationaux de cuisine, mettant en lumière notre travail de préservation et de modernisation de la cuisine marocaine traditionnelle.</p>
+                    </div>
+                </div>
+                <div class="timeline-box">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aujourd'hui</div>
+                        <h3>Un réseau solide</h3>
+                        <p>MBN est désormais une référence dans le domaine de la cuisine marocaine en ligne, avec une communauté engagée et passionnée, tant au Maroc qu'à l'international, célébrant chaque jour notre patrimoine culinaire.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
+
+    <section class="bg-light">
         <div class="container">
-            <div class="section-heading">
-                <h2>احصل على دليلك الشامل اليوم</h2>
-                <p>كل ما تحتاجه لتأسيس شركتك البريطانية بثقة وبدون وسطاء، وبتكلفة أقل بكثير من الوكلاء</p>
+            <div class="section-title">
+                <h2>Une Famille Unie</h2>
+                <p>Ce qui fait la force de MBN, c'est la relation unique qui unit nos membres</p>
             </div>
-            <div class="price-card fade-in">
-                <div class="ribbon">عرض محدود</div>
-                <div class="price-content">
-                    <h3>دليل تأسيس الشركات البريطانية للمستثمر السعودي</h3>
-                    <p class="original-price">899 ريال سعودي</p>
-                    <p class="current-price">599 ريال سعودي</p>
-                    <p class="save-text">وفر 300 ريال عند الشراء اليوم!</p>
-                    
-                    <div class="price-features">
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">دليل شامل باللغة العربية (أكثر من 200 صفحة)</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">نماذج جاهزة لجميع المستندات المطلوبة</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">شرح بالصور خطوة بخطوة لعملية التسجيل</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">نصائح قانونية وضريبية خاصة بالمستثمر السعودي</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">أسرار فتح الحسابات البنكية التجارية</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">خطط هيكلة ناجحة لأعمالك الدولية</span>
-                            <span class="price-feature-icon">✅</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">بونص: استشارة مجانية مع خبير ضرائب دولي (30 دقيقة)</span>
-                            <span class="price-feature-icon">🎁</span>
-                        </div>
-                        <div class="price-feature-item">
-                            <span class="price-feature-text">بونص: تحديثات مجانية للدليل لمدة عامين</span>
-                            <span class="price-feature-icon">🎁</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary btn-large btn-pulse">اشتر الآن - توصيل فوري</a>
-                    
-                    <div style="margin-top: 1.5rem; text-align: center;">
-                        <p style="margin-bottom: 1rem; color: var(--gray-600);">الدفع آمن 100% من خلال:</p>
-                        <div class="payment-methods">
-                            <div class="payment-method">VISA</div>
-                            <div class="payment-method">MC</div>
-                            <div class="payment-method">MADA</div>
-                            <div class="payment-method">STC</div>
-                            <div class="payment-method">APPLE</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Guarantee Section -->
-    <section class="guarantee" id="guarantee">
-        <div class="container">
-            <div class="section-heading">
-                <h2>ضمان استرداد كامل المبلغ</h2>
-                <p>ثقتنا في جودة هذا الدليل جعلتنا نقدم ضماناً غير مسبوق</p>
-            </div>
-            <div class="guarantee-content slide-in-bottom">
-                <div class="guarantee-icon">🛡️</div>
-                <h3 class="guarantee-title">ضمان استرداد كامل المبلغ لمدة 30 يوماً</h3>
-                <p class="guarantee-text">نحن واثقون تماماً من جودة هذا الدليل لدرجة أننا نقدم ضمان استرداد كامل المبلغ لمدة 30 يوماً بدون أي أسئلة. جربه، وإذا لم تجد فيه القيمة المتوقعة، سنعيد لك كامل المبلغ فوراً. نحن نؤمن أن رضاك هو أولويتنا القصوى.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-heading">
-                <h2>الأسئلة الشائعة</h2>
-                <p>إجابات على أكثر الأسئلة شيوعاً حول تأسيس الشركات البريطانية</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">هل أحتاج إلى زيارة بريطانيا شخصياً لتأسيس الشركة؟</div>
-                    <div class="faq-answer">لا، يشرح الدليل كيفية تأسيس الشركة بالكامل عن بعد دون الحاجة للسفر إلى بريطانيا. كل الإجراءات يمكن إتمامها عبر الإنترنت مع توجيهات خطوة بخطوة.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">كم من الوقت يستغرق تأسيس الشركة؟</div>
-                    <div class="faq-answer">باتباع خطوات الدليل، يمكن إتمام التأسيس خلال 3-7 أيام عمل. يشرح الدليل كيفية تسريع العملية وتجنب التأخيرات الشائعة.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">هل سأواجه صعوبة في فتح حساب بنكي؟</div>
-                    <div class="faq-answer">يتضمن الدليل استراتيجيات محددة وقائمة بالبنوك الموصى بها وخطوات تقديم طلب ناجح لفتح الحساب. نشارك معك الأخطاء الشائعة التي يجب تجنبها والوثائق المطلوبة بالتفصيل.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">هل سأحتاج إلى محاسب بريطاني؟</div>
-                    <div class="faq-answer">يوضح الدليل متى تحتاج إلى محاسب ويقدم خيارات مناسبة للميزانيات المختلفة. كما يشرح المتطلبات المحاسبية الأساسية التي يمكنك إدارتها بنفسك في البداية.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">كيف سأتلقى الدليل بعد الشراء؟</div>
-                    <div class="faq-answer">ستتلقى رابط تحميل الدليل بصيغة PDF فوراً بعد إتمام عملية الشراء على بريدك الإلكتروني. يمكنك تحميله والاحتفاظ به على جهازك أو طباعته.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">هل المعلومات في الدليل محدثة؟</div>
-                    <div class="faq-answer">نعم، الدليل يتم تحديثه بانتظام ليتضمن أحدث التغييرات في القوانين واللوائح البريطانية. عند الشراء، ستحصل على تحديثات مجانية لمدة عامين كاملين.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Author Section -->
-    <section class="author" id="author">
-        <div class="container">
-            <div class="section-heading">
-                <h2>من المؤلف</h2>
-                <p>تعرف على خبير تأسيس الشركات الدولية الذي قام بتأليف هذا الدليل</p>
-            </div>
-            <div class="author-container slide-in-bottom">
-                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المؤلف" class="author-image-large">
-                <div class="author-bio-content">
-                    <h3>محمد المغربي</h3>
-                    <p class="author-title-large">خبير تأسيس الشركات الدولية ومستشار ضرائب معتمد</p>
-                    <p class="author-bio">
-                        خبير في تأسيس الشركات الدولية مع خبرة 10+ سنوات في مساعدة المستثمرين السعوديين. حاصل على شهادة في القانون التجاري الدولي ومستشار معتمد في هيكلة الشركات عبر الحدود.
-                        <br><br>
-                        ساعدت أكثر من 200 مستثمر خليجي في تأسيس أعمالهم في المملكة المتحدة والاتحاد الأوروبي، وأشارك الآن كل خبراتي وأسراري في هذا الدليل الشامل.
+            <div class="row">
+                <div class="col">
+                    <h3>Au-delà d'un simple réseau</h3>
+                    <p>
+                        MBN n'est pas qu'un simple réseau de blogueurs. Au fil des années, nous sommes devenus une véritable famille. Nos réunions mensuelles ne sont pas seulement l'occasion de discuter de notre stratégie de contenu, mais aussi de partager des repas, des histoires et des moments de vie.
                     </p>
-                    <div class="author-credentials">
-                        <span class="credential-badge">مستشار ضرائب دولية معتمد</span>
-                        <span class="credential-badge">خبير تأسيس شركات</span>
-                        <span class="credential-badge">محاضر في قوانين الأعمال</span>
+                    <p>
+                        Chaque membre apporte une expertise unique, que ce soit dans la pâtisserie traditionnelle, les techniques de cuisson ancestrales, la photographie culinaire ou encore l'adaptation de recettes pour les régimes spéciaux. Cette diversité fait notre force et enrichit continuellement notre contenu.
+                    </p>
+                    <div class="story-image">
+                        <img src="/api/placeholder/600/400" alt="Réunion des membres MBN partageant un repas" loading="lazy">
+                    </div>
+                </div>
+                <div class="col">
+                    <p>
+                        Nous organisons régulièrement des ateliers ensemble, où nous perfectionnons nos compétences mutuellement. L'entraide est au cœur de notre philosophie : quand un membre rencontre un défi, c'est toute la communauté qui se mobilise pour trouver des solutions.
+                    </p>
+                    <p>
+                        Notre passion commune pour la cuisine marocaine nous a permis de créer des liens indéfectibles. Plus qu'un groupe de travail, MBN est devenu un espace où chacun peut s'exprimer, partager et grandir. Nos différences sont notre richesse, et notre amitié est le secret de notre succès continu.
+                    </p>
+                    <div class="story-image">
+                        <img src="/api/placeholder/600/400" alt="Atelier cuisine MBN avec les membres" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Final CTA Section -->
-    <section class="final-cta">
+
+    <section class="pattern-section">
         <div class="container">
-            <h2>ابدأ رحلتك العالمية اليوم</h2>
-            <p>لا تدع الفرصة تفوتك للاستفادة من خبرة 10+ سنوات في تأسيس الشركات البريطانية. تذكر، العرض محدود ويشمل هدايا حصرية!</p>
-            <a href="#pricing" class="btn btn-primary btn-large btn-pulse">نعم! أريد تأسيس شركتي البريطانية</a>
+            <div class="section-title">
+                <h2>Notre Équipe</h2>
+                <p>Les visages derrière les recettes que vous aimez</p>
+            </div>
+            <div class="team">
+                <div class="member">
+                    <div class="member-img">
+                        <img src="/api/placeholder/400/500" alt="Amina Berrada, Fondatrice & Spécialiste en pâtisserie traditionnelle" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Amina Berrada</h3>
+                        <p>Fondatrice & Spécialiste en pâtisserie traditionnelle</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="/api/placeholder/400/500" alt="Youssef Alaoui, Co-fondateur & Expert en cuisine du Sud" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Youssef Alaoui</h3>
+                        <p>Co-fondateur & Expert en cuisine du Sud</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="/api/placeholder/400/500" alt="Sophia Bennani, Photographe culinaire & Styliste" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sophia Bennani</h3>
+                        <p>Photographe culinaire & Styliste</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="/api/placeholder/400/500" alt="Karim Tazi, Expert en cuisine berbère & Innovations culinaires" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Karim Tazi</h3>
+                        <p>Expert en cuisine berbère & Innovations culinaires</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="/api/placeholder/400/500" alt="Nadia El Ouazzani, Spécialiste en cuisine fusion & Relations internationales" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Nadia El Ouazzani</h3>
+                        <p>Spécialiste en cuisine fusion & Relations internationales</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="/api/placeholder/400/500" alt="Omar Fadil, Rédacteur culinaire & Historien de la gastronomie marocaine" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Omar Fadil</h3>
+                        <p>Rédacteur culinaire & Historien de la gastronomie marocaine</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <!-- Limited Offer Banner -->
-    <section class="limited-offer">
+
+    <section class="bg-light">
         <div class="container">
-            لا تفوت هذه الفرصة - عدد النسخ المتاحة بهذا السعر محدود!
+            <div class="section-title">
+                <h2>Nos Moments Partagés</h2>
+                <p>Une sélection de souvenirs précieux de notre parcours ensemble</p>
+            </div>
+            <div class="gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Atelier de cuisine à Fès" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Atelier de cuisine à Fès</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Salon de la gastronomie 2022" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Salon de la gastronomie 2022</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Réunion annuelle à Marrakech" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Réunion annuelle à Marrakech</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Tournage d'une vidéo collaborative" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Tournage d'une vidéo collaborative</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Visite du marché d'Essaouira" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Visite du marché d'Essaouira</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Célébration du 3ème anniversaire" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Célébration du 3ème anniversaire</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <!-- Enhanced Footer -->
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce Que Disent Nos Membres</h2>
+                <p>Des témoignages qui illustrent notre relation unique</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Rejoindre MBN a été l'une des meilleures décisions de ma vie. Au-delà du partage de recettes, j'ai trouvé une seconde famille qui m'encourage et me soutient chaque jour dans ma passion. Ensemble, nous faisons bien plus que partager des recettes, nous préservons notre héritage culinaire pour les générations futures."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="/api/placeholder/100/100" alt="Fatima Benziane, Membre depuis 2019" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Fatima Benziane</div>
+                            <div class="author-role">Membre depuis 2019</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"Ce qui rend MBN si spécial, c'est l'absence de compétition entre nous. Nous partageons nos connaissances, nos échecs et nos succès avec une générosité rare dans le monde digital. Chaque membre apporte sa pierre à l'édifice, et ensemble, nous créons quelque chose de bien plus grand que ce que nous pourrions accomplir individuellement."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="/api/placeholder/100/100" alt="Rachid Mansouri, Membre fondateur" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Rachid Mansouri</div>
+                            <div class="author-role">Membre fondateur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h4>روابط سريعة</h4>
+                <div class="footer-col">
+                    <h3>À Propos de MBN</h3>
+                    <p>MBN (Moroccan Bloggers Network) est un collectif de passionnés dédié à la promotion et au partage de la cuisine marocaine authentique à travers le monde.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#features">المميزات</a></li>
-                        <li><a href="#testimonials">آراء العملاء</a></li>
-                        <li><a href="#pricing">السعر</a></li>
-                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="recipes.html">Recettes</a></li>
+                        <li><a href="about.html">Notre Histoire</a></li>
+                        <li><a href="team.html">Équipe</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>تواصل معنا</h4>
+                <div class="footer-col">
+                    <h3>Catégories</h3>
                     <ul class="footer-links">
-                        <li><a href="#">info@ukguide.com</a></li>
-                        <li><a href="#">واتساب: +966 50 123 4567</a></li>
-                        <li><a href="#">الدعم الفني</a></li>
+                        <li><a href="#">Plats Principaux</a></li>
+                        <li><a href="#">Pâtisseries</a></li>
+                        <li><a href="#">Salades</a></li>
+                        <li><a href="#">Soupes</a></li>
+                        <li><a href="#">Boissons Traditionnelles</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>قانوني</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">شروط الاستخدام</a></li>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">سياسة الاسترجاع</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>Email: contact@cuisinembn.com</p>
+                    <p>Téléphone: +212 522 123 456</p>
+                    <p>Adresse: Casablanca, Maroc</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>جميع الحقوق محفوظة © 2025 - دليل تأسيس الشركات البريطانية للمستثمر السعودي</p>
+                © 2025 MBN (Moroccan Bloggers Network). Tous droits réservés.
             </div>
         </div>
     </footer>
+
+    <a href="#" class="scrollToTop" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     
     <script>
-        // Improved Countdown Timer
-        function startCountdown() {
-            const countdownDate = new Date();
-            countdownDate.setDate(countdownDate.getDate() + 1);
-            
-            const hoursElement = document.querySelector('.countdown-unit.hours');
-            const minutesElement = document.querySelector('.countdown-unit.minutes');
-            const secondsElement = document.querySelector('.countdown-unit.seconds');
-            
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
-                
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                hoursElement.textContent = hours.toString().padStart(2, '0');
-                minutesElement.textContent = minutes.toString().padStart(2, '0');
-                secondsElement.textContent = seconds.toString().padStart(2, '0');
-                
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    hoursElement.textContent = "00";
-                    minutesElement.textContent = "00";
-                    secondsElement.textContent = "00";
-                }
-            }
-            
-            updateCountdown();
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        }
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
         
-        // Fixed Header Scroll Effect
-        function handleScroll() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('active');
             } else {
-                header.classList.remove('scrolled');
+                scrollToTopBtn.classList.remove('active');
             }
-        }
+        });
         
-        // FAQ Toggle
-        function setupFAQ() {
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    question.classList.toggle('active');
-                    answer.classList.toggle('show');
-                });
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }
+        });
         
-        // Initialize All Scripts
-        window.addEventListener('DOMContentLoaded', () => {
-            startCountdown();
-            setupFAQ();
-            window.addEventListener('scroll', handleScroll);
-            
-            // Auto-open first FAQ item
-            const firstQuestion = document.querySelector('.faq-question');
-            const firstAnswer = document.querySelector('.faq-answer');
-            if (firstQuestion && firstAnswer) {
-                firstQuestion.classList.add('active');
-                firstAnswer.classList.add('show');
-            }
+        // Animate Timeline Items using Intersection Observer
+        const timelineBoxes = document.querySelectorAll('.timeline-box');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        timelineBoxes.forEach(box => {
+            observer.observe(box);
+        });
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
