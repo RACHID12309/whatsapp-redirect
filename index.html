@@ -1,850 +1,442 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez l'histoire de MBN (Moroccan Bloggers Network), un collectif dédié à la promotion de la cuisine marocaine authentique.">
-    <meta name="keywords" content="MBN, Moroccan Bloggers Network, cuisine marocaine, recettes marocaines, blog culinaire">
-    <title>Notre Histoire - MBN (Moroccan Bloggers Network)</title>
+    <meta name="description" content="Discover the inspiring story of MBN (Moroccan Bloggers Network), a collective dedicated to preserving and promoting authentic Moroccan cuisine since 2018.">
+    <meta name="keywords" content="MBN, Moroccan Bloggers Network, Moroccan cuisine, Moroccan recipes, culinary blog, Moroccan culinary heritage, Moroccan bloggers">
+    <meta name="author" content="Moroccan Bloggers Network">
+    <meta property="og:title" content="Our Story - MBN (Moroccan Bloggers Network)">
+    <meta property="og:description" content="Learn how a group of passionate individuals created the largest network of Moroccan culinary bloggers.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80">
+    <meta property="og:url" content="https://cuisinembn.com/our-story">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#c53211">
+    <link rel="canonical" href="https://cuisinembn.com/our-story">
+    <link rel="icon" href="https://cuisinembn.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://cuisinembn.com/apple-touch-icon.png">
+    <title data-en="Our Story - MBN (Moroccan Bloggers Network) | Preserving Moroccan Culinary Heritage" 
+          data-fr="Notre Histoire - MBN (Moroccan Bloggers Network) | Préservation du Patrimoine Culinaire Marocain" 
+          data-ar="قصتنا - شبكة المدونين المغاربة (MBN) | الحفاظ على التراث الطهوي المغربي">Our Story - MBN (Moroccan Bloggers Network) | Preserving Moroccan Culinary Heritage</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
     <style>
+        /* CSS Variables for Light/Dark Mode */
         :root {
             --primary-color: #c53211;
             --secondary-color: #004225;
-            --accent-color: #f2a007;
-            --light-color: #f5f5f5;
-            --dark-color: #333333;
+            --background-color: #f5f5f5;
+            --text-color: #444444;
+            --white: #ffffff;
+            --black: #000000;
+            --transition: all 0.3s ease;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Montserrat', sans-serif;
         }
-        
+
+        [data-theme="dark"] {
+            --primary-color: #e64a19;
+            --secondary-color: #00634c;
+            --background-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --white: #2d2d2d;
+            --black: #ffffff;
+        }
+
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
             font-family: var(--font-body);
-            overflow-x: hidden;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
         }
-        
+
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
+        /* Header */
         header {
-            background-color: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
+
         .logo h1 {
             font-family: var(--font-heading);
-            font-size: 2.2rem;
-            margin-left: 10px;
+            font-size: 2rem;
             color: var(--primary-color);
-            letter-spacing: -0.5px;
         }
-        
+
         .logo span {
             color: var(--secondary-color);
             font-weight: 300;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
-            margin-left: 35px;
+            margin-left: 2rem;
         }
-        
+
         nav ul li a {
             text-decoration: none;
-            color: var(--dark-color);
+            color: var(--text-color);
             font-weight: 500;
-            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: var(--transition);
         }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
+
+        nav ul li a:hover {
+            color: var(--primary-color);
         }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        nav ul li a:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-        
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
-            height: 80vh;
+
+        .controls {
             display: flex;
             align-items: center;
+            gap: 1rem;
+        }
+
+        #language-select {
+            padding: 0.5rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            background-color: var(--white);
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: var(--white);
             text-align: center;
-            color: white;
+            padding: 6rem 0;
             position: relative;
+            animation: fadeIn 1s ease-in;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            padding: 0 20px;
-        }
-        
-        .hero h2 {
+
+        .hero-content h2 {
             font-family: var(--font-heading);
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+
+        .hero-content p {
+            font-size: 1.2rem;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
+            margin: 0 auto 2rem;
         }
-        
+
         .btn {
             display: inline-block;
-            padding: 14px 35px;
+            padding: 0.75rem 1.5rem;
             background-color: var(--primary-color);
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 25px;
             font-weight: 600;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(197, 50, 17, 0.3);
+            transition: var(--transition);
         }
-        
+
         .btn:hover {
-            background-color: #a42a0e;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(197, 50, 17, 0.4);
-        }
-        
-        .btn:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        .bg-light {
-            background-color: #f9f9f9;
-        }
-        
-        .pattern-section {
-            position: relative;
-        }
-        
-        .pattern-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23004225' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            z-index: -1;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-        
-        .section-title h2 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 20px auto 0;
-            color: #666;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
             background-color: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1.5px;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
-        .timeline-box {
-            padding: 15px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.5s ease;
-        }
-        
-        .timeline-box.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .timeline-box:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-        
-        .timeline-box:nth-child(even) {
-            left: 50%;
-            transform: translateX(30px);
-        }
-        
-        .timeline-box:nth-child(even).visible {
-            transform: translateX(0);
-        }
-        
-        .timeline-content {
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .timeline-box h3 {
-            font-family: var(--font-heading);
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-        }
-        
-        .timeline-box p {
-            line-height: 1.8;
-            color: #666;
-        }
-        
-        .timeline-box::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background-color: white;
-            border: 4px solid var(--accent-color);
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-            box-shadow: 0 0 0 4px rgba(242, 160, 7, 0.2);
-        }
-        
-        .timeline-box:nth-child(odd)::after {
-            right: -12px;
-        }
-        
-        .timeline-box:nth-child(even)::after {
-            left: -12px;
-        }
-        
-        .timeline-date {
-            position: absolute;
-            top: 20px;
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        
-        .timeline-box:nth-child(odd) .timeline-date {
-            right: -180px;
-        }
-        
-        .timeline-box:nth-child(even) .timeline-date {
-            left: -180px;
-        }
-        
-        .story-content {
-            padding: 50px 0;
-        }
-        
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -20px;
-        }
-        
-        .col {
-            flex: 1;
-            padding: 0 20px;
-            min-width: 300px;
-        }
-        
-        .col h3 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-        }
-        
-        .col p {
-            margin-bottom: 25px;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .story-image {
-            position: relative;
-            margin-top: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .story-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: all 0.5s ease;
-        }
-        
-        .story-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .team {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .member {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .member-img {
-            height: 350px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-        
-        .member:hover .member-img img {
-            transform: scale(1.1);
-        }
-        
-        .member-info {
-            padding: 30px;
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
             text-align: center;
         }
-        
-        .member-info h3 {
+
+        .features h2 {
             font-family: var(--font-heading);
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
         }
-        
-        .member-info p {
-            color: #777;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
+
+        .feature-item {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
         }
-        
-        .social-links a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
-        
-        .social-links a:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
+
+        .feature-item h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 0.5rem;
         }
-        
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        /* Testimonials Section */
         .testimonials {
             background-color: var(--secondary-color);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
         }
-        
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+        .testimonials h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
-        
-        .testimonials .section-title h2 {
-            color: white;
-        }
-        
-        .testimonials .section-title h2::after {
-            background-color: var(--accent-color);
-        }
-        
-        .testimonials .section-title p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .testimonial-slider {
+
+        .testimonial-carousel {
             max-width: 800px;
             margin: 0 auto;
-        }
-        
-        .testimonial {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
             position: relative;
-            margin-bottom: 40px;
         }
-        
-        .testimonial::before {
-            content: '\201C';
-            font-family: Georgia, serif;
-            position: absolute;
-            top: 0;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.1);
-            line-height: 1;
+
+        .testimonial-item {
+            display: none;
+            padding: 1.5rem;
         }
-        
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+
+        .testimonial-item.active {
+            display: block;
+            animation: slideIn 0.5s ease;
         }
-        
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-style: italic;
+            margin-top: 1rem;
         }
-        
-        .author-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 20px;
-            border: 3px solid var(--accent-color);
+
+        .carousel-nav {
+            margin-top: 1rem;
         }
-        
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        .carousel-nav button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            margin: 0 0.5rem;
+            transition: var(--transition);
         }
-        
-        .author-info {
-            text-align: left;
+
+        .carousel-nav button:hover {
+            color: var(--primary-color);
         }
-        
-        .author-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        
-        .author-role {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-        
-        .gallery {
-            margin-top: 60px;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            height: 250px;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 20px;
-            color: white;
-            transform: translateY(100%);
-            transition: all 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 70px 0 30px;
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary-color);
+            color: var(--white);
             text-align: center;
+            padding: 4rem 0;
         }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 50px;
+
+        .cta h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
-        
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 30px;
-            padding: 0 20px;
-            text-align: left;
+
+        .cta p {
+            margin-bottom: 2rem;
         }
-        
-        .footer-col h3 {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
+
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary-color);
         }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent-color);
-            bottom: 0;
-            left: 0;
-        }
-        
-        .footer-col p {
-            margin-bottom: 15px;
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
-        }
-        
-        .footer-links a:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-        
-        .footer-social {
-            display: flex;
-            margin-top: 20px;
-        }
-        
-        .footer-social a {
-            color: white;
-            margin-right: 15px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        
-        .footer-social a:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-        
-        .copyright {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        .scrollToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 99;
-        }
-        
-        .scrollToTop.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .scrollToTop:hover {
+
+        .cta .btn:hover {
             background-color: var(--secondary-color);
-            transform: translateY(-3px);
+            color: var(--white);
         }
-        
-        .scrollToTop:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
         }
-        
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 3.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            .timeline-box:nth-child(odd) .timeline-date,
-            .timeline-box:nth-child(even) .timeline-date {
-                position: static;
-                margin-bottom: 10px;
-                text-align: left;
-            }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
-        
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-content h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .modal-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
+                align-items: flex-start;
             }
-            
+
             nav ul {
-                margin-top: 20px;
-                justify-content: center;
-                flex-wrap: wrap;
+                flex-direction: column;
+                margin-top: 1rem;
             }
-            
+
             nav ul li {
-                margin: 0 15px 10px;
+                margin: 0.5rem 0;
             }
-            
-            .hero h2 {
-                font-size: 2.8rem;
+
+            .controls {
+                margin-top: 1rem;
             }
-            
-            .hero p {
-                font-size: 1.1rem;
+
+            .hero-content h2 {
+                font-size: 2.5rem;
             }
-            
-            .timeline::after {
-                left: 40px;
+
+            .hero-content p {
+                font-size: 1rem;
             }
-            
-            .timeline-box {
-                width: 100%;
-                padding-left: 80px;
-                padding-right: 20px;
-                text-align: left;
+
+            .features h2, .testimonials h2, .cta h2 {
+                font-size: 2rem;
             }
-            
-            .timeline-box:nth-child(odd),
-            .timeline-box:nth-child(even) {
-                left: 0;
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h2 {
+                font-size: 1.8rem;
             }
-            
-            .timeline-box::after {
-                left: 32px !important;
+
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <a href="#story" class="skip-link">Aller au contenu</a>
     <header>
         <div class="container">
             <div class="navbar">
@@ -853,402 +445,252 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="recipes.html">Recettes</a></li>
-                        <li><a href="about.html">À Propos</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#" data-en="Recipes" data-fr="Recettes" data-ar="الوصفات">Recipes</a></li>
+                        <li><a href="#" aria-current="page" data-en="About" data-fr="À Propos" data-ar="معلومات عنا">About</a></li>
+                        <li><a href="#" data-en="Blog" data-fr="Blog" data-ar="المدونة">Blog</a></li>
+                        <li><a href="#" data-en="Contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a></li>
                     </ul>
                 </nav>
+                <div class="controls">
+                    <select id="language-select" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                    <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="hero" role="img" aria-label="Image de fond représentant la cuisine marocaine">
+    <section class="hero" role="img" aria-label="Background image representing Moroccan cuisine">
         <div class="container">
             <div class="hero-content">
-                <h2>Notre Histoire</h2>
-                <p>Découvrez comment MBN (Moroccan Bloggers Network) est née et comment nous partageons notre passion pour la cuisine marocaine à travers le monde</p>
-                <a href="#story" class="btn">Notre Parcours</a>
+                <h2 data-en="Our Story" data-fr="Notre Histoire" data-ar="قصتنا">Our Story</h2>
+                <p data-en="Discover how MBN (Moroccan Bloggers Network) was born and how we preserve and share our Moroccan culinary heritage with the world since 2018."
+                   data-fr="Découvrez comment MBN (Moroccan Bloggers Network) est née et comment nous préservons et partageons notre patrimoine culinaire marocain à travers le monde depuis 2018."
+                   data-ar="اكتشف كيف ولدت شبكة المدونين المغاربة (MBN) وكيف نحافظ على تراثنا الطهوي المغربي ونشاركه مع العالم منذ عام 2018.">Discover how MBN (Moroccan Bloggers Network) was born and how we preserve and share our Moroccan culinary heritage with the world since 2018.</p>
+                <a href="#features" class="btn" data-en="Explore Our Journey" data-fr="Découvrir Notre Parcours" data-ar="استكشف رحلتنا">Explore Our Journey</a>
             </div>
         </div>
     </section>
 
-    <section id="story" class="pattern-section">
+    <section id="features" class="features">
         <div class="container">
-            <div class="section-title">
-                <h2>L'Histoire de MBN</h2>
-                <p>Un voyage passionnant de la création à aujourd'hui</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-box">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2018</div>
-                        <h3>Les débuts</h3>
-                        <p>C'est autour d'une table de ftour pendant le mois de Ramadan que l'idée est née. Cinq passionnés de cuisine marocaine décident de partager leurs recettes en ligne, chacun sur son propre blog.</p>
-                    </div>
+            <h2 data-en="Why MBN Matters" data-fr="Pourquoi MBN Compte" data-ar="لماذا تهم MBN">Why MBN Matters</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3 data-en="Authenticity" data-fr="Authenticité" data-ar="الأصالة">Authenticity</h3>
+                    <p data-en="Preserving traditional Moroccan recipes with care."
+                       data-fr="Préservation des recettes marocaines traditionnelles avec soin."
+                       data-ar="الحفاظ على الوصفات المغربية التقليدية بعناية.">Preserving traditional Moroccan recipes with care.</p>
+                    <img src="https://images.unsplash.com/photo-1547592198-8596b23582d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Traditional Moroccan cuisine" class="feature-image">
                 </div>
-                <div class="timeline-box">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019</div>
-                        <h3>La naissance de MBN</h3>
-                        <p>Après une année de partage individuel, nous avons réalisé la force du collectif. MBN (Moroccan Bloggers Network) est officiellement créé pour unir nos voix et amplifier notre impact sur la scène culinaire digitale.</p>
-                    </div>
+                <div class="feature-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3 data-en="Community" data-fr="Communauté" data-ar="المجتمع">Community</h3>
+                    <p data-en="Uniting passionate food bloggers worldwide."
+                       data-fr="Réunir des blogueurs culinaires passionnés dans le monde entier."
+                       data-ar="توحيد المدونين المتحمسين للطعام في جميع أنحاء العالم.">Uniting passionate food bloggers worldwide.</p>
+                    <img src="https://images.unsplash.com/photo-1514826382728-4dff9647a53a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community of food bloggers" class="feature-image">
                 </div>
-                <div class="timeline-box">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2020</div>
-                        <h3>Expansion pendant la pandémie</h3>
-                        <p>La pandémie a été un catalyseur pour notre réseau. Avec plus de personnes cuisinant à la maison, notre communauté a doublé, passant à plus de dix blogueurs partageant l'authenticité de la cuisine marocaine.</p>
-                    </div>
+                <div class="feature-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3 data-en="Innovation" data-fr="Innovation" data-ar="الابتكار">Innovation</h3>
+                    <p data-en="Adapting traditions for modern tastes."
+                       data-fr="Adapter les traditions aux goûts modernes."
+                       data-ar="تكييف التقاليد مع الأذواق الحديثة.">Adapting traditions for modern tastes.</p>
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Modern Moroccan cuisine" class="feature-image">
                 </div>
-                <div class="timeline-box">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2021</div>
-                        <h3>Lancement de cuisinembn.com</h3>
-                        <p>Pour centraliser notre contenu et offrir une meilleure expérience à nos lecteurs, nous avons lancé cuisinembn.com, regroupant toutes nos recettes en un seul endroit, facilitant la découverte de la richesse culinaire marocaine.</p>
-                    </div>
-                </div>
-                <div class="timeline-box">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022</div>
-                        <h3>Reconnaissance internationale</h3>
-                        <p>Notre collectif a été mentionné dans plusieurs magazines internationaux de cuisine, mettant en lumière notre travail de préservation et de modernisation de la cuisine marocaine traditionnelle.</p>
-                    </div>
-                </div>
-                <div class="timeline-box">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Aujourd'hui</div>
-                        <h3>Un réseau solide</h3>
-                        <p>MBN est désormais une référence dans le domaine de la cuisine marocaine en ligne, avec une communauté engagée et passionnée, tant au Maroc qu'à l'international, célébrant chaque jour notre patrimoine culinaire.</p>
-                    </div>
+                <div class="feature-item">
+                    <i class="fas fa-info-circle"></i>
+                    <h3 data-en="Learn More" data-fr="En Savoir Plus" data-ar="المزيد">Learn More</h3>
+                    <p data-en="Discover the full story behind MBN and our mission."
+                       data-fr="Découvrez l'histoire complète derrière MBN et notre mission."
+                       data-ar="اكتشف القصة الكاملة وراء MBN ورسالتنا.">Discover the full story behind MBN and our mission.</p>
+                    <button class="btn" data-en="Our Story" data-fr="Notre Histoire" data-ar="قصتنا">Our Story</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-light">
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <div class="section-title">
-                <h2>Une Famille Unie</h2>
-                <p>Ce qui fait la force de MBN, c'est la relation unique qui unit nos membres</p>
+            <h2 data-en="What Our Members Say" data-fr="Ce Que Disent Nos Membres" data-ar="ماذا يقول أعضاؤنا">What Our Members Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item active">
+                    <p data-en="Joining MBN transformed my passion into a purpose."
+                       data-fr="Rejoindre MBN a transformé ma passion en un objectif."
+                       data-ar="انضمامي إلى MBN حول شغفي إلى هدف.">Joining MBN transformed my passion into a purpose.</p>
+                    <div class="testimonial-author" data-en="- Amina Berrada, Founder" 
+                         data-fr="- Amina Berrada, Fondatrice" 
+                         data-ar="- أمينة برادة، المؤسسة">- Amina Berrada, Founder</div>
+                </div>
+                <div class="testimonial-item">
+                    <p data-en="A community that inspires and supports creativity."
+                       data-fr="Une communauté qui inspire et soutient la créativité."
+                       data-ar="مجتمع يلهم ويدعم الإبداع.">A community that inspires and supports creativity.</p>
+                    <div class="testimonial-author" data-en="- Youssef Alaoui, Co-founder" 
+                         data-fr="- Youssef Alaoui, Co-fondateur" 
+                         data-ar="- يوسف علوي، المؤسس المشارك">- Youssef Alaoui, Co-founder</div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <h3>Au-delà d'un simple réseau</h3>
-                    <p>
-                        MBN n'est pas qu'un simple réseau de blogueurs. Au fil des années, nous sommes devenus une véritable famille. Nos réunions mensuelles ne sont pas seulement l'occasion de discuter de notre stratégie de contenu, mais aussi de partager des repas, des histoires et des moments de vie.
-                    </p>
-                    <p>
-                        Chaque membre apporte une expertise unique, que ce soit dans la pâtisserie traditionnelle, les techniques de cuisson ancestrales, la photographie culinaire ou encore l'adaptation de recettes pour les régimes spéciaux. Cette diversité fait notre force et enrichit continuellement notre contenu.
-                    </p>
-                    <div class="story-image">
-                        <img src="/api/placeholder/600/400" alt="Réunion des membres MBN partageant un repas" loading="lazy">
-                    </div>
-                </div>
-                <div class="col">
-                    <p>
-                        Nous organisons régulièrement des ateliers ensemble, où nous perfectionnons nos compétences mutuellement. L'entraide est au cœur de notre philosophie : quand un membre rencontre un défi, c'est toute la communauté qui se mobilise pour trouver des solutions.
-                    </p>
-                    <p>
-                        Notre passion commune pour la cuisine marocaine nous a permis de créer des liens indéfectibles. Plus qu'un groupe de travail, MBN est devenu un espace où chacun peut s'exprimer, partager et grandir. Nos différences sont notre richesse, et notre amitié est le secret de notre succès continu.
-                    </p>
-                    <div class="story-image">
-                        <img src="/api/placeholder/600/400" alt="Atelier cuisine MBN avec les membres" loading="lazy">
-                    </div>
-                </div>
+            <div class="carousel-nav">
+                <button class="prev" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
+                <button class="next" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
-    <section class="pattern-section">
+    <section id="cta" class="cta">
         <div class="container">
-            <div class="section-title">
-                <h2>Notre Équipe</h2>
-                <p>Les visages derrière les recettes que vous aimez</p>
-            </div>
-            <div class="team">
-                <div class="member">
-                    <div class="member-img">
-                        <img src="/api/placeholder/400/500" alt="Amina Berrada, Fondatrice & Spécialiste en pâtisserie traditionnelle" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Amina Berrada</h3>
-                        <p>Fondatrice & Spécialiste en pâtisserie traditionnelle</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="/api/placeholder/400/500" alt="Youssef Alaoui, Co-fondateur & Expert en cuisine du Sud" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Youssef Alaoui</h3>
-                        <p>Co-fondateur & Expert en cuisine du Sud</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="/api/placeholder/400/500" alt="Sophia Bennani, Photographe culinaire & Styliste" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Sophia Bennani</h3>
-                        <p>Photographe culinaire & Styliste</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="/api/placeholder/400/500" alt="Karim Tazi, Expert en cuisine berbère & Innovations culinaires" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Karim Tazi</h3>
-                        <p>Expert en cuisine berbère & Innovations culinaires</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="/api/placeholder/400/500" alt="Nadia El Ouazzani, Spécialiste en cuisine fusion & Relations internationales" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Nadia El Ouazzani</h3>
-                        <p>Spécialiste en cuisine fusion & Relations internationales</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="/api/placeholder/400/500" alt="Omar Fadil, Rédacteur culinaire & Historien de la gastronomie marocaine" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Omar Fadil</h3>
-                        <p>Rédacteur culinaire & Historien de la gastronomie marocaine</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nos Moments Partagés</h2>
-                <p>Une sélection de souvenirs précieux de notre parcours ensemble</p>
-            </div>
-            <div class="gallery">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="/api/placeholder/600/400" alt="Atelier de cuisine à Fès" loading="lazy">
-                        <div class="gallery-caption">
-                            <h3>Atelier de cuisine à Fès</h3>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="/api/placeholder/600/400" alt="Salon de la gastronomie 2022" loading="lazy">
-                        <div class="gallery-caption">
-                            <h3>Salon de la gastronomie 2022</h3>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="/api/placeholder/600/400" alt="Réunion annuelle à Marrakech" loading="lazy">
-                        <div class="gallery-caption">
-                            <h3>Réunion annuelle à Marrakech</h3>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="/api/placeholder/600/400" alt="Tournage d'une vidéo collaborative" loading="lazy">
-                        <div class="gallery-caption">
-                            <h3>Tournage d'une vidéo collaborative</h3>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="/api/placeholder/600/400" alt="Visite du marché d'Essaouira" loading="lazy">
-                        <div class="gallery-caption">
-                            <h3>Visite du marché d'Essaouira</h3>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="/api/placeholder/600/400" alt="Célébration du 3ème anniversaire" loading="lazy">
-                        <div class="gallery-caption">
-                            <h3>Célébration du 3ème anniversaire</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Ce Que Disent Nos Membres</h2>
-                <p>Des témoignages qui illustrent notre relation unique</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial">
-                    <p>"Rejoindre MBN a été l'une des meilleures décisions de ma vie. Au-delà du partage de recettes, j'ai trouvé une seconde famille qui m'encourage et me soutient chaque jour dans ma passion. Ensemble, nous faisons bien plus que partager des recettes, nous préservons notre héritage culinaire pour les générations futures."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="/api/placeholder/100/100" alt="Fatima Benziane, Membre depuis 2019" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <div class="author-name">Fatima Benziane</div>
-                            <div class="author-role">Membre depuis 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <p>"Ce qui rend MBN si spécial, c'est l'absence de compétition entre nous. Nous partageons nos connaissances, nos échecs et nos succès avec une générosité rare dans le monde digital. Chaque membre apporte sa pierre à l'édifice, et ensemble, nous créons quelque chose de bien plus grand que ce que nous pourrions accomplir individuellement."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="/api/placeholder/100/100" alt="Rachid Mansouri, Membre fondateur" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <div class="author-name">Rachid Mansouri</div>
-                            <div class="author-role">Membre fondateur</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 data-en="Join Our Culinary Journey" data-fr="Rejoignez Notre Voyage Culinaire" data-ar="انضم إلى رحلتنا الطهوية">Join Our Culinary Journey</h2>
+            <p data-en="Be part of a movement preserving Moroccan culinary heritage."
+               data-fr="Faites partie d’un mouvement qui préserve le patrimoine culinaire marocain."
+               data-ar="كن جزءًا من حركة تحافظ على التراث الطهوي المغربي.">Be part of a movement preserving Moroccan culinary heritage.</p>
+            <a href="mailto:info@cuisinembn.com" class="btn" data-en="Get Involved" data-fr="Participez" data-ar="شارك">Get Involved</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>À Propos de MBN</h3>
-                    <p>MBN (Moroccan Bloggers Network) est un collectif de passionnés dédié à la promotion et au partage de la cuisine marocaine authentique à travers le monde.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Liens Rapides</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="recipes.html">Recettes</a></li>
-                        <li><a href="about.html">Notre Histoire</a></li>
-                        <li><a href="team.html">Équipe</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Catégories</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Plats Principaux</a></li>
-                        <li><a href="#">Pâtisseries</a></li>
-                        <li><a href="#">Salades</a></li>
-                        <li><a href="#">Soupes</a></li>
-                        <li><a href="#">Boissons Traditionnelles</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <p>Email: contact@cuisinembn.com</p>
-                    <p>Téléphone: +212 522 123 456</p>
-                    <p>Adresse: Casablanca, Maroc</p>
-                </div>
-            </div>
-            <div class="copyright">
-                © 2025 MBN (Moroccan Bloggers Network). Tous droits réservés.
-            </div>
+            <p data-en="© 2023 Moroccan Bloggers Network. All rights reserved."
+               data-fr="© 2023 Moroccan Bloggers Network. Tous droits réservés."
+               data-ar="© 2023 شبكة المدونين المغاربة. جميع الحقوق محفوظة.">© 2023 Moroccan Bloggers Network. All rights reserved.</p>
         </div>
     </footer>
 
-    <a href="#" class="scrollToTop" id="scrollToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <!-- Modal -->
+    <div class="modal" id="storyModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 data-en="The MBN Story" data-fr="L'Histoire de MBN" data-ar="قصة MBN">The MBN Story</h3>
+            <p data-en="MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world."
+               data-fr="MBN (Moroccan Bloggers Network) a été fondée en 2018 par un groupe de blogueurs culinaires passionnés partageant une vision commune : préserver et promouvoir la cuisine marocaine authentique dans un monde de plus en plus mondialisé."
+               data-ar="تأسست شبكة المدونين المغاربة (MBN) عام 2018 على يد مجموعة من المدونين المختصين في الطعام والمتحمسين الذين شاركوا رؤية مشتركة: الحفاظ على المطبخ المغربي الأصيل وتعزيزه في عالم يزداد عولمة.">MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world.</p>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MBN founders" class="modal-image">
+            <p data-en="What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine."
+               data-fr="Ce qui a commencé comme une petite réunion d'amoureux de la nourriture à Casablanca s'est transformé en un réseau mondial de plus de 200 blogueurs, chefs et passionnés de cuisine dédiés à partager les saveurs riches et les traditions de la cuisine marocaine."
+               data-ar="ما بدأ كمجموعة صغيرة من هواة الطعام في الدار البيضاء تحول إلى شبكة عالمية تضم أكثر من 200 مدون وطاهٍ ومهتم بالطهي مكرسين لمشاركة النكهات الغنية والتقاليد للمطبخ المغربي.">What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine.</p>
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Moroccan cooking class" class="modal-image">
+            <p data-en="Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage."
+               data-fr="Notre mission va bien au-delà du simple partage de recettes. Nous travaillons en étroite collaboration avec les communautés locales, les chefs et les historiens culinaires pour documenter les recettes traditionnelles en voie de disparition, organiser des ateliers de cuisine et des échanges culturels qui célèbrent le patrimoine culinaire marocain."
+               data-ar="تمتد مهمتنا beyond просто разделением рецептов. Мы тесно сотрудничаем с местными общинами, шеф-поварами и кулинарными историками, чтобы документировать традиционные рецепты, находящиеся под угрозой исчезновения, проводить кулинарные мастер-классы и организовывать культурные обмены, которые празднуют марокканское кулинарное наследие.">Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage.</p>
+        </div>
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    
     <script>
-        // Scroll to Top Button
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('active');
-            } else {
-                scrollToTopBtn.classList.remove('active');
-            }
+        // Language Switcher
+        const languageSelect = document.getElementById('language-select');
+        const translatableElements = document.querySelectorAll('[data-en]');
+        const titleElement = document.querySelector('title');
+        const modal = document.getElementById('storyModal');
+        const modalContent = modal.querySelector('.modal-content');
+        const closeModal = modal.querySelector('.close-modal');
+
+        languageSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            translatableElements.forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
+            });
+            document.documentElement.lang = lang;
+            titleElement.textContent = titleElement.getAttribute(`data-${lang}`) || titleElement.textContent;
+            modalContent.innerHTML = `
+                <span class="close-modal">&times;</span>
+                <h3 data-en="The MBN Story" data-fr="L'Histoire de MBN" data-ar="قصة MBN">The MBN Story</h3>
+                <p data-en="MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world."
+                   data-fr="MBN (Moroccan Bloggers Network) a été fondée en 2018 par un groupe de blogueurs culinaires passionnés partageant une vision commune : préserver et promouvoir la cuisine marocaine authentique dans un monde de plus en plus mondialisé."
+                   data-ar="تأسست شبكة المدونين المغاربة (MBN) عام 2018 على يد مجموعة من المدونين المختصين في الطعام والمتحمسين الذين شاركوا رؤية مشتركة: الحفاظ على المطبخ المغربي الأصيل وتعزيزه في عالم يزداد عولمة.">MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world.</p>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MBN founders" class="modal-image">
+                <p data-en="What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine."
+                   data-fr="Ce qui a commencé comme une petite réunion d'amoureux de la nourriture à Casablanca s'est transformé en un réseau mondial de plus de 200 blogueurs, chefs et passionnés de cuisine dédiés à partager les saveurs riches et les traditions de la cuisine marocaine."
+                   data-ar="ما بدأ كمجموعة صغيرة من هواة الطعام في الدار البيضاء تحول إلى شبكة عالمية تضم أكثر من 200 مدون وطاهٍ ومهتم بالطهي مكرسين لمشاركة النكهات الغنية والتقاليد للمطبخ المغربي.">What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine.</p>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Moroccan cooking class" class="modal-image">
+                <p data-en="Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage."
+                   data-fr="Notre mission va bien au-delà du simple partage de recettes. Nous travaillons en étroite collaboration avec les communautés locales, les chefs et les historiens culinaires pour documenter les recettes traditionnelles en voie de disparition, organiser des ateliers de cuisine et des échanges culturels qui célèbrent le patrimoine culinaire marocain."
+                   data-ar="تمتد مهمتنا beyond просто разделением рецептов. Мы тесно сотрудничаем с местными общинами, шеф-поварами и кулинарными историками, чтобы документировать традиционные рецепты, находящиеся под угрозой исчезновения, проводить кулинарные мастер-классы и организовывать культурные обмены, которые празднуют марокканское кулинарное наследие.">Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage.</p>
+            `;
+            setTimeout(() => {
+                modalContent.querySelectorAll('[data-en]').forEach(el => {
+                    el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
+                });
+            }, 10);
         });
+
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+            themeToggle.innerHTML = body.getAttribute('data-theme') === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Testimonial Carousel
+        const testimonials = document.querySelectorAll('.testimonial-item');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        document.querySelector('.carousel-nav .prev').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        });
+
+        document.querySelector('.carousel-nav .next').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        });
+
+        // Modal functionality
+        const storyButtons = document.querySelectorAll('[data-en="Our Story"]');
         
-        scrollToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        storyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modal.style.display = 'flex';
             });
         });
-        
-        // Animate Timeline Items using Intersection Observer
-        const timelineBoxes = document.querySelectorAll('.timeline-box');
-        
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Lazy Loading Images (if needed)
+        const images = document.querySelectorAll('img');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    const img = entry.target;
+                    img.src = img.getAttribute('data-src') || img.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
                 }
             });
-        }, observerOptions);
-        
-        timelineBoxes.forEach(box => {
-            observer.observe(box);
+        }, { rootMargin: '0px 0px 100px 0px' });
+
+        images.forEach(img => {
+            if (img.getAttribute('data-src')) {
+                observer.observe(img);
+            }
         });
-        
-        // Smooth Scroll for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+
+        // Initial Setup
+        showTestimonial(currentTestimonial);
     </script>
 </body>
 </html>
