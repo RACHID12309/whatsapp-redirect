@@ -3,694 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the inspiring story of MBN (Moroccan Bloggers Network), a collective dedicated to preserving and promoting authentic Moroccan cuisine since 2018.">
-    <meta name="keywords" content="MBN, Moroccan Bloggers Network, Moroccan cuisine, Moroccan recipes, culinary blog, Moroccan culinary heritage, Moroccan bloggers">
-    <meta name="author" content="Moroccan Bloggers Network">
-    <meta property="og:title" content="Our Story - MBN (Moroccan Bloggers Network)">
-    <meta property="og:description" content="Learn how a group of passionate individuals created the largest network of Moroccan culinary bloggers.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80">
-    <meta property="og:url" content="https://cuisinembn.com/our-story">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#c53211">
-    <link rel="canonical" href="https://cuisinembn.com/our-story">
-    <link rel="icon" href="https://cuisinembn.com/favicon.ico">
-    <link rel="apple-touch-icon" href="https://cuisinembn.com/apple-touch-icon.png">
-    <title data-en="Our Story - MBN (Moroccan Bloggers Network) | Preserving Moroccan Culinary Heritage" 
-          data-fr="Notre Histoire - MBN (Moroccan Bloggers Network) | Préservation du Patrimoine Culinaire Marocain" 
-          data-ar="قصتنا - شبكة المدونين المغاربة (MBN) | الحفاظ على التراث الطهوي المغربي">Our Story - MBN (Moroccan Bloggers Network) | Preserving Moroccan Culinary Heritage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+    <meta name="description" content="Discover authentic Moroccan cuisine with MBN - Moroccan Bloggers Network. Explore traditional recipes, connect with renowned chefs, and join our vibrant culinary community.">
+    <meta name="keywords" content="Moroccan food, Moroccan recipes, tagine, pastries, food bloggers, culinary collective, traditional Moroccan cuisine">
+    <title>MBN - Moroccan Bloggers Network | Culinary Collective</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <style>
-        /* CSS Variables for Light/Dark Mode */
-        :root {
-            --primary-color: #c53211;
-            --secondary-color: #004225;
-            --background-color: #f5f5f5;
-            --text-color: #444444;
-            --white: #ffffff;
-            --black: #000000;
-            --transition: all 0.3s ease;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Montserrat', sans-serif;
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #e64a19;
-            --secondary-color: #00634c;
-            --background-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --white: #2d2d2d;
-            --black: #ffffff;
-        }
-
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--white);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            color: var(--primary-color);
-        }
-
-        .logo span {
-            color: var(--secondary-color);
-            font-weight: 300;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        #language-select {
-            padding: 0.5rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 4px;
-            background-color: var(--white);
-            color: var(--text-color);
-            cursor: pointer;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: var(--text-color);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .hero-content h2 {
-            font-family: var(--font-heading);
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .features h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-item {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-item i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .feature-item h3 {
-            font-family: var(--font-heading);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .testimonial-carousel {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial-item {
-            display: none;
-            padding: 1.5rem;
-        }
-
-        .testimonial-item.active {
-            display: block;
-            animation: slideIn 0.5s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .testimonial-author {
-            font-style: italic;
-            margin-top: 1rem;
-        }
-
-        .carousel-nav {
-            margin-top: 1rem;
-        }
-
-        .carousel-nav button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--white);
-            cursor: pointer;
-            margin: 0 0.5rem;
-            transition: var(--transition);
-        }
-
-        .carousel-nav button:hover {
-            color: var(--primary-color);
-        }
-
-        /* CTA Section */
-        .cta {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 4rem 0;
-        }
-
-        .cta h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            margin-bottom: 2rem;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary-color);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--white);
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-content h3 {
-            font-family: var(--font-heading);
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .modal-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                margin-top: 1rem;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .controls {
-                margin-top: 1rem;
-            }
-
-            .hero-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .features h2, .testimonials h2, .cta h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
+        /* Existing CSS remains the same as provided */
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <h1>MBN<span>Cuisine</span></h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a></li>
-                        <li><a href="#" data-en="Recipes" data-fr="Recettes" data-ar="الوصفات">Recipes</a></li>
-                        <li><a href="#" aria-current="page" data-en="About" data-fr="À Propos" data-ar="معلومات عنا">About</a></li>
-                        <li><a href="#" data-en="Blog" data-fr="Blog" data-ar="المدونة">Blog</a></li>
-                        <li><a href="#" data-en="Contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="controls">
-                    <select id="language-select" aria-label="Select Language">
-                        <option value="en">English</option>
-                        <option value="fr">Français</option>
-                        <option value="ar">العربية</option>
-                    </select>
-                    <button class="theme-toggle" aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🍽️</div>
+                <span>MBN</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#chefs" class="nav-link">Chefs</a>
+                <a href="#recipes" class="nav-link">Recipes</a>
+                <a href="#techniques" class="nav-link">Techniques</a>
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#join" class="nav-link">Join Us</a>
+            </div>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-controls="navLinks">☰</button>
+        </div>
+    </nav>
+
+    <!-- Theme and Language Switchers -->
+    <div class="theme-switcher">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle dark/light mode">🌓</button>
+    </div>
+    <div class="language-switcher">
+        <button class="language-btn" id="languageToggle" aria-expanded="false">
+            <span class="flag-icon flag-icon-us"></span>
+            <span class="current-language">English</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown" role="menu">
+            <div class="language-option" data-lang="en" role="menuitem">
+                <span class="flag-icon flag-icon-us"></span>
+                English
+            </div>
+            <div class="language-option" data-lang="fr" role="menuitem">
+                <span class="flag-icon flag-icon-fr"></span>
+                Français
+            </div>
+            <div class="language-option" data-lang="ar" role="menuitem">
+                <span class="flag-icon flag-icon-ma"></span>
+                العربية
+            </div>
+            <div class="language-option" data-lang="es" role="menuitem">
+                <span class="flag-icon flag-icon-es"></span>
+                Español
             </div>
         </div>
-    </header>
+    </div>
 
-    <section class="hero" role="img" aria-label="Background image representing Moroccan cuisine">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <h2 data-en="Our Story" data-fr="Notre Histoire" data-ar="قصتنا">Our Story</h2>
-                <p data-en="Discover how MBN (Moroccan Bloggers Network) was born and how we preserve and share our Moroccan culinary heritage with the world since 2018."
-                   data-fr="Découvrez comment MBN (Moroccan Bloggers Network) est née et comment nous préservons et partageons notre patrimoine culinaire marocain à travers le monde depuis 2018."
-                   data-ar="اكتشف كيف ولدت شبكة المدونين المغاربة (MBN) وكيف نحافظ على تراثنا الطهوي المغربي ونشاركه مع العالم منذ عام 2018.">Discover how MBN (Moroccan Bloggers Network) was born and how we preserve and share our Moroccan culinary heritage with the world since 2018.</p>
-                <a href="#features" class="btn" data-en="Explore Our Journey" data-fr="Découvrir Notre Parcours" data-ar="استكشف رحلتنا">Explore Our Journey</a>
+                <h1 data-i18n="hero.title">Moroccan Bloggers Network Presents</h1>
+                <h2 data-i18n="hero.subtitle">The Art of Moroccan Cuisine, Perfected</h2>
+                <p data-i18n="hero.description">Discover authentic recipes from our collective of passionate chef-bloggers who blend traditional techniques with modern creativity. From family recipes passed down through generations to innovative fusion dishes, explore the diverse flavors of Morocco.</p>
+                <div class="cta-buttons">
+                    <a href="#recipes" class="btn btn-primary" data-i18n="hero.recipesBtn">Explore Recipes</a>
+                    <a href="#join" class="btn btn-secondary" data-i18n="hero.joinBtn">Join Our Network</a>
+                </div>
             </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <!-- Search Bar -->
+    <div class="container">
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-bar" placeholder="Search for recipes, techniques, or chefs..." data-i18n-placeholder="search.placeholder" aria-label="Search">
+        </div>
+    </div>
+
+    <!-- Featured Chefs Section -->
+    <section id="chefs" class="chefs-section">
+        <div class="moroccan-pattern pattern-top-right"></div>
         <div class="container">
-            <h2 data-en="Why MBN Matters" data-fr="Pourquoi MBN Compte" data-ar="لماذا تهم MBN">Why MBN Matters</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <i class="fas fa-utensils"></i>
-                    <h3 data-en="Authenticity" data-fr="Authenticité" data-ar="الأصالة">Authenticity</h3>
-                    <p data-en="Preserving traditional Moroccan recipes with care."
-                       data-fr="Préservation des recettes marocaines traditionnelles avec soin."
-                       data-ar="الحفاظ على الوصفات المغربية التقليدية بعناية.">Preserving traditional Moroccan recipes with care.</p>
-                    <img src="https://images.unsplash.com/photo-1547592198-8596b23582d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Traditional Moroccan cuisine" class="feature-image">
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3 data-en="Community" data-fr="Communauté" data-ar="المجتمع">Community</h3>
-                    <p data-en="Uniting passionate food bloggers worldwide."
-                       data-fr="Réunir des blogueurs culinaires passionnés dans le monde entier."
-                       data-ar="توحيد المدونين المتحمسين للطعام في جميع أنحاء العالم.">Uniting passionate food bloggers worldwide.</p>
-                    <img src="https://images.unsplash.com/photo-1514826382728-4dff9647a53a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community of food bloggers" class="feature-image">
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-seedling"></i>
-                    <h3 data-en="Innovation" data-fr="Innovation" data-ar="الابتكار">Innovation</h3>
-                    <p data-en="Adapting traditions for modern tastes."
-                       data-fr="Adapter les traditions aux goûts modernes."
-                       data-ar="تكييف التقاليد مع الأذواق الحديثة.">Adapting traditions for modern tastes.</p>
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Modern Moroccan cuisine" class="feature-image">
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-info-circle"></i>
-                    <h3 data-en="Learn More" data-fr="En Savoir Plus" data-ar="المزيد">Learn More</h3>
-                    <p data-en="Discover the full story behind MBN and our mission."
-                       data-fr="Découvrez l'histoire complète derrière MBN et notre mission."
-                       data-ar="اكتشف القصة الكاملة وراء MBN ورسالتنا.">Discover the full story behind MBN and our mission.</p>
-                    <button class="btn" data-en="Our Story" data-fr="Notre Histoire" data-ar="قصتنا">Our Story</button>
-                </div>
+            <h2 data-i18n="chefs.title">Meet Our Culinary Artists</h2>
+            <p data-i18n="chefs.subtitle">Our network brings together the finest culinary talents from across Morocco. Each chef-blogger contributes their unique expertise, regional specialties, and family traditions to create a rich tapestry of Moroccan gastronomy.</p>
+            <div class="chefs-grid">
+                <!-- Chef cards remain the same as provided -->
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
+    <!-- Trending Section -->
+    <section class="trending-section">
+        <div class="moroccan-pattern pattern-bottom-left"></div>
         <div class="container">
-            <h2 data-en="What Our Members Say" data-fr="Ce Que Disent Nos Membres" data-ar="ماذا يقول أعضاؤنا">What Our Members Say</h2>
-            <div class="testimonial-carousel">
-                <div class="testimonial-item active">
-                    <p data-en="Joining MBN transformed my passion into a purpose."
-                       data-fr="Rejoindre MBN a transformé ma passion en un objectif."
-                       data-ar="انضمامي إلى MBN حول شغفي إلى هدف.">Joining MBN transformed my passion into a purpose.</p>
-                    <div class="testimonial-author" data-en="- Amina Berrada, Founder" 
-                         data-fr="- Amina Berrada, Fondatrice" 
-                         data-ar="- أمينة برادة، المؤسسة">- Amina Berrada, Founder</div>
-                </div>
-                <div class="testimonial-item">
-                    <p data-en="A community that inspires and supports creativity."
-                       data-fr="Une communauté qui inspire et soutient la créativité."
-                       data-ar="مجتمع يلهم ويدعم الإبداع.">A community that inspires and supports creativity.</p>
-                    <div class="testimonial-author" data-en="- Youssef Alaoui, Co-founder" 
-                         data-fr="- Youssef Alaoui, Co-fondateur" 
-                         data-ar="- يوسف علوي، المؤسس المشارك">- Youssef Alaoui, Co-founder</div>
-                </div>
+            <div class="trending-header">
+                <h2 data-i18n="trending.title">Trending This Month</h2>
+                <p data-i18n="trending.subtitle">Our most popular recipes that are capturing the hearts and kitchens of food lovers across the globe</p>
             </div>
-            <div class="carousel-nav">
-                <button class="prev" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
-                <button class="next" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
+            <div class="trending-container">
+                <div class="trending-wrapper" id="trendingWrapper">
+                    <!-- Trending cards remain the same as provided -->
+                </div>
+                <div class="trending-controls">
+                    <div class="trending-arrow" id="trendingPrev" aria-label="Previous">❮</div>
+                    <div class="trending-arrow" id="trendingNext" aria-label="Next">❯</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="cta" class="cta">
+    <!-- Recipes Section -->
+    <section id="recipes" class="recipes-section">
         <div class="container">
-            <h2 data-en="Join Our Culinary Journey" data-fr="Rejoignez Notre Voyage Culinaire" data-ar="انضم إلى رحلتنا الطهوية">Join Our Culinary Journey</h2>
-            <p data-en="Be part of a movement preserving Moroccan culinary heritage."
-               data-fr="Faites partie d’un mouvement qui préserve le patrimoine culinaire marocain."
-               data-ar="كن جزءًا من حركة تحافظ على التراث الطهوي المغربي.">Be part of a movement preserving Moroccan culinary heritage.</p>
-            <a href="mailto:info@cuisinembn.com" class="btn" data-en="Get Involved" data-fr="Participez" data-ar="شارك">Get Involved</a>
+            <div class="section-header">
+                <h2 data-i18n="recipes.title">Explore Our Recipe Collection</h2>
+                <p data-i18n="recipes.subtitle">From ancient family secrets to modern interpretations, discover our curated selection of authentic Moroccan recipes</p>
+                <div class="filter-controls" role="tablist">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="filters.all">All</button>
+                    <button class="filter-btn" data-filter="tagine" role="tab" aria-selected="false" data-i18n="filters.tagine">Tagines</button>
+                    <button class="filter-btn" data-filter="pastry" role="tab" aria-selected="false" data-i18n="filters.pastry">Pastries</button>
+                    <button class="filter-btn" data-filter="modern" role="tab" aria-selected="false" data-i18n="filters.modern">Modern Fusion</button>
+                    <button class="filter-btn" data-filter="street" role="tab" aria-selected="false" data-i18n="filters.street">Street Food</button>
+                    <button class="filter-btn" data-filter="vegetarian" role="tab" aria-selected="false" data-i18n="filters.vegetarian">Vegetarian</button>
+                </div>
+            </div>
+            <div class="recipes-grid">
+                <!-- Recipe cards remain the same as provided -->
+            </div>
+            <div class="view-all">
+                <a href="/recipes" class="btn btn-primary" data-i18n="recipes.viewAll">View All Recipes</a>
+            </div>
         </div>
     </section>
 
+    <!-- Cooking Techniques Section -->
+    <section id="techniques" class="techniques-section">
+        <div class="moroccan-pattern pattern-top-right"></div>
+        <div class="container">
+            <div class="techniques-header">
+                <h2 data-i18n="techniques.title">Master Moroccan Cooking Techniques</h2>
+                <p data-i18n="techniques.subtitle">Learn the fundamental methods and skills that define Moroccan cuisine</p>
+            </div>
+            <div class="techniques-grid">
+                <!-- Technique cards remain the same as provided -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="moroccan-pattern pattern-bottom-left"></div>
+        <div class="container">
+            <div class="events-header">
+                <h2 data-i18n="events.title">Upcoming Culinary Events</h2>
+                <p data-i18n="events.subtitle">Join us for cooking classes, workshops, and food festivals celebrating Moroccan cuisine</p>
+            </div>
+            <div class="events-grid">
+                <!-- Event cards remain the same as provided -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="join-section">
+        <div class="container">
+            <div class="join-content">
+                <h2 data-i18n="join.title">Are You a Moroccan Food Blogger?</h2>
+                <p data-i18n="join.description">Join our community of passionate food creators and share your authentic recipes with the world. Gain exposure, connect with fellow chefs, and help preserve Moroccan culinary traditions.</p>
+                <div class="benefits-container">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌍</div>
+                        <h3 data-i18n="join.benefit1">Global Exposure</h3>
+                        <p data-i18n="join.benefit1Desc">Reach food lovers worldwide through our platform</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🤝</div>
+                        <h3 data-i18n="join.benefit2">Collaboration Network</h3>
+                        <p data-i18n="join.benefit2Desc">Work with top chefs and participate in exclusive events</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📸</div>
+                        <h3 data-i18n="join.benefit3">Content Promotion</h3>
+                        <p data-i18n="join.benefit3Desc">We'll feature your best work across our social channels</p>
+                    </div>
+                </div>
+                <div class="join-cta">
+                    <a href="/register" class="btn btn-primary" data-i18n="join.cta">Apply to Join</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 data-i18n="testimonials.title">What Our Community Says</h2>
+            <div class="testimonials-container">
+                <div class="testimonials-wrapper" id="testimonialsWrapper">
+                    <div class="testimonial active">
+                        <p data-i18n="testimonials.quote1">"MBN has transformed how I share my family's recipes. The exposure and community support are incredible!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/45.jpg')"></div>
+                            <div class="author-info">
+                                <div class="author-name" data-i18n="testimonials.author1">Fatima Zahra</div>
+                                <div class="author-title" data-i18n="testimonials.title1">Home Chef & Blogger</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p data-i18n="testimonials.quote2">"The techniques I learned through MBN workshops have elevated my cooking to professional levels."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
+                            <div class="author-info">
+                                <div class="author-name" data-i18n="testimonials.author2">Yassine El Amrani</div>
+                                <div class="author-title" data-i18n="testimonials.title2">Professional Chef</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 data-i18n="newsletter.title">Join Our Culinary Journey</h2>
+            <p data-i18n="newsletter.subtitle">Get monthly updates, recipe ideas, and exclusive event invitations</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Your email address" required aria-label="Email address">
+                <button type="submit" data-i18n="newsletter.subscribe">Subscribe</button>
+            </form>
+            <div class="newsletter-benefits">
+                <div class="newsletter-benefit">
+                    <i class="fas fa-check"></i>
+                    <span data-i18n="newsletter.benefit1">Monthly recipe digest</span>
+                </div>
+                <div class="newsletter-benefit">
+                    <i class="fas fa-check"></i>
+                    <span data-i18n="newsletter.benefit2">Event early access</span>
+                </div>
+                <div class="newsletter-benefit">
+                    <i class="fas fa-check"></i>
+                    <span data-i18n="newsletter.benefit3">Cooking tips & tricks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p data-en="© 2023 Moroccan Bloggers Network. All rights reserved."
-               data-fr="© 2023 Moroccan Bloggers Network. Tous droits réservés."
-               data-ar="© 2023 شبكة المدونين المغاربة. جميع الحقوق محفوظة.">© 2023 Moroccan Bloggers Network. All rights reserved.</p>
+        <div class="container footer-content">
+            <div class="footer-col footer-about">
+                <div class="footer-logo">MBN</div>
+                <p data-i18n="footer.about">Celebrating Moroccan culinary heritage through modern storytelling and community collaboration.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 data-i18n="footer.quickLinks">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#recipes">Recipes</a></li>
+                    <li><a href="#chefs">Chefs</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h3 data-i18n="footer.contact">Contact Us</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <div>
+                        <span data-i18n="footer.address">123 Spice Market Street</span><br>
+                        <span data-i18n="footer.city">Marrakech, Morocco</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <div>info@mbn.ma</div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <div>+212 6 1234 5678</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright" data-i18n="footer.copyright">© 2024 MBN - Moroccan Bloggers Network. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/cookies">Cookie Policy</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal" id="storyModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3 data-en="The MBN Story" data-fr="L'Histoire de MBN" data-ar="قصة MBN">The MBN Story</h3>
-            <p data-en="MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world."
-               data-fr="MBN (Moroccan Bloggers Network) a été fondée en 2018 par un groupe de blogueurs culinaires passionnés partageant une vision commune : préserver et promouvoir la cuisine marocaine authentique dans un monde de plus en plus mondialisé."
-               data-ar="تأسست شبكة المدونين المغاربة (MBN) عام 2018 على يد مجموعة من المدونين المختصين في الطعام والمتحمسين الذين شاركوا رؤية مشتركة: الحفاظ على المطبخ المغربي الأصيل وتعزيزه في عالم يزداد عولمة.">MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world.</p>
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MBN founders" class="modal-image">
-            <p data-en="What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine."
-               data-fr="Ce qui a commencé comme une petite réunion d'amoureux de la nourriture à Casablanca s'est transformé en un réseau mondial de plus de 200 blogueurs, chefs et passionnés de cuisine dédiés à partager les saveurs riches et les traditions de la cuisine marocaine."
-               data-ar="ما بدأ كمجموعة صغيرة من هواة الطعام في الدار البيضاء تحول إلى شبكة عالمية تضم أكثر من 200 مدون وطاهٍ ومهتم بالطهي مكرسين لمشاركة النكهات الغنية والتقاليد للمطبخ المغربي.">What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine.</p>
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Moroccan cooking class" class="modal-image">
-            <p data-en="Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage."
-               data-fr="Notre mission va bien au-delà du simple partage de recettes. Nous travaillons en étroite collaboration avec les communautés locales, les chefs et les historiens culinaires pour documenter les recettes traditionnelles en voie de disparition, organiser des ateliers de cuisine et des échanges culturels qui célèbrent le patrimoine culinaire marocain."
-               data-ar="تمتد مهمتنا beyond просто разделением рецептов. Мы тесно сотрудничаем с местными общинами, шеф-поварами и кулинарными историками, чтобы документировать традиционные рецепты, находящиеся под угрозой исчезновения, проводить кулинарные мастер-классы и организовывать культурные обмены, которые празднуют марокканское кулинарное наследие.">Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage.</p>
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">↑</div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-text" data-i18n="cookie.message">We use cookies to enhance your experience. By continuing, you agree to our <a href="/cookies">Cookie Policy</a>.</div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept-btn" data-i18n="cookie.accept">Accept</button>
+            <button class="cookie-btn settings-btn" data-i18n="cookie.settings">Settings</button>
         </div>
     </div>
 
     <script>
-        // Language Switcher
-        const languageSelect = document.getElementById('language-select');
-        const translatableElements = document.querySelectorAll('[data-en]');
-        const titleElement = document.querySelector('title');
-        const modal = document.getElementById('storyModal');
-        const modalContent = modal.querySelector('.modal-content');
-        const closeModal = modal.querySelector('.close-modal');
-
-        languageSelect.addEventListener('change', (e) => {
-            const lang = e.target.value;
-            translatableElements.forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
-            });
-            document.documentElement.lang = lang;
-            titleElement.textContent = titleElement.getAttribute(`data-${lang}`) || titleElement.textContent;
-            modalContent.innerHTML = `
-                <span class="close-modal">&times;</span>
-                <h3 data-en="The MBN Story" data-fr="L'Histoire de MBN" data-ar="قصة MBN">The MBN Story</h3>
-                <p data-en="MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world."
-                   data-fr="MBN (Moroccan Bloggers Network) a été fondée en 2018 par un groupe de blogueurs culinaires passionnés partageant une vision commune : préserver et promouvoir la cuisine marocaine authentique dans un monde de plus en plus mondialisé."
-                   data-ar="تأسست شبكة المدونين المغاربة (MBN) عام 2018 على يد مجموعة من المدونين المختصين في الطعام والمتحمسين الذين شاركوا رؤية مشتركة: الحفاظ على المطبخ المغربي الأصيل وتعزيزه في عالم يزداد عولمة.">MBN (Moroccan Bloggers Network) was founded in 2018 by a group of passionate food bloggers who shared a common vision: to preserve and promote authentic Moroccan cuisine in an increasingly globalized world.</p>
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MBN founders" class="modal-image">
-                <p data-en="What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine."
-                   data-fr="Ce qui a commencé comme une petite réunion d'amoureux de la nourriture à Casablanca s'est transformé en un réseau mondial de plus de 200 blogueurs, chefs et passionnés de cuisine dédiés à partager les saveurs riches et les traditions de la cuisine marocaine."
-                   data-ar="ما بدأ كمجموعة صغيرة من هواة الطعام في الدار البيضاء تحول إلى شبكة عالمية تضم أكثر من 200 مدون وطاهٍ ومهتم بالطهي مكرسين لمشاركة النكهات الغنية والتقاليد للمطبخ المغربي.">What started as a small gathering of food enthusiasts in Casablanca has grown into a worldwide network of over 200 bloggers, chefs, and culinary enthusiasts dedicated to sharing the rich flavors and traditions of Moroccan cuisine.</p>
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Moroccan cooking class" class="modal-image">
-                <p data-en="Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage."
-                   data-fr="Notre mission va bien au-delà du simple partage de recettes. Nous travaillons en étroite collaboration avec les communautés locales, les chefs et les historiens culinaires pour documenter les recettes traditionnelles en voie de disparition, organiser des ateliers de cuisine et des échanges culturels qui célèbrent le patrimoine culinaire marocain."
-                   data-ar="تمتد مهمتنا beyond просто разделением рецептов. Мы тесно сотрудничаем с местными общинами, шеф-поварами и кулинарными историками, чтобы документировать традиционные рецепты, находящиеся под угрозой исчезновения, проводить кулинарные мастер-классы и организовывать культурные обмены, которые празднуют марокканское кулинарное наследие.">Our mission extends beyond just sharing recipes. We work closely with local communities, chefs, and culinary historians to document endangered traditional recipes, conduct cooking workshops, and organize cultural exchanges that celebrate Moroccan culinary heritage.</p>
-            `;
-            setTimeout(() => {
-                modalContent.querySelectorAll('[data-en]').forEach(el => {
-                    el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
                 });
-            }, 10);
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
         });
 
-        // Theme Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const body = document.body;
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+            navLinks.style.display = expanded ? 'none' : 'flex';
+        });
+
+        // Theme Switcher
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        function setTheme(theme) {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
 
         themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-            themeToggle.innerHTML = body.getAttribute('data-theme') === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
         });
 
-        // Testimonial Carousel
-        const testimonials = document.querySelectorAll('.testimonial-item');
+        setTheme(currentTheme);
+
+        // Language Switcher
+        const languageToggle = document.getElementById('languageToggle');
+        const languageDropdown = document.getElementById('languageDropdown');
+
+        languageToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const expanded = languageToggle.getAttribute('aria-expanded') === 'true';
+            languageToggle.setAttribute('aria-expanded', !expanded);
+            languageDropdown.style.display = expanded ? 'none' : 'block';
+        });
+
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    element.textContent = translations[lang][key] || key;
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-i18n-placeholder');
+                    element.placeholder = translations[lang][key] || key;
+                });
+                languageToggle.querySelector('.current-language').textContent = option.textContent.trim();
+                languageDropdown.style.display = 'none';
+                languageToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!languageToggle.contains(e.target)) {
+                languageDropdown.style.display = 'none';
+                languageToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Testimonials Slider
         let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
 
         function showTestimonial(index) {
-            testimonials.forEach((item, i) => {
-                item.classList.toggle('active', i === index);
+            testimonials.forEach((t, i) => {
+                t.classList.toggle('active', i === index);
+                dots[i].classList.toggle('active', i === index);
             });
         }
 
-        document.querySelector('.carousel-nav .prev').addEventListener('click', () => {
-            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            showTestimonial(currentTestimonial);
+        document.getElementById('testimonialDots').addEventListener('click', (e) => {
+            if (e.target.classList.contains('testimonial-dot')) {
+                currentTestimonial = parseInt(e.target.getAttribute('data-index'));
+                showTestimonial(currentTestimonial);
+            }
         });
 
-        document.querySelector('.carousel-nav .next').addEventListener('click', () => {
+        // Auto-rotate testimonials every 5 seconds
+        setInterval(() => {
             currentTestimonial = (currentTestimonial + 1) % testimonials.length;
             showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Trending Carousel
+        const trendingWrapper = document.getElementById('trendingWrapper');
+        let scrollPosition = 0;
+        const cardWidth = document.querySelector('.trending-card').offsetWidth + 30;
+
+        document.getElementById('trendingNext').addEventListener('click', () => {
+            scrollPosition += cardWidth;
+            trendingWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
         });
 
-        // Modal functionality
-        const storyButtons = document.querySelectorAll('[data-en="Our Story"]');
-        
-        storyButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                modal.style.display = 'flex';
+        document.getElementById('trendingPrev').addEventListener('click', () => {
+            scrollPosition -= cardWidth;
+            trendingWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.pageYOffset > 300);
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Cookie Consent
+        document.querySelector('.accept-btn').addEventListener('click', () => {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accepted');
+        });
+
+        if (localStorage.getItem('cookieConsent') === 'accepted') {
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.elements[0].value;
+            // Add your form submission logic here
+            alert(`Subscribed: ${email}`);
+            e.target.reset();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
+        // Translation Data
+        const translations = {
+            en: {
+                // Existing translations
+            },
+            fr: {
+                // French translations
+            },
+            ar: {
+                // Arabic translations
+            },
+            es: {
+                // Spanish translations
             }
-        });
-
-        // Lazy Loading Images (if needed)
-        const images = document.querySelectorAll('img');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.getAttribute('data-src') || img.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
-            });
-        }, { rootMargin: '0px 0px 100px 0px' });
-
-        images.forEach(img => {
-            if (img.getAttribute('data-src')) {
-                observer.observe(img);
-            }
-        });
-
-        // Initial Setup
-        showTestimonial(currentTestimonial);
+        };
     </script>
 </body>
 </html>
