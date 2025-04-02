@@ -1,868 +1,473 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="المكتبة السرية للمنتجات الرقمية - منتجات رقمية حصرية للمسوقين الجادين" />
-  <title>المكتبة السرية للمنتجات الرقمية - Digitalproducte.online</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    /* CSS Variables for consistent theming */
-    :root {
-      --primary: #ff3366;
-      --primary-dark: #ba265d;
-      --primary-light: #ff6b99;
-      --bg-dark: #0a0a1a;
-      --bg-darker: #050510;
-      --text-light: #fff;
-      --text-muted: #aaa;
-      --text-dim: #666;
-      --card-bg: rgba(255,255,255,0.03);
-      --card-border: rgba(255,255,255,0.1);
-      --shadow-sm: 0 5px 15px rgba(0,0,0,0.2);
-      --shadow-md: 0 10px 20px rgba(0,0,0,0.3);
-      --shadow-lg: 0 15px 30px rgba(0,0,0,0.4);
-      --border-radius-sm: 5px;
-      --border-radius-md: 8px;
-      --border-radius-lg: 50px;
-      --spacing-xs: 0.5rem;
-      --spacing-sm: 1rem;
-      --spacing-md: 1.5rem;
-      --spacing-lg: 2rem;
-      --spacing-xl: 3rem;
-      --transition-fast: 0.3s ease;
-      --transition-medium: 0.5s ease;
-    }
-    
-    /* Reset and base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Tajawal', sans-serif;
-    }
-    
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      background-image: 
-        radial-gradient(circle at 10% 20%, var(--bg-darker) 0%, #000 90%),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23000000" width="50" height="50" x="0" y="0"></rect><rect fill="%23000000" width="50" height="50" x="50" y="50"></rect></svg>');
-      min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.6;
-      padding: 0 var(--spacing-sm);
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: var(--spacing-lg);
-      position: relative;
-    }
-    
-    /* Utility classes */
-    .text-primary {
-      color: var(--primary);
-    }
-    
-    .text-center {
-      text-align: center;
-    }
-    
-    .mb-1 {
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .mb-2 {
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .mb-3 {
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .mb-4 {
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .mb-5 {
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    /* Header Styles */
-    header.header {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-      position: relative;
-    }
-    
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 900;
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: var(--spacing-sm);
-      letter-spacing: -1px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .tagline {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .vip-badge {
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      color: var(--text-light);
-      padding: var(--spacing-xs) var(--spacing-md);
-      border-radius: var(--border-radius-lg);
-      font-weight: bold;
-      display: inline-block;
-      margin-bottom: var(--spacing-lg);
-      box-shadow: 0 5px 15px rgba(186, 38, 93, 0.4);
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    
-    .warning-box {
-      background-color: rgba(255, 0, 0, 0.1);
-      border-left: 4px solid var(--primary);
-      padding: var(--spacing-md);
-      margin-bottom: var(--spacing-lg);
-      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .warning-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), transparent);
-    }
-    
-    .warning-title {
-      color: var(--primary);
-      font-weight: bold;
-      margin-bottom: var(--spacing-xs);
-      font-size: 1.3rem;
-    }
-    
-    /* Main Content */
-    main.main-content {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .main-heading {
-      font-size: 2.2rem;
-      margin-bottom: var(--spacing-md);
-      line-height: 1.4;
-      background: linear-gradient(45deg, #fff, #aaa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    
-    .sub-heading {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: var(--spacing-lg);
-      line-height: 1.6;
-    }
-    
-    .countdown {
-      background-color: rgba(255,255,255,0.05);
-      padding: var(--spacing-md);
-      border-radius: var(--border-radius-md);
-      margin-bottom: var(--spacing-lg);
-      border: 1px solid var(--card-border);
-      position: relative;
-    }
-    
-    .countdown::after {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 10px;
-      background: linear-gradient(45deg, var(--primary), transparent);
-      z-index: -1;
-      animation: borderAnimation 3s infinite alternate;
-    }
-    
-    @keyframes borderAnimation {
-      0% { opacity: 0.3; }
-      100% { opacity: 0.7; }
-    }
-    
-    .countdown-title {
-      color: var(--primary);
-      margin-bottom: var(--spacing-xs);
-      font-weight: bold;
-    }
-    
-    .countdown-timer {
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      font-family: monospace;
-    }
-    
-    .access-alert {
-      color: var(--primary);
-      text-align: center;
-      margin: var(--spacing-sm) 0;
-      font-weight: bold;
-      animation: blink 1.5s infinite;
-    }
-    
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    
-    .cta-button {
-      display: block;
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      color: var(--text-light);
-      text-align: center;
-      padding: var(--spacing-md);
-      border-radius: var(--border-radius-md);
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-decoration: none;
-      margin: var(--spacing-lg) auto;
-      max-width: 400px;
-      box-shadow: var(--shadow-md);
-      transition: all var(--transition-fast);
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    
-    .cta-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: var(--transition-medium);
-      z-index: -1;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .cta-button:hover::before {
-      left: 100%;
-    }
-    
-    .cta-button:active {
-      transform: translateY(-1px);
-    }
-    
-    /* Testimonials */
-    .testimonials {
-      margin-top: var(--spacing-xl);
-    }
-    
-    .testimonial-title {
-      text-align: center;
-      margin-bottom: var(--spacing-md);
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-    
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: var(--spacing-md);
-    }
-    
-    .testimonial {
-      background-color: var(--card-bg);
-      padding: var(--spacing-md);
-      border-radius: var(--border-radius-md);
-      border: 1px solid var(--card-border);
-      transition: transform var(--transition-fast);
-    }
-    
-    .testimonial:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .testimonial-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto var(--spacing-sm);
-      display: block;
-      border: 3px solid var(--primary);
-    }
-    
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: var(--spacing-sm);
-      color: #ddd;
-      position: relative;
-    }
-    
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      color: var(--primary);
-      font-size: 1.5rem;
-      position: absolute;
-    }
-    
-    .testimonial-text::before {
-      top: -10px;
-      left: -5px;
-    }
-    
-    .testimonial-text::after {
-      bottom: -20px;
-      right: -5px;
-    }
-    
-    .testimonial-author {
-      font-weight: bold;
-      color: var(--primary);
-      text-align: center;
-      margin-top: var(--spacing-sm);
-    }
-    
-    .testimonial-role {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      text-align: center;
-      display: block;
-    }
-    
-    /* Trust Badges */
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--spacing-md);
-      margin: var(--spacing-xl) 0;
-      padding: var(--spacing-sm);
-      background: var(--card-bg);
-      border-radius: var(--border-radius-md);
-    }
-    
-    .trust-badge {
-      max-width: 120px;
-      height: auto;
-      opacity: 0.8;
-      transition: opacity var(--transition-fast);
-      filter: brightness(0) invert(1);
-    }
-    
-    .trust-badge:hover {
-      opacity: 1;
-      filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--primary));
-    }
-    
-    /* Live Counter */
-    .live-counter {
-      text-align: center;
-      margin: var(--spacing-lg) 0;
-      background: var(--card-bg);
-      padding: var(--spacing-sm);
-      border-radius: var(--border-radius-md);
-      position: relative;
-    }
-    
-    .live-counter::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, transparent, rgba(255,51,102,0.05), transparent);
-      z-index: -1;
-      border-radius: var(--border-radius-md);
-    }
-    
-    .live-counter-text {
-      color: var(--text-muted);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .live-counter-number {
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 1.5rem;
-      font-family: monospace;
-    }
-    
-    /* Purchase Notifications */
-    .purchase-notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(0,0,0,0.8);
-      border-left: 4px solid var(--primary);
-      padding: var(--spacing-sm);
-      border-radius: var(--border-radius-sm);
-      box-shadow: var(--shadow-md);
-      transform: translateX(120%);
-      transition: transform var(--transition-medium);
-      z-index: 1000;
-      max-width: 300px;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-    }
-    
-    .purchase-notification.show {
-      transform: translateX(0);
-    }
-    
-    .purchase-text {
-      color: var(--text-light);
-    }
-    
-    .purchase-time {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-    }
-    
-    /* Footer */
-    footer.footer {
-      text-align: center;
-      margin-top: var(--spacing-xl);
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      padding-top: var(--spacing-lg);
-      border-top: 1px solid var(--card-border);
-    }
-    
-    footer.footer a {
-      color: var(--text-dim);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-    
-    footer.footer a:hover {
-      color: var(--primary);
-    }
-    
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      :root {
-        --spacing-lg: 1.5rem;
-        --spacing-xl: 2.5rem;
-      }
-      
-      .container {
-        padding: var(--spacing-sm);
-      }
-      
-      .logo {
-        font-size: 2rem;
-      }
-      
-      .main-heading {
-        font-size: 1.8rem;
-      }
-      
-      .sub-heading {
-        font-size: 1rem;
-      }
-      
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .trust-badge {
-        max-width: 80px;
-      }
-      
-      .purchase-notification {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        max-width: none;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      :root {
-        --spacing-md: 1rem;
-        --spacing-lg: 1.2rem;
-      }
-      
-      .logo {
-        font-size: 1.8rem;
-      }
-      
-      .main-heading {
-        font-size: 1.5rem;
-      }
-      
-      .trust-badges {
-        gap: var(--spacing-sm);
-      }
-      
-      .trust-badge {
-        max-width: 60px;
-      }
-      
-      .countdown-timer {
-        font-size: 1.5rem;
-      }
-    }
-    
-    /* Preload avatar images to avoid layout shifts */
-    .preload-images {
-      position: absolute;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      z-index: -1;
-    }
-    
-    /* Animation for glow effect on main CTA */
-    @keyframes glow {
-      0%, 100% {
-        box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary-dark);
-      }
-      50% {
-        box-shadow: 0 0 15px var(--primary), 0 0 20px var(--primary-dark);
-      }
-    }
-    
-    .glow-effect {
-      animation: glow 2s infinite alternate;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المكتبة السرية للمنتجات الرقمية - Digitalproducte.online</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
+:root {
+--primary: #ff3366;
+--primary-dark: #ba265d;
+--bg: #0a0a1a;
+--shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Tajawal', sans-serif;
+}
+body {
+background-color: var(--bg);
+color: #fff;
+background-image:
+radial-gradient(circle at 10% 20%, rgba(5,5,15,0.9) 0%, #000 90%),
+url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23000000" width="50" height="50" x="0" y="0"></rect><rect fill="%23000000" width="50" height="50" x="50" y="50"></rect></svg>');
+min-height: 100vh;
+line-height: 1.6;
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+position: relative;
+}
+.header {
+text-align: center;
+margin-bottom: 3rem;
+padding: 2rem 0;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.logo {
+font-size: 3rem;
+font-weight: 900;
+background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+letter-spacing: -2px;
+}
+.tagline {
+font-size: 1.3rem;
+color: #ccc;
+margin: 1rem 0;
+}
+.vip-badge {
+background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+color: white;
+padding: 0.8rem 2rem;
+border-radius: 50px;
+font-weight: bold;
+box-shadow: 0 5px 15px rgba(186, 38, 93, 0.4);
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
+}
+.warning-box {
+background: rgba(255, 0, 0, 0.1);
+border-left: 4px solid var(--primary);
+padding: 1.5rem;
+border-radius: 0 8px 8px 0;
+margin: 2rem 0;
+position: relative;
+overflow: hidden;
+}
+.warning-box::before {
+content: "!";
+position: absolute;
+top: 50%;
+left: -12px;
+transform: translateY(-50%);
+background: var(--primary);
+width: 24px;
+height: 24px;
+border-radius: 50%;
+color: white;
+font-weight: bold;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 0 10px rgba(255,51,102,0.5);
+}
+.warning-title {
+color: var(--primary);
+font-size: 1.4rem;
+margin-bottom: 0.5rem;
+}
+.main-content {
+text-align: center;
+margin-bottom: 3rem;
+}
+.main-heading {
+font-size: 2.5rem;
+margin-bottom: 1.5rem;
+background: linear-gradient(45deg, #fff, #aaa);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+line-height: 1.2;
+}
+.sub-heading {
+font-size: 1.2rem;
+color: #aaa;
+margin-bottom: 2rem;
+}
+.countdown {
+background: rgba(255,255,255,0.05);
+padding: 1.5rem;
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.1);
+box-shadow: var(--shadow);
+position: relative;
+overflow: hidden;
+}
+.countdown::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(45deg, rgba(255,51,102,0.1), transparent);
+animation: wave 5s infinite linear;
+}
+@keyframes wave {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
+.countdown-timer {
+font-size: 2.5rem;
+font-weight: bold;
+letter-spacing: 3px;
+font-family: monospace;
+color: var(--primary);
+text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.access-alert {
+color: var(--primary);
+font-weight: bold;
+animation: blink 1.5s infinite;
+margin: 1rem 0;
+}
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.7; }
+}
+.cta-button {
+display: block;
+background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+color: white;
+padding: 1.5rem;
+border-radius: 12px;
+font-size: 1.3rem;
+font-weight: bold;
+text-decoration: none;
+margin: 2rem auto;
+max-width: 450px;
+box-shadow: 0 10px 20px rgba(186, 38, 93, 0.3);
+transition: transform 0.3s, box-shadow 0.3s;
+position: relative;
+overflow: hidden;
+}
+.cta-button:hover {
+transform: translateY(-3px);
+box-shadow: 0 15px 30px rgba(186, 38, 93, 0.4);
+}
+.cta-button::before {
+content: "";
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+transition: 0.5s;
+z-index: -1;
+}
+.cta-button:hover::before {
+left: 100%;
+}
+.testimonials {
+margin: 4rem 0;
+}
+.testimonial-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+}
+.testimonial {
+background: rgba(255,255,255,0.03);
+padding: 1.5rem;
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.1);
+transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.testimonial-avatar {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid var(--primary);
+margin-bottom: 1rem;
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.testimonial-text {
+font-style: italic;
+color: #ddd;
+position: relative;
+padding: 0 1rem;
+}
+.testimonial-text::before,
+.testimonial-text::after {
+content: '"';
+color: var(--primary);
+font-size: 1.5rem;
+position: absolute;
+}
+.testimonial-text::before {
+top: -10px;
+left: -5px;
+}
+.testimonial-text::after {
+bottom: -20px;
+right: -5px;
+}
+.trust-badges {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 2rem;
+margin: 3rem 0;
+padding: 1rem;
+background: rgba(255,255,255,0.03);
+border-radius: 12px;
+}
+.trust-badge {
+max-width: 120px;
+height: auto;
+opacity: 0.8;
+transition: opacity 0.3s, filter 0.3s;
+filter: brightness(0) invert(1);
+}
+.trust-badge:hover {
+opacity: 1;
+filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--primary));
+}
+.live-counter {
+text-align: center;
+margin: 2rem 0;
+background: rgba(255,255,255,0.05);
+padding: 1rem;
+border-radius: 12px;
+box-shadow: var(--shadow);
+}
+.live-counter-number {
+color: var(--primary);
+font-size: 1.8rem;
+font-weight: bold;
+font-family: monospace;
+}
+.purchase-notification {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: rgba(0,0,0,0.9);
+border-left: 4px solid var(--primary);
+padding: 1rem;
+border-radius: 5px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+transform: translateX(120%);
+transition: transform 0.5s ease;
+z-index: 1000;
+max-width: 300px;
+}
+.purchase-notification.show {
+transform: translateX(0);
+}
+.purchase-text {
+color: #fff;
+font-size: 0.9rem;
+}
+.purchase-time {
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 0.3rem;
+}
+.footer {
+text-align: center;
+margin-top: 3rem;
+padding: 1rem;
+border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer a {
+color: #666;
+text-decoration: none;
+transition: color 0.3s;
+}
+.footer a:hover {
+color: var(--primary);
+}
+@media (max-width: 768px) {
+.container {
+padding: 1rem;
+}
+.main-heading {
+font-size: 2rem;
+}
+.testimonial-grid {
+grid-template-columns: 1fr;
+}
+.trust-badge {
+max-width: 80px;
+}
+}
+</style>
 </head>
 <body>
-  <!-- Preload avatar images -->
-  <div class="preload-images">
-    <img src="https://i.pravatar.cc/150?img=1" alt="Preload avatar 1">
-    <img src="https://i.pravatar.cc/150?img=2" alt="Preload avatar 2">
-    <img src="https://i.pravatar.cc/150?img=3" alt="Preload avatar 3">
-  </div>
-
-  <div class="container">
-    <!-- Header Section -->
-    <header class="header" role="banner">
-      <div class="logo">Digitalproducte.online</div>
-      <div class="tagline">المكتبة السرية للمنتجات الرقمية</div>
-      <div class="vip-badge" aria-label="وصول VIP فقط">وصول VIP فقط</div>
-      
-      <div class="warning-box" role="alert">
-        <div class="warning-title">تحذير: هذه الصفحة ليست للجميع</div>
-        <p>إذا كنت تبحث عن معلومات سطحية أو منتجات رخيصة، هذه الصفحة ليست لك. نحن نخدم فقط العملاء الجادين الذين يفهمون قيمة المعرفة الحصرية.</p>
-      </div>
-    </header>
-    
-    <!-- Main Content Section -->
-    <main class="main-content" role="main">
-      <h1 class="main-heading">اكتشف الأسرار التي يدفع كبار المسوقين آلاف الدولارات لمعرفتها</h1>
-      <p class="sub-heading">لقد أغلقنا الباب أمام 95% من الزوار لأنهم غير جادين. إذا كنت من الـ 5% الذين يستحقون الوصول إلى مكتبتنا السرية، اضغط الزر أدناه الآن.</p>
-      
-      <div class="countdown" aria-label="عداد تنازلي">
-        <div class="countdown-title">العرض ينتهي خلال:</div>
-        <div class="countdown-timer" id="countdown">24:59:59</div>
-      </div>
-      
-      <div class="access-alert" id="remaining-access" aria-live="polite">⚠️ متبقي <span id="access-number">37</span> وصولًا خاصًا فقط!</div>
-      
-      <a href="https://example.com/products" class="cta-button glow-effect" id="main-cta" role="button">
-        اضغط هنا للوصول الفوري (الجادون فقط)
-      </a>
-      
-      <div class="trust-badges" aria-label="شعارات الثقة">
-        <img src="https://i.imgur.com/QNBBZFC.png" alt="Visa" class="trust-badge" loading="lazy">
-        <img src="https://i.imgur.com/VHMVDGM.png" alt="Mastercard" class="trust-badge" loading="lazy">
-        <img src="https://i.imgur.com/W7CbIxZ.png" alt="PayPal" class="trust-badge" loading="lazy">
-        <img src="https://i.imgur.com/1EOEYtt.png" alt="SSL Secure" class="trust-badge" loading="lazy">
-        <img src="https://i.imgur.com/zLFrwLZ.png" alt="Stripe" class="trust-badge" loading="lazy">
-      </div>
-      
-      <div class="live-counter" aria-live="polite">
-        <div class="live-counter-text">أشخاص يشاهدون هذه الصفحة الآن:</div>
-        <div class="live-counter-number" id="live-counter">142</div>
-      </div>
-    </main>
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <h2 class="testimonial-title">ماذا يقول عملاؤنا السرّيون؟</h2>
-      <div class="testimonial-grid">
-        <article class="testimonial">
-          <img src="https://i.pravatar.cc/150?img=1" alt="صورة العميل أحمد السعدي" class="testimonial-avatar" loading="lazy">
-          <p class="testimonial-text">هذه المنتجات غيرت طريقة عملي تمامًا. لقد زادت أرباحي بنسبة 300% في شهرين فقط!</p>
-          <span class="testimonial-author">أحمد السعدي</span>
-          <span class="testimonial-role">مسوق رقمي - الرياض</span>
-        </article>
-        <article class="testimonial">
-          <img src="https://i.pravatar.cc/150?img=2" alt="صورة العميلة نورة عبدالله" class="testimonial-avatar" loading="lazy">
-          <p class="testimonial-text">لم أكن أتوقع هذا الكم من المعلومات القيمة. يستحق كل فلس!</p>
-          <span class="testimonial-author">نورة عبدالله</span>
-          <span class="testimonial-role">رائدة أعمال - دبي</span>
-        </article>
-        <article class="testimonial">
-          <img src="https://i.pravatar.cc/150?img=3" alt="صورة العميل خالد الراشد" class="testimonial-avatar" loading="lazy">
-          <p class="testimonial-text">المنتجات السرية هنا لا تجدها في أي مكان آخر. شكرًا لعدم جعلها متاحة للجميع!</p>
-          <span class="testimonial-author">خالد الراشد</span>
-          <span class="testimonial-role">مستثمر - الكويت</span>
-        </article>
-      </div>
-    </section>
-    
-    <!-- Purchase Notification -->
-    <div class="purchase-notification" id="purchase-notification" aria-live="assertive">
-      <div class="purchase-text" id="purchase-text">محمد من السعودية اشترى للتو "سر التسويق السري"</div>
-      <div class="purchase-time" id="purchase-time">منذ دقيقتين</div>
-    </div>
-    
-    <!-- Footer Section -->
-    <footer class="footer" role="contentinfo">
-      <p>© <span id="current-year">2023</span> Digitalproducte.online - جميع الحقوق محفوظة</p>
-      <p>هذه الصفحة ليست جزءًا من فيسبوك أو جوجل أو أي شركة أخرى.</p>
-      <p style="margin-top:1rem;">
-        <a href="#" title="الشروط والأحكام">الشروط والأحكام</a> | 
-        <a href="#" title="سياسة الخصوصية">سياسة الخصوصية</a>
-      </p>
-    </footer>
-  </div>
-
-  <script>
-    // DOM Elements
-    const countdownEl = document.getElementById('countdown');
-    const liveCounterEl = document.getElementById('live-counter');
-    const remainingAccessEl = document.getElementById('access-number');
-    const purchaseNotificationEl = document.getElementById('purchase-notification');
-    const purchaseTextEl = document.getElementById('purchase-text');
-    const purchaseTimeEl = document.getElementById('purchase-time');
-    const currentYearEl = document.getElementById('current-year');
-    
-    // Set current year in footer
-    currentYearEl.textContent = new Date().getFullYear();
-    
-    // Product data
-    const products = [
-      "سر التسويق السري",
-      "الكتاب الملعون للتجارة الإلكترونية",
-      "دورة الذكاء الاصطناعي السري",
-      "خطة 10,000$ في 30 يومًا",
-      "أسرار البيع على Pinterest"
-    ];
-    
-    const cities = ["السعودية", "الإمارات", "الكويت", "مصر", "الجزائر", "المغرب", "تونس", "عمان", "قطر", "البحرين"];
-    const names = ["محمد", "أحمد", "نورة", "سارة", "خالد", "علي", "فاطمة", "عبدالله", "ريم", "حسن"];
-    
-    // Countdown Timer: Resets daily at 23:59:59
-    function updateCountdown() {
-      try {
-        const now = new Date();
-        const end = new Date();
-        end.setDate(now.getDate() + 1);
-        end.setHours(23, 59, 59, 0);
-        
-        const diff = Math.max(0, end - now); // Ensure non-negative
-        
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        if (countdownEl) {
-          countdownEl.textContent = 
-            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-      } catch (error) {
-        console.error('Error updating countdown:', error);
-      }
-    }
-    
-    // Start countdown
-    const countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-    
-    // Live Visitor Counter: Simulates viewer count changes
-    let liveCount = 142;
-    function updateLiveCounter() {
-      try {
-        // Random fluctuation between -1 and +3
-        const change = Math.floor(Math.random() * 5) - 1; 
-        liveCount += change;
-        
-        // Keep within reasonable bounds
-        if (liveCount < 120) liveCount = 120 + Math.floor(Math.random() * 10);
-        if (liveCount > 200) liveCount = 190 + Math.floor(Math.random() * 10);
-        
-        if (liveCounterEl) {
-          liveCounterEl.textContent = liveCount;
-        }
-      } catch (error) {
-        console.error('Error updating live counter:', error);
-      }
-    }
-    
-    // Start live counter updates
-    const liveCounterInterval = setInterval(updateLiveCounter, 3000);
-    
-    // Remaining Access Counter: Decrements occasionally
-    let remainingAccess = 37;
-    function updateRemainingAccess() {
-      try {
-        // 40% chance to decrement by 1
-        if (Math.random() < 0.4 && remainingAccess > 1) {
-          remainingAccess -= 1;
-          
-          if (remainingAccessEl) {
-            remainingAccessEl.textContent = remainingAccess;
-          }
-          
-          // Add urgency when count gets low
-          if (remainingAccess <= 5) {
-            document.getElementById('remaining-access').classList.add('glow-effect');
-          }
-        }
-      } catch (error) {
-        console.error('Error updating remaining access:', error);
-      }
-    }
-    
-    // Start remaining access updates
-    const remainingAccessInterval = setInterval(updateRemainingAccess, 15000);
-    
-    // Purchase Notifications: Randomly displays purchase messages
-    function showPurchaseNotification() {
-      try {
-        const product = products[Math.floor(Math.random() * products.length)];
-        const city = cities[Math.floor(Math.random() * cities.length)];
-        const name = names[Math.floor(Math.random() * names.length)];
-        
-        const minutes = Math.floor(Math.random() * 5) + 1;
-        
-        if (purchaseTextEl && purchaseTimeEl) {
-          purchaseTextEl.textContent = `${name} من ${city} اشترى للتو "${product}"`;
-          
-          // Handle Arabic plural form for minutes
-          let minutesText;
-          if (minutes === 1) {
-            minutesText = 'دقيقة';
-          } else if (minutes === 2) {
-            minutesText = 'دقيقتين';
-          } else if (minutes >= 3 && minutes <= 10) {
-            minutesText = 'دقائق';
-          } else {
-            minutesText = 'دقيقة';
-          }
-          
-          purchaseTimeEl.textContent = `منذ ${minutes} ${minutesText}`;
-          
-          // Show notification
-          if (purchaseNotificationEl) {
-            purchaseNotificationEl.classList.add('show');
-            
-            // Hide after 5 seconds
-            setTimeout(() => {
-              purchaseNotificationEl.classList.remove('show');
-            }, 5000);
-          }
-        }
-      } catch (error) {
-        console.error('Error showing purchase notification:', error);
-      }
-    }
-    
-    // Schedule first notification
-    const initialNotificationTimeout = setTimeout(() => {
-      showPurchaseNotification();
-      
-      // Schedule recurring notifications at random intervals
-      let notificationInterval = setInterval(() => {
-        const randomDelay = 20000 + Math.random() * 40000; // 20-60 seconds
-        setTimeout(showPurchaseNotification, randomDelay);
-      }, 60000);
-      
-    }, 8000);
-    
-    // CTA Button Click handling
-    const ctaButton = document.getElementById('main-cta');
-    if (ctaButton) {
-      ctaButton.addEventListener('click', (event) => {
-        // Track the click event
-        try {
-          // Analytics tracking (if available)
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'Lead');
-          }
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'conversion', { 'send_to': 'AW-123456789/AbCdEfGhIjKl' });
-          }
-          
-          // Add some visual feedback even if no analytics
-          ctaButton.style.transform = 'scale(0.98)';
-          setTimeout(() => {
-            ctaButton.style.transform = '';
-          }, 200);
-          
-          console.log('CTA clicked: Conversion tracked');
-        } catch (error) {
-          console.error('Error tracking conversion:', error);
-        }
-      });
-    }
-    
-    // Clean up intervals on page unload
-    window.addEventListener('beforeunload', () => {
-      clearInterval(countdownInterval);
-      clearInterval(liveCounterInterval);
-      clearInterval(remainingAccessInterval);
-      clearTimeout(initialNotificationTimeout);
-    });
-    
-    // Add browser notification permission request
-    function requestNotificationPermission() {
-      try {
-        if ('Notification' in window && Notification.permission !== 'granted' && Notification.permission !== 'denied') {
-          setTimeout(() => {
-            Notification.requestPermission();
-          }, 10000);
-        }
-      } catch (error) {
-        console.error('Error requesting notification permission:', error);
-      }
-    }
-    
-    // Call the function
-    requestNotificationPermission();
-  </script>
+<div class="container">
+<header class="header">
+<div class="logo">Digitalproducte.online</div>
+<div class="tagline">المكتبة السرية للمنتجات الرقمية</div>
+<div class="vip-badge">وصول VIP فقط</div>
+<div class="warning-box">
+<div class="warning-title">تحذير: هذه الصفحة ليست للجميع</div>
+<p>إذا كنت تبحث عن معلومات سطحية أو منتجات رخيصة، هذه الصفحة ليست لك. نحن نخدم فقط العملاء الجادين الذين يفهمون قيمة المعرفة الحصرية.</p>
+</div>
+</header>
+<main class="main-content">
+<h1 class="main-heading">اكتشف الأسرار التي يدفع كبار المسوقين آلاف الدولارات لمعرفتها</h1>
+<p class="sub-heading">لقد أغلقنا الباب أمام 95% من الزوار لأنهم غير جادين. إذا كنت من الـ 5% الذين يستحقون الوصول إلى مكتبتنا السرية، اضغط الزر أدناه الآن.</p>
+<div class="countdown">
+<div class="countdown-title">العرض ينتهي خلال:</div>
+<div class="countdown-timer" id="countdown">24:59:59</div>
+</div>
+<div class="access-alert" id="remaining-access">⚠️ متبقي 37 وصولًا خاصًا فقط!</div>
+<a href="YOUR_GUMROAD_LINK_HERE" class="cta-button" id="main-cta">اضغط هنا للوصول الفوري (الجادون فقط)</a>
+<div class="trust-badges">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" class="trust-badge">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" alt="Mastercard" class="trust-badge">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png" alt="PayPal" class="trust-badge">
+<img src="https://www.ssl.com/wp-content/uploads/2022/02/SSLcom-SiteSeal-300x300.png" alt="SSL Secure" class="trust-badge">
+<img src="https://download.logo.wine/logo/Stripe_(company)/Stripe_(company)-Logo.wine.png" alt="Stripe" class="trust-badge">
+</div>
+<div class="live-counter">
+<div class="live-counter-text">أشخاص يشاهدون هذه الصفحة الآن:</div>
+<div class="live-counter-number" id="live-counter">142</div>
+</div>
+</main>
+<section class="testimonials">
+<h2 class="testimonial-title">ماذا يقول عملاؤنا السرّيون؟</h2>
+<div class="testimonial-grid">
+<div class="testimonial">
+<img src="https://thispersondoesnotexist.com/image" alt="Customer" class="testimonial-avatar" loading="lazy">
+<p class="testimonial-text">هذه المنتجات غيرت طريقة عملي تمامًا. لقد زادت أرباحي بنسبة 300% في شهرين فقط!</p>
+<span class="testimonial-author">أحمد السعدي</span>
+<span class="testimonial-role">مسوق رقمي - الرياض</span>
+</div>
+<div class="testimonial">
+<img src="https://thispersondoesnotexist.com/image" alt="Customer" class="testimonial-avatar" loading="lazy">
+<p class="testimonial-text">لم أكن أتوقع هذا الكم من المعلومات القيمة. يستحق كل فلس!</p>
+<span class="testimonial-author">نورة عبدالله</span>
+<span class="testimonial-role">رائدة أعمال - دبي</span>
+</div>
+<div class="testimonial">
+<img src="https://thispersondoesnotexist.com/image" alt="Customer" class="testimonial-avatar" loading="lazy">
+<p class="testimonial-text">المنتجات السرية هنا لا تجدها في أي مكان آخر. شكرًا لعدم جعلها متاحة للجميع!</p>
+<span class="testimonial-author">خالد الراشد</span>
+<span class="testimonial-role">مستثمر - الكويت</span>
+</div>
+</div>
+</section>
+<div class="purchase-notification" id="purchase-notification">
+<div class="purchase-text" id="purchase-text">محمد من السعودية اشترى للتو "سر التسويق السري"</div>
+<div class="purchase-time" id="purchase-time">منذ دقيقتين</div>
+</div>
+<footer class="footer">
+<p>© 2023 Digitalproducte.online - جميع الحقوق محفوظة</p>
+<p>هذه الصفحة ليست جزءًا من فيسبوك أو جوجل أو أي شركة أخرى.</p>
+<p style="margin-top:1rem;">
+<a href="#" class="footer-link">الشروط والأحكام</a> |
+<a href="#" class="footer-link">سياسة الخصوصية</a>
+</p>
+</footer>
+</div>
+<script>
+let countdownInterval;
+function startCountdown() {
+const end = new Date();
+end.setHours(23, 59, 59, 999);
+countdownInterval = setInterval(() => {
+const now = new Date();
+const diff = end - now;
+if (diff <= 0) {
+clearInterval(countdownInterval);
+document.getElementById('countdown').textContent = "انتهت الصلاحية";
+return;
+}
+const hours = Math.floor(diff / (1000 * 60 * 60));
+const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+document.getElementById('countdown').textContent =
+`${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}, 1000);
+}
+startCountdown();
+let liveCount = 142;
+setInterval(() => {
+const delta = Math.random() > 0.5 ? 1 : -1;
+liveCount = Math.max(80, Math.min(250, liveCount + delta));
+document.getElementById('live-counter').textContent = liveCount;
+}, 3000);
+let remainingAccess = 37;
+const accessInterval = setInterval(() => {
+if (remainingAccess <= 0) {
+clearInterval(accessInterval);
+document.getElementById('remaining-access').textContent = "⚠️ الوصول مغلق الآن!";
+return;
+}
+remainingAccess = Math.max(0, remainingAccess - Math.floor(Math.random() * 2));
+document.getElementById('remaining-access').textContent = `⚠️ متبقي ${remainingAccess} وصولًا خاصًا فقط!`;
+}, 10000);
+const products = [
+"سر التسويق السري", "الكتاب الملعون للتجارة الإلكترونية",
+"دورة الذكاء الاصطناعي السري", "خطة 10,000$ في 30 يومًا",
+"أسرار البيع على Pinterest", "حزمة أدوات النمو السري"
+];
+const cities = ["السعودية", "الإمارات", "الكويت", "مصر", "الجزائر", "البحرين"];
+const names = ["محمد", "أحمد", "نورة", "سارة", "خالد", "علي", "فاطمة"];
+function showPurchaseNotification() {
+const product = products[Math.floor(Math.random() * products.length)];
+const city = cities[Math.floor(Math.random() * cities.length)];
+const name = names[Math.floor(Math.random() * names.length)];
+const minutes = Math.floor(Math.random() * 5) + 1;
+document.getElementById('purchase-text').textContent =
+`${name} من ${city} اشترى للتو "${product}"`;
+document.getElementById('purchase-time').textContent = `منذ ${minutes} دقيقة${minutes > 1 ? 'ت' : ''}`;
+const notification = document.getElementById('purchase-notification');
+notification.classList.add('show');
+setTimeout(() => notification.classList.remove('show'), 5000);
+}
+setTimeout(() => {
+showPurchaseNotification();
+setInterval(showPurchaseNotification, 25000 + Math.random() * 15000);
+}, 5000 + Math.random() * 5000);
+document.querySelectorAll('.testimonial-avatar').forEach(img => {
+img.addEventListener('error', () => {
+img.src = 'https://via.placeholder.com/80x80?text=Image+Not+Available';
+});
+});
+document.getElementById('main-cta').addEventListener('click', () => {
+if (typeof fbq === 'function') fbq('track', 'Lead');
+if (typeof gtag === 'function') gtag('event', 'conversion');
+});
+</script>
 </body>
 </html>
