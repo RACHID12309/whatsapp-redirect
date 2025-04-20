@@ -3,524 +3,1962 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the best accommodations and car rentals in Marrakech, Morocco. Book your perfect stay or vehicle today.">
-    <meta name="keywords" content="Marrakech, Morocco, accommodation, car rental, tourism, riad, villa, apartment">
-    <title>Marrakech Tourism - Your Gateway to Authentic Moroccan Experiences</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Discover luxury accommodations and car rentals in Marrakech, Morocco. Book riads, villas, apartments and vehicles for your perfect Moroccan getaway.">
+    <meta name="keywords" content="Marrakech, Morocco, riad, villa, apartment, car rental, vacation, tourism">
+    <title>سفاري مراكش | Safari Marrakech</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #c72c41;
+            --secondary-color: #ee4540;
+            --accent-color: #ff9a3c;
+            --dark-color: #2d132c;
+            --light-color: #fff7f7;
+            --text-color: #333;
+            --text-light: #777;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        /* Language-specific styles */
+        body[lang="ar"] {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+        }
+        
+        body[lang="en"], body[lang="fr"] {
+            font-family: 'Playfair Display', serif;
+            direction: ltr;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .language-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .language-btn.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .language-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518544866338-95ac58a1e7b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .search-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .search-tab.active {
+            color: var(--primary-color);
+        }
+        
+        .search-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .search-btn {
+            width: 100%;
+            grid-column: 1 / -1;
+            margin-top: 1rem;
+        }
+        
+        /* Accommodations Section */
+        .accommodations {
+            background-color: white;
+        }
+        
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .accommodation-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .accommodation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .accommodation-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .accommodation-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .accommodation-card:hover .accommodation-img img {
+            transform: scale(1.1);
+        }
+        
+        .accommodation-type {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .accommodation-info {
+            padding: 1.5rem;
+        }
+        
+        .accommodation-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .accommodation-location {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .accommodation-location i {
+            margin-right: 0.5rem;
+        }
+        
+        .accommodation-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .accommodation-feature {
+            display: flex;
+            align-items: center;
+        }
+        
+        .accommodation-feature i {
+            margin-right: 0.3rem;
+            color: var(--primary-color);
+        }
+        
+        .accommodation-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+        
+        /* Cars Section */
+        .cars {
+            background-color: #f9f9f9;
+        }
+        
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .car-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .car-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .car-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .car-card:hover .car-img img {
+            transform: scale(1.1);
+        }
+        
+        .car-info {
+            padding: 1.5rem;
+        }
+        
+        .car-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .car-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .car-spec {
+            display: flex;
+            align-items: center;
+        }
+        
+        .car-spec i {
+            margin-right: 0.3rem;
+            color: var(--primary-color);
+        }
+        
+        .car-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 0 1rem;
+        }
+        
+        .testimonial-content {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-details p, .contact-details a {
+            color: var(--text-light);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: var(--transition);
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+        
+        .modal-title {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .accommodation-grid, .car-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .search-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .search-tab {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-<body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/img/logo/logo.png" alt="Marrakech Tourism Logo">
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active" data-lang-key="nav.home">الرئيسية</a></li>
-                    <li><a href="accommodations.html" data-lang-key="nav.accommodations">أماكن الإقامة</a></li>
-                    <li><a href="cars.html" data-lang-key="nav.cars">تأجير السيارات</a></li>
-                    <li><a href="about.html" data-lang-key="nav.about">من نحن</a></li>
-                    <li><a href="contact.html" data-lang-key="nav.contact">اتصل بنا</a></li>
-                </ul>
+<body lang="ar">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="Safari Marrakech Logo">
+                <span>سفاري مراكش</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#home" class="active">الرئيسية</a>
+                <a href="#accommodations">الإقامة</a>
+                <a href="#cars">تأجير السيارات</a>
+                <a href="#testimonials">آراء العملاء</a>
+                <a href="#contact">اتصل بنا</a>
             </nav>
-            <div class="lang-switcher">
-                <select id="language-select">
-                    <option value="ar" selected>العربية</option>
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                </select>
+            
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="ar">العربية</button>
+                <button class="language-btn" data-lang="en">English</button>
+                <button class="language-btn" data-lang="fr">Français</button>
             </div>
-            <div class="mobile-menu-toggle">
+            
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-slider">
-            <div class="hero-slide">
-                <img src="assets/img/hero/marrakech-1.jpg" alt="Marrakech Cityscape">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title">اكتشف جمال مراكش</h1>
-                    <p data-lang-key="hero.subtitle">أفضل الإقامات والسيارات لرحلة لا تُنسى</p>
-                    <a href="#search" class="btn btn-primary" data-lang-key="hero.cta">ابدأ الحجز</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Section -->
-    <section id="search" class="search">
+    <section class="hero" id="home">
         <div class="container">
-            <div class="search-tabs">
-                <div class="tab active" data-tab="accommodations" data-lang-key="search.accommodations">أماكن الإقامة</div>
-                <div class="tab" data-tab="cars" data-lang-key="search.cars">تأجير السيارات</div>
-            </div>
-            <div class="search-content">
-                <div class="search-panel active" id="accommodations-search">
-                    <form action="accommodations.html" method="get">
+            <div class="hero-content">
+                <h1 data-lang="ar">اكتشف سحر مراكش</h1>
+                <h1 data-lang="en" style="display:none">Discover the Magic of Marrakech</h1>
+                <h1 data-lang="fr" style="display:none">Découvrez la Magie de Marrakech</h1>
+                
+                <p data-lang="ar">احجز إقامتك الفاخرة أو سيارة الأحلام لرحلة لا تُنسى في المدينة الحمراء</p>
+                <p data-lang="en" style="display:none">Book your luxury accommodation or dream car for an unforgettable trip in the Red City</p>
+                <p data-lang="fr" style="display:none">Réservez votre hébergement de luxe ou votre voiture de rêve pour un voyage inoubliable dans la ville rouge</p>
+                
+                <div class="search-box">
+                    <div class="search-tabs">
+                        <div class="search-tab active" data-tab="accommodation">
+                            <span data-lang="ar">الإقامة</span>
+                            <span data-lang="en" style="display:none">Accommodation</span>
+                            <span data-lang="fr" style="display:none">Hébergement</span>
+                        </div>
+                        <div class="search-tab" data-tab="cars">
+                            <span data-lang="ar">تأجير السيارات</span>
+                            <span data-lang="en" style="display:none">Car Rental</span>
+                            <span data-lang="fr" style="display:none">Location de voiture</span>
+                        </div>
+                    </div>
+                    
+                    <form class="search-form" id="accommodation-search">
                         <div class="form-group">
-                            <label for="location" data-lang-key="search.location">الموقع</label>
-                            <select id="location" name="location">
-                                <option value="all" data-lang-key="search.all_locations">جميع المواقع</option>
-                                <option value="medina" data-lang-key="search.medina">المدينة القديمة</option>
-                                <option value="gueliz" data-lang-key="search.gueliz">جليز</option>
-                                <option value="palmeraie" data-lang-key="search.palmeraie">النخيل</option>
+                            <label for="location" data-lang="ar">الموقع</label>
+                            <label for="location" data-lang="en" style="display:none">Location</label>
+                            <label for="location" data-lang="fr" style="display:none">Emplacement</label>
+                            <select id="location" class="form-control">
+                                <option value="" data-lang="ar">اختر موقع</option>
+                                <option value="" data-lang="en" style="display:none">Select location</option>
+                                <option value="" data-lang="fr" style="display:none">Sélectionnez un emplacement</option>
+                                <option value="medina" data-lang="ar">المدينة القديمة</option>
+                                <option value="medina" data-lang="en" style="display:none">Medina</option>
+                                <option value="medina" data-lang="fr" style="display:none">Médina</option>
+                                <option value="gueliz" data-lang="ar">كليز</option>
+                                <option value="gueliz" data-lang="en" style="display:none">Gueliz</option>
+                                <option value="gueliz" data-lang="fr" style="display:none">Gueliz</option>
+                                <option value="hivernage" data-lang="ar">حي هيفرناج</option>
+                                <option value="hivernage" data-lang="en" style="display:none">Hivernage</option>
+                                <option value="hivernage" data-lang="fr" style="display:none">Hivernage</option>
+                                <option value="palmeraie" data-lang="ar">النخيل</option>
+                                <option value="palmeraie" data-lang="en" style="display:none">Palmeraie</option>
+                                <option value="palmeraie" data-lang="fr" style="display:none">Palmeraie</option>
                             </select>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="checkin" data-lang-key="search.checkin">تاريخ الوصول</label>
-                            <input type="date" id="checkin" name="checkin">
+                            <label for="check-in" data-lang="ar">تاريخ الوصول</label>
+                            <label for="check-in" data-lang="en" style="display:none">Check-in</label>
+                            <label for="check-in" data-lang="fr" style="display:none">Arrivée</label>
+                            <input type="date" id="check-in" class="form-control">
                         </div>
+                        
                         <div class="form-group">
-                            <label for="checkout" data-lang-key="search.checkout">تاريخ المغادرة</label>
-                            <input type="date" id="checkout" name="checkout">
+                            <label for="check-out" data-lang="ar">تاريخ المغادرة</label>
+                            <label for="check-out" data-lang="en" style="display:none">Check-out</label>
+                            <label for="check-out" data-lang="fr" style="display:none">Départ</label>
+                            <input type="date" id="check-out" class="form-control">
                         </div>
+                        
                         <div class="form-group">
-                            <label for="guests" data-lang-key="search.guests">عدد الضيوف</label>
-                            <select id="guests" name="guests">
+                            <label for="guests" data-lang="ar">عدد الضيوف</label>
+                            <label for="guests" data-lang="en" style="display:none">Guests</label>
+                            <label for="guests" data-lang="fr" style="display:none">Voyageurs</label>
+                            <select id="guests" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
-                                <option value="5">5+</option>
+                                <option value="5+">5+</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-lang-key="search.search_btn">بحث</button>
+                        
+                        <button type="submit" class="btn search-btn">
+                            <span data-lang="ar">ابحث</span>
+                            <span data-lang="en" style="display:none">Search</span>
+                            <span data-lang="fr" style="display:none">Rechercher</span>
+                        </button>
                     </form>
-                </div>
-                <div class="search-panel" id="cars-search">
-                    <form action="cars.html" method="get">
+                    
+                    <form class="search-form" id="car-search" style="display:none">
                         <div class="form-group">
-                            <label for="pickup-date" data-lang-key="search.pickup_date">تاريخ الاستلام</label>
-                            <input type="date" id="pickup-date" name="pickup-date">
-                        </div>
-                        <div class="form-group">
-                            <label for="return-date" data-lang-key="search.return_date">تاريخ الإعادة</label>
-                            <input type="date" id="return-date" name="return-date">
-                        </div>
-                        <div class="form-group">
-                            <label for="car-type" data-lang-key="search.car_type">نوع السيارة</label>
-                            <select id="car-type" name="car-type">
-                                <option value="all" data-lang-key="search.all_cars">جميع السيارات</option>
-                                <option value="economy" data-lang-key="search.economy">اقتصادية</option>
-                                <option value="suv" data-lang-key="search.suv">دفع رباعي</option>
-                                <option value="luxury" data-lang-key="search.luxury">فاخرة</option>
+                            <label for="pickup-location" data-lang="ar">مكان الاستلام</label>
+                            <label for="pickup-location" data-lang="en" style="display:none">Pickup Location</label>
+                            <label for="pickup-location" data-lang="fr" style="display:none">Lieu de prise en charge</label>
+                            <select id="pickup-location" class="form-control">
+                                <option value="" data-lang="ar">اختر موقع</option>
+                                <option value="" data-lang="en" style="display:none">Select location</option>
+                                <option value="" data-lang="fr" style="display:none">Sélectionnez un emplacement</option>
+                                <option value="airport" data-lang="ar">مطار مراكش</option>
+                                <option value="airport" data-lang="en" style="display:none">Marrakech Airport</option>
+                                <option value="airport" data-lang="fr" style="display:none">Aéroport de Marrakech</option>
+                                <option value="medina" data-lang="ar">المدينة القديمة</option>
+                                <option value="medina" data-lang="en" style="display:none">Medina</option>
+                                <option value="medina" data-lang="fr" style="display:none">Médina</option>
+                                <option value="gueliz" data-lang="ar">كليز</option>
+                                <option value="gueliz" data-lang="en" style="display:none">Gueliz</option>
+                                <option value="gueliz" data-lang="fr" style="display:none">Gueliz</option>
                             </select>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="transmission" data-lang-key="search.transmission">ناقل الحركة</label>
-                            <select id="transmission" name="transmission">
-                                <option value="all" data-lang-key="search.all_transmissions">الكل</option>
-                                <option value="manual" data-lang-key="search.manual">يدوي</option>
-                                <option value="automatic" data-lang-key="search.automatic">أوتوماتيكي</option>
+                            <label for="pickup-date" data-lang="ar">تاريخ الاستلام</label>
+                            <label for="pickup-date" data-lang="en" style="display:none">Pickup Date</label>
+                            <label for="pickup-date" data-lang="fr" style="display:none">Date de prise en charge</label>
+                            <input type="date" id="pickup-date" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="return-date" data-lang="ar">تاريخ الإعادة</label>
+                            <label for="return-date" data-lang="en" style="display:none">Return Date</label>
+                            <label for="return-date" data-lang="fr" style="display:none">Date de retour</label>
+                            <input type="date" id="return-date" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="car-type" data-lang="ar">نوع السيارة</label>
+                            <label for="car-type" data-lang="en" style="display:none">Car Type</label>
+                            <label for="car-type" data-lang="fr" style="display:none">Type de voiture</label>
+                            <select id="car-type" class="form-control">
+                                <option value="" data-lang="ar">اختر نوع</option>
+                                <option value="" data-lang="en" style="display:none">Select type</option>
+                                <option value="" data-lang="fr" style="display:none">Sélectionnez un type</option>
+                                <option value="economy" data-lang="ar">اقتصادية</option>
+                                <option value="economy" data-lang="en" style="display:none">Economy</option>
+                                <option value="economy" data-lang="fr" style="display:none">Économique</option>
+                                <option value="suv" data-lang="ar">دفع رباعي</option>
+                                <option value="suv" data-lang="en" style="display:none">SUV</option>
+                                <option value="suv" data-lang="fr" style="display:none">SUV</option>
+                                <option value="luxury" data-lang="ar">فاخرة</option>
+                                <option value="luxury" data-lang="en" style="display:none">Luxury</option>
+                                <option value="luxury" data-lang="fr" style="display:none">Luxe</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-lang-key="search.search_btn">بحث</button>
+                        
+                        <button type="submit" class="btn search-btn">
+                            <span data-lang="ar">ابحث</span>
+                            <span data-lang="en" style="display:none">Search</span>
+                            <span data-lang="fr" style="display:none">Rechercher</span>
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Accommodations Section -->
-    <section class="featured-accommodations">
+    <!-- Accommodations Section -->
+    <section class="section accommodations" id="accommodations">
         <div class="container">
-            <div class="section-header">
-                <h2 data-lang-key="featured_accommodations.title">أماكن إقامة مميزة</h2>
-                <p data-lang-key="featured_accommodations.subtitle">اكتشف أفضل الرياضات والفلل والشقق في مراكش</p>
-            </div>
+            <h2 class="section-title">
+                <span data-lang="ar">خيارات الإقامة لدينا</span>
+                <span data-lang="en" style="display:none">Our Accommodations</span>
+                <span data-lang="fr" style="display:none">Nos Hébergements</span>
+            </h2>
+            
             <div class="accommodation-grid">
-                <!-- Accommodation Card 1 -->
+                <!-- Riad 1 -->
                 <div class="accommodation-card">
                     <div class="accommodation-img">
-                        <img src="assets/img/accommodations/riad-1.jpg" alt="Luxury Riad in Medina">
-                        <div class="price"><span class="currency">درهم</span> <span class="amount">1500</span> <span class="per-night" data-lang-key="per_night">/ ليلة</span></div>
+                        <img src="https://images.unsplash.com/photo-1554757381-5a04ebc8f5a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Riad in Marrakech">
+                        <span class="accommodation-type" data-lang="ar">رياض</span>
+                        <span class="accommodation-type" data-lang="en" style="display:none">Riad</span>
+                        <span class="accommodation-type" data-lang="fr" style="display:none">Riad</span>
                     </div>
-                    <div class="accommodation-details">
-                        <h3>رياض فاخر في المدينة القديمة</h3>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> <span>المدينة القديمة، مراكش</span></div>
-                        <div class="features">
-                            <span><i class="fas fa-bed"></i> 4</span>
-                            <span><i class="fas fa-bath"></i> 3</span>
-                            <span><i class="fas fa-users"></i> 8</span>
-                            <span><i class="fas fa-swimming-pool"></i></span>
-                            <span><i class="fas fa-wifi"></i></span>
-                            <span><i class="fas fa-snowflake"></i></span>
+                    <div class="accommodation-info">
+                        <h3 data-lang="ar">رياض الزهور</h3>
+                        <h3 data-lang="en" style="display:none">Riad Al Zahra</h3>
+                        <h3 data-lang="fr" style="display:none">Riad Al Zahra</h3>
+                        
+                        <div class="accommodation-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-lang="ar">المدينة القديمة، مراكش</span>
+                            <span data-lang="en" style="display:none">Medina, Marrakech</span>
+                            <span data-lang="fr" style="display:none">Médina, Marrakech</span>
                         </div>
-                        <a href="accommodation-details.html?id=1" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                        
+                        <div class="accommodation-features">
+                            <div class="accommodation-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 <span data-lang="ar">غرف</span><span data-lang="en" style="display:none">Bedrooms</span><span data-lang="fr" style="display:none">Chambres</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2 <span data-lang="ar">حمامات</span><span data-lang="en" style="display:none">Bathrooms</span><span data-lang="fr" style="display:none">Salles de bain</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-users"></i>
+                                <span>6 <span data-lang="ar">أشخاص</span><span data-lang="en" style="display:none">Guests</span><span data-lang="fr" style="display:none">Personnes</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span data-lang="ar">مسبح</span>
+                                <span data-lang="en" style="display:none">Pool</span>
+                                <span data-lang="fr" style="display:none">Piscine</span>
+                            </div>
+                        </div>
+                        
+                        <p data-lang="ar">رياض تقليدي أنيق في قلب المدينة القديمة، مع فناء مركزي جميل وتراس على السطح مع إطلالة على المدينة.</p>
+                        <p data-lang="en" style="display:none">Elegant traditional riad in the heart of the medina, with a beautiful central courtyard and rooftop terrace with city views.</p>
+                        <p data-lang="fr" style="display:none">Élégant riad traditionnel au cœur de la médina, avec une belle cour centrale et une terrasse sur le toit avec vue sur la ville.</p>
+                        
+                        <div class="accommodation-price">
+                            <div class="price">
+                                <span class="mad-price">800 <span>MAD</span></span>
+                                <span class="usd-price" style="display:none">80 <span>USD</span></span>
+                                <span class="eur-price" style="display:none">75 <span>EUR</span></span>
+                                <span data-lang="ar">/ ليلة</span>
+                                <span data-lang="en" style="display:none">/ night</span>
+                                <span data-lang="fr" style="display:none">/ nuit</span>
+                            </div>
+                            <button class="btn btn-outline book-btn" data-type="accommodation" data-id="1">
+                                <span data-lang="ar">احجز الآن</span>
+                                <span data-lang="en" style="display:none">Book Now</span>
+                                <span data-lang="fr" style="display:none">Réserver</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Accommodation Card 2 -->
+                
+                <!-- Villa 1 -->
                 <div class="accommodation-card">
                     <div class="accommodation-img">
-                        <img src="assets/img/accommodations/villa-1.jpg" alt="Modern Villa with Pool">
-                        <div class="price"><span class="currency">درهم</span> <span class="amount">2500</span> <span class="per-night" data-lang-key="per_night">/ ليلة</span></div>
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Villa in Marrakech">
+                        <span class="accommodation-type" data-lang="ar">فيلا</span>
+                        <span class="accommodation-type" data-lang="en" style="display:none">Villa</span>
+                        <span class="accommodation-type" data-lang="fr" style="display:none">Villa</span>
                     </div>
-                    <div class="accommodation-details">
-                        <h3>فيلا عصرية مع مسبح</h3>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> <span>النخيل، مراكش</span></div>
-                        <div class="features">
-                            <span><i class="fas fa-bed"></i> 5</span>
-                            <span><i class="fas fa-bath"></i> 4</span>
-                            <span><i class="fas fa-users"></i> 10</span>
-                            <span><i class="fas fa-swimming-pool"></i></span>
-                            <span><i class="fas fa-wifi"></i></span>
-                            <span><i class="fas fa-snowflake"></i></span>
+                    <div class="accommodation-info">
+                        <h3 data-lang="ar">فيلا النخيل</h3>
+                        <h3 data-lang="en" style="display:none">Palmeraie Villa</h3>
+                        <h3 data-lang="fr" style="display:none">Villa Palmeraie</h3>
+                        
+                        <div class="accommodation-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-lang="ar">منطقة النخيل، مراكش</span>
+                            <span data-lang="en" style="display:none">Palmeraie, Marrakech</span>
+                            <span data-lang="fr" style="display:none">Palmeraie, Marrakech</span>
                         </div>
-                        <a href="accommodation-details.html?id=2" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                        
+                        <div class="accommodation-features">
+                            <div class="accommodation-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>4 <span data-lang="ar">غرف</span><span data-lang="en" style="display:none">Bedrooms</span><span data-lang="fr" style="display:none">Chambres</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-bath"></i>
+                                <span>3 <span data-lang="ar">حمامات</span><span data-lang="en" style="display:none">Bathrooms</span><span data-lang="fr" style="display:none">Salles de bain</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-users"></i>
+                                <span>8 <span data-lang="ar">أشخاص</span><span data-lang="en" style="display:none">Guests</span><span data-lang="fr" style="display:none">Personnes</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span data-lang="ar">مسبح</span>
+                                <span data-lang="en" style="display:none">Pool</span>
+                                <span data-lang="fr" style="display:none">Piscine</span>
+                            </div>
+                        </div>
+                        
+                        <p data-lang="ar">فيلا فاخرة في واحة النخيل مع مسبح خاص كبير وحديقة واسعة وخدمة طاهٍ خاص عند الطلب.</p>
+                        <p data-lang="en" style="display:none">Luxury villa in the Palmeraie oasis with a large private pool, spacious garden, and private chef service upon request.</p>
+                        <p data-lang="fr" style="display:none">Villa de luxe dans l'oasis de la Palmeraie avec une grande piscine privée, un jardin spacieux et service de chef privé sur demande.</p>
+                        
+                        <div class="accommodation-price">
+                            <div class="price">
+                                <span class="mad-price">2500 <span>MAD</span></span>
+                                <span class="usd-price" style="display:none">250 <span>USD</span></span>
+                                <span class="eur-price" style="display:none">230 <span>EUR</span></span>
+                                <span data-lang="ar">/ ليلة</span>
+                                <span data-lang="en" style="display:none">/ night</span>
+                                <span data-lang="fr" style="display:none">/ nuit</span>
+                            </div>
+                            <button class="btn btn-outline book-btn" data-type="accommodation" data-id="2">
+                                <span data-lang="ar">احجز الآن</span>
+                                <span data-lang="en" style="display:none">Book Now</span>
+                                <span data-lang="fr" style="display:none">Réserver</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Accommodation Card 3 -->
+                
+                <!-- Apartment 1 -->
                 <div class="accommodation-card">
                     <div class="accommodation-img">
-                        <img src="assets/img/accommodations/apartment-1.jpg" alt="Cozy Apartment in Gueliz">
-                        <div class="price"><span class="currency">درهم</span> <span class="amount">800</span> <span class="per-night" data-lang-key="per_night">/ ليلة</span></div>
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Apartment in Marrakech">
+                        <span class="accommodation-type" data-lang="ar">شقة</span>
+                        <span class="accommodation-type" data-lang="en" style="display:none">Apartment</span>
+                        <span class="accommodation-type" data-lang="fr" style="display:none">Appartement</span>
                     </div>
-                    <div class="accommodation-details">
-                        <h3>شقة مريحة في جليز</h3>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> <span>جليز، مراكش</span></div>
-                        <div class="features">
-                            <span><i class="fas fa-bed"></i> 2</span>
-                            <span><i class="fas fa-bath"></i> 1</span>
-                            <span><i class="fas fa-users"></i> 4</span>
-                            <span><i class="fas fa-wifi"></i></span>
-                            <span><i class="fas fa-snowflake"></i></span>
+                    <div class="accommodation-info">
+                        <h3 data-lang="ar">شقة كليز الحديثة</h3>
+                        <h3 data-lang="en" style="display:none">Modern Gueliz Apartment</h3>
+                        <h3 data-lang="fr" style="display:none">Appartement Moderne Gueliz</h3>
+                        
+                        <div class="accommodation-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-lang="ar">حي كليز، مراكش</span>
+                            <span data-lang="en" style="display:none">Gueliz, Marrakech</span>
+                            <span data-lang="fr" style="display:none">Gueliz, Marrakech</span>
                         </div>
-                        <a href="accommodation-details.html?id=3" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                        
+                        <div class="accommodation-features">
+                            <div class="accommodation-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 <span data-lang="ar">غرف</span><span data-lang="en" style="display:none">Bedrooms</span><span data-lang="fr" style="display:none">Chambres</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-bath"></i>
+                                <span>1 <span data-lang="ar">حمام</span><span data-lang="en" style="display:none">Bathroom</span><span data-lang="fr" style="display:none">Salle de bain</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-users"></i>
+                                <span>4 <span data-lang="ar">أشخاص</span><span data-lang="en" style="display:none">Guests</span><span data-lang="fr" style="display:none">Personnes</span></span>
+                            </div>
+                            <div class="accommodation-feature">
+                                <i class="fas fa-wifi"></i>
+                                <span data-lang="ar">واي فاي</span>
+                                <span data-lang="en" style="display:none">WiFi</span>
+                                <span data-lang="fr" style="display:none">WiFi</span>
+                            </div>
+                        </div>
+                        
+                        <p data-lang="ar">شقة حديثة أنيقة في قلب حي كليز الحديث، بالقرب من أفضل المطاعم والمقاهي ومراكز التسوق.</p>
+                        <p data-lang="en" style="display:none">Elegant modern apartment in the heart of the modern Gueliz district, close to the best restaurants, cafes and shopping centers.</p>
+                        <p data-lang="fr" style="display:none">Élégant appartement moderne au cœur du quartier moderne de Gueliz, à proximité des meilleurs restaurants, cafés et centres commerciaux.</p>
+                        
+                        <div class="accommodation-price">
+                            <div class="price">
+                                <span class="mad-price">600 <span>MAD</span></span>
+                                <span class="usd-price" style="display:none">60 <span>USD</span></span>
+                                <span class="eur-price" style="display:none">55 <span>EUR</span></span>
+                                <span data-lang="ar">/ ليلة</span>
+                                <span data-lang="en" style="display:none">/ night</span>
+                                <span data-lang="fr" style="display:none">/ nuit</span>
+                            </div>
+                            <button class="btn btn-outline book-btn" data-type="accommodation" data-id="3">
+                                <span data-lang="ar">احجز الآن</span>
+                                <span data-lang="en" style="display:none">Book Now</span>
+                                <span data-lang="fr" style="display:none">Réserver</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="view-all-link">
-                <a href="accommodations.html" class="btn btn-outline" data-lang-key="view_all_accommodations">عرض جميع أماكن الإقامة</a>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn">
+                    <span data-lang="ar">عرض جميع خيارات الإقامة</span>
+                    <span data-lang="en" style="display:none">View All Accommodations</span>
+                    <span data-lang="fr" style="display:none">Voir tous les hébergements</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Featured Cars Section -->
-    <section class="featured-cars">
+    <!-- Cars Section -->
+    <section class="section cars" id="cars">
         <div class="container">
-            <div class="section-header">
-                <h2 data-lang-key="featured_cars.title">سيارات مميزة</h2>
-                <p data-lang-key="featured_cars.subtitle">استأجر أفضل السيارات للتنقل في مراكش وضواحيها</p>
-            </div>
+            <h2 class="section-title">
+                <span data-lang="ar">تأجير السيارات</span>
+                <span data-lang="en" style="display:none">Car Rentals</span>
+                <span data-lang="fr" style="display:none">Location de Voitures</span>
+            </h2>
+            
             <div class="car-grid">
-                <!-- Car Card 1 -->
+                <!-- Car 1 -->
                 <div class="car-card">
                     <div class="car-img">
-                        <img src="assets/img/cars/car-1.jpg" alt="Dacia Logan">
-                        <div class="price"><span class="currency">درهم</span> <span class="amount">300</span> <span class="per-day" data-lang-key="per_day">/ يوم</span></div>
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mercedes-Benz Car">
                     </div>
-                    <div class="car-details">
-                        <h3>داسيا لوجان</h3>
+                    <div class="car-info">
+                        <h3>Mercedes-Benz C-Class</h3>
+                        
                         <div class="car-specs">
-                            <span><i class="fas fa-calendar-alt"></i> <span>2023</span></span>
-                            <span><i class="fas fa-gas-pump"></i> <span data-lang-key="fuel_type.diesel">ديزل</span></span>
-                            <span><i class="fas fa-cog"></i> <span data-lang-key="transmission.manual">يدوي</span></span>
+                            <div class="car-spec">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span data-lang="ar">بنزين</span>
+                                <span data-lang="en" style="display:none">Petrol</span>
+                                <span data-lang="fr" style="display:none">Essence</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-cog"></i>
+                                <span data-lang="ar">أوتوماتيك</span>
+                                <span data-lang="en" style="display:none">Automatic</span>
+                                <span data-lang="fr" style="display:none">Automatique</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-car"></i>
+                                <span data-lang="ar">سيدان</span>
+                                <span data-lang="en" style="display:none">Sedan</span>
+                                <span data-lang="fr" style="display:none">Berline</span>
+                            </div>
                         </div>
-                        <a href="car-details.html?id=1" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                        
+                        <p data-lang="ar">سيارة فاخرة بمحرك قوي وتصميم أنيق، مثالية للرحلات داخل المدينة أو السفر لمسافات طويلة.</p>
+                        <p data-lang="en" style="display:none">Luxury car with a powerful engine and elegant design, perfect for city trips or long-distance travel.</p>
+                        <p data-lang="fr" style="display:none">Voiture de luxe avec un moteur puissant et un design élégant, parfaite pour les déplacements en ville ou les longs trajets.</p>
+                        
+                        <div class="car-price">
+                            <div class="price">
+                                <span class="mad-price">1200 <span>MAD</span></span>
+                                <span class="usd-price" style="display:none">120 <span>USD</span></span>
+                                <span class="eur-price" style="display:none">110 <span>EUR</span></span>
+                                <span data-lang="ar">/ يوم</span>
+                                <span data-lang="en" style="display:none">/ day</span>
+                                <span data-lang="fr" style="display:none">/ jour</span>
+                            </div>
+                            <button class="btn btn-outline book-btn" data-type="car" data-id="1">
+                                <span data-lang="ar">احجز الآن</span>
+                                <span data-lang="en" style="display:none">Book Now</span>
+                                <span data-lang="fr" style="display:none">Réserver</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Car Card 2 -->
+                
+                <!-- Car 2 -->
                 <div class="car-card">
                     <div class="car-img">
-                        <img src="assets/img/cars/car-2.jpg" alt="Hyundai Tucson">
-                        <div class="price"><span class="currency">درهم</span> <span class="amount">600</span> <span class="per-day" data-lang-key="per_day">/ يوم</span></div>
+                        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Toyota RAV4">
                     </div>
-                    <div class="car-details">
-                        <h3>هيونداي توسان</h3>
+                    <div class="car-info">
+                        <h3>Toyota RAV4</h3>
+                        
                         <div class="car-specs">
-                            <span><i class="fas fa-calendar-alt"></i> <span>2022</span></span>
-                            <span><i class="fas fa-gas-pump"></i> <span data-lang-key="fuel_type.diesel">ديزل</span></span>
-                            <span><i class="fas fa-cog"></i> <span data-lang-key="transmission.automatic">أوتوماتيكي</span></span>
+                            <div class="car-spec">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2021</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span data-lang="ar">ديزل</span>
+                                <span data-lang="en" style="display:none">Diesel</span>
+                                <span data-lang="fr" style="display:none">Diesel</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-cog"></i>
+                                <span data-lang="ar">أوتوماتيك</span>
+                                <span data-lang="en" style="display:none">Automatic</span>
+                                <span data-lang="fr" style="display:none">Automatique</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-car"></i>
+                                <span data-lang="ar">دفع رباعي</span>
+                                <span data-lang="en" style="display:none">SUV</span>
+                                <span data-lang="fr" style="display:none">SUV</span>
+                            </div>
                         </div>
-                        <a href="car-details.html?id=2" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                        
+                        <p data-lang="ar">سيارة دفع رباعي متعددة الاستخدامات مع مساحة كبيرة للأمتعة، مثالية للعائلات أو الرحلات الصحراوية.</p>
+                        <p data-lang="en" style="display:none">Versatile SUV with ample luggage space, perfect for families or desert trips.</p>
+                        <p data-lang="fr" style="display:none">SUV polyvalent avec un grand espace pour les bagages, parfait pour les familles ou les excursions dans le désert.</p>
+                        
+                        <div class="car-price">
+                            <div class="price">
+                                <span class="mad-price">900 <span>MAD</span></span>
+                                <span class="usd-price" style="display:none">90 <span>USD</span></span>
+                                <span class="eur-price" style="display:none">85 <span>EUR</span></span>
+                                <span data-lang="ar">/ يوم</span>
+                                <span data-lang="en" style="display:none">/ day</span>
+                                <span data-lang="fr" style="display:none">/ jour</span>
+                            </div>
+                            <button class="btn btn-outline book-btn" data-type="car" data-id="2">
+                                <span data-lang="ar">احجز الآن</span>
+                                <span data-lang="en" style="display:none">Book Now</span>
+                                <span data-lang="fr" style="display:none">Réserver</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Car Card 3 -->
+                
+                <!-- Car 3 -->
                 <div class="car-card">
                     <div class="car-img">
-                        <img src="assets/img/cars/car-3.jpg" alt="Mercedes C-Class">
-                        <div class="price"><span class="currency">درهم</span> <span class="amount">1000</span> <span class="per-day" data-lang-key="per_day">/ يوم</span></div>
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fiat 500">
                     </div>
-                    <div class="car-details">
-                        <h3>مرسيدس C-Class</h3>
+                    <div class="car-info">
+                        <h3>Fiat 500</h3>
+                        
                         <div class="car-specs">
-                            <span><i class="fas fa-calendar-alt"></i> <span>2022</span></span>
-                            <span><i class="fas fa-gas-pump"></i> <span data-lang-key="fuel_type.petrol">بنزين</span></span>
-                            <span><i class="fas fa-cog"></i> <span data-lang-key="transmission.automatic">أوتوماتيكي</span></span>
+                            <div class="car-spec">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2020</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span data-lang="ar">بنزين</span>
+                                <span data-lang="en" style="display:none">Petrol</span>
+                                <span data-lang="fr" style="display:none">Essence</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-cog"></i>
+                                <span data-lang="ar">مانوال</span>
+                                <span data-lang="en" style="display:none">Manual</span>
+                                <span data-lang="fr" style="display:none">Manuelle</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-car"></i>
+                                <span data-lang="ar">اقتصادية</span>
+                                <span data-lang="en" style="display:none">Economy</span>
+                                <span data-lang="fr" style="display:none">Économique</span>
+                            </div>
                         </div>
-                        <a href="car-details.html?id=3" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                        
+                        <p data-lang="ar">سيارة صغيرة واقتصادية مثالية للتنقل في شوارع مراكش الضيقة، مع استهلاك وقود منخفض.</p>
+                        <p data-lang="en" style="display:none">Small and economical car perfect for navigating Marrakech's narrow streets, with low fuel consumption.</p>
+                        <p data-lang="fr" style="display:none">Petite voiture économique parfaite pour naviguer dans les rues étroites de Marrakech, avec une faible consommation de carburant.</p>
+                        
+                        <div class="car-price">
+                            <div class="price">
+                                <span class="mad-price">400 <span>MAD</span></span>
+                                <span class="usd-price" style="display:none">40 <span>USD</span></span>
+                                <span class="eur-price" style="display:none">35 <span>EUR</span></span>
+                                <span data-lang="ar">/ يوم</span>
+                                <span data-lang="en" style="display:none">/ day</span>
+                                <span data-lang="fr" style="display:none">/ jour</span>
+                            </div>
+                            <button class="btn btn-outline book-btn" data-type="car" data-id="3">
+                                <span data-lang="ar">احجز الآن</span>
+                                <span data-lang="en" style="display:none">Book Now</span>
+                                <span data-lang="fr" style="display:none">Réserver</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="view-all-link">
-                <a href="cars.html" class="btn btn-outline" data-lang-key="view_all_cars">عرض جميع السيارات</a>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn">
+                    <span data-lang="ar">عرض جميع السيارات</span>
+                    <span data-lang="en" style="display:none">View All Cars</span>
+                    <span data-lang="fr" style="display:none">Voir toutes les voitures</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section class="section testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header">
-                <h2 data-lang-key="testimonials.title">آراء عملائنا</h2>
-                <p data-lang-key="testimonials.subtitle">ماذا يقول عملاؤنا عن تجربتهم معنا</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                        <p>كانت إقامتنا في الرياض رائعة جدًا. الموقع مثالي، والخدمة ممتازة، والغرف جميلة ونظيفة. سنعود بالتأكيد مرة أخرى!</p>
+            <h2 class="section-title">
+                <span data-lang="ar">آراء عملائنا</span>
+                <span data-lang="en" style="display:none">Customer Testimonials</span>
+                <span data-lang="fr" style="display:none">Témoignages</span>
+            </h2>
+            
+            <div class="testimonial-slider swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <p data-lang="ar">"تجربة رائعة مع سفاري مراكش! الرياض الذي حجزناه كان أكثر من رائع، والموقع كان مثالياً لاستكشاف المدينة القديمة. الموظفون كانوا متعاونين للغاية وساعدونا في كل ما نحتاجه."</p>
+                            <p data-lang="en" style="display:none">"Amazing experience with Safari Marrakech! The riad we booked was more than wonderful, and the location was perfect for exploring the medina. The staff were extremely helpful and assisted us with everything we needed."</p>
+                            <p data-lang="fr" style="display:none">"Expérience incroyable avec Safari Marrakech ! Le riad que nous avons réservé était plus que merveilleux, et l'emplacement était parfait pour explorer la médina. Le personnel était extrêmement serviable et nous a aidés dans tout ce dont nous avions besoin."</p>
+                        </div>
                         <div class="testimonial-author">
                             <div class="author-img">
-                                <img src="assets/img/testimonials/author-1.jpg" alt="Ahmed">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
                             </div>
-                            <div class="author-info">
-                                <h4>أحمد محمد</h4>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
+                            <div>
+                                <h4 class="author-name">سارة جونسون</h4>
+                                <h4 class="author-name" data-lang="en" style="display:none">Sarah Johnson</h4>
+                                <h4 class="author-name" data-lang="fr" style="display:none">Sarah Johnson</h4>
+                                <p class="author-role" data-lang="ar">من لندن، المملكة المتحدة</p>
+                                <p class="author-role" data-lang="en" style="display:none">From London, UK</p>
+                                <p class="author-role" data-lang="fr" style="display:none">De Londres, Royaume-Uni</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <p data-lang="ar">"سيارة الـSUV التي استأجرناها كانت في حالة ممتازة وساعدتنا كثيراً في رحلتنا إلى الصحراء. عملية الحجز كانت سهلة للغاية والتسليم كان في الوقت المحدد. أوصي بهذه الخدمة بشدة!"</p>
+                            <p data-lang="en" style="display:none">"The SUV we rented was in excellent condition and helped us a lot on our trip to the desert. The booking process was very easy and delivery was on time. I highly recommend this service!"</p>
+                            <p data-lang="fr" style="display:none">"Le SUV que nous avons loué était en excellent état et nous a beaucoup aidés lors de notre voyage dans le désert. Le processus de réservation était très facile et la livraison était à l'heure. Je recommande vivement ce service !"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Pierre Dubois">
+                            </div>
+                            <div>
+                                <h4 class="author-name">بيير دوبوا</h4>
+                                <h4 class="author-name" data-lang="en" style="display:none">Pierre Dubois</h4>
+                                <h4 class="author-name" data-lang="fr" style="display:none">Pierre Dubois</h4>
+                                <p class="author-role" data-lang="ar">من باريس، فرنسا</p>
+                                <p class="author-role" data-lang="en" style="display:none">From Paris, France</p>
+                                <p class="author-role" data-lang="fr" style="display:none">De Paris, France</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <p data-lang="ar">"الفيلا في منطقة النخيل كانت رائعة! الخدمة كانت ممتازة والمسبح الخاص كان خلابة. سنعود بالتأكيد في المرة القادمة التي نزور فيها مراكش."</p>
+                            <p data-lang="en" style="display:none">"The villa in the Palmeraie area was wonderful! The service was excellent and the private pool was picturesque. We will definitely return next time we visit Marrakech."</p>
+                            <p data-lang="fr" style="display:none">"La villa dans la zone de la Palmeraie était merveilleuse ! Le service était excellent et la piscine privée était pittoresque. Nous reviendrons certainement la prochaine fois que nous visiterons Marrakech."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina Alami">
+                            </div>
+                            <div>
+                                <h4 class="author-name">أمينة العلمي</h4>
+                                <h4 class="author-name" data-lang="en" style="display:none">Amina Alami</h4>
+                                <h4 class="author-name" data-lang="fr" style="display:none">Amina Alami</h4>
+                                <p class="author-role" data-lang="ar">من الدار البيضاء، المغرب</p>
+                                <p class="author-role" data-lang="en" style="display:none">From Casablanca, Morocco</p>
+                                <p class="author-role" data-lang="fr" style="display:none">De Casablanca, Maroc</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                        <p>استأجرنا سيارة من هذه الشركة وكانت التجربة ممتازة. السيارة كانت نظيفة وبحالة جيدة، والإجراءات كانت سهلة وسريعة.</p>
-                        <div class="testimonial-author">
-                            <div class="author-img">
-                                <img src="assets/img/testimonials/author-2.jpg" alt="Sarah">
-                            </div>
-                            <div class="author-info">
-                                <h4>سارة أحمد</h4>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-lang-key="why_choose_us.title">لماذا تختارنا</h2>
-                <p data-lang-key="why_choose_us.subtitle">نقدم لك تجربة سفر لا مثيل لها في مراكش</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 data-lang-key="why_choose_us.quality_title">جودة مضمونة</h3>
-                    <p data-lang-key="why_choose_us.quality_desc">نختار بعناية جميع أماكن الإقامة والسيارات لضمان أفضل تجربة لعملائنا</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <h3 data-lang-key="why_choose_us.price_title">أسعار تنافسية</h3>
-                    <p data-lang-key="why_choose_us.price_desc">نقدم أفضل الأسعار في السوق مع خيارات متعددة تناسب جميع الميزانيات</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 data-lang-key="why_choose_us.support_title">دعم على مدار الساعة</h3>
-                    <p data-lang-key="why_choose_us.support_desc">فريق خدمة العملاء جاهز لمساعدتك في أي وقت طوال أيام الأسبوع</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3 data-lang-key="why_choose_us.local_title">معرفة محلية</h3>
-                    <p data-lang-key="why_choose_us.local_desc">نقدم لك نصائح ومعلومات قيمة لاستكشاف مراكش كالسكان المحليين</p>
-                </div>
+                
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="section contact" id="contact">
         <div class="container">
-            <div class="section-header">
-                <h2 data-lang-key="contact.title">اتصل بنا</h2>
-                <p data-lang-key="contact.subtitle">نحن هنا لمساعدتك في تخطيط رحلتك المثالية إلى مراكش</p>
-            </div>
-            <div class="contact-grid">
+            <h2 class="section-title">
+                <span data-lang="ar">اتصل بنا</span>
+                <span data-lang="en" style="display:none">Contact Us</span>
+                <span data-lang="fr" style="display:none">Contactez-nous</span>
+            </h2>
+            
+            <div class="contact-container">
                 <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="info-content">
-                            <h3 data-lang-key="contact.address_title">العنوان</h3>
-                            <p data-lang-key="contact.address">شارع محمد الخامس، جليز، مراكش، المغرب</p>
+                        <div class="contact-details">
+                            <h3 data-lang="ar">العنوان</h3>
+                            <h3 data-lang="en" style="display:none">Address</h3>
+                            <h3 data-lang="fr" style="display:none">Adresse</h3>
+                            <p data-lang="ar">123 شارع محمد الخامس، المدينة القديمة، مراكش، المغرب</p>
+                            <p data-lang="en" style="display:none">123 Mohammed V Street, Medina, Marrakech, Morocco</p>
+                            <p data-lang="fr" style="display:none">123 Rue Mohammed V, Médina, Marrakech, Maroc</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
-                        <div class="info-content">
-                            <h3 data-lang-key="contact.phone_title">الهاتف</h3>
-                            <p><a href="tel:+212600000000">+212 600 000 000</a></p>
+                        <div class="contact-details">
+                            <h3 data-lang="ar">الهاتف</h3>
+                            <h3 data-lang="en" style="display:none">Phone</h3>
+                            <h3 data-lang="fr" style="display:none">Téléphone</h3>
+                            <a href="tel:+212524445566">+212 5 24 44 55 66</a>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="info-content">
-                            <h3 data-lang-key="contact.email_title">البريد الإلكتروني</h3>
-                            <p><a href="mailto:info@marrakech-tourism.com">info@marrakech-tourism.com</a></p>
+                        <div class="contact-details">
+                            <h3 data-lang="ar">البريد الإلكتروني</h3>
+                            <h3 data-lang="en" style="display:none">Email</h3>
+                            <h3 data-lang="fr" style="display:none">Email</h3>
+                            <a href="mailto:info@safarimarrakech.com">info@safarimarrakech.com</a>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <div class="info-content">
-                            <h3 data-lang-key="contact.hours_title">ساعات العمل</h3>
-                            <p data-lang-key="contact.hours">الاثنين - السبت: 9:00 - 18:00</p>
+                        <div class="contact-details">
+                            <h3 data-lang="ar">ساعات العمل</h3>
+                            <h3 data-lang="en" style="display:none">Working Hours</h3>
+                            <h3 data-lang="fr" style="display:none">Heures d'ouverture</h3>
+                            <p data-lang="ar">من الإثنين إلى السبت: 9 صباحاً - 7 مساءً</p>
+                            <p data-lang="en" style="display:none">Monday to Saturday: 9 AM - 7 PM</p>
+                            <p data-lang="fr" style="display:none">Lundi au samedi: 9h - 19h</p>
                         </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
+                
                 <div class="contact-form">
-                    <form id="contact-form">
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="name" data-lang-key="contact.name">الاسم الكامل</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name" data-lang="ar">الاسم الكامل</label>
+                            <label for="name" data-lang="en" style="display:none">Full Name</label>
+                            <label for="name" data-lang="fr" style="display:none">Nom complet</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email" data-lang-key="contact.email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email" data-lang="ar">البريد الإلكتروني</label>
+                            <label for="email" data-lang="en" style="display:none">Email</label>
+                            <label for="email" data-lang="fr" style="display:none">Email</label>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="phone" data-lang-key="contact.phone">رقم الهاتف</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="subject" data-lang="ar">الموضوع</label>
+                            <label for="subject" data-lang="en" style="display:none">Subject</label>
+                            <label for="subject" data-lang="fr" style="display:none">Sujet</label>
+                            <input type="text" id="subject" class="form-control" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="message" data-lang-key="contact.message">الرسالة</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message" data-lang="ar">الرسالة</label>
+                            <label for="message" data-lang="en" style="display:none">Message</label>
+                            <label for="message" data-lang="fr" style="display:none">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-lang-key="contact.send_btn">إرسال الرسالة</button>
+                        
+                        <button type="submit" class="btn">
+                            <span data-lang="ar">إرسال الرسالة</span>
+                            <span data-lang="en" style="display:none">Send Message</span>
+                            <span data-lang="fr" style="display:none">Envoyer le message</span>
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map">
-        <div id="google-map"></div>
-    </section>
-
-    <!-- WhatsApp Button -->
-    <div class="whatsapp-btn">
-        <a href="https://wa.me/212600000000" target="_blank" aria-label="Contact via WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <!-- Footer Section -->
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-container">
                 <div class="footer-col">
-                    <div class="footer-logo">
-                        <img src="assets/img/logo/logo-white.png" alt="Marrakech Tourism Logo">
+                    <h3 data-lang="ar">سفاري مراكش</h3>
+                    <h3 data-lang="en" style="display:none">Safari Marrakech</h3>
+                    <h3 data-lang="fr" style="display:none">Safari Marrakech</h3>
+                    <p data-lang="ar">نقدم أفضل خيارات الإقامة وتأجير السيارات في مراكش لتجعل رحلتك لا تنسى.</p>
+                    <p data-lang="en" style="display:none">We offer the best accommodation and car rental options in Marrakech to make your trip unforgettable.</p>
+                    <p data-lang="fr" style="display:none">Nous proposons les meilleures options d'hébergement et de location de voitures à Marrakech pour rendre votre voyage inoubliable.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <p data-lang-key="footer.about">شركتنا هي بوابتك لاكتشاف جمال مراكش من خلال خدمات إقامة وتأجير سيارات متميزة. نضمن لك تجربة سفر لا تُنسى.</p>
                 </div>
+                
                 <div class="footer-col">
-                    <h3 data-lang-key="footer.quick_links">روابط سريعة</h3>
+                    <h3 data-lang="ar">روابط سريعة</h3>
+                    <h3 data-lang="en" style="display:none">Quick Links</h3>
+                    <h3 data-lang="fr" style="display:none">Liens rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html" data-lang-key="nav.home">الرئيسية</a></li>
-                        <li><a href="accommodations.html" data-lang-key="nav.accommodations">أماكن الإقامة</a></li>
-                        <li><a href="cars.html" data-lang-key="nav.cars">تأجير السيارات</a></li>
-                        <li><a href="about.html" data-lang-key="nav.about">من نحن</a></li>
-                        <li><a href="contact.html" data-lang-key="nav.contact">اتصل بنا</a></li>
+                        <li><a href="#home" data-lang="ar">الرئيسية</a><a href="#home" data-lang="en" style="display:none">Home</a><a href="#home" data-lang="fr" style="display:none">Accueil</a></li>
+                        <li><a href="#accommodations" data-lang="ar">الإقامة</a><a href="#accommodations" data-lang="en" style="display:none">Accommodations</a><a href="#accommodations" data-lang="fr" style="display:none">Hébergements</a></li>
+                        <li><a href="#cars" data-lang="ar">تأجير السيارات</a><a href="#cars" data-lang="en" style="display:none">Car Rentals</a><a href="#cars" data-lang="fr" style="display:none">Location de voitures</a></li>
+                        <li><a href="#testimonials" data-lang="ar">آراء العملاء</a><a href="#testimonials" data-lang="en" style="display:none">Testimonials</a><a href="#testimonials" data-lang="fr" style="display:none">Témoignages</a></li>
+                        <li><a href="#contact" data-lang="ar">اتصل بنا</a><a href="#contact" data-lang="en" style="display:none">Contact Us</a><a href="#contact" data-lang="fr" style="display:none">Contactez-nous</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h3 data-lang-key="footer.accommodations">أماكن الإقامة</h3>
+                    <h3 data-lang="ar">خيارات الإقامة</h3>
+                    <h3 data-lang="en" style="display:none">Accommodations</h3>
+                    <h3 data-lang="fr" style="display:none">Hébergements</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-lang-key="footer.riads">رياضات</a></li>
-                        <li><a href="#" data-lang-key="footer.villas">فلل</a></li>
-                        <li><a href="#" data-lang-key="footer.apartments">شقق</a></li>
+                        <li><a href="#" data-lang="ar">رياض</a><a href="#" data-lang="en" style="display:none">Riads</a><a href="#" data-lang="fr" style="display:none">Riads</a></li>
+                        <li><a href="#" data-lang="ar">فيلات</a><a href="#" data-lang="en" style="display:none">Villas</a><a href="#" data-lang="fr" style="display:none">Villas</a></li>
+                        <li><a href="#" data-lang="ar">شقق</a><a href="#" data-lang="en" style="display:none">Apartments</a><a href="#" data-lang="fr" style="display:none">Appartements</a></li>
+                        <li><a href="#" data-lang="ar">مع مسبح</a><a href="#" data-lang="en" style="display:none">With Pool</a><a href="#" data-lang="fr" style="display:none">Avec piscine</a></li>
+                        <li><a href="#" data-lang="ar">عائلات</a><a href="#" data-lang="en" style="display:none">Family</a><a href="#" data-lang="fr" style="display:none">Famille</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h3 data-lang-key="footer.cars">تأجير السيارات</h3>
+                    <h3 data-lang="ar">تأجير السيارات</h3>
+                    <h3 data-lang="en" style="display:none">Car Rentals</h3>
+                    <h3 data-lang="fr" style="display:none">Location de voitures</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-lang-key="footer.economy_cars">سيارات اقتصادية</a></li>
-                        <li><a href="#" data-lang-key="footer.suv_cars">سيارات دفع رباعي</a></li>
-                        <li><a href="#" data-lang-key="footer.luxury_cars">سيارات فاخرة</a></li>
+                        <li><a href="#" data-lang="ar">اقتصادية</a><a href="#" data-lang="en" style="display:none">Economy</a><a href="#" data-lang="fr" style="display:none">Économique</a></li>
+                        <li><a href="#" data-lang="ar">دفع رباعي</a><a href="#" data-lang="en" style="display:none">SUV</a><a href="#" data-lang="fr" style="display:none">SUV</a></li>
+                        <li><a href="#" data-lang="ar">فاخرة</a><a href="#" data-lang="en" style="display:none">Luxury</a><a href="#" data-lang="fr" style="display:none">Luxe</a></li>
+                        <li><a href="#" data-lang="ar">أوتوماتيك</a><a href="#" data-lang="en" style="display:none">Automatic</a><a href="#" data-lang="fr" style="display:none">Automatique</a></li>
+                        <li><a href="#" data-lang="ar">عائلية</a><a href="#" data-lang="en" style="display:none">Family</a><a href="#" data-lang="fr" style="display:none">Famille</a></li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h3 data-lang-key="footer.newsletter">النشرة الإخبارية</h3>
-                    <p data-lang-key="footer.newsletter_desc">اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والأخبار</p>
-                    <form id="newsletter-form" class="newsletter-form">
-                        <input type="email" placeholder="البريد الإلكتروني" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; <span id="current-year">2025</span> <span data-lang-key="footer.copyright">مراكش للسياحة. جميع الحقوق محفوظة</span></p>
-                </div>
-                <div class="payment-methods">
-                    <img src="assets/img/payment/visa.png" alt="Visa">
-                    <img src="assets/img/payment/mastercard.png" alt="Mastercard">
-                    <img src="assets/img/payment/paypal.png" alt="PayPal">
-                </div>
+                <p data-lang="ar">&copy; 2023 سفاري مراكش. جميع الحقوق محفوظة.</p>
+                <p data-lang="en" style="display:none">&copy; 2023 Safari Marrakech. All Rights Reserved.</p>
+                <p data-lang="fr" style="display:none">&copy; 2023 Safari Marrakech. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/language.js"></script>
-    <script src="js/currency.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <script src="js/map.js"></script>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212612345678" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title" data-lang="ar">اكمل الحجز</h3>
+            <h3 class="modal-title" data-lang="en" style="display:none">Complete Booking</h3>
+            <h3 class="modal-title" data-lang="fr" style="display:none">Compléter la réservation</h3>
+            
+            <form id="bookingForm">
+                <input type="hidden" id="bookingType">
+                <input type="hidden" id="bookingId">
+                
+                <div class="form-group">
+                    <label for="booking-name" data-lang="ar">الاسم الكامل</label>
+                    <label for="booking-name" data-lang="en" style="display:none">Full Name</label>
+                    <label for="booking-name" data-lang="fr" style="display:none">Nom complet</label>
+                    <input type="text" id="booking-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-email" data-lang="ar">البريد الإلكتروني</label>
+                    <label for="booking-email" data-lang="en" style="display:none">Email</label>
+                    <label for="booking-email" data-lang="fr" style="display:none">Email</label>
+                    <input type="email" id="booking-email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-phone" data-lang="ar">رقم الهاتف</label>
+                    <label for="booking-phone" data-lang="en" style="display:none">Phone Number</label>
+                    <label for="booking-phone" data-lang="fr" style="display:none">Numéro de téléphone</label>
+                    <input type="tel" id="booking-phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group" id="booking-dates-group">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="booking-checkin" data-lang="ar">تاريخ الوصول</label>
+                            <label for="booking-checkin" data-lang="en" style="display:none">Check-in Date</label>
+                            <label for="booking-checkin" data-lang="fr" style="display:none">Date d'arrivée</label>
+                            <input type="date" id="booking-checkin" class="form-control">
+                        </div>
+                        <div class="form-col">
+                            <label for="booking-checkout" data-lang="ar">تاريخ المغادرة</label>
+                            <label for="booking-checkout" data-lang="en" style="display:none">Check-out Date</label>
+                            <label for="booking-checkout" data-lang="fr" style="display:none">Date de départ</label>
+                            <input type="date" id="booking-checkout" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="booking-days-group" style="display:none">
+                    <label for="booking-days" data-lang="ar">عدد أيام التأجير</label>
+                    <label for="booking-days" data-lang="en" style="display:none">Rental Days</label>
+                    <label for="booking-days" data-lang="fr" style="display:none">Jours de location</label>
+                    <input type="number" id="booking-days" class="form-control" min="1" value="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-guests" data-lang="ar">عدد الضيوف</label>
+                    <label for="booking-guests" data-lang="en" style="display:none">Number of Guests</label>
+                    <label for="booking-guests" data-lang="fr" style="display:none">Nombre de personnes</label>
+                    <input type="number" id="booking-guests" class="form-control" min="1" value="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-notes" data-lang="ar">ملاحظات إضافية</label>
+                    <label for="booking-notes" data-lang="en" style="display:none">Additional Notes</label>
+                    <label for="booking-notes" data-lang="fr" style="display:none">Notes supplémentaires</label>
+                    <textarea id="booking-notes" class="form-control" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <span data-lang="ar">تأكيد الحجز</span>
+                    <span data-lang="en" style="display:none">Confirm Booking</span>
+                    <span data-lang="fr" style="display:none">Confirmer la réservation</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div class="modal" id="thankYouModal">
+        <div class="modal-content text-center">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-check-circle" style="font-size: 5rem; color: var(--primary-color); margin-bottom: 1.5rem;"></i>
+            <h3 class="modal-title" data-lang="ar">شكراً لك!</h3>
+            <h3 class="modal-title" data-lang="en" style="display:none">Thank You!</h3>
+            <h3 class="modal-title" data-lang="fr" style="display:none">Merci !</h3>
+            
+            <p data-lang="ar">تم استلام طلبك بنجاح. سيتصل بك فريقنا قريباً لتأكيد الحجز.</p>
+            <p data-lang="en" style="display:none">Your request has been received successfully. Our team will contact you shortly to confirm the booking.</p>
+            <p data-lang="fr" style="display:none">Votre demande a été reçue avec succès. Notre équipe vous contactera sous peu pour confirmer la réservation.</p>
+            
+            <button class="btn mt-3" id="closeThankYou">
+                <span data-lang="ar">حسناً</span>
+                <span data-lang="en" style="display:none">OK</span>
+                <span data-lang="fr" style="display:none">D'accord</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Search Tabs
+        const searchTabs = document.querySelectorAll('.search-tab');
+        const searchForms = document.querySelectorAll('.search-form');
+        
+        searchTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                searchTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all forms
+                searchForms.forEach(form => form.style.display = 'none');
+                // Show the form corresponding to the clicked tab
+                const tabName = tab.getAttribute('data-tab');
+                document.getElementById(`${tabName}-search`).style.display = 'grid';
+            });
+        });
+        
+        // Language Switcher
+        const languageBtns = document.querySelectorAll('.language-btn');
+        
+        languageBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                
+                // Update active language button
+                languageBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Change HTML lang attribute and direction
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                
+                // Update font family based on language
+                document.body.style.fontFamily = lang === 'ar' ? "'Tajawal', sans-serif" : "'Playfair Display', serif";
+                
+                // Show/hide language-specific content
+                document.querySelectorAll('[data-lang]').forEach(element => {
+                    if (element.getAttribute('data-lang') === lang) {
+                        element.style.display = '';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+                
+                // Update currency display
+                document.querySelectorAll('.mad-price').forEach(price => {
+                    price.style.display = lang === 'ar' ? '' : 'none';
+                });
+                
+                document.querySelectorAll('.usd-price').forEach(price => {
+                    price.style.display = lang === 'en' ? '' : 'none';
+                });
+                
+                document.querySelectorAll('.eur-price').forEach(price => {
+                    price.style.display = lang === 'fr' ? '' : 'none';
+                });
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonialSlider = new Swiper('.testimonial-slider', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+        
+        // Booking Modal
+        const bookBtns = document.querySelectorAll('.book-btn');
+        const bookingModal = document.getElementById('bookingModal');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+        const bookingForm = document.getElementById('bookingForm');
+        const thankYouModal = document.getElementById('thankYouModal');
+        const closeThankYou = document.getElementById('closeThankYou');
+        
+        bookBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.getAttribute('data-type');
+                const id = btn.getAttribute('data-id');
+                
+                document.getElementById('bookingType').value = type;
+                document.getElementById('bookingId').value = id;
+                
+                if (type === 'accommodation') {
+                    document.getElementById('booking-dates-group').style.display = 'block';
+                    document.getElementById('booking-days-group').style.display = 'none';
+                } else {
+                    document.getElementById('booking-dates-group').style.display = 'none';
+                    document.getElementById('booking-days-group').style.display = 'block';
+                }
+                
+                bookingModal.classList.add('active');
+            });
+        });
+        
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                bookingModal.classList.remove('active');
+                thankYouModal.classList.remove('active');
+            });
+        });
+        
+        closeThankYou.addEventListener('click', () => {
+            thankYouModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                bookingModal.classList.remove('active');
+            }
+            if (e.target === thankYouModal) {
+                thankYouModal.classList.remove('active');
+            }
+        });
+        
+        // Booking Form Submission
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your backend
+            // For this example, we'll just show the thank you modal
+            
+            bookingModal.classList.remove('active');
+            thankYouModal.classList.add('active');
+            
+            // Reset form
+            bookingForm.reset();
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your backend
+            // For this example, we'll just show an alert
+            
+            alert('Thank you for your message! We will contact you soon.');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+    </script>
 </body>
 </html>
