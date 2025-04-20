@@ -1,688 +1,526 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agence spécialisée en marketing digital et création de sites web sur mesure en France. Campagnes publicitaires performantes sur Facebook, Instagram, TikTok et Google.">
-  <meta name="keywords" content="agence marketing digital, publicités en ligne, création site web professionnel, stratégie digitale, France, campagnes Facebook Ads, Google Ads, référencement SEO">
-  <meta name="author" content="Agence Digital Partner">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.votresite.com" />
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.votresite.com">
-  <meta property="og:title" content="Agence Digital Partner | Marketing Digital & Création de Sites Web">
-  <meta property="og:description" content="Spécialistes en marketing digital et création de sites web sur mesure en France. Propulsez votre entreprise en ligne.">
-  <meta property="og:image" content="https://www.votresite.com/images/og-image.jpg">
-  
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://www.votresite.com">
-  <meta property="twitter:title" content="Agence Digital Partner | Marketing Digital & Création de Sites Web">
-  <meta property="twitter:description" content="Spécialistes en marketing digital et création de sites web sur mesure en France. Propulsez votre entreprise en ligne.">
-  <meta property="twitter:image" content="https://www.votresite.com/images/twitter-image.jpg">
-  
-  <title>Agence Digital Partner | Marketing Digital & Création de Sites Web | France</title>
-  
-  <!-- Preload des ressources critiques -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-  
-  <!-- Scripts et styles -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
-    }
-    .btn-primary {
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    .service-card {
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: white;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .mobile-menu {
-      transition: transform 0.3s ease-in-out;
-    }
-    
-    /* Amélioration de l'accessibilité */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
-  
-  <!-- JSON-LD pour le référencement -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Agence Digital Partner",
-      "description": "Agence spécialisée en marketing digital et création de sites web sur mesure en France.",
-      "url": "https://www.votresite.com",
-      "telephone": "+33123456789",
-      "email": "contact@digitalpartner.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "FR"
-      },
-      "sameAs": [
-        "https://www.facebook.com/digitalpartner",
-        "https://www.instagram.com/digitalpartner",
-        "https://www.linkedin.com/company/digitalpartner"
-      ],
-      "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
-      "priceRange": "€€"
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the best accommodations and car rentals in Marrakech, Morocco. Book your perfect stay or vehicle today.">
+    <meta name="keywords" content="Marrakech, Morocco, accommodation, car rental, tourism, riad, villa, apartment">
+    <title>Marrakech Tourism - Your Gateway to Authentic Moroccan Experiences</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50">
-  <!-- Header -->
-  <header class="bg-blue-600 text-white py-4 sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <a href="#accueil" class="flex items-center" aria-label="Retour à l'accueil">
-        <h1 class="text-2xl font-bold">
-          <span class="text-white">Digital</span>
-          <span class="text-blue-200">Partner</span>
-        </h1>
-      </a>
-      <nav class="hidden md:block" aria-label="Navigation principale">
-        <ul class="flex space-x-8">
-          <li><a href="#accueil" class="nav-link hover:text-gray-200 font-medium">Accueil</a></li>
-          <li><a href="#services" class="nav-link hover:text-gray-200 font-medium">Services</a></li>
-          <li><a href="#pourquoi" class="nav-link hover:text-gray-200 font-medium">Avantages</a></li>
-          <li><a href="#portfolio" class="nav-link hover:text-gray-200 font-medium">Réalisations</a></li>
-          <li><a href="#contact" class="nav-link hover:text-gray-200 font-medium">Contact</a></li>
-        </ul>
-      </nav>
-      <button id="mobile-menu-btn" class="md:hidden focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden bg-blue-600 text-white hidden mobile-menu" aria-labelledby="mobile-menu-btn">
-      <ul class="flex flex-col space-y-4 py-4 px-4">
-        <li><a href="#accueil" class="hover:text-gray-200 font-medium">Accueil</a></li>
-        <li><a href="#services" class="hover:text-gray-200 font-medium">Services</a></li>
-        <li><a href="#pourquoi" class="hover:text-gray-200 font-medium">Avantages</a></li>
-        <li><a href="#portfolio" class="hover:text-gray-200 font-medium">Réalisations</a></li>
-        <li><a href="#contact" class="hover:text-gray-200 font-medium">Contact</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="accueil" class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-24">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Transformez votre présence digitale</h1>
-      <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Nous concevons des stratégies digitales sur mesure pour propulser votre entreprise et maximiser votre visibilité en ligne.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" class="btn-primary bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100">Démarrer un projet</a>
-        <a href="#services" class="btn-primary bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600">Nos services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold">NOS SERVICES</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2">Solutions digitales complètes</h2>
-        <p class="max-w-2xl mx-auto mt-4 text-gray-600">Des services adaptés à chaque étape de votre croissance digitale</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="service-card bg-white p-8 rounded-xl shadow-md border border-gray-100 transition-all duration-300">
-          <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Publicité Digitale</h3>
-          <p class="text-gray-600">Campagnes publicitaires performantes sur Facebook Ads, Instagram, TikTok et Google Ads avec optimisation en temps réel pour maximiser votre ROI.</p>
-          <ul class="mt-4 space-y-2">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Audit gratuit de vos campagnes</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Rapports détaillés mensuels</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="service-card bg-white p-8 rounded-xl shadow-md border border-gray-100 transition-all duration-300">
-          <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Sites Web Performants</h3>
-          <p class="text-gray-600">Création de sites web modernes, responsive et optimisés pour le SEO, conçus pour convertir vos visiteurs en clients.</p>
-          <ul class="mt-4 space-y-2">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Design personnalisé</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Optimisation SEO intégrée</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card bg-white p-8 rounded-xl shadow-md border border-gray-100 transition-all duration-300">
-          <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Stratégie Digitale</h3>
-          <p class="text-gray-600">Plan d'action complet pour développer votre marque en ligne, augmenter votre visibilité et générer des leads qualifiés.</p>
-          <ul class="mt-4 space-y-2">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Analyse de marché</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Roadmap personnalisée</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold">NOS RÉALISATIONS</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2">Projets récents</h2>
-        <p class="max-w-2xl mx-auto mt-4 text-gray-600">Découvrez comment nous avons aidé nos clients à atteindre leurs objectifs</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project 1 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-          <div class="h-48 bg-blue-100 flex items-center justify-center" aria-label="Image illustrative du projet e-commerce">
-            <svg class="w-24 h-24 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-            </svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Boutique en ligne de mode</h3>
-            <p class="text-gray-600 mb-4">Augmentation de 150% du trafic et 200% des ventes en 3 mois grâce à notre stratégie digitale.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Facebook Ads</span>
-              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">SEO</span>
-              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Site Web</span>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/logo/logo.png" alt="Marrakech Tourism Logo">
+                </a>
             </div>
-          </div>
-        </div>
-        
-        <!-- Project 2 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-          <div class="h-48 bg-green-100 flex items-center justify-center" aria-label="Image illustrative du projet immobilier">
-            <svg class="w-24 h-24 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-            </svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Agence immobilière</h3>
-            <p class="text-gray-600 mb-4">Génération de 50 leads qualifiés par mois via des campagnes Google Ads ciblées.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">Google Ads</span>
-              <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">Landing Pages</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 3 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-          <div class="h-48 bg-purple-100 flex items-center justify-center" aria-label="Image illustrative du projet SaaS">
-            <svg class="w-24 h-24 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Application B2B</h3>
-            <p class="text-gray-600 mb-4">Augmentation de 300% des inscriptions grâce à une refonte complète de la stratégie digitale.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">LinkedIn Ads</span>
-              <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Content Marketing</span>
-              <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Emailing</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Exemples de Sites Web Section -->
-  <section id="examples" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold">EXEMPLES DE SITES WEB</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2">Sites web créés par notre agence</h2>
-        <p class="max-w-2xl mx-auto mt-4 text-gray-600">Des designs modernes, responsives et optimisés pour la conversion</p>
-      </div>
-      
-      <div class="mb-16">
-        <!-- Site Example 1 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg mb-16">
-          <div class="flex flex-col lg:flex-row">
-            <div class="lg:w-1/2">
-              <div class="h-64 lg:h-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center" aria-label="Capture d'écran du site LuxuryHomes">
-                <div class="bg-white rounded-lg shadow-lg p-4 mx-8 w-full max-w-md">
-                  <div class="h-8 bg-gray-200 rounded mb-4"></div>
-                  <div class="h-40 bg-gray-100 rounded mb-4"></div>
-                  <div class="flex space-x-2">
-                    <div class="h-8 bg-blue-400 rounded w-1/3"></div>
-                    <div class="h-8 bg-gray-200 rounded w-1/3"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/2 p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800">LuxuryHomes Immobilier</h3>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Visiter le site</a>
-              </div>
-              <p class="text-gray-600 mb-6">Site web haut de gamme pour une agence immobilière spécialisée dans les propriétés de luxe. Ce site combine élégance visuelle et fonctionnalités avancées de recherche de biens.</p>
-              <div class="mb-6">
-                <h4 class="font-semibold mb-2 text-gray-700">Fonctionnalités clés:</h4>
-                <ul class="space-y-1 text-gray-600">
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Recherche avancée de propriétés avec filtres personnalisés</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Visites virtuelles 3D des propriétés</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Système de prise de rendez-vous en ligne</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Interface multilingue (français, anglais, arabe)</span>
-                  </li>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active" data-lang-key="nav.home">الرئيسية</a></li>
+                    <li><a href="accommodations.html" data-lang-key="nav.accommodations">أماكن الإقامة</a></li>
+                    <li><a href="cars.html" data-lang-key="nav.cars">تأجير السيارات</a></li>
+                    <li><a href="about.html" data-lang-key="nav.about">من نحن</a></li>
+                    <li><a href="contact.html" data-lang-key="nav.contact">اتصل بنا</a></li>
                 </ul>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">WordPress</span>
-                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Responsive Design</span>
-                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">SEO</span>
-              </div>
+            </nav>
+            <div class="lang-switcher">
+                <select id="language-select">
+                    <option value="ar" selected>العربية</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                </select>
             </div>
-          </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        
-        <!-- Site Example 2 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg mb-16">
-          <div class="flex flex-col lg:flex-row">
-            <div class="lg:w-1/2 order-2 lg:order-1 p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800">Bio Délice E-commerce</h3>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Visiter le site</a>
-              </div>
-              <p class="text-gray-600 mb-6">Boutique en ligne de produits bio et artisanaux avec un accent sur l'expérience utilisateur fluide et la mise en valeur des produits locaux.</p>
-              <div class="mb-6">
-                <h4 class="font-semibold mb-2 text-gray-700">Fonctionnalités clés:</h4>
-                <ul class="space-y-1 text-gray-600">
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Panier d'achat optimisé pour maximiser les conversions</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Système de fidélité intégré</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Filtres de produits avancés</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Blog intégré avec des recettes et conseils</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">Shopify</span>
-                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">UX Design</span>
-                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">Paiement Sécurisé</span>
-              </div>
-            </div>
-            <div class="lg:w-1/2 order-1 lg:order-2">
-              <div class="h-64 lg:h-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center" aria-label="Capture d'écran du site Bio Délice">
-                <div class="bg-white rounded-lg shadow-lg p-4 mx-8 w-full max-w-md">
-                  <div class="h-8 bg-gray-200 rounded mb-4"></div>
-                  <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div class="h-24 bg-gray-100 rounded"></div>
-                    <div class="h-24 bg-gray-100 rounded"></div>
-                    <div class="h-24 bg-gray-100 rounded"></div>
-                    <div class="h-24 bg-gray-100 rounded"></div>
-                  </div>
-                  <div class="h-8 bg-green-500 rounded"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide">
+                <img src="assets/img/hero/marrakech-1.jpg" alt="Marrakech Cityscape">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title">اكتشف جمال مراكش</h1>
+                    <p data-lang-key="hero.subtitle">أفضل الإقامات والسيارات لرحلة لا تُنسى</p>
+                    <a href="#search" class="btn btn-primary" data-lang-key="hero.cta">ابدأ الحجز</a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-        
-        <!-- Site Example 3 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
-          <div class="flex flex-col lg:flex-row">
-            <div class="lg:w-1/2">
-              <div class="h-64 lg:h-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center" aria-label="Capture d'écran du site TechSolutions">
-                <div class="bg-white rounded-lg shadow-lg p-4 mx-8 w-full max-w-md">
-                  <div class="h-8 bg-gray-200 rounded mb-4"></div>
-                  <div class="h-12 bg-purple-100 rounded mb-4"></div>
-                  <div class="grid grid-cols-3 gap-4 mb-4">
-                    <div class="h-16 bg-gray-100 rounded flex items-center justify-center">
-                      <div class="w-8 h-8 bg-purple-300 rounded-full"></div>
-                    </div>
-                    <div class="h-16 bg-gray-100 rounded flex items-center justify-center">
-                      <div class="w-8 h-8 bg-purple-300 rounded-full"></div>
-                    </div>
-                    <div class="h-16 bg-gray-100 rounded flex items-center justify-center">
-                      <div class="w-8 h-8 bg-purple-300 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div class="h-8 bg-purple-500 rounded"></div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="search">
+        <div class="container">
+            <div class="search-tabs">
+                <div class="tab active" data-tab="accommodations" data-lang-key="search.accommodations">أماكن الإقامة</div>
+                <div class="tab" data-tab="cars" data-lang-key="search.cars">تأجير السيارات</div>
+            </div>
+            <div class="search-content">
+                <div class="search-panel active" id="accommodations-search">
+                    <form action="accommodations.html" method="get">
+                        <div class="form-group">
+                            <label for="location" data-lang-key="search.location">الموقع</label>
+                            <select id="location" name="location">
+                                <option value="all" data-lang-key="search.all_locations">جميع المواقع</option>
+                                <option value="medina" data-lang-key="search.medina">المدينة القديمة</option>
+                                <option value="gueliz" data-lang-key="search.gueliz">جليز</option>
+                                <option value="palmeraie" data-lang-key="search.palmeraie">النخيل</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkin" data-lang-key="search.checkin">تاريخ الوصول</label>
+                            <input type="date" id="checkin" name="checkin">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout" data-lang-key="search.checkout">تاريخ المغادرة</label>
+                            <input type="date" id="checkout" name="checkout">
+                        </div>
+                        <div class="form-group">
+                            <label for="guests" data-lang-key="search.guests">عدد الضيوف</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang-key="search.search_btn">بحث</button>
+                    </form>
                 </div>
-              </div>
+                <div class="search-panel" id="cars-search">
+                    <form action="cars.html" method="get">
+                        <div class="form-group">
+                            <label for="pickup-date" data-lang-key="search.pickup_date">تاريخ الاستلام</label>
+                            <input type="date" id="pickup-date" name="pickup-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="return-date" data-lang-key="search.return_date">تاريخ الإعادة</label>
+                            <input type="date" id="return-date" name="return-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="car-type" data-lang-key="search.car_type">نوع السيارة</label>
+                            <select id="car-type" name="car-type">
+                                <option value="all" data-lang-key="search.all_cars">جميع السيارات</option>
+                                <option value="economy" data-lang-key="search.economy">اقتصادية</option>
+                                <option value="suv" data-lang-key="search.suv">دفع رباعي</option>
+                                <option value="luxury" data-lang-key="search.luxury">فاخرة</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transmission" data-lang-key="search.transmission">ناقل الحركة</label>
+                            <select id="transmission" name="transmission">
+                                <option value="all" data-lang-key="search.all_transmissions">الكل</option>
+                                <option value="manual" data-lang-key="search.manual">يدوي</option>
+                                <option value="automatic" data-lang-key="search.automatic">أوتوماتيكي</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang-key="search.search_btn">بحث</button>
+                    </form>
+                </div>
             </div>
-            <div class="lg:w-1/2 p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-gray-800">TechSolutions SaaS</h3>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Visiter le site</a>
-              </div>
-              <p class="text-gray-600 mb-6">Site vitrine pour une startup tech B2B proposant des services cloud innovants. Design moderne avec un focus sur la conversion des visiteurs en leads.</p>
-              <div class="mb-6">
-                <h4 class="font-semibold mb-2 text-gray-700">Fonctionnalités clés:</h4>
-                <ul class="space-y-1 text-gray-600">
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Interface one-page avec animations fluides</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Démonstration interactive du produit</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Formulaires de capture de leads optimisés</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Intégration de chatbot pour support client</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">React.js</span>
-                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Animations</span>
-                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Landing Page</span>
-              </div>
+        </div>
+    </section>
+
+    <!-- Featured Accommodations Section -->
+    <section class="featured-accommodations">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-lang-key="featured_accommodations.title">أماكن إقامة مميزة</h2>
+                <p data-lang-key="featured_accommodations.subtitle">اكتشف أفضل الرياضات والفلل والشقق في مراكش</p>
             </div>
-          </div>
+            <div class="accommodation-grid">
+                <!-- Accommodation Card 1 -->
+                <div class="accommodation-card">
+                    <div class="accommodation-img">
+                        <img src="assets/img/accommodations/riad-1.jpg" alt="Luxury Riad in Medina">
+                        <div class="price"><span class="currency">درهم</span> <span class="amount">1500</span> <span class="per-night" data-lang-key="per_night">/ ليلة</span></div>
+                    </div>
+                    <div class="accommodation-details">
+                        <h3>رياض فاخر في المدينة القديمة</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> <span>المدينة القديمة، مراكش</span></div>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 4</span>
+                            <span><i class="fas fa-bath"></i> 3</span>
+                            <span><i class="fas fa-users"></i> 8</span>
+                            <span><i class="fas fa-swimming-pool"></i></span>
+                            <span><i class="fas fa-wifi"></i></span>
+                            <span><i class="fas fa-snowflake"></i></span>
+                        </div>
+                        <a href="accommodation-details.html?id=1" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                    </div>
+                </div>
+
+                <!-- Accommodation Card 2 -->
+                <div class="accommodation-card">
+                    <div class="accommodation-img">
+                        <img src="assets/img/accommodations/villa-1.jpg" alt="Modern Villa with Pool">
+                        <div class="price"><span class="currency">درهم</span> <span class="amount">2500</span> <span class="per-night" data-lang-key="per_night">/ ليلة</span></div>
+                    </div>
+                    <div class="accommodation-details">
+                        <h3>فيلا عصرية مع مسبح</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> <span>النخيل، مراكش</span></div>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 5</span>
+                            <span><i class="fas fa-bath"></i> 4</span>
+                            <span><i class="fas fa-users"></i> 10</span>
+                            <span><i class="fas fa-swimming-pool"></i></span>
+                            <span><i class="fas fa-wifi"></i></span>
+                            <span><i class="fas fa-snowflake"></i></span>
+                        </div>
+                        <a href="accommodation-details.html?id=2" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                    </div>
+                </div>
+
+                <!-- Accommodation Card 3 -->
+                <div class="accommodation-card">
+                    <div class="accommodation-img">
+                        <img src="assets/img/accommodations/apartment-1.jpg" alt="Cozy Apartment in Gueliz">
+                        <div class="price"><span class="currency">درهم</span> <span class="amount">800</span> <span class="per-night" data-lang-key="per_night">/ ليلة</span></div>
+                    </div>
+                    <div class="accommodation-details">
+                        <h3>شقة مريحة في جليز</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> <span>جليز، مراكش</span></div>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 2</span>
+                            <span><i class="fas fa-bath"></i> 1</span>
+                            <span><i class="fas fa-users"></i> 4</span>
+                            <span><i class="fas fa-wifi"></i></span>
+                            <span><i class="fas fa-snowflake"></i></span>
+                        </div>
+                        <a href="accommodation-details.html?id=3" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-link">
+                <a href="accommodations.html" class="btn btn-outline" data-lang-key="view_all_accommodations">عرض جميع أماكن الإقامة</a>
+            </div>
         </div>
-      </div>
-      
-      <!-- CTA -->
-      <div class="text-center mt-12">
-        <p class="text-gray-600 mb-6">Besoin d'un site web similaire pour votre entreprise ?</p>
-        <a href="#contact" class="btn-primary bg-blue-600 text-white px-8 py-3 rounded-full inline-block font-semibold hover:bg-blue-700">Discuter de votre projet</a>
-      </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section class="featured-cars">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-lang-key="featured_cars.title">سيارات مميزة</h2>
+                <p data-lang-key="featured_cars.subtitle">استأجر أفضل السيارات للتنقل في مراكش وضواحيها</p>
+            </div>
+            <div class="car-grid">
+                <!-- Car Card 1 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="assets/img/cars/car-1.jpg" alt="Dacia Logan">
+                        <div class="price"><span class="currency">درهم</span> <span class="amount">300</span> <span class="per-day" data-lang-key="per_day">/ يوم</span></div>
+                    </div>
+                    <div class="car-details">
+                        <h3>داسيا لوجان</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-calendar-alt"></i> <span>2023</span></span>
+                            <span><i class="fas fa-gas-pump"></i> <span data-lang-key="fuel_type.diesel">ديزل</span></span>
+                            <span><i class="fas fa-cog"></i> <span data-lang-key="transmission.manual">يدوي</span></span>
+                        </div>
+                        <a href="car-details.html?id=1" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                    </div>
+                </div>
+
+                <!-- Car Card 2 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="assets/img/cars/car-2.jpg" alt="Hyundai Tucson">
+                        <div class="price"><span class="currency">درهم</span> <span class="amount">600</span> <span class="per-day" data-lang-key="per_day">/ يوم</span></div>
+                    </div>
+                    <div class="car-details">
+                        <h3>هيونداي توسان</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-calendar-alt"></i> <span>2022</span></span>
+                            <span><i class="fas fa-gas-pump"></i> <span data-lang-key="fuel_type.diesel">ديزل</span></span>
+                            <span><i class="fas fa-cog"></i> <span data-lang-key="transmission.automatic">أوتوماتيكي</span></span>
+                        </div>
+                        <a href="car-details.html?id=2" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                    </div>
+                </div>
+
+                <!-- Car Card 3 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="assets/img/cars/car-3.jpg" alt="Mercedes C-Class">
+                        <div class="price"><span class="currency">درهم</span> <span class="amount">1000</span> <span class="per-day" data-lang-key="per_day">/ يوم</span></div>
+                    </div>
+                    <div class="car-details">
+                        <h3>مرسيدس C-Class</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-calendar-alt"></i> <span>2022</span></span>
+                            <span><i class="fas fa-gas-pump"></i> <span data-lang-key="fuel_type.petrol">بنزين</span></span>
+                            <span><i class="fas fa-cog"></i> <span data-lang-key="transmission.automatic">أوتوماتيكي</span></span>
+                        </div>
+                        <a href="car-details.html?id=3" class="btn btn-secondary" data-lang-key="view_details">عرض التفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-link">
+                <a href="cars.html" class="btn btn-outline" data-lang-key="view_all_cars">عرض جميع السيارات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-lang-key="testimonials.title">آراء عملائنا</h2>
+                <p data-lang-key="testimonials.subtitle">ماذا يقول عملاؤنا عن تجربتهم معنا</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                        <p>كانت إقامتنا في الرياض رائعة جدًا. الموقع مثالي، والخدمة ممتازة، والغرف جميلة ونظيفة. سنعود بالتأكيد مرة أخرى!</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="assets/img/testimonials/author-1.jpg" alt="Ahmed">
+                            </div>
+                            <div class="author-info">
+                                <h4>أحمد محمد</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                        <p>استأجرنا سيارة من هذه الشركة وكانت التجربة ممتازة. السيارة كانت نظيفة وبحالة جيدة، والإجراءات كانت سهلة وسريعة.</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="assets/img/testimonials/author-2.jpg" alt="Sarah">
+                            </div>
+                            <div class="author-info">
+                                <h4>سارة أحمد</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-lang-key="why_choose_us.title">لماذا تختارنا</h2>
+                <p data-lang-key="why_choose_us.subtitle">نقدم لك تجربة سفر لا مثيل لها في مراكش</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 data-lang-key="why_choose_us.quality_title">جودة مضمونة</h3>
+                    <p data-lang-key="why_choose_us.quality_desc">نختار بعناية جميع أماكن الإقامة والسيارات لضمان أفضل تجربة لعملائنا</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 data-lang-key="why_choose_us.price_title">أسعار تنافسية</h3>
+                    <p data-lang-key="why_choose_us.price_desc">نقدم أفضل الأسعار في السوق مع خيارات متعددة تناسب جميع الميزانيات</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 data-lang-key="why_choose_us.support_title">دعم على مدار الساعة</h3>
+                    <p data-lang-key="why_choose_us.support_desc">فريق خدمة العملاء جاهز لمساعدتك في أي وقت طوال أيام الأسبوع</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 data-lang-key="why_choose_us.local_title">معرفة محلية</h3>
+                    <p data-lang-key="why_choose_us.local_desc">نقدم لك نصائح ومعلومات قيمة لاستكشاف مراكش كالسكان المحليين</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-lang-key="contact.title">اتصل بنا</h2>
+                <p data-lang-key="contact.subtitle">نحن هنا لمساعدتك في تخطيط رحلتك المثالية إلى مراكش</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 data-lang-key="contact.address_title">العنوان</h3>
+                            <p data-lang-key="contact.address">شارع محمد الخامس، جليز، مراكش، المغرب</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 data-lang-key="contact.phone_title">الهاتف</h3>
+                            <p><a href="tel:+212600000000">+212 600 000 000</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 data-lang-key="contact.email_title">البريد الإلكتروني</h3>
+                            <p><a href="mailto:info@marrakech-tourism.com">info@marrakech-tourism.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 data-lang-key="contact.hours_title">ساعات العمل</h3>
+                            <p data-lang-key="contact.hours">الاثنين - السبت: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name" data-lang-key="contact.name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-lang-key="contact.email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-lang-key="contact.phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-lang-key="contact.message">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang-key="contact.send_btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map">
+        <div id="google-map"></div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn">
+        <a href="https://wa.me/212600000000" target="_blank" aria-label="Contact via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
-  </section>
 
-  <!-- Why Us Section -->
-  <section id="pourquoi" class="py-20 bg-blue-600 text-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <span class="text-blue-200 font-semibold">POURQUOI NOUS CHOISIR</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2">Nos atouts pour votre succès</h2>
-        <p class="max-w-2xl mx-auto mt-4">Nous combinons expertise, créativité et technologie pour offrir des résultats exceptionnels.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Advantage 1 -->
-        <div class="flex flex-col items-center text-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Approche Personnalisée</h3>
-          <p>Chaque projet est unique. Nous analysons vos besoins pour proposer des solutions sur mesure qui répondent à vos objectifs.</p>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/img/logo/logo-white.png" alt="Marrakech Tourism Logo">
+                    </div>
+                    <p data-lang-key="footer.about">شركتنا هي بوابتك لاكتشاف جمال مراكش من خلال خدمات إقامة وتأجير سيارات متميزة. نضمن لك تجربة سفر لا تُنسى.</p>
+                </div>
+                <div class="footer-col">
+                    <h3 data-lang-key="footer.quick_links">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-lang-key="nav.home">الرئيسية</a></li>
+                        <li><a href="accommodations.html" data-lang-key="nav.accommodations">أماكن الإقامة</a></li>
+                        <li><a href="cars.html" data-lang-key="nav.cars">تأجير السيارات</a></li>
+                        <li><a href="about.html" data-lang-key="nav.about">من نحن</a></li>
+                        <li><a href="contact.html" data-lang-key="nav.contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-lang-key="footer.accommodations">أماكن الإقامة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-lang-key="footer.riads">رياضات</a></li>
+                        <li><a href="#" data-lang-key="footer.villas">فلل</a></li>
+                        <li><a href="#" data-lang-key="footer.apartments">شقق</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-lang-key="footer.cars">تأجير السيارات</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-lang-key="footer.economy_cars">سيارات اقتصادية</a></li>
+                        <li><a href="#" data-lang-key="footer.suv_cars">سيارات دفع رباعي</a></li>
+                        <li><a href="#" data-lang-key="footer.luxury_cars">سيارات فاخرة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-lang-key="footer.newsletter">النشرة الإخبارية</h3>
+                    <p data-lang-key="footer.newsletter_desc">اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والأخبار</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="البريد الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; <span id="current-year">2025</span> <span data-lang-key="footer.copyright">مراكش للسياحة. جميع الحقوق محفوظة</span></p>
+                </div>
+                <div class="payment-methods">
+                    <img src="assets/img/payment/visa.png" alt="Visa">
+                    <img src="assets/img/payment/mastercard.png" alt="Mastercard">
+                    <img src="assets/img/payment/paypal.png" alt="PayPal">
+                </div>
+            </div>
         </div>
-        
-        <!-- Advantage 2 -->
-        <div class="flex flex-col items-center text-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.5 3.5 0 105.33 4.606 3.5 3.5 0 01-5.33-4.606M12 3v1m0 16v1m6.364-3.364l-.707.707M4.343 4.343l-.707.707m12.728 12.728l-.707.707M3.636 16.364l-.707.707M12 8v4"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Résultats Mesurables</h3>
-          <p>Nous fournissons des rapports détaillés pour suivre les performances de vos campagnes et garantir un ROI optimal.</p>
-        </div>
-        
-        <!-- Advantage 3 -->
-        <div class="flex flex-col items-center text-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Équipe Internationale</h3>
-          <p>Notre expertise globale nous permet de comprendre les tendances du marché et d'offrir des solutions innovantes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold">CONTACTEZ-NOUS</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2">Prêt à transformer votre business ?</h2>
-        <p class="max-w-2xl mx-auto mt-4 text-gray-600">Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.</p>
-      </div>
-      
-      <div class="max-w-lg mx-auto bg-gray-50 p-8 rounded-xl shadow-md">
-        <p class="text-center text-gray-600 mb-6">Envoyez-nous un message ou contactez-nous directement via WhatsApp ou e-mail.</p>
-        <div class="flex flex-col space-y-4">
-          <a href="mailto:contact@digitalpartner.com" class="btn-primary bg-blue-600 text-white px-6 py-4 rounded-full text-center font-semibold hover:bg-blue-700">Envoyer un e-mail</a>
-          <a href="https://wa.me/+33123456789" target="_blank" rel="noopener noreferrer" class="btn-primary bg-green-500 text-white px-6 py-4 rounded-full text-center font-semibold hover:bg-green-600">Contacter via WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-600 text-white py-8">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- About -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Agence Digital Partner</h3>
-          <p class="text-blue-100">Nous sommes une agence spécialisée dans le marketing digital et la création de sites web, dédiée à aider les entreprises françaises à atteindre leurs objectifs en ligne.</p>
-        </div>
-        <!-- Quick Links -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Liens rapides</h3>
-          <ul class="space-y-2">
-            <li><a href="#accueil" class="hover:text-blue-200">Accueil</a></li>
-            <li><a href="#services" class="hover:text-blue-200">Services</a></li>
-            <li><a href="#portfolio" class="hover:text-blue-200">Réalisations</a></li>
-            <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
-          </ul>
-        </div>
-        <!-- Contact Info -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Contact</h3>
-          <p class="text-blue-100">E-mail: <a href="mailto:contact@digitalpartner.com" class="hover:text-blue-200">contact@digitalpartner.com</a></p>
-          <p class="text-blue-100">WhatsApp: <a href="https://wa.me/+33123456789" class="hover:text-blue-200">+33 123 456 789</a></p>
-          <div class="mt-4 flex space-x-4">
-            <a href="https://www.facebook.com/digitalpartner" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-blue-200">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/digitalpartner" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-blue-200">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/company/digitalpartner" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-blue-200">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="mt-8 text-center">
-        <p class="text-blue-200">© 2025 Agence Digital Partner. Tous droits réservés.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-          const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-          mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
-
-      // Smooth Scroll for Anchor Links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          
-          if (targetElement) {
-            const headerOffset = 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            // Check if user prefers reduced motion
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            
-            if (prefersReducedMotion) {
-              window.scrollTo({
-                top: offsetPosition
-              });
-            } else {
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-              });
-            }
-            
-            // Close mobile menu if open
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-              mobileMenu.classList.add('hidden');
-              mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-      });
-    });
-  </script>
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="js/map.js"></script>
 </body>
 </html>
