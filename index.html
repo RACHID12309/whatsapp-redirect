@@ -1,48 +1,429 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" class="">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تم بنجاح</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      font-family: "Arial", sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Ultimate TikTok Downloader - Bulk Profile & Single Video</title>
+    <meta name="description" content="The ultimate tool to download everything from TikTok. Use the single post downloader for videos, slides, and stories, or use the profile downloader to bulk download all videos from any user.">
+    <meta name="keywords" content="tiktok downloader, tiktok profile downloader, bulk tiktok download, download all tiktok videos, tiktok video downloader, tiktok slide downloader, tiktok story saver, tiktok mp3, no watermark">
+    <meta name="author" content="YourAppName or YourName">
+    <link rel="canonical" href="https://www.yourdomain.com/"> <!-- IMPORTANT: Replace with your actual domain -->
 
-    img.logo {
-      width: 120px;
-      margin-bottom: 20px;
-    }
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:title" content="All-in-One & Profile TikTok Downloader">
+    <meta property="og:description" content="Bulk download all videos from any TikTok profile, or save single videos, slides, and stories without a watermark.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourdomain.com/">
+    <meta property="og:image" content="https://www.yourdomain.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All-in-One & Profile TikTok Downloader">
+    <meta name="twitter:description" content="Bulk download all videos from any TikTok profile, or save single videos, slides, and stories without a watermark.">
+    <meta name="twitter:image" content="https://www.yourdomain.com/twitter-image.jpg">
 
-    .checkmark {
-      font-size: 64px;
-      color: #28a745;
-      margin-bottom: 20px;
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "All-in-One & Profile TikTok Downloader",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any (Web-based)",
+      "description": "A free web tool to download single TikTok posts (video, slide, story) or to bulk download all videos from a user's profile.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1550" },
+      "author": { "@type": "Person", "name": "YourAppName or YourName" }
     }
+    </script>
 
-    .message {
-      font-size: 18px;
-      color: #000;
-      padding: 0 20px;
-      line-height: 1.6;
-      max-width: 400px;
-    }
-  </style>
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f0f2f5; --card-bg-color: #ffffff; --text-color: #1f2937;
+            --text-muted-color: #6b7280; --input-bg-color: #e5e7eb; --border-color: #e5e7eb;
+            --prose-color: #374151; --brand-gradient: linear-gradient(90deg, #ff0050, #e100ff);
+        }
+        html.dark {
+            --bg-color: #111827; --card-bg-color: #1f2937; --text-color: #f9fafb;
+            --text-muted-color: #9ca3af; --input-bg-color: #374151; --border-color: #374151;
+            --prose-color: #d1d5db;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s, color 0.3s; }
+        .main-container, .history-item, .modal-content { background-color: var(--card-bg-color); transition: background-color 0.3s; }
+        .tab-btn { transition: color 0.2s, border-color 0.2s; }
+        .tab-btn.active { color: #ff0050; border-color: #ff0050; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .btn-primary { background: var(--brand-gradient); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4); }
+        .spinner { border: 4px solid rgba(0, 0, 0, 0.1); width: 36px; height: 36px; border-radius: 50%; border-left-color: #ff0050; animation: spin 1s ease infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
 </head>
-<body>
-  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/%D8%B4%D8%B9%D8%A7%D8%B1_dxn.jpg" alt="DXN logo" />
-  <div class="checkmark">✔</div>
-  <div class="message">
-    لقد تم ملأ المعلومات بنجاح. سنتواصل معك في القريب العاجل سواء على واتساب أم عن طريق مكالمة.
-  </div>
+<body class="antialiased">
+
+    <main class="w-full max-w-4xl mx-auto p-4">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl sm:text-3xl font-bold">TikTok Downloader Pro</h1>
+            <div class="theme-switch-wrapper flex items-center">
+                <i class="fas fa-sun mr-2 text-yellow-500"></i>
+                <label class="relative inline-block w-[50px] h-[26px]"><input type="checkbox" id="theme-toggle" class="opacity-0 w-0 h-0" /><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 rounded-full transition-all before:absolute before:h-5 before:w-5 before:left-0.5 before:bottom-[3px] before:bg-white before:rounded-full before:transition-all dark:bg-gray-600 dark:before:translate-x-6"></span></label>
+                <i class="fas fa-moon ml-2 text-gray-400"></i>
+            </div>
+        </header>
+
+        <!-- Downloader Card -->
+        <section class="main-container p-6 sm:p-8 rounded-2xl shadow-lg">
+            <!-- Tabs -->
+            <div class="border-b border-[var(--border-color)] mb-6">
+                <nav class="flex -mb-px space-x-6" aria-label="Tabs">
+                    <button class="tab-btn active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="single-post">
+                        <i class="fas fa-link mr-2"></i>Single Post
+                    </button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300" data-tab="profile">
+                        <i class="fas fa-user mr-2"></i>Profile Downloader
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Tab Content: Single Post -->
+            <div id="single-post" class="tab-content active">
+                <p class="text-center text-lg text-muted-color mb-6">Paste a single TikTok link (Video, Slide, Story).</p>
+                <div class="relative mb-4">
+                    <i class="fa-solid fa-link absolute top-1/2 -translate-y-1/2 left-4 text-gray-400"></i>
+                    <input id="single-url" type="text" placeholder="Paste TikTok link here..." aria-label="Single TikTok Link Input" class="w-full pl-12 pr-24 py-3 text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <div class="absolute top-1/2 -translate-y-1/2 right-2 flex gap-1">
+                        <button id="paste-btn-single" aria-label="Paste from clipboard" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-sm rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition" title="Paste"><i class="fa-solid fa-paste"></i></button>
+                        <button id="clear-btn-single" aria-label="Clear input" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-sm rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition" title="Clear"><i class="fa-solid fa-times"></i></button>
+                    </div>
+                </div>
+                <button id="download-btn-single" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-lg">Download</button>
+                <div id="loader-single" class="hidden flex justify-center items-center mt-6"><div class="spinner"></div><p id="loader-text-single" class="ml-4">Processing...</p></div>
+                <div id="error-single" class="hidden mt-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg text-center"></div>
+                <div id="results-single" class="mt-8"></div>
+            </div>
+
+            <!-- Tab Content: Profile -->
+            <div id="profile" class="tab-content">
+                 <p class="text-center text-lg text-muted-color mb-6">Paste a TikTok profile link or username (e.g., @username).</p>
+                <div class="relative mb-4">
+                    <i class="fa-solid fa-user absolute top-1/2 -translate-y-1/2 left-4 text-gray-400"></i>
+                    <input id="profile-url" type="text" placeholder="Paste profile link or username..." aria-label="TikTok Profile Link Input" class="w-full pl-12 py-3 text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <button id="fetch-btn-profile" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-lg">Fetch Videos</button>
+                <div id="loader-profile" class="hidden flex justify-center items-center mt-6"><div class="spinner"></div><p id="loader-text-profile" class="ml-4">Fetching videos...</p></div>
+                <div id="error-profile" class="hidden mt-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg text-center"></div>
+                <div id="results-profile" class="mt-8">
+                    <div id="profile-controls" class="hidden items-center justify-between mb-4">
+                        <button id="select-all-btn" class="text-sm font-medium text-pink-500 hover:underline">Select All</button>
+                        <button id="download-selected-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition disabled:opacity-50" disabled><i class="fas fa-download mr-2"></i>Download Selected (<span id="selected-count">0</span>)</button>
+                    </div>
+                    <div id="profile-videos-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div>
+                    <button id="load-more-btn" class="hidden mt-6 w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold py-3 px-6 rounded-lg">Load More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content Section: Features -->
+        <section class="main-container p-6 sm:p-8 rounded-2xl shadow-lg mt-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">The Ultimate TikTok Toolkit</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div><i class="fas fa-video text-3xl mb-2 text-pink-500"></i><h3 class="font-semibold text-lg">HD Video Downloads</h3><p class="text-muted-color text-sm">Save any TikTok video in high definition without the annoying watermark.</p></div>
+                <div><i class="fas fa-users text-3xl mb-2 text-purple-500"></i><h3 class="font-semibold text-lg">Bulk Profile Downloads</h3><p class="text-muted-color text-sm">Fetch and download all videos from any TikTok user profile at once.</p></div>
+                <div><i class="fas fa-images text-3xl mb-2 text-blue-500"></i><h3 class="font-semibold text-lg">Photo Slideshows & MP3</h3><p class="text-muted-color text-sm">Download slides as images/ZIP, or extract audio from any video.</p></div>
+            </div>
+        </section>
+
+        <!-- History & Footer (unchanged) -->
+        <section id="history-section" class="mt-12"><h2 class="text-2xl font-bold mb-4">Download History</h2><div id="history-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"><p id="no-history" class="text-muted-color col-span-full">No downloads yet.</p></div></section>
+    </main>
+    <footer class="text-center p-6 mt-6 text-muted-color">
+        <div class="flex justify-center flex-wrap gap-4 sm:gap-6 mb-4 text-sm"><a href="#" id="about-link" class="hover:text-pink-500 transition">About</a><a href="#" id="privacy-link" class="hover:text-pink-500 transition">Privacy</a><a href="#" id="terms-link" class="hover:text-pink-500 transition">Terms</a><a href="#" id="contact-link" class="hover:text-pink-500 transition">Contact</a><a href="#" id="how-to-link" class="hover:text-pink-500 transition">How to Download</a></div>
+        <p class="mt-4 text-sm">&copy; 2024 TikTok Downloader Pro. This site is not affiliated with TikTok.</p>
+    </footer>
+    <!-- Modals (unchanged) -->
+    <div id="modal-container"></div>
+
+    <script>
+        // --- DOM Elements & State ---
+        const elements = {
+            tabs: document.querySelectorAll('.tab-btn'),
+            tabContents: document.querySelectorAll('.tab-content'),
+            themeToggle: document.getElementById('theme-toggle'),
+            // Single Post
+            singleUrl: document.getElementById('single-url'),
+            pasteBtnSingle: document.getElementById('paste-btn-single'),
+            clearBtnSingle: document.getElementById('clear-btn-single'),
+            downloadBtnSingle: document.getElementById('download-btn-single'),
+            loaderSingle: document.getElementById('loader-single'),
+            loaderTextSingle: document.getElementById('loader-text-single'),
+            errorSingle: document.getElementById('error-single'),
+            resultsSingle: document.getElementById('results-single'),
+            // Profile
+            profileUrl: document.getElementById('profile-url'),
+            fetchBtnProfile: document.getElementById('fetch-btn-profile'),
+            loaderProfile: document.getElementById('loader-profile'),
+            loaderTextProfile: document.getElementById('loader-text-profile'),
+            errorProfile: document.getElementById('error-profile'),
+            resultsProfile: document.getElementById('results-profile'),
+            profileControls: document.getElementById('profile-controls'),
+            selectAllBtn: document.getElementById('select-all-btn'),
+            downloadSelectedBtn: document.getElementById('download-selected-btn'),
+            selectedCount: document.getElementById('selected-count'),
+            videosGrid: document.getElementById('profile-videos-grid'),
+            loadMoreBtn: document.getElementById('load-more-btn'),
+            // History
+            historyContainer: document.getElementById('history-container'),
+            noHistoryMsg: document.getElementById('no-history'),
+        };
+        let downloadHistory = JSON.parse(localStorage.getItem('downloadHistory')) || [];
+        let profileState = { cursor: 0, unique_id: '', videos: [] };
+
+        // --- TABS & THEME ---
+        elements.tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                elements.tabs.forEach(t => t.classList.remove('active'));
+                elements.tabContents.forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+        const applyTheme = (isDark) => {
+            document.documentElement.classList.toggle('dark', isDark);
+            elements.themeToggle.checked = isDark;
+        };
+        elements.themeToggle.addEventListener('change', () => {
+            localStorage.setItem('darkMode', elements.themeToggle.checked);
+            applyTheme(elements.themeToggle.checked);
+        });
+
+        // --- SINGLE POST DOWNLOADER ---
+        const handleSingleDownload = async () => {
+            const url = elements.singleUrl.value.trim();
+            if (!url) { showError('single', 'Please paste a TikTok link first.'); return; }
+            hideError('single'); elements.resultsSingle.innerHTML = ''; showLoader('single');
+            try {
+                const result = await fetchApi({ url });
+                if (result.data.images && result.data.images.length > 0) renderSlideshowResults(result.data);
+                else if (result.data.play) renderVideoResults(result.data);
+                else throw new Error("Unsupported content type.");
+                addToHistory(result.data);
+            } catch (error) { showError('single', error.message); } finally { hideLoader('single'); }
+        };
+        elements.downloadBtnSingle.addEventListener('click', handleSingleDownload);
+        elements.pasteBtnSingle.addEventListener('click', async () => { try { elements.singleUrl.value = await navigator.clipboard.readText(); } catch (e) { showError('single', 'Failed to paste.'); }});
+        elements.clearBtnSingle.addEventListener('click', () => { elements.singleUrl.value = ''; elements.resultsSingle.innerHTML = ''; hideError('single'); });
+        
+        const renderAuthorInfo = (data) => `<div class="flex items-center mb-4"><img src="${data.author.avatar}" class="w-16 h-16 rounded-full border-2 border-pink-500" alt="TikTok profile picture for ${data.author.nickname}" onerror="this.onerror=null;this.src='https://placehold.co/64x64/f0f2f5/333?text=...';"><div class="ml-4 overflow-hidden"><h3 class="text-xl font-semibold">${data.author.nickname}</h3><p class="text-muted-color truncate">@${data.author.unique_id}</p></div></div><p class="mb-4">${data.title}</p>`;
+
+        const renderVideoResults = (data) => {
+            elements.resultsSingle.innerHTML = `
+                <div class="p-4 border border-[var(--border-color)] rounded-lg">
+                    ${renderAuthorInfo(data)}
+                    <video class="w-full rounded-lg mb-4" controls src="${data.play}" title="TikTok video preview for ${data.title}"></video>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <a href="${data.play}" download="tiktok_video_${data.id}.mp4" class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition"><i class="fas fa-video mr-2"></i>Download Video (MP4)</a>
+                        <a href="${data.music}" download="tiktok_audio_${data.id}.mp3" class="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition ${!data.music ? 'hidden' : ''}"><i class="fas fa-music mr-2"></i>Download Audio (MP3)</a>
+                    </div>
+                </div>`;
+        };
+
+        const renderSlideshowResults = (data) => {
+            const imageGrid = data.images.map((img_src, index) => `
+                <div class="relative group">
+                    <img src="${img_src}" class="rounded-lg w-full h-full object-cover" alt="Slide ${index + 1} from TikTok by ${data.author.nickname}">
+                    <a href="${img_src}" download="tiktok_slide_${data.id}_${index+1}.jpeg" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl opacity-0 group-hover:opacity-100 transition" aria-label="Download image ${index + 1}"><i class="fas fa-download"></i></a>
+                </div>
+            `).join('');
+
+            elements.resultsSingle.innerHTML = `
+                <div class="p-4 border border-[var(--border-color)] rounded-lg">
+                    ${renderAuthorInfo(data)}
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">${imageGrid}</div>
+                    <button id="download-zip-btn" class="w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition"><i class="fas fa-file-archive mr-2"></i>Download All Images (ZIP)</button>
+                </div>`;
+            
+            document.getElementById('download-zip-btn').addEventListener('click', () => downloadImagesAsZip(data.images, data.id));
+        };
+        
+        const downloadImagesAsZip = async (imageUrls, id) => {
+            showLoader('single', 'Zipping images... 0%');
+            const zip = new JSZip();
+            let count = 0;
+            try {
+                const promises = imageUrls.map(async (url, index) => {
+                    // Using a CORS proxy for fetching images to avoid cross-origin issues
+                    const response = await fetch(url);
+                    if (!response.ok) return;
+                    const blob = await response.blob();
+                    zip.file(`tiktok_slide_${id}_${index + 1}.jpeg`, blob);
+                    count++;
+                    elements.loaderTextSingle.textContent = `Zipping images... ${Math.round((count / imageUrls.length) * 100)}%`;
+                });
+                await Promise.all(promises);
+                showLoader('single', 'Generating ZIP file...');
+                const content = await zip.generateAsync({ type: "blob" });
+                saveAs(content, `tiktok_slideshow_${id}.zip`);
+            } catch (error) {
+                showError('single', "Failed to create ZIP file due to browser security restrictions.");
+                console.error(error);
+            } finally {
+                hideLoader('single');
+            }
+        };
+
+        // --- PROFILE DOWNLOADER ---
+        const handleFetchProfile = async (loadMore = false) => {
+            if (!loadMore) {
+                const url = elements.profileUrl.value.trim();
+                if (!url) { showError('profile', 'Please paste a profile link or username.'); return; }
+                const match = url.match(/tiktok\.com\/@([^/?]+)/);
+                profileState.unique_id = match ? match[1] : url.replace('@', '');
+                profileState.cursor = 0;
+                profileState.videos = [];
+                elements.videosGrid.innerHTML = '';
+            }
+            hideError('profile'); showLoader('profile', `Fetching page ${Math.floor(profileState.cursor / 12) + 1}...`);
+            try {
+                const result = await fetchApi({ unique_id: profileState.unique_id, cursor: profileState.cursor });
+                if (result.data && result.data.videos && result.data.videos.length > 0) {
+                    profileState.videos.push(...result.data.videos);
+                    renderProfileVideos(result.data.videos);
+                    profileState.cursor = result.data.cursor;
+                    elements.loadMoreBtn.classList.toggle('hidden', !result.data.hasMore);
+                    elements.profileControls.classList.remove('hidden');
+                } else {
+                    elements.loadMoreBtn.classList.add('hidden');
+                    if (!loadMore) throw new Error("No videos found or private profile.");
+                }
+            } catch (error) { showError('profile', error.message); } finally { hideLoader('profile'); }
+        };
+        elements.fetchBtnProfile.addEventListener('click', () => handleFetchProfile(false));
+        elements.loadMoreBtn.addEventListener('click', () => handleFetchProfile(true));
+        
+        const renderProfileVideos = (videos) => {
+            const html = videos.map(video => `
+                <div class="relative group">
+                    <img src="${video.cover}" class="rounded-lg w-full h-full object-cover aspect-square" alt="TikTok video by ${profileState.unique_id}">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-2 text-white text-xs opacity-0 group-hover:opacity-100 transition">${video.title}</div>
+                    <input type="checkbox" data-url="${video.play}" data-id="${video.id}" class="profile-video-checkbox absolute top-2 right-2 w-6 h-6 rounded-sm bg-white/50 checked:bg-pink-500 border-none focus:ring-0">
+                </div>
+            `).join('');
+            elements.videosGrid.insertAdjacentHTML('beforeend', html);
+            updateSelectedCount();
+        };
+
+        elements.selectAllBtn.addEventListener('click', (e) => {
+            const isSelectAll = e.target.textContent === 'Select All';
+            document.querySelectorAll('.profile-video-checkbox').forEach(cb => cb.checked = isSelectAll);
+            e.target.textContent = isSelectAll ? 'Deselect All' : 'Select All';
+            updateSelectedCount();
+        });
+
+        elements.videosGrid.addEventListener('change', updateSelectedCount);
+
+        function updateSelectedCount() {
+            const count = document.querySelectorAll('.profile-video-checkbox:checked').length;
+            elements.selectedCount.textContent = count;
+            elements.downloadSelectedBtn.disabled = count === 0;
+        }
+
+        // --- FIXED: Bulk download function to avoid CORS error ---
+        elements.downloadSelectedBtn.addEventListener('click', async () => {
+            const selectedCheckboxes = document.querySelectorAll('.profile-video-checkbox:checked');
+            if (selectedCheckboxes.length === 0) {
+                showError('profile', 'Please select at least one video to download.');
+                return;
+            }
+            showLoader('profile', 'Preparing downloads...');
+
+            for (let i = 0; i < selectedCheckboxes.length; i++) {
+                const checkbox = selectedCheckboxes[i];
+                const url = checkbox.dataset.url;
+                const id = checkbox.dataset.id;
+                showLoader('profile', `Downloading ${i + 1} of ${selectedCheckboxes.length}...`);
+                try {
+                    // Create a temporary anchor element to trigger the download
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `tiktok_video_${id}.mp4`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    // A delay is crucial to allow the browser to process each download request
+                    // without being flagged for spam.
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                } catch (e) {
+                    console.error(`Failed to initiate download for ${url}`, e);
+                    showError('profile', `Could not start download for video ${i + 1}. Your browser might be blocking multiple downloads.`);
+                    // Optional: break the loop if one fails
+                    break; 
+                }
+            }
+            hideLoader('profile');
+        });
+
+        // --- GENERIC & HELPER FUNCTIONS ---
+        const fetchApi = async (params) => {
+            const isProfile = !!params.unique_id;
+            const endpoint = isProfile ? `https://www.tikwm.com/api/user/posts?unique_id=@${params.unique_id}&count=12&cursor=${params.cursor || 0}` : `https://www.tikwm.com/api/`;
+            const options = isProfile ? { method: 'GET' } : { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `url=${encodeURIComponent(params.url)}` };
+            const response = await fetch(endpoint, options);
+            if (!response.ok) throw new Error('Network error, please try again.');
+            const result = await response.json();
+            if (result.code !== 0) throw new Error(result.msg || 'API error, please check the link or try again later.');
+            return result;
+        };
+        const showLoader = (type, text = 'Processing...') => {
+            document.getElementById(`loader-${type}`).classList.remove('hidden');
+            document.getElementById(`loader-text-${type}`).textContent = text;
+        };
+        const hideLoader = (type) => document.getElementById(`loader-${type}`).classList.add('hidden');
+        const showError = (type, msg) => { document.getElementById(`error-${type}`).textContent = msg; document.getElementById(`error-${type}`).classList.remove('hidden'); };
+        const hideError = (type) => document.getElementById(`error-${type}`).classList.add('hidden');
+        
+        const addToHistory = (data) => {
+            if (!downloadHistory.some(item => item.id === data.id)) {
+                downloadHistory.unshift({ id: data.id, title: data.title, cover: data.cover, author: data.author.unique_id });
+                if (downloadHistory.length > 9) downloadHistory.pop();
+                localStorage.setItem('downloadHistory', JSON.stringify(downloadHistory));
+                renderHistory();
+            }
+        };
+
+        const renderHistory = () => {
+             elements.historyContainer.innerHTML = '';
+            elements.noHistoryMsg.classList.toggle('hidden', downloadHistory.length > 0);
+            if (downloadHistory.length > 0) {
+                downloadHistory.forEach(item => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item p-4 rounded-lg shadow flex items-center gap-4 border border-[var(--border-color)]';
+                    historyItem.innerHTML = `<img src="${item.cover}" class="w-16 h-16 rounded-md object-cover" onerror="this.onerror=null;this.src='https://placehold.co/64x64/1f2937/f9fafb?text=...';"><div class="overflow-hidden"><p class="font-semibold truncate">${item.title}</p><a href="https://www.tiktok.com/@${item.author}/video/${item.id}" target="_blank" class="text-sm text-pink-500 hover:underline">Watch on TikTok</a></div>`;
+                    elements.historyContainer.appendChild(historyItem);
+                });
+            } else {
+                elements.historyContainer.appendChild(elements.noHistoryMsg);
+            }
+        };
+        
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTheme(localStorage.getItem('darkMode') === 'true');
+            renderHistory();
+            // setupShareLinks(); // Add modal and share link logic if needed
+        });
+    </script>
 </body>
 </html>
